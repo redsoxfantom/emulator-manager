@@ -24,5 +24,15 @@ namespace EmulatorManager
         {
             InitializeComponent();
         }
+
+        private void ModifyEmulators_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModifyRomPaths_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
