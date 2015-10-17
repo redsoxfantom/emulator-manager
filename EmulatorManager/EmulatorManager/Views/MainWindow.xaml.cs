@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmulatorManager.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace EmulatorManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ModifyRomPathsWindow romPathsWindow;
+
+        private ModifyEmulatorWindow emulatorWindow;
+
         public MainWindow()
         {
             InitializeComponent();
+            romPathsWindow = new ModifyRomPathsWindow();
+            emulatorWindow = new ModifyEmulatorWindow();
         }
 
         private void ModifyEmulators_Click(object sender, RoutedEventArgs e)

@@ -17,9 +17,9 @@ namespace EmulatorManager.Views
     /// <summary>
     /// Interaction logic for ModiifyEmulatorWindow.xaml
     /// </summary>
-    public partial class ModiifyEmulatorWindow : Window
+    public partial class ModifyEmulatorWindow : Window
     {
-        public ModiifyEmulatorWindow()
+        public ModifyEmulatorWindow()
         {
             InitializeComponent();
         }
