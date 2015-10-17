@@ -25,10 +25,5 @@ namespace emulator_manager
         {
             InitializeComponent();
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(@"C:\Program Files\Dolphin\Dolphin-x64\Dolphin.exe", "/e \"C:\\Program Files\\Dolphin\\Dolphin-x64\\Roms\\Luigi's Mansion (USA).iso\" /b /c false'");
-        }
     }
 }
