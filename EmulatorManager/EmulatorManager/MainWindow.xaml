@@ -13,7 +13,9 @@
                 <MenuItem Header="Save"/>
             </MenuItem>
             <MenuItem Header="Management">
-                <MenuItem Header="Load a manager first!"/>
+                <MenuItem Header="No Manager Config Loaded"/>
+                <MenuItem Header="  Modify Emulators"/>
+                <MenuItem Header="  Modify Rom Paths"/>
             </MenuItem>
         </Menu>
     </Grid>
