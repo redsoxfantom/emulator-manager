@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,15 +22,22 @@ namespace EmulatorManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
+
         private ModifyRomPathsWindow romPathsWindow;
 
         private ModifyEmulatorWindow emulatorWindow;
 
         public MainWindow()
         {
+            AllocConsole();
+
             InitializeComponent();
             romPathsWindow = new ModifyRomPathsWindow();
             emulatorWindow = new ModifyEmulatorWindow();
+
         }
 
         private void ModifyEmulators_Click(object sender, RoutedEventArgs e)
