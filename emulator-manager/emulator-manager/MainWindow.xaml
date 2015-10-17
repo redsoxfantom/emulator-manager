@@ -5,12 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:emulator_manager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Emulator Manager" Height="350" Width="525">
     <Grid>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="517">
             <MenuItem Header="File">
                 <MenuItem Header="Load"/>
                 <MenuItem Header="Save"/>
+            </MenuItem>
+            <MenuItem Header="Management">
+                <MenuItem Header="Load a manager first!"/>
             </MenuItem>
         </Menu>
     </Grid>
