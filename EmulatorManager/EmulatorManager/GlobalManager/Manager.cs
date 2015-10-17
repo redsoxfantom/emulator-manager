@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmulatorManager.GlobalManager.DataContracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,11 @@ namespace EmulatorManager.GlobalManager
 {
     public class Manager
     {
+        private EmulatorManagerConfig loadedConfig;
+
+        public Manager()
+        {
+            loadedConfig = new EmulatorManagerConfig();
+        }
     }
 }
