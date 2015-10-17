@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace emulator_manager.Properties
+namespace EmulatorManager.Properties
 {
 
 

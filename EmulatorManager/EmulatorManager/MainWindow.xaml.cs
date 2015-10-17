@@ -13,8 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-namespace emulator_manager
+namespace EmulatorManager
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
