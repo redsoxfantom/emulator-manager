@@ -34,12 +34,12 @@ namespace EmulatorManager
 
         private void ModifyEmulators_Click(object sender, RoutedEventArgs e)
         {
-
+            emulatorWindow.ShowDialog();
         }
 
         private void ModifyRomPaths_Click(object sender, RoutedEventArgs e)
         {
-
+            romPathsWindow.ShowDialog();
         }
     }
 }
