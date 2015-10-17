@@ -13,7 +13,7 @@
                 <MenuItem Header="Save"/>
             </MenuItem>
             <MenuItem Header="Management">
-                <MenuItem Header="No Manager Config Loaded"/>
+                <MenuItem Header="No Manager Config Loaded" />
                 <MenuItem Header="  Modify Emulators"/>
                 <MenuItem Header="  Modify Rom Paths"/>
             </MenuItem>
