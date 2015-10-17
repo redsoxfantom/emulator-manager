@@ -21,6 +21,7 @@ namespace EmulatorManager.Utilities
         public static void SaveObject(object Obj, string Path)
         {
             String serializedObject = JsonConvert.SerializeObject(Obj);
+            File.WriteAllText(Path, serializedObject);
         }
     }
 }
