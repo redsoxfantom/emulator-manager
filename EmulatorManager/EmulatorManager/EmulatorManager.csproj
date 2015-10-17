@@ -63,6 +63,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GlobalManager\DataContracts\Emulator.cs" />
+    <Compile Include="GlobalManager\DataContracts\EmulatorManagerConfig.cs" />
+    <Compile Include="GlobalManager\DataContracts\RomPath.cs" />
     <Compile Include="GlobalManager\Manager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
