@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace EmulatorManager.GlobalManager.DataContracts
 {
-    [DataContract(Name ="RomPath")]
     public class RomPath
     {
-        [DataMember(Name ="Path",Order =0)]
         public string FolderPath;
-
-        [DataMember(Name ="AssociatedEmulator",Order =1)]
+        
         public string AssociatedEmulator;
     }
 }
