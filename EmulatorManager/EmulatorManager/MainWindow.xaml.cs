@@ -1,4 +1,5 @@
 ﻿using EmulatorManager.Views;
+using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,17 +23,13 @@ namespace EmulatorManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool AllocConsole();
-
         private ModifyRomPathsWindow romPathsWindow;
 
         private ModifyEmulatorWindow emulatorWindow;
 
         public MainWindow()
         {
-            AllocConsole();
+            XmlConfigurator.Configure();
 
             InitializeComponent();
             romPathsWindow = new ModifyRomPathsWindow();
