@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,12 @@ namespace EmulatorManager.Views
 {
     public partial class ModifyEmulators : Form
     {
+        public String EmulatorName { get; private set; }
+
+        public String EmulatorPath { get; private set; }
+
+        public String EmulatorArgs { get; private set; }
+
         public ModifyEmulators()
         {
             InitializeComponent();
@@ -32,6 +39,20 @@ namespace EmulatorManager.Views
             if(selectedPath != null)
             {
                 txtEmulatorPath.Text = selectedPath;
+            }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtEmulatorPath.Text))
+            {
+                MessageBox.Show(this, "Emulator Path cannot be empty, please reenter.", "Error");
+            }
+            else
+            {
+                EmulatorArgs = txtEmulatorArguments.Text;
+                EmulatorName = Path.GetFileNameWithoutExtension(txtEmulatorPath.Text);
+                EmulatorPath = txtEmulatorPath.Text;
             }
         }
     }
