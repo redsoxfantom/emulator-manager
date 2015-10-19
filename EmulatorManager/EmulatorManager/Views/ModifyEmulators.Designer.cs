@@ -34,6 +34,7 @@
             this.lblEmulatorOptions = new System.Windows.Forms.Label();
             this.txtEmulatorArguments = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtEmulatorPath
@@ -92,11 +93,22 @@
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelp.Location = new System.Drawing.Point(333, 75);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(21, 23);
+            this.btnHelp.TabIndex = 6;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            // 
             // ModifyEmulators
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 154);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtEmulatorArguments);
             this.Controls.Add(this.lblEmulatorOptions);
@@ -104,7 +116,7 @@
             this.Controls.Add(this.lblSelectEmulator);
             this.Controls.Add(this.txtEmulatorPath);
             this.Name = "ModifyEmulators";
-            this.Text = "ModifyEmulators";
+            this.Text = "Add New Emulator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +130,6 @@
         private System.Windows.Forms.Label lblEmulatorOptions;
         private System.Windows.Forms.TextBox txtEmulatorArguments;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
