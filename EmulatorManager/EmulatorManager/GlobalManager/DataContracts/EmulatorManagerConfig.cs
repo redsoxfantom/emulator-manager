@@ -27,5 +27,15 @@ namespace EmulatorManager.GlobalManager.DataContracts
         {
             mFileName = value;
         }
+
+        public EmulatorManagerConfig(string fileName)
+        {
+            mFileName = fileName;
+        }
+
+        public EmulatorManagerConfig():this("<No Manager Config Loaded>")
+        {
+            
+        }
     }
 }
