@@ -1,4 +1,5 @@
-﻿using EmulatorManager.GlobalManager;
+﻿using EmulatorManager.Events;
+using EmulatorManager.GlobalManager;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,14 @@ namespace EmulatorManager.Views
             mModifyEmulatorsForm = new ModifyEmulators();
             mModifyPathsForm = new ModifyPaths();
             mEmulatorManager = new Manager();
+
+            mEmulatorManager.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
+            mEmulatorManager.Initialize();
+        }
+
+        private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
+        {
+            managerConfigToolStripMenuItem.Text = args.ConfigFileName;
         }
 
         private void modfyEmulators_Click(object sender, EventArgs e)

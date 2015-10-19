@@ -76,8 +76,8 @@
             this.modfyEmulatorsToolStripMenuItem,
             this.modifyPathsToolStripMenuItem});
             this.managerConfigToolStripMenuItem.Name = "managerConfigToolStripMenuItem";
-            this.managerConfigToolStripMenuItem.Size = new System.Drawing.Size(182, 20);
-            this.managerConfigToolStripMenuItem.Text = "<No Manager Config Loaded>";
+            this.managerConfigToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.managerConfigToolStripMenuItem.Text = "*EMPTY*";
             // 
             // modfyEmulatorsToolStripMenuItem
             // 

@@ -10,6 +10,6 @@ namespace EmulatorManager.Events
 
     public class LoadedConfigChangedArgs : EventArgs
     {
-        string ConfigFileName;
+        public string ConfigFileName { get;set;}
     }
 }
