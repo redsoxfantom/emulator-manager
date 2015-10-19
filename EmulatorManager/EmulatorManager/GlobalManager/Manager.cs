@@ -31,6 +31,11 @@ namespace EmulatorManager.GlobalManager
         {
             LoadedConfigChangedArgs args = new LoadedConfigChangedArgs();
             args.ConfigFileName = loadedConfig.GetFileName();
+
+            if(ConfigutationChanged != null)
+            {
+                ConfigutationChanged(args);
+            }
         }
     }
 }
