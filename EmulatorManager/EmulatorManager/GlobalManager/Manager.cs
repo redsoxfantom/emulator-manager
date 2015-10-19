@@ -32,6 +32,18 @@ namespace EmulatorManager.GlobalManager
             onLoadedConfigChanged();
         }
 
+        public void AddEmulator(string Name, string Path, string Args)
+        {
+            Emulator newEmu = new Emulator();
+            newEmu.Name = Name;
+            newEmu.Path = Path;
+            newEmu.Arguments = Args;
+
+            loadedConfig.Emulators.Add(newEmu);
+
+            onLoadedConfigChanged();
+        }
+
         private void onLoadedConfigChanged()
         {
             LoadedConfigChangedArgs args = new LoadedConfigChangedArgs();
