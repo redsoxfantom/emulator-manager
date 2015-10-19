@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmulatorManager.Managers.DataContracts
+namespace EmulatorManager.Managers.ConfigurationManager.DataContracts
 {
     public class EmulatorManagerConfig
     {
@@ -39,12 +39,12 @@ namespace EmulatorManager.Managers.DataContracts
             bldr.Append("Emulators:\n");
             foreach(Emulator em in Emulators)
             {
-                bldr.Append(String.Format("\t{0}\n", em));
+                bldr.Append(String.Format("\t{0}\n", em.ToString()));
             }
             bldr.Append("Rom Paths:\n");
             foreach (RomPath path in Paths)
             {
-                bldr.Append(String.Format("\t{0}\n", path));
+                bldr.Append(String.Format("\t{0}\n", path.ToString()));
             }
 
             return bldr.ToString();

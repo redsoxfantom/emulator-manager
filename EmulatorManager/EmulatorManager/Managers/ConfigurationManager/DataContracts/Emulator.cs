@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmulatorManager.Managers.DataContracts
+namespace EmulatorManager.Managers.ConfigurationManager.DataContracts
 {
     public class Emulator
     {

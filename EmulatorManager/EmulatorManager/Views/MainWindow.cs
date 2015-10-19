@@ -1,6 +1,7 @@
 ﻿using EmulatorManager.Events;
 using EmulatorManager.Managers;
-using EmulatorManager.Managers.DataContracts;
+using EmulatorManager.Managers.ConfigurationManager;
+using EmulatorManager.Managers.ConfigurationManager.DataContracts;
 using log4net;
 using System;
 using System.Collections.Generic;

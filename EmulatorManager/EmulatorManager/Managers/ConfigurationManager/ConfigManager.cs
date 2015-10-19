@@ -1,5 +1,5 @@
 ﻿using EmulatorManager.Events;
-using EmulatorManager.Managers.DataContracts;
+using EmulatorManager.Managers.ConfigurationManager.DataContracts;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmulatorManager.Managers
+namespace EmulatorManager.Managers.ConfigurationManager
 {
     public class ConfigManager
     {
