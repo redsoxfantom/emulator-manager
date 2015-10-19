@@ -46,8 +46,7 @@ namespace EmulatorManager.GlobalManager
 
         private void onLoadedConfigChanged()
         {
-            LoadedConfigChangedArgs args = new LoadedConfigChangedArgs();
-            args.ConfigFileName = loadedConfig.GetFileName();
+            LoadedConfigChangedArgs args = new LoadedConfigChangedArgs(loadedConfig);
 
             if(ConfigutationChanged != null)
             {

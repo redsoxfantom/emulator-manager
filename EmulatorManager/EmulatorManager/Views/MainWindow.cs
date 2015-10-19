@@ -44,7 +44,7 @@ namespace EmulatorManager.Views
 
         private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
         {
-            managerConfigToolStripMenuItem.Text = args.ConfigFileName;
+            managerConfigToolStripMenuItem.Text = args.NewConfig.GetFileName();
         }
 
         private void modfyEmulators_Click(object sender, EventArgs e)
