@@ -47,5 +47,20 @@ namespace EmulatorManager.Utilities
 
             return selectedPath;
         }
+
+        public static string PickFolderToLoad()
+        {
+            string selectedFolder = null;
+
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                if(dialog.ShowDialog() == DialogResult.OK)
+                {
+                    selectedFolder = dialog.SelectedPath;
+                }
+            }
+
+            return selectedFolder;
+        }
     }
 }
