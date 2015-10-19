@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmulatorManager.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,15 @@ namespace EmulatorManager.Views
                             "Where you would put a rom, instead put a {0}.\n"+
                             "For example:\n"+
                             "If the old arguments to an emulator were\n"+"-exec \"path/to/rom.bin\"\n"+"You would instead put\n"+"-exec \"{0}\"");
+        }
+
+        private void btnEmulatorBrowse_Click(object sender, EventArgs e)
+        {
+            string selectedPath = FileManager.PickFileToLoad("Select Emulator");
+            if(selectedPath != null)
+            {
+                txtEmulatorPath.Text = selectedPath;
+            }
         }
     }
 }

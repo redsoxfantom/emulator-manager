@@ -64,6 +64,7 @@
             this.btnEmulatorBrowse.TabIndex = 2;
             this.btnEmulatorBrowse.Text = "Browse...";
             this.btnEmulatorBrowse.UseVisualStyleBackColor = true;
+            this.btnEmulatorBrowse.Click += new System.EventHandler(this.btnEmulatorBrowse_Click);
             // 
             // lblEmulatorOptions
             // 
