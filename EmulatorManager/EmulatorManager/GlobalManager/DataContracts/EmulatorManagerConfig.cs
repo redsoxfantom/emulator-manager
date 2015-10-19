@@ -37,5 +37,22 @@ namespace EmulatorManager.GlobalManager.DataContracts
         {
             
         }
+
+        public override string ToString()
+        {
+            StringBuilder bldr = new StringBuilder("Emulator Manager Config\n");
+            bldr.Append("Emulators:\n");
+            foreach(Emulator em in Emulators)
+            {
+                bldr.Append(String.Format("\t{0}\n", em));
+            }
+            bldr.Append("Rom Paths:\n");
+            foreach (RomPath path in Paths)
+            {
+                bldr.Append(String.Format("\t{0}\n", path));
+            }
+
+            return bldr.ToString();
+        }
     }
 }
