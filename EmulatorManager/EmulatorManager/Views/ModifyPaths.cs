@@ -1,4 +1,5 @@
 ﻿using EmulatorManager.Utilities;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,13 @@ namespace EmulatorManager.Views
 
         public String EmulatorToUse { get; private set; }
 
+        private ILog mLogger;
+
         public ModifyPaths()
         {
             InitializeComponent();
+
+            mLogger = LogManager.GetLogger(GetType().Name);
         }
 
         public void Initialize(string[] LoadedEmulators)
@@ -40,7 +45,9 @@ namespace EmulatorManager.Views
         {
             if(String.IsNullOrEmpty(txtPathToRomDirectory.Text) || String.IsNullOrEmpty(cbxSelectedEmulator.SelectedText))
             {
-                MessageBox.Show(this, "You must define a path to your Roms or define an emulator to use when loading these Roms", "Error");
+                String err = "You must define a path to your Roms or define an emulator to use when loading these Roms";
+                mLogger.Warn(err);
+                MessageBox.Show(this, err, "Error");
             }
             else
             {

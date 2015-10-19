@@ -69,7 +69,7 @@ namespace EmulatorManager.Views
         {
             if(mLoadedConfig.Emulators.Count == 0)
             {
-                String err = "Cannot add a new path as no emulators have been defined in the current configuration! Add a new emulator first";
+                String err = "Cannot add a new path as no emulators have been defined in the current configuration! Add a new emulator first.";
                 mLogger.Warn(err);
                 MessageBox.Show(this, err, "Error");
             }
