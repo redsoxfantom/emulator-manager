@@ -9,10 +9,23 @@ namespace EmulatorManager.GlobalManager.DataContracts
 {
     public class EmulatorManagerConfig
     {
-        public string FileName;
+        /// <summary>
+        /// The filename this config was loaded from. Marked "private" to keep it from being serialized / deserialized
+        /// </summary>
+        private string mFileName;
         
-        public List<Emulator> Emulators;
+        public List<Emulator> Emulators { get; set; }
         
-        public List<RomPath> Paths;
+        public List<RomPath> Paths { get; set; }
+
+        public string GetFileName()
+        {
+            return mFileName;
+        }
+
+        public void SetFileName(string value)
+        {
+            mFileName = value;
+        }
     }
 }
