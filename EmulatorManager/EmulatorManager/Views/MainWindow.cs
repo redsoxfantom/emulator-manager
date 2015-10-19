@@ -29,7 +29,7 @@ namespace EmulatorManager.Views
 
         private ILog mLogger;
 
-        private ConfigManager mEmulatorManager;
+        private ConfigManager mConfigurationManager;
 
         private EmulatorManagerConfig mLoadedConfig;
 
@@ -40,11 +40,11 @@ namespace EmulatorManager.Views
 
             mModifyEmulatorsForm = new ModifyEmulators();
             mModifyPathsForm = new ModifyPaths();
-            mEmulatorManager = new ConfigManager();
-            mLoadedConfig = null;
+            mConfigurationManager = new ConfigManager();
+            mLoadedConfig = new EmulatorManagerConfig();
 
-            mEmulatorManager.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
-            mEmulatorManager.Initialize();
+            mConfigurationManager.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
+            mConfigurationManager.Initialize();
         }
 
         private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
@@ -56,7 +56,13 @@ namespace EmulatorManager.Views
         private void modfyEmulators_Click(object sender, EventArgs e)
         {
             mLogger.Info("ModifyEmulators clicked, displaying form");
-            mModifyEmulatorsForm.ShowDialog(this);
+            if(mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)
+            {
+                String name = mModifyEmulatorsForm.EmulatorName;
+                String path = mModifyEmulatorsForm.EmulatorPath;
+                String args = mModifyEmulatorsForm.EmulatorArgs;
+                mConfigurationManager.AddEmulator(name, path, args);
+            }
         }
 
         private void modifyPaths_Click(object sender, EventArgs e)
