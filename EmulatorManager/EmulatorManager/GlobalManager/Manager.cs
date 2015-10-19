@@ -19,11 +19,11 @@ namespace EmulatorManager.GlobalManager
 
         public Manager()
         {
-            loadedConfig = new EmulatorManagerConfig();
         }
 
         public void Initialize()
         {
+            loadedConfig = new EmulatorManagerConfig();
             onLoadedConfigChanged();
         }
 
