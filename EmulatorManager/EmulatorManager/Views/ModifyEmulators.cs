@@ -53,6 +53,10 @@ namespace EmulatorManager.Views
                 EmulatorArgs = txtEmulatorArguments.Text;
                 EmulatorName = Path.GetFileNameWithoutExtension(txtEmulatorPath.Text);
                 EmulatorPath = txtEmulatorPath.Text;
+
+                // Close the form while returning a successful result
+                DialogResult = DialogResult.OK;
+                Close();
             }
         }
     }
