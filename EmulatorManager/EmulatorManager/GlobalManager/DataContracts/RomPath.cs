@@ -12,5 +12,10 @@ namespace EmulatorManager.GlobalManager.DataContracts
         public string FolderPath;
         
         public string AssociatedEmulator;
+
+        public override string ToString()
+        {
+            return String.Format("Path: {0}; Associated Emulator: {1}", FolderPath, AssociatedEmulator);
+        }
     }
 }
