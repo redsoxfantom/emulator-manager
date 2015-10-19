@@ -32,7 +32,7 @@
             this.txtPathToRomDirectory = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.lblSelectEmulator = new System.Windows.Forms.Label();
-            this.cbx = new System.Windows.Forms.ComboBox();
+            this.cbxSelectedEmulator = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -75,14 +75,14 @@
             this.lblSelectEmulator.TabIndex = 3;
             this.lblSelectEmulator.Text = "Select Emulator:";
             // 
-            // cbx
+            // cbxSelectedEmulator
             // 
-            this.cbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx.FormattingEnabled = true;
-            this.cbx.Location = new System.Drawing.Point(131, 63);
-            this.cbx.Name = "cbx";
-            this.cbx.Size = new System.Drawing.Size(249, 24);
-            this.cbx.TabIndex = 4;
+            this.cbxSelectedEmulator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSelectedEmulator.FormattingEnabled = true;
+            this.cbxSelectedEmulator.Location = new System.Drawing.Point(131, 63);
+            this.cbxSelectedEmulator.Name = "cbxSelectedEmulator";
+            this.cbxSelectedEmulator.Size = new System.Drawing.Size(249, 24);
+            this.cbxSelectedEmulator.TabIndex = 4;
             // 
             // btnSubmit
             // 
@@ -93,6 +93,7 @@
             this.btnSubmit.TabIndex = 5;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // ModifyPaths
             // 
@@ -100,7 +101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 132);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.cbx);
+            this.Controls.Add(this.cbxSelectedEmulator);
             this.Controls.Add(this.lblSelectEmulator);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPathToRomDirectory);
@@ -118,7 +119,7 @@
         private System.Windows.Forms.TextBox txtPathToRomDirectory;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.Label lblSelectEmulator;
-        private System.Windows.Forms.ComboBox cbx;
+        private System.Windows.Forms.ComboBox cbxSelectedEmulator;
         private System.Windows.Forms.Button btnSubmit;
     }
 }
