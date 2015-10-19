@@ -102,6 +102,7 @@
             this.btnHelp.TabIndex = 6;
             this.btnHelp.Text = "?";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // ModifyEmulators
             // 
