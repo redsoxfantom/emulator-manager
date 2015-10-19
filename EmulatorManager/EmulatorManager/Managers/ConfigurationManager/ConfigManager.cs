@@ -60,6 +60,7 @@ namespace EmulatorManager.Managers.ConfigurationManager
 
         public void SaveConfig(String path)
         {
+            mLogger.Info(String.Format("Saving loaded config to {0}", path));
             FileManager.SaveObject(loadedConfig, path);
         }
 

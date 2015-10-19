@@ -92,6 +92,10 @@ namespace EmulatorManager.Views
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             String SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
+            if(SavePath != null)
+            {
+                mConfigurationManager.SaveConfig(SavePath);
+            }
         }
     }
 }
