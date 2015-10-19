@@ -12,14 +12,18 @@ namespace EmulatorManager.Views
 {
     public partial class MainWindow : Form
     {
+        private ModifyEmulators mModifyEmulatorsForm;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            mModifyEmulatorsForm = new ModifyEmulators();
         }
 
         private void modfyEmulators_Click(object sender, EventArgs e)
         {
-
+            mModifyEmulatorsForm.ShowDialog(this);
         }
 
         private void modifyPaths_Click(object sender, EventArgs e)
