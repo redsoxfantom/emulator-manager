@@ -1,4 +1,4 @@
-﻿using EmulatorManager.GlobalManager.DataContracts;
+﻿using EmulatorManager.Managers.DataContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

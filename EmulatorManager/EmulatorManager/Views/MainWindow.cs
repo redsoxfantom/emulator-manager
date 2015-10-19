@@ -1,6 +1,6 @@
 ﻿using EmulatorManager.Events;
-using EmulatorManager.GlobalManager;
-using EmulatorManager.GlobalManager.DataContracts;
+using EmulatorManager.Managers;
+using EmulatorManager.Managers.DataContracts;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace EmulatorManager.Views
 
         private ILog mLogger;
 
-        private Manager mEmulatorManager;
+        private ConfigManager mEmulatorManager;
 
         private EmulatorManagerConfig mLoadedConfig;
 
@@ -39,7 +39,7 @@ namespace EmulatorManager.Views
 
             mModifyEmulatorsForm = new ModifyEmulators();
             mModifyPathsForm = new ModifyPaths();
-            mEmulatorManager = new Manager();
+            mEmulatorManager = new ConfigManager();
             mLoadedConfig = null;
 
             mEmulatorManager.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;

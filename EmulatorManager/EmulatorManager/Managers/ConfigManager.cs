@@ -1,5 +1,5 @@
 ﻿using EmulatorManager.Events;
-using EmulatorManager.GlobalManager.DataContracts;
+using EmulatorManager.Managers.DataContracts;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmulatorManager.GlobalManager
+namespace EmulatorManager.Managers
 {
-    public class Manager
+    public class ConfigManager
     {
         private EmulatorManagerConfig loadedConfig;
 
@@ -20,7 +20,7 @@ namespace EmulatorManager.GlobalManager
 
         private ILog mLogger;
 
-        public Manager()
+        public ConfigManager()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
         }
