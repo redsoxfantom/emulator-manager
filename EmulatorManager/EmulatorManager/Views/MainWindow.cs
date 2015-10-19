@@ -16,5 +16,15 @@ namespace EmulatorManager.Views
         {
             InitializeComponent();
         }
+
+        private void modfyEmulators_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modifyPaths_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
