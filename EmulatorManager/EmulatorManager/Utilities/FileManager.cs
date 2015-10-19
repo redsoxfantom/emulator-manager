@@ -25,25 +25,35 @@ namespace EmulatorManager.Utilities
             File.WriteAllText(Path, serializedObject);
         }
 
-        public static string PickFileToLoad(string pickerTitle = null, string extensionFilter = null)
+        public static string UseFilePicker(FilePickerType type, string pickerTitle = null, string extensionFilter = null)
         {
             string selectedPath = null;
+            FileDialog dialog = null;
 
-            using (OpenFileDialog dialog = new OpenFileDialog())
+            switch(type)
             {
-                if(pickerTitle != null)
-                {
-                    dialog.Title = pickerTitle;
-                }
-                if(extensionFilter != null)
-                {
-                    dialog.Filter = extensionFilter;
-                }
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    selectedPath = dialog.FileName;
-                }
+                case FilePickerType.LOAD:
+                    dialog = new OpenFileDialog();
+                    break;
+                case FilePickerType.SAVE:
+                    dialog = new SaveFileDialog();
+                    break;
             }
+
+            if(pickerTitle != null)
+            {
+                dialog.Title = pickerTitle;
+            }
+            if(extensionFilter != null)
+            {
+                dialog.Filter = extensionFilter;
+            }
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                selectedPath = dialog.FileName;
+            }
+
+            dialog.Dispose();
 
             return selectedPath;
         }
@@ -61,6 +71,12 @@ namespace EmulatorManager.Utilities
             }
 
             return selectedFolder;
+        }
+
+        public enum FilePickerType
+        {
+            SAVE,
+            LOAD
         }
     }
 }

@@ -40,7 +40,7 @@ namespace EmulatorManager.Views
 
         private void btnEmulatorBrowse_Click(object sender, EventArgs e)
         {
-            string selectedPath = FileManager.PickFileToLoad("Select Emulator");
+            string selectedPath = FileManager.UseFilePicker(FileManager.FilePickerType.LOAD, "Select Emulator");
             if(selectedPath != null)
             {
                 txtEmulatorPath.Text = selectedPath;

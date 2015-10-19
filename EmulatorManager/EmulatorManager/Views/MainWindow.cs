@@ -2,6 +2,7 @@
 using EmulatorManager.Managers;
 using EmulatorManager.Managers.ConfigurationManager;
 using EmulatorManager.Managers.ConfigurationManager.DataContracts;
+using EmulatorManager.Utilities;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -86,6 +87,11 @@ namespace EmulatorManager.Views
                     mConfigurationManager.AddRomPath(path, associatedEmulator);
                 }
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
         }
     }
 }
