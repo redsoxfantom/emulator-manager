@@ -38,6 +38,7 @@ namespace EmulatorManager.Managers
             newEmu.Name = Name;
             newEmu.Path = Path;
             newEmu.Arguments = Args;
+            mLogger.Info(String.Format("Adding new emulator {0}", newEmu.ToString()));
 
             loadedConfig.Emulators.Add(newEmu);
 
