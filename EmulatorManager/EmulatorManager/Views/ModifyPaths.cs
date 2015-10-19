@@ -22,6 +22,11 @@ namespace EmulatorManager.Views
             InitializeComponent();
         }
 
+        public void Initialize(string[] LoadedEmulators)
+        {
+            cbxSelectedEmulator.Items.AddRange(LoadedEmulators);
+        }
+
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             string Path = FileManager.PickFolderToLoad();

@@ -67,8 +67,25 @@ namespace EmulatorManager.Views
 
         private void modifyPaths_Click(object sender, EventArgs e)
         {
-            mLogger.Info("ModifyPaths clicked, displaying form");
-            mModifyPathsForm.ShowDialog(this);
+            if(mLoadedConfig.Emulators.Count == 0)
+            {
+                String err = "Cannot add a new path as no emulators have been defined in the current configuration! Add a new emulator first";
+                mLogger.Warn(err);
+                MessageBox.Show(this, err, "Error");
+            }
+            else
+            {
+                mLogger.Info("ModifyPaths clicked, displaying form");
+
+                var loadedEmulators = mLoadedConfig.Emulators.Select(f => f.Name).ToArray();
+                mModifyPathsForm.Initialize(loadedEmulators);
+                if(mModifyPathsForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    String path = mModifyPathsForm.RomPath;
+                    String associatedEmulator = mModifyPathsForm.EmulatorToUse;
+                    mConfigurationManager.AddRomPath(path, associatedEmulator);
+                }
+            }
         }
     }
 }
