@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using EmulatorManager.GlobalManager;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,8 @@ namespace EmulatorManager.Views
 
         private ILog mLogger;
 
+        private Manager mEmulatorManager;
+
         public MainWindow()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
@@ -32,6 +35,7 @@ namespace EmulatorManager.Views
 
             mModifyEmulatorsForm = new ModifyEmulators();
             mModifyPathsForm = new ModifyPaths();
+            mEmulatorManager = new Manager();
         }
 
         private void modfyEmulators_Click(object sender, EventArgs e)
