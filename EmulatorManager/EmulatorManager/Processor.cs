@@ -18,7 +18,7 @@ namespace EmulatorManager
         {
             mLogger = LogManager.GetLogger(GetType().Name);
 
-            mLogger.Info("Initializing Emulator Manager processor...");
+            mLogger.Info(string.Format("Initializing Emulator Manager processor with args: [{0}]",string.Join(",",args)));
             mMainForm = new MainWindow();
             mLogger.Info("Done Initializing Emulator Manager processor");
         }
