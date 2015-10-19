@@ -1,4 +1,5 @@
 ﻿using EmulatorManager.Utilities;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +21,13 @@ namespace EmulatorManager.Views
 
         public String EmulatorArgs { get; private set; }
 
+        private ILog mLogger;
+
         public ModifyEmulators()
         {
             InitializeComponent();
+
+            mLogger = LogManager.GetLogger(GetType().Name);
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -46,7 +51,9 @@ namespace EmulatorManager.Views
         {
             if (String.IsNullOrEmpty(txtEmulatorPath.Text))
             {
-                MessageBox.Show(this, "Emulator Path cannot be empty, please reenter.", "Error");
+                String err = "Emulator Path cannot be empty, please reenter.";
+                mLogger.Warn(err);
+                MessageBox.Show(this, err, "Error");
             }
             else
             {
