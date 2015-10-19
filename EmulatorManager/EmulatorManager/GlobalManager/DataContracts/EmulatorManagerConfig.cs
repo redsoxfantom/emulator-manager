@@ -28,14 +28,9 @@ namespace EmulatorManager.GlobalManager.DataContracts
             mFileName = value;
         }
 
-        public EmulatorManagerConfig(string fileName)
+        public EmulatorManagerConfig()
         {
-            mFileName = fileName;
-        }
-
-        public EmulatorManagerConfig():this("<No Manager Config Loaded>")
-        {
-            
+            mFileName = "<No Manager Config Loaded>";
         }
 
         public override string ToString()
