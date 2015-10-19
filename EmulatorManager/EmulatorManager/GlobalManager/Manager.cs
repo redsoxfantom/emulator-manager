@@ -1,5 +1,6 @@
 ﻿using EmulatorManager.Events;
 using EmulatorManager.GlobalManager.DataContracts;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,16 @@ namespace EmulatorManager.GlobalManager
         /// </summary>
         public event LoadedConfigChanged ConfigutationChanged;
 
+        private ILog mLogger;
+
         public Manager()
         {
+            mLogger = LogManager.GetLogger(GetType().Name);
         }
 
         public void Initialize()
         {
+            mLogger.Info("Initializing Manager with no parameters");
             loadedConfig = new EmulatorManagerConfig();
             onLoadedConfigChanged();
         }
