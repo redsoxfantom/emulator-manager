@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmulatorManager.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace EmulatorManager.Views
         public ModifyPaths()
         {
             InitializeComponent();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            string Path = FileManager.PickFolderToLoad();
+            if(Path != null)
+            {
+                txtPathToRomDirectory.Text = Path;
+            }
         }
     }
 }
