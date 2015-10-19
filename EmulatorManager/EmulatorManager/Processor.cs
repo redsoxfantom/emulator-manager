@@ -18,10 +18,6 @@ namespace EmulatorManager
 
         public bool Execute()
         {
-            mLogger.Info("Executing...");
-
-            Console.ReadLine();
-
             return true;
         }
     }
