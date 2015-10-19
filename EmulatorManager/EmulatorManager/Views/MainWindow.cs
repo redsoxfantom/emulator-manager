@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,8 +23,11 @@ namespace EmulatorManager.Views
         /// </summary>
         private ModifyPaths mModifyPathsForm;
 
+        private ILog mLogger;
+
         public MainWindow()
         {
+            mLogger = LogManager.GetLogger(GetType().Name);
             InitializeComponent();
 
             mModifyEmulatorsForm = new ModifyEmulators();
@@ -32,11 +36,13 @@ namespace EmulatorManager.Views
 
         private void modfyEmulators_Click(object sender, EventArgs e)
         {
+            mLogger.Info("ModifyEmulators clicked, displaying form");
             mModifyEmulatorsForm.ShowDialog(this);
         }
 
         private void modifyPaths_Click(object sender, EventArgs e)
         {
+            mLogger.Info("ModifyPaths clicked, displaying form");
             mModifyPathsForm.ShowDialog(this);
         }
     }
