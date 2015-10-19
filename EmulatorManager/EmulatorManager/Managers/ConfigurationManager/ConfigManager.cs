@@ -1,5 +1,6 @@
 ﻿using EmulatorManager.Events;
 using EmulatorManager.Managers.ConfigurationManager.DataContracts;
+using EmulatorManager.Utilities;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,11 @@ namespace EmulatorManager.Managers.ConfigurationManager
             loadedConfig.Paths.Add(newPath);
 
             onLoadedConfigChanged();
+        }
+
+        public void SaveConfig(String path)
+        {
+            FileManager.SaveObject(loadedConfig, path);
         }
 
         private void onLoadedConfigChanged()
