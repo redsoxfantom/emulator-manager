@@ -31,6 +31,8 @@ namespace EmulatorManager.Managers.ConfigurationManager.DataContracts
         public EmulatorManagerConfig()
         {
             mFileName = "<No Manager Config Loaded>";
+            Emulators = new List<Emulator>();
+            Paths = new List<RomPath>();
         }
 
         public override string ToString()
