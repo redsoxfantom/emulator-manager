@@ -43,7 +43,7 @@ namespace EmulatorManager.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(txtPathToRomDirectory.Text) || String.IsNullOrEmpty(cbxSelectedEmulator.SelectedText))
+            if(String.IsNullOrEmpty(txtPathToRomDirectory.Text) || String.IsNullOrEmpty((string)cbxSelectedEmulator.SelectedItem))
             {
                 String err = "You must define a path to your Roms or define an emulator to use when loading these Roms";
                 mLogger.Warn(err);
@@ -52,7 +52,7 @@ namespace EmulatorManager.Views
             else
             {
                 RomPath = txtPathToRomDirectory.Text;
-                EmulatorToUse = cbxSelectedEmulator.SelectedText;
+                EmulatorToUse = (string)cbxSelectedEmulator.SelectedItem;
 
                 DialogResult = DialogResult.OK;
                 Close();
