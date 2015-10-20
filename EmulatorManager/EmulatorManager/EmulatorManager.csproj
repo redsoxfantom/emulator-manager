@@ -57,6 +57,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\PathComponent\PathResolverComponent.cs" />
     <Compile Include="Events\LoadedConfigChanged.cs" />
     <Compile Include="Components\ConfigurationComponent\DataContracts\Emulator.cs" />
     <Compile Include="Components\ConfigurationComponent\DataContracts\EmulatorManagerConfig.cs" />
