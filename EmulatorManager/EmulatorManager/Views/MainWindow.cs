@@ -54,7 +54,9 @@ namespace EmulatorManager.Views
 
         private void redrawTreeView()
         {
+            treeEmulatorView.Nodes.Clear();
 
+            treeEmulatorView.Nodes.Add(mLoadedConfig.GetFileName());
         }
 
         private void modifyEmulators_Click(object sender, EventArgs e)
