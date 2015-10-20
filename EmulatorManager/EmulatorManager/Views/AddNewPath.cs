@@ -39,7 +39,7 @@ namespace EmulatorManager.Views
             {
                 if(Path.IndexOf(' ') != -1) // Check if path contains a space
                 {
-                    String warning = String.Format("The selected path {0} contains a space. Many emulators do no like this. It is recommended that you enter a path that does not contain a space", Path);
+                    String warning = String.Format("The selected path '{0}' contains a space. Many emulators do no like this. It is recommended that you enter a path that does not contain a space", Path);
                     mLogger.Warn(warning);
                     MessageBox.Show(this, warning, "Warning");
                 }
