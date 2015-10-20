@@ -138,7 +138,15 @@ namespace EmulatorManager.Views
 
         private void btnExecuteEmulator_Click(object sender, EventArgs e)
         {
-
+            if(!String.IsNullOrEmpty(txtCommandLine.Text))
+            {
+                String command = txtCommandLine.Text;
+                mLogger.Info(String.Format("Attempting to execute command {0}", command));
+            }
+            else
+            {
+                mLogger.Info("No command selected");
+            }
         }
 
         private void treeEmulatorView_AfterSelect(object sender, TreeViewEventArgs e)
