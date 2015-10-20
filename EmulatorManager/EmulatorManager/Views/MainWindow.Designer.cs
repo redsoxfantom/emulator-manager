@@ -140,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 720);
+            this.ClientSize = new System.Drawing.Size(850, 702);
             this.Controls.Add(this.btnExecuteEmulator);
             this.Controls.Add(this.txtCommandLine);
             this.Controls.Add(this.lblCommandToExecute);
