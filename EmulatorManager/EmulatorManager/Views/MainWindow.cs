@@ -31,7 +31,7 @@ namespace EmulatorManager.Views
 
         private EmulatorManagerConfig mLoadedConfig;
 
-        private Command mCurrentCommand
+        private Command CurrentCommand
         {
             get
             {
@@ -43,6 +43,7 @@ namespace EmulatorManager.Views
                 txtCommandLine.Text = mCurrentCommand.ToString();
             }
         }
+        private Command mCurrentCommand;
 
         public MainWindow()
         {
