@@ -38,6 +38,7 @@
             this.treeEmulatorView = new System.Windows.Forms.TreeView();
             this.lblCommandToExecute = new System.Windows.Forms.Label();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
+            this.btnExecuteEmulator = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,11 +125,23 @@
             this.txtCommandLine.Size = new System.Drawing.Size(743, 23);
             this.txtCommandLine.TabIndex = 3;
             // 
+            // btnExecuteEmulator
+            // 
+            this.btnExecuteEmulator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExecuteEmulator.Location = new System.Drawing.Point(348, 664);
+            this.btnExecuteEmulator.Name = "btnExecuteEmulator";
+            this.btnExecuteEmulator.Size = new System.Drawing.Size(150, 26);
+            this.btnExecuteEmulator.TabIndex = 4;
+            this.btnExecuteEmulator.Text = "Begin Emulator";
+            this.btnExecuteEmulator.UseVisualStyleBackColor = true;
+            this.btnExecuteEmulator.Click += new System.EventHandler(this.btnExecuteEmulator_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 689);
+            this.ClientSize = new System.Drawing.Size(850, 720);
+            this.Controls.Add(this.btnExecuteEmulator);
             this.Controls.Add(this.txtCommandLine);
             this.Controls.Add(this.lblCommandToExecute);
             this.Controls.Add(this.treeEmulatorView);
@@ -155,5 +168,6 @@
         private System.Windows.Forms.TreeView treeEmulatorView;
         private System.Windows.Forms.Label lblCommandToExecute;
         private System.Windows.Forms.TextBox txtCommandLine;
+        private System.Windows.Forms.Button btnExecuteEmulator;
     }
 }

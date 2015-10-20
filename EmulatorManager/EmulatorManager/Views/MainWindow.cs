@@ -108,5 +108,10 @@ namespace EmulatorManager.Views
                 mConfigurationComponent.LoadConfig(LoadPath);
             }
         }
+
+        private void btnExecuteEmulator_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
