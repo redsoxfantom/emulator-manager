@@ -66,6 +66,7 @@ namespace EmulatorManager.Managers.ConfigurationManager
             try
             {
                 FileManager.SaveObject(loadedConfig, path);
+
             }
             catch(Exception ex)
             {
@@ -88,7 +89,6 @@ namespace EmulatorManager.Managers.ConfigurationManager
             catch (Exception ex)
             {
                 mLogger.Error(String.Format("Failed to load config from {0}", path), ex);
-                loadedConfig = new EmulatorManagerConfig();
             }
         }
 
