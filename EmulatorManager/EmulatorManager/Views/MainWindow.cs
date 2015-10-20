@@ -58,7 +58,7 @@ namespace EmulatorManager.Views
             managerConfigToolStripMenuItem.Text = mLoadedConfig.GetFileName();
         }
 
-        private void modfyEmulators_Click(object sender, EventArgs e)
+        private void modifyEmulators_Click(object sender, EventArgs e)
         {
             mLogger.Info("ModifyEmulators clicked, displaying form");
             if(mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)

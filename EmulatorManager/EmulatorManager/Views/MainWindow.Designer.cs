@@ -86,7 +86,7 @@
             this.modfyEmulatorsToolStripMenuItem.Name = "modfyEmulatorsToolStripMenuItem";
             this.modfyEmulatorsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.modfyEmulatorsToolStripMenuItem.Text = "Modify Emulators";
-            this.modfyEmulatorsToolStripMenuItem.Click += new System.EventHandler(this.modfyEmulators_Click);
+            this.modfyEmulatorsToolStripMenuItem.Click += new System.EventHandler(this.modifyEmulators_Click);
             // 
             // modifyPathsToolStripMenuItem
             // 
