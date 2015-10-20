@@ -149,7 +149,8 @@ namespace EmulatorManager.Views
             if(selectedNode.Level == 2)
             {
                 // User selected a node corresponding to a path
-
+                String emulatorName = selectedNode.Parent.Text;
+                Emulator emu = mLoadedConfig.Emulators.First(f => f.Name == emulatorName);
             }
         }
         
