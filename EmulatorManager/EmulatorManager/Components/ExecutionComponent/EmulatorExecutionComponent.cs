@@ -18,7 +18,7 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         }
 
-        public void ExecuteProcess(Command cmd)
+        public void ExecuteCommand(Command cmd)
         {
             if (!cmd.IsValidCommand)
             {

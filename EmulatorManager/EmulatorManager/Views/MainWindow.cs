@@ -157,7 +157,7 @@ namespace EmulatorManager.Views
             {
                 String command = CurrentCommand.ToString();
                 mLogger.Info(String.Format("Attempting to execute command {0}", command));
-                mExecutionComponent.ExecuteProcess(CurrentCommand);
+                mExecutionComponent.ExecuteCommand(CurrentCommand);
             }
             else
             {
