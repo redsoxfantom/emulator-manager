@@ -36,6 +36,8 @@
             this.modfyEmulatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyPathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeEmulatorView = new System.Windows.Forms.TreeView();
+            this.lblCommandToExecute = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,11 +105,30 @@
             this.treeEmulatorView.Size = new System.Drawing.Size(825, 600);
             this.treeEmulatorView.TabIndex = 1;
             // 
+            // lblCommandToExecute
+            // 
+            this.lblCommandToExecute.AutoSize = true;
+            this.lblCommandToExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCommandToExecute.Location = new System.Drawing.Point(13, 635);
+            this.lblCommandToExecute.Name = "lblCommandToExecute";
+            this.lblCommandToExecute.Size = new System.Drawing.Size(75, 17);
+            this.lblCommandToExecute.TabIndex = 2;
+            this.lblCommandToExecute.Text = "Command:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(95, 635);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(743, 20);
+            this.textBox1.TabIndex = 3;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 675);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblCommandToExecute);
             this.Controls.Add(this.treeEmulatorView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -130,5 +151,7 @@
         private System.Windows.Forms.ToolStripMenuItem modfyEmulatorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyPathsToolStripMenuItem;
         private System.Windows.Forms.TreeView treeEmulatorView;
+        private System.Windows.Forms.Label lblCommandToExecute;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
