@@ -64,6 +64,19 @@ namespace EmulatorManager.Managers.ConfigurationManager
             FileManager.SaveObject(loadedConfig, path);
         }
 
+        public void LoadConfig(String path)
+        {
+            mLogger.Info(String.Format("Loading config from {0}", path));
+            try
+            {
+                loadedConfig = FileManager.LoadObject<EmulatorManagerConfig>(path);
+            }
+            catch (Exception ex)
+            {
+                mLogger.Error(String.Format("Failed to load config from {0}", path), ex);
+            }
+        }
+
         private void onLoadedConfigChanged()
         {
             LoadedConfigChangedArgs args = new LoadedConfigChangedArgs(loadedConfig);
