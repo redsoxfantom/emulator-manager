@@ -157,6 +157,11 @@ namespace EmulatorManager.Views
                 string competedExecutionPath = mExecutionComponent.CreateExecutionPath(emu.Path, emu.Arguments, path);
                 txtCommandLine.Text = competedExecutionPath;
             }
+            else
+            {
+                mLogger.Debug("Selected node is not a Path node, clearing command line");
+                txtCommandLine.Text = "";
+            }
         }
         
     }
