@@ -12,23 +12,22 @@ namespace EmulatorManager
     {
         private ILog mLogger;
 
-        private MainWindow mMainForm;
-
         public void Init(string[] args)
         {
             mLogger = LogManager.GetLogger(GetType().Name);
-
             mLogger.Info(string.Format("Initializing Emulator Manager processor with args: [{0}]",string.Join(",",args)));
-            mMainForm = new MainWindow();
+            
             mLogger.Info("Done Initializing Emulator Manager processor");
         }
 
         public bool Execute()
         {
-            mLogger.Info("Showing main display");
-            mMainForm.ShowDialog();
-
-            mLogger.Info("Bye");
+            using(MainWindow mMainForm = new MainWindow())
+            {
+                mLogger.Info("Showing main display");
+                mMainForm.ShowDialog();
+                mLogger.Info("Bye");
+            }
             return true;
         }
     }
