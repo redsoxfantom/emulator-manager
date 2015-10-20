@@ -49,8 +49,8 @@ namespace EmulatorManager.Views
         {
             mLogger = LogManager.GetLogger(GetType().Name);
             InitializeComponent();
-            
-            mConfigurationComponent = new ConfigComponent();
+
+            mConfigurationComponent = ConfigComponent.Instance;
             mLoadedConfig = new EmulatorManagerConfig();
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();

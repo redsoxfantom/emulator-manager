@@ -22,7 +22,20 @@ namespace EmulatorManager.Components.ConfigurationManager
 
         private ILog mLogger;
 
-        public ConfigComponent()
+        public static ConfigComponent Instance
+        {
+            get
+            {
+                if(mInstance == null)
+                {
+                    mInstance = new ConfigComponent();
+                }
+                return mInstance;
+            }
+        }
+        private static ConfigComponent mInstance = null;
+
+        private ConfigComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
         }
