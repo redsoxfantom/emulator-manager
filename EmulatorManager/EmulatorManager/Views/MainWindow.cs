@@ -48,6 +48,13 @@ namespace EmulatorManager.Views
         {
             mLoadedConfig = args.NewConfig;
             managerConfigToolStripMenuItem.Text = mLoadedConfig.GetFileName();
+
+            redrawTreeView();
+        }
+
+        private void redrawTreeView()
+        {
+
         }
 
         private void modifyEmulators_Click(object sender, EventArgs e)
