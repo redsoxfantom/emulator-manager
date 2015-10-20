@@ -63,6 +63,7 @@
     <Compile Include="Managers\ConfigurationManager\DataContracts\RomPath.cs" />
     <Compile Include="Managers\ConfigurationManager\ConfigManager.cs" />
     <Compile Include="MainExecutable.cs" />
+    <Compile Include="Managers\ExecutionManager\EmulatorExecutionManager.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\FileManager.cs" />
