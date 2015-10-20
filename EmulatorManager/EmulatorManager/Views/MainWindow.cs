@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EmulatorManager.Components.PathComponent;
+using System.Collections.Concurrent;
 
 namespace EmulatorManager.Views
 {
@@ -55,8 +56,21 @@ namespace EmulatorManager.Views
         private void redrawTreeView()
         {
             treeEmulatorView.Nodes.Clear();
-
             treeEmulatorView.Nodes.Add(mLoadedConfig.GetFileName());
+            TreeNode rootNode = treeEmulatorView.Nodes[0];
+            
+            foreach(Emulator emu in mLoadedConfig.Emulators)
+            {
+                TreeNode emulatorNode = new TreeNode(emu.Name);
+
+                var associatedPaths = mLoadedConfig.Paths.Where(f => f.AssociatedEmulator == emu.Name);
+                foreach(RomPath path in associatedPaths)
+                {
+
+                }
+
+                rootNode.Nodes.Add(emulatorNode);
+            }
         }
 
         private void modifyEmulators_Click(object sender, EventArgs e)
