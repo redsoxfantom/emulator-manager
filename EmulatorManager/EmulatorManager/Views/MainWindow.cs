@@ -1,8 +1,8 @@
 ﻿using EmulatorManager.Events;
-using EmulatorManager.Managers;
-using EmulatorManager.Managers.ConfigurationManager;
-using EmulatorManager.Managers.ExecutionManager;
-using EmulatorManager.Managers.ConfigurationManager.DataContracts;
+using EmulatorManager.Components;
+using EmulatorManager.Components.ConfigurationManager;
+using EmulatorManager.Components.ExecutionComponent;
+using EmulatorManager.Components.ConfigurationManager.DataContracts;
 using EmulatorManager.Utilities;
 using log4net;
 using System;
@@ -21,9 +21,9 @@ namespace EmulatorManager.Views
     {
         private ILog mLogger;
 
-        private ConfigManager mConfigurationManager;
+        private ConfigComponent mConfigurationManager;
 
-        private EmulatorExecutionManager mExecutionManager; 
+        private EmulatorExecutionComponent mExecutionManager; 
 
         private EmulatorManagerConfig mLoadedConfig;
 
@@ -32,9 +32,9 @@ namespace EmulatorManager.Views
             mLogger = LogManager.GetLogger(GetType().Name);
             InitializeComponent();
             
-            mConfigurationManager = new ConfigManager();
+            mConfigurationManager = new ConfigComponent();
             mLoadedConfig = new EmulatorManagerConfig();
-            mExecutionManager = new EmulatorExecutionManager();
+            mExecutionManager = new EmulatorExecutionComponent();
 
             mConfigurationManager.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
             mConfigurationManager.Initialize();

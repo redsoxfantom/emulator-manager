@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmulatorManager.Managers.ExecutionManager
+namespace EmulatorManager.Components.ExecutionComponent
 {
-    public class EmulatorExecutionManager
+    public class EmulatorExecutionComponent
     {
         private ILog mLogger;
 
-        public EmulatorExecutionManager()
+        public EmulatorExecutionComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
 

@@ -58,12 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events\LoadedConfigChanged.cs" />
-    <Compile Include="Managers\ConfigurationManager\DataContracts\Emulator.cs" />
-    <Compile Include="Managers\ConfigurationManager\DataContracts\EmulatorManagerConfig.cs" />
-    <Compile Include="Managers\ConfigurationManager\DataContracts\RomPath.cs" />
-    <Compile Include="Managers\ConfigurationManager\ConfigManager.cs" />
+    <Compile Include="Components\ConfigurationComponent\DataContracts\Emulator.cs" />
+    <Compile Include="Components\ConfigurationComponent\DataContracts\EmulatorManagerConfig.cs" />
+    <Compile Include="Components\ConfigurationComponent\DataContracts\RomPath.cs" />
+    <Compile Include="Components\ConfigurationComponent\ConfigComponent.cs" />
     <Compile Include="MainExecutable.cs" />
-    <Compile Include="Managers\ExecutionManager\EmulatorExecutionManager.cs" />
+    <Compile Include="Components\ExecutionComponents\EmulatorExecutionComponent.cs" />
     <Compile Include="Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\FileManager.cs" />
