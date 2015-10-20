@@ -12,6 +12,8 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public String ExecutionArguments { get; private set; }
 
+        public Boolean IsValidCommand { get; private set; }
+
         public Command(String executionPath, String executionArgs = "", String argReplacements = null)
         {
             if (!String.IsNullOrEmpty(argReplacements))
@@ -22,6 +24,21 @@ namespace EmulatorManager.Components.ExecutionComponent
             {
                 ExecutionArguments = executionArgs;
             }
+
+            ExecutionPath = executionPath;
+            IsValidCommand = true;
+        }
+
+        public Command()
+        {
+            ExecutionPath = "";
+            ExecutionArguments = "";
+            IsValidCommand = false;
+        }
+
+        public override String ToString()
+        {
+            return String.Format("{0} {1}",ExecutionPath,ExecutionArguments);
         }
     }
 }
