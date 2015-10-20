@@ -23,7 +23,7 @@ namespace EmulatorManager.Components.PathComponent
             // Return a list of all files in a folder
             List<String> pathList = new List<String>(Directory.GetFiles(Folder));
 
-            mLogger.Debug(String.Format("Search returned the following files:\n {0}",String.Join("\n",pathList.ToArray())));
+            mLogger.Debug(String.Format("Search returned the following files:\n{0}",String.Join("\n",pathList.ToArray())));
 
             return pathList;
         }
