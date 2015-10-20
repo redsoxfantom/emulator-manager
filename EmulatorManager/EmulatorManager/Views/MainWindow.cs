@@ -140,5 +140,10 @@ namespace EmulatorManager.Views
         {
 
         }
+
+        private void treeEmulatorView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }

@@ -106,6 +106,7 @@
             this.treeEmulatorView.Name = "treeEmulatorView";
             this.treeEmulatorView.Size = new System.Drawing.Size(825, 600);
             this.treeEmulatorView.TabIndex = 1;
+            this.treeEmulatorView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeEmulatorView_AfterSelect);
             // 
             // lblCommandToExecute
             // 
