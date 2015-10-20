@@ -17,7 +17,19 @@ namespace EmulatorManager
             proc.Init(args);
 
             // Execute and check the return code
-            if(proc.Execute())
+            bool retVal = false;
+            try
+            {
+                retVal = proc.Execute();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(String.Format("Error running Manager: {0}",ex));
+                Console.ReadLine();
+                retVal = false;
+            }
+
+            if(retVal)
             {
                 Environment.Exit(0); // Success
             }
