@@ -14,9 +14,13 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public Command(String executionPath, String executionArgs = "", String argReplacements = null)
         {
-            if (!String.IsNullOrEmpty(executionArgs))
+            if (!String.IsNullOrEmpty(argReplacements))
             {
-
+                ExecutionArguments = String.Format(executionArgs, argReplacements);
+            }
+            else
+            {
+                ExecutionArguments = executionArgs;
             }
         }
     }
