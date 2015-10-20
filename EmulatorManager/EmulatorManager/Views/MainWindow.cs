@@ -155,6 +155,7 @@ namespace EmulatorManager.Views
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));                
 
                 string competedExecutionPath = mExecutionComponent.CreateExecutionPath(emu.Path, emu.Arguments, path);
+                mLogger.Info(String.Format("Completed command line: {0}", competedExecutionPath));
                 txtCommandLine.Text = competedExecutionPath;
             }
             else
