@@ -143,7 +143,8 @@ namespace EmulatorManager.Views
 
         private void treeEmulatorView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            TreeNode selectedNode = e.Node;
+            mLogger.Info(String.Format("Selected Node: {0} at level {1}",selectedNode.FullPath, selectedNode.Level));
         }
     }
 }
