@@ -35,6 +35,7 @@
             this.managerConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modfyEmulatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyPathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.treeEmulatorView = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,11 +96,19 @@
             this.modifyPathsToolStripMenuItem.Text = "Modify Paths";
             this.modifyPathsToolStripMenuItem.Click += new System.EventHandler(this.modifyPaths_Click);
             // 
+            // treeEmulatorView
+            // 
+            this.treeEmulatorView.Location = new System.Drawing.Point(13, 28);
+            this.treeEmulatorView.Name = "treeEmulatorView";
+            this.treeEmulatorView.Size = new System.Drawing.Size(825, 600);
+            this.treeEmulatorView.TabIndex = 1;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 675);
+            this.Controls.Add(this.treeEmulatorView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
@@ -120,5 +129,6 @@
         private System.Windows.Forms.ToolStripMenuItem managerConfigToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modfyEmulatorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modifyPathsToolStripMenuItem;
+        private System.Windows.Forms.TreeView treeEmulatorView;
     }
 }
