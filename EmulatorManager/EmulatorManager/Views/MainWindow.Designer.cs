@@ -37,7 +37,7 @@
             this.modifyPathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeEmulatorView = new System.Windows.Forms.TreeView();
             this.lblCommandToExecute = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,19 +115,21 @@
             this.lblCommandToExecute.TabIndex = 2;
             this.lblCommandToExecute.Text = "Command:";
             // 
-            // textBox1
+            // txtCommandLine
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 635);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(743, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtCommandLine.Enabled = false;
+            this.txtCommandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCommandLine.Location = new System.Drawing.Point(95, 635);
+            this.txtCommandLine.Name = "txtCommandLine";
+            this.txtCommandLine.Size = new System.Drawing.Size(743, 23);
+            this.txtCommandLine.TabIndex = 3;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 675);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(850, 689);
+            this.Controls.Add(this.txtCommandLine);
             this.Controls.Add(this.lblCommandToExecute);
             this.Controls.Add(this.treeEmulatorView);
             this.Controls.Add(this.menuStrip1);
@@ -152,6 +154,6 @@
         private System.Windows.Forms.ToolStripMenuItem modifyPathsToolStripMenuItem;
         private System.Windows.Forms.TreeView treeEmulatorView;
         private System.Windows.Forms.Label lblCommandToExecute;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCommandLine;
     }
 }
