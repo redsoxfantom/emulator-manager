@@ -31,6 +31,19 @@ namespace EmulatorManager.Views
 
         private EmulatorManagerConfig mLoadedConfig;
 
+        private Command mCurrentCommand
+        {
+            get
+            {
+                return mCurrentCommand;
+            }
+            set
+            {
+                mCurrentCommand = value;
+                txtCommandLine.Text = mCurrentCommand.ToString();
+            }
+        }
+
         public MainWindow()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
@@ -160,16 +173,15 @@ namespace EmulatorManager.Views
                 String emulatorName = selectedNode.Parent.Text;
                 Emulator emu = mLoadedConfig.Emulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
-                mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));                
+                mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
 
-                string competedExecutionPath = mExecutionComponent.CreateExecutionPath(emu.Path, emu.Arguments, path);
-                mLogger.Info(String.Format("Completed command line: {0}", competedExecutionPath));
-                txtCommandLine.Text = competedExecutionPath;
+                mCurrentCommand = new Command(emu.Path, emu.Arguments, path);
+                mLogger.Info(String.Format("Completed command line: {0}", mCurrentCommand.ToString()));
             }
             else
             {
                 mLogger.Debug("Selected node is not a Path node, clearing command line");
-                txtCommandLine.Text = "";
+                mCurrentCommand = new Command();
             }
         }
         
