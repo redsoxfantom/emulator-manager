@@ -1,6 +1,7 @@
 ﻿using EmulatorManager.Events;
 using EmulatorManager.Managers;
 using EmulatorManager.Managers.ConfigurationManager;
+using EmulatorManager.Managers.ExecutionManager;
 using EmulatorManager.Managers.ConfigurationManager.DataContracts;
 using EmulatorManager.Utilities;
 using log4net;
@@ -32,6 +33,8 @@ namespace EmulatorManager.Views
 
         private ConfigManager mConfigurationManager;
 
+        private EmulatorExecutionManager mExecutionManager; 
+
         private EmulatorManagerConfig mLoadedConfig;
 
         public MainWindow()
@@ -43,6 +46,7 @@ namespace EmulatorManager.Views
             mModifyPathsForm = new ModifyPaths();
             mConfigurationManager = new ConfigManager();
             mLoadedConfig = new EmulatorManagerConfig();
+            mExecutionManager = new EmulatorExecutionManager();
 
             mConfigurationManager.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
             mConfigurationManager.Initialize();
