@@ -18,21 +18,20 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         }
 
-        public void ExecuteProcess(String Path, String Args, String Replacements)
+        public void ExecuteProcess(Command cmd)
         {
-            String finalArgs = "";
-            if(!String.IsNullOrEmpty(Args))
+            if (!cmd.IsValidCommand)
             {
-                finalArgs = String.Format(Args, Replacements);
+                mLogger.Error(String.Format("Command {0} is not valid", cmd.ToString()));
             }
 
-            mLogger.Info(String.Format("Executing emulator {0} with arguments {1}",Path,finalArgs));
+            mLogger.Info(String.Format("Executing emulator {0} with arguments {1}",cmd.ExecutionPath,cmd.ExecutionArguments));
             using (Process emulator = new Process())
             {
                 try
                 {
-                    emulator.StartInfo.FileName = Path;
-                    emulator.StartInfo.Arguments = finalArgs;
+                    emulator.StartInfo.FileName = cmd.ExecutionPath;
+                    emulator.StartInfo.Arguments = cmd.ExecutionArguments;
                     emulator.StartInfo.UseShellExecute = false;
                     emulator.StartInfo.RedirectStandardOutput = true;
                     emulator.StartInfo.RedirectStandardError = true;
