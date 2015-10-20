@@ -152,8 +152,10 @@ namespace EmulatorManager.Views
                 String emulatorName = selectedNode.Parent.Text;
                 Emulator emu = mLoadedConfig.Emulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
+                mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));                
 
                 string competedExecutionPath = mExecutionComponent.CreateExecutionPath(emu.Path, emu.Arguments, path);
+                txtCommandLine.Text = competedExecutionPath;
             }
         }
         
