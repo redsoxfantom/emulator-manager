@@ -70,7 +70,7 @@ namespace EmulatorManager.Components.ConfigurationManager
                 loadedConfig.SetFileName(fileName);
 
                 onLoadedConfigChanged();
-                mLogger.Info("Successfully loaded configuration");
+                mLogger.Info("Successfully saved configuration");
             }
             catch(Exception ex)
             {
