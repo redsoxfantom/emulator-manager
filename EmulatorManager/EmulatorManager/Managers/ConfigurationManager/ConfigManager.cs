@@ -4,6 +4,7 @@ using EmulatorManager.Utilities;
 using log4net;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,10 +71,16 @@ namespace EmulatorManager.Managers.ConfigurationManager
             try
             {
                 loadedConfig = FileManager.LoadObject<EmulatorManagerConfig>(path);
+                string fileName = Path.GetFileName(path);
+                loadedConfig.SetFileName(fileName);
+
+                onLoadedConfigChanged();
+                mLogger.Info("Successfully loaded configuration");
             }
             catch (Exception ex)
             {
                 mLogger.Error(String.Format("Failed to load config from {0}", path), ex);
+                loadedConfig = new EmulatorManagerConfig();
             }
         }
 
