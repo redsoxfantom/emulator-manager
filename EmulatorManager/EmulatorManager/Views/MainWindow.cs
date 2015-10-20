@@ -19,16 +19,6 @@ namespace EmulatorManager.Views
 {
     public partial class MainWindow : Form
     {
-        /// <summary>
-        /// Form displayed when the user selects "Modify Emulators"
-        /// </summary>
-        private ModifyEmulators mModifyEmulatorsForm;
-
-        /// <summary>
-        /// Form displayed when the user selects "Modify Paths"
-        /// </summary>
-        private ModifyPaths mModifyPathsForm;
-
         private ILog mLogger;
 
         private ConfigManager mConfigurationManager;
@@ -41,9 +31,7 @@ namespace EmulatorManager.Views
         {
             mLogger = LogManager.GetLogger(GetType().Name);
             InitializeComponent();
-
-            mModifyEmulatorsForm = new ModifyEmulators();
-            mModifyPathsForm = new ModifyPaths();
+            
             mConfigurationManager = new ConfigManager();
             mLoadedConfig = new EmulatorManagerConfig();
             mExecutionManager = new EmulatorExecutionManager();
@@ -60,13 +48,16 @@ namespace EmulatorManager.Views
 
         private void modifyEmulators_Click(object sender, EventArgs e)
         {
-            mLogger.Info("ModifyEmulators clicked, displaying form");
-            if(mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)
+            using (ModifyEmulators mModifyEmulatorsForm = new ModifyEmulators())
             {
-                String name = mModifyEmulatorsForm.EmulatorName;
-                String path = mModifyEmulatorsForm.EmulatorPath;
-                String args = mModifyEmulatorsForm.EmulatorArgs;
-                mConfigurationManager.AddEmulator(name, path, args);
+                mLogger.Info("ModifyEmulators clicked, displaying form");
+                if (mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    String name = mModifyEmulatorsForm.EmulatorName;
+                    String path = mModifyEmulatorsForm.EmulatorPath;
+                    String args = mModifyEmulatorsForm.EmulatorArgs;
+                    mConfigurationManager.AddEmulator(name, path, args);
+                }
             }
         }
 
@@ -80,15 +71,18 @@ namespace EmulatorManager.Views
             }
             else
             {
-                mLogger.Info("ModifyPaths clicked, displaying form");
-
-                var loadedEmulators = mLoadedConfig.Emulators.Select(f => f.Name).ToArray();
-                mModifyPathsForm.Initialize(loadedEmulators);
-                if(mModifyPathsForm.ShowDialog(this) == DialogResult.OK)
+                using (ModifyPaths mModifyPathsForm = new ModifyPaths())
                 {
-                    String path = mModifyPathsForm.RomPath;
-                    String associatedEmulator = mModifyPathsForm.EmulatorToUse;
-                    mConfigurationManager.AddRomPath(path, associatedEmulator);
+                    mLogger.Info("ModifyPaths clicked, displaying form");
+
+                    var loadedEmulators = mLoadedConfig.Emulators.Select(f => f.Name).ToArray();
+                    mModifyPathsForm.Initialize(loadedEmulators);
+                    if (mModifyPathsForm.ShowDialog(this) == DialogResult.OK)
+                    {
+                        String path = mModifyPathsForm.RomPath;
+                        String associatedEmulator = mModifyPathsForm.EmulatorToUse;
+                        mConfigurationManager.AddRomPath(path, associatedEmulator);
+                    }
                 }
             }
         }
