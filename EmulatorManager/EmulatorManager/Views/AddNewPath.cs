@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace EmulatorManager.Views
 {
-    public partial class ModifyPaths : Form
+    public partial class AddNewPath : Form
     {
         public String RomPath { get; private set; }
 
@@ -20,7 +20,7 @@ namespace EmulatorManager.Views
 
         private ILog mLogger;
 
-        public ModifyPaths()
+        public AddNewPath()
         {
             InitializeComponent();
 

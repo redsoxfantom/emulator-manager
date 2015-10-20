@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace EmulatorManager.Views
 {
-    public partial class ModifyEmulators : Form
+    public partial class AddNewEmulator : Form
     {
         public String EmulatorName { get; private set; }
 
@@ -23,7 +23,7 @@ namespace EmulatorManager.Views
 
         private ILog mLogger;
 
-        public ModifyEmulators()
+        public AddNewEmulator()
         {
             InitializeComponent();
 

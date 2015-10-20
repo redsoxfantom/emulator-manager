@@ -94,7 +94,7 @@ namespace EmulatorManager.Views
 
         private void modifyEmulators_Click(object sender, EventArgs e)
         {
-            using (ModifyEmulators mModifyEmulatorsForm = new ModifyEmulators())
+            using (AddNewEmulator mModifyEmulatorsForm = new AddNewEmulator())
             {
                 mLogger.Info("ModifyEmulators clicked, displaying form");
                 if (mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)
@@ -117,7 +117,7 @@ namespace EmulatorManager.Views
             }
             else
             {
-                using (ModifyPaths mModifyPathsForm = new ModifyPaths())
+                using (AddNewPath mModifyPathsForm = new AddNewPath())
                 {
                     mLogger.Info("ModifyPaths clicked, displaying form");
 

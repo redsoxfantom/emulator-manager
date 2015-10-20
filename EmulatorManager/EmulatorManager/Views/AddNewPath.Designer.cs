@@ -1,6 +1,6 @@
 ﻿namespace EmulatorManager.Views
 {
-    partial class ModifyPaths
+    partial class AddNewPath
     {
         /// <summary>
         /// Required designer variable.

@@ -75,17 +75,17 @@
     <Compile Include="Views\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ModifyEmulators.cs">
+    <Compile Include="Views\AddNewEmulator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ModifyEmulators.Designer.cs">
-      <DependentUpon>ModifyEmulators.cs</DependentUpon>
+    <Compile Include="Views\AddNewEmulator.Designer.cs">
+      <DependentUpon>AddNewEmulator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ModifyPaths.cs">
+    <Compile Include="Views\AddNewPath.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ModifyPaths.Designer.cs">
-      <DependentUpon>ModifyPaths.cs</DependentUpon>
+    <Compile Include="Views\AddNewPath.Designer.cs">
+      <DependentUpon>AddNewPath.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -97,11 +97,11 @@
     <EmbeddedResource Include="Views\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ModifyEmulators.resx">
-      <DependentUpon>ModifyEmulators.cs</DependentUpon>
+    <EmbeddedResource Include="Views\AddNewEmulator.resx">
+      <DependentUpon>AddNewEmulator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ModifyPaths.resx">
-      <DependentUpon>ModifyPaths.cs</DependentUpon>
+    <EmbeddedResource Include="Views\AddNewPath.resx">
+      <DependentUpon>AddNewPath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
