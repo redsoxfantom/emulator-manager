@@ -104,16 +104,16 @@
             this.treeEmulatorView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeEmulatorView.Location = new System.Drawing.Point(13, 28);
             this.treeEmulatorView.Name = "treeEmulatorView";
+            this.treeEmulatorView.PathSeparator = ">";
             this.treeEmulatorView.Size = new System.Drawing.Size(825, 600);
             this.treeEmulatorView.TabIndex = 1;
             this.treeEmulatorView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeEmulatorView_AfterSelect);
-            this.treeEmulatorView.PathSeparator = ">";
             // 
             // lblCommandToExecute
             // 
             this.lblCommandToExecute.AutoSize = true;
             this.lblCommandToExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommandToExecute.Location = new System.Drawing.Point(13, 635);
+            this.lblCommandToExecute.Location = new System.Drawing.Point(14, 657);
             this.lblCommandToExecute.Name = "lblCommandToExecute";
             this.lblCommandToExecute.Size = new System.Drawing.Size(75, 17);
             this.lblCommandToExecute.TabIndex = 2;
@@ -124,14 +124,15 @@
             this.txtCommandLine.Enabled = false;
             this.txtCommandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCommandLine.Location = new System.Drawing.Point(95, 635);
+            this.txtCommandLine.Multiline = true;
             this.txtCommandLine.Name = "txtCommandLine";
-            this.txtCommandLine.Size = new System.Drawing.Size(743, 23);
+            this.txtCommandLine.Size = new System.Drawing.Size(743, 63);
             this.txtCommandLine.TabIndex = 3;
             // 
             // btnExecuteEmulator
             // 
             this.btnExecuteEmulator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecuteEmulator.Location = new System.Drawing.Point(348, 664);
+            this.btnExecuteEmulator.Location = new System.Drawing.Point(350, 704);
             this.btnExecuteEmulator.Name = "btnExecuteEmulator";
             this.btnExecuteEmulator.Size = new System.Drawing.Size(150, 26);
             this.btnExecuteEmulator.TabIndex = 4;
@@ -143,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 702);
+            this.ClientSize = new System.Drawing.Size(850, 742);
             this.Controls.Add(this.btnExecuteEmulator);
             this.Controls.Add(this.txtCommandLine);
             this.Controls.Add(this.lblCommandToExecute);
