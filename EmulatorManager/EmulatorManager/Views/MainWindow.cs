@@ -153,14 +153,15 @@ namespace EmulatorManager.Views
 
         private void btnExecuteEmulator_Click(object sender, EventArgs e)
         {
-            if(!String.IsNullOrEmpty(txtCommandLine.Text))
+            if(CurrentCommand.IsValidCommand)
             {
-                String command = txtCommandLine.Text;
+                String command = CurrentCommand.ToString();
                 mLogger.Info(String.Format("Attempting to execute command {0}", command));
+                mExecutionComponent.ExecuteProcess(CurrentCommand);
             }
             else
             {
-                mLogger.Info("No command selected");
+                mLogger.Info("No Path selected");
             }
         }
 
