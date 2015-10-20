@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EmulatorManager.Components.PathComponent;
 
 namespace EmulatorManager.Views
 {
@@ -21,9 +22,11 @@ namespace EmulatorManager.Views
     {
         private ILog mLogger;
 
-        private ConfigComponent mConfigurationManager;
+        private ConfigComponent mConfigurationComponent;
 
-        private EmulatorExecutionComponent mExecutionManager; 
+        private EmulatorExecutionComponent mExecutionComponent;
+
+        private PathResolverComponent mPathResolver;
 
         private EmulatorManagerConfig mLoadedConfig;
 
@@ -32,12 +35,13 @@ namespace EmulatorManager.Views
             mLogger = LogManager.GetLogger(GetType().Name);
             InitializeComponent();
             
-            mConfigurationManager = new ConfigComponent();
+            mConfigurationComponent = new ConfigComponent();
             mLoadedConfig = new EmulatorManagerConfig();
-            mExecutionManager = new EmulatorExecutionComponent();
+            mExecutionComponent = new EmulatorExecutionComponent();
+            mPathResolver = new PathResolverComponent();
 
-            mConfigurationManager.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
-            mConfigurationManager.Initialize();
+            mConfigurationComponent.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
+            mConfigurationComponent.Initialize();
         }
 
         private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
@@ -56,7 +60,7 @@ namespace EmulatorManager.Views
                     String name = mModifyEmulatorsForm.EmulatorName;
                     String path = mModifyEmulatorsForm.EmulatorPath;
                     String args = mModifyEmulatorsForm.EmulatorArgs;
-                    mConfigurationManager.AddEmulator(name, path, args);
+                    mConfigurationComponent.AddEmulator(name, path, args);
                 }
             }
         }
@@ -81,7 +85,7 @@ namespace EmulatorManager.Views
                     {
                         String path = mModifyPathsForm.RomPath;
                         String associatedEmulator = mModifyPathsForm.EmulatorToUse;
-                        mConfigurationManager.AddRomPath(path, associatedEmulator);
+                        mConfigurationComponent.AddRomPath(path, associatedEmulator);
                     }
                 }
             }
@@ -92,7 +96,7 @@ namespace EmulatorManager.Views
             String SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
             if(SavePath != null)
             {
-                mConfigurationManager.SaveConfig(SavePath);
+                mConfigurationComponent.SaveConfig(SavePath);
             }
         }
 
@@ -101,7 +105,7 @@ namespace EmulatorManager.Views
             String LoadPath = FileManager.UseFilePicker(FileManager.FilePickerType.LOAD, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
             if(LoadPath != null)
             {
-                mConfigurationManager.LoadConfig(LoadPath);
+                mConfigurationComponent.LoadConfig(LoadPath);
             }
         }
     }
