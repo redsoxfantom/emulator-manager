@@ -97,5 +97,14 @@ namespace EmulatorManager.Views
                 mConfigurationManager.SaveConfig(SavePath);
             }
         }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            String LoadPath = FileManager.UseFilePicker(FileManager.FilePickerType.LOAD, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
+            if(LoadPath != null)
+            {
+                mConfigurationManager.LoadConfig(LoadPath);
+            }
+        }
     }
 }
