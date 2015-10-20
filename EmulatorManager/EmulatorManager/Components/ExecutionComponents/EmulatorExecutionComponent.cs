@@ -53,8 +53,17 @@ namespace EmulatorManager.Components.ExecutionComponent
                     mLogger.Error("Failed to execute emulator process", ex);
                 }
             }
-            
+        }
 
+        public string CreateExecutionPath(String Path, String Args, String Replacements)
+        {
+            String retStringArgs = "";
+            if(!String.IsNullOrEmpty(Args))
+            {
+                retStringArgs = String.Format(Args, Replacements);
+            }
+
+            return String.Format("{0} {1}", Path, retStringArgs);
         }
     }
 }
