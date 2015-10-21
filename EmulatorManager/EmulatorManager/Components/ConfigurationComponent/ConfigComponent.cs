@@ -13,7 +13,7 @@ namespace EmulatorManager.Components.ConfigurationManager
 {
     public class ConfigComponent
     {
-        private EmulatorManagerConfig loadedConfig;
+        public EmulatorManagerConfig LoadedConfig { get; private set; }
 
         /// <summary>
         /// Fired when the loaded configuration changes in some way
@@ -43,14 +43,14 @@ namespace EmulatorManager.Components.ConfigurationManager
         public void Initialize()
         {
             mLogger.Info("Initializing Manager with no parameters");
-            loadedConfig = new EmulatorManagerConfig();
+            LoadedConfig = new EmulatorManagerConfig();
             onLoadedConfigChanged();
         }
 
         public void Initialize(String configPath)
         {
             mLogger.Info(String.Format("Initializing config manager with path {0}", configPath));
-            loadedConfig = new EmulatorManagerConfig();
+            LoadedConfig = new EmulatorManagerConfig();
             LoadConfig(configPath);
             onLoadedConfigChanged();
         }
@@ -63,7 +63,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             newEmu.Arguments = Args;
             mLogger.Info(String.Format("Adding new emulator {0}", newEmu.ToString()));
 
-            loadedConfig.Emulators.Add(newEmu);
+            LoadedConfig.Emulators.Add(newEmu);
 
             onLoadedConfigChanged();
         }
@@ -75,7 +75,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             newPath.AssociatedEmulator = AssociatedEmulator;
             mLogger.Info(String.Format("Adding new rom path {0}", newPath.ToString()));
 
-            loadedConfig.Paths.Add(newPath);
+            LoadedConfig.Paths.Add(newPath);
 
             onLoadedConfigChanged();
         }
@@ -86,9 +86,9 @@ namespace EmulatorManager.Components.ConfigurationManager
 
             try
             {
-                FileManager.SaveObject(loadedConfig, path);
+                FileManager.SaveObject(LoadedConfig, path);
                 String fileName = Path.GetFileName(path);
-                loadedConfig.SetFileName(fileName);
+                LoadedConfig.SetFileName(fileName);
 
                 onLoadedConfigChanged();
                 mLogger.Info("Successfully saved configuration");
@@ -104,9 +104,9 @@ namespace EmulatorManager.Components.ConfigurationManager
             mLogger.Info(String.Format("Loading config from {0}", path));
             try
             {
-                loadedConfig = FileManager.LoadObject<EmulatorManagerConfig>(path);
+                LoadedConfig = FileManager.LoadObject<EmulatorManagerConfig>(path);
                 string fileName = Path.GetFileName(path);
-                loadedConfig.SetFileName(fileName);
+                LoadedConfig.SetFileName(fileName);
 
                 onLoadedConfigChanged();
                 mLogger.Info("Successfully loaded configuration");
@@ -119,7 +119,7 @@ namespace EmulatorManager.Components.ConfigurationManager
 
         private void onLoadedConfigChanged()
         {
-            LoadedConfigChangedArgs args = new LoadedConfigChangedArgs(loadedConfig);
+            LoadedConfigChangedArgs args = new LoadedConfigChangedArgs(LoadedConfig);
 
             if(ConfigutationChanged != null)
             {
