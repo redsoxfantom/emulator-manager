@@ -36,6 +36,7 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtRomExtension = new System.Windows.Forms.TextBox();
             this.lblRomExtension = new System.Windows.Forms.Label();
+            this.bthHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPathToRomDirectory
@@ -89,7 +90,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(204, 132);
+            this.btnSubmit.Location = new System.Drawing.Point(202, 122);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 27);
             this.btnSubmit.TabIndex = 5;
@@ -115,11 +116,22 @@
             this.lblRomExtension.TabIndex = 7;
             this.lblRomExtension.Text = "Rom File Extension:";
             // 
+            // bthHelp
+            // 
+            this.bthHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bthHelp.Location = new System.Drawing.Point(386, 93);
+            this.bthHelp.Name = "bthHelp";
+            this.bthHelp.Size = new System.Drawing.Size(22, 23);
+            this.bthHelp.TabIndex = 8;
+            this.bthHelp.Text = "?";
+            this.bthHelp.UseVisualStyleBackColor = true;
+            // 
             // AddNewPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 171);
+            this.ClientSize = new System.Drawing.Size(480, 156);
+            this.Controls.Add(this.bthHelp);
             this.Controls.Add(this.lblRomExtension);
             this.Controls.Add(this.txtRomExtension);
             this.Controls.Add(this.btnSubmit);
@@ -145,5 +157,6 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtRomExtension;
         private System.Windows.Forms.Label lblRomExtension;
+        private System.Windows.Forms.Button bthHelp;
     }
 }
