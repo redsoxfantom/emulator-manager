@@ -64,5 +64,10 @@ namespace EmulatorManager.Views
                 Close();
             }
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
