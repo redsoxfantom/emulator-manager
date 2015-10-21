@@ -47,6 +47,14 @@ namespace EmulatorManager.Components.ConfigurationManager
             onLoadedConfigChanged();
         }
 
+        public void Initialize(String configPath)
+        {
+            mLogger.Info(String.Format("Initializing config manager with path {0}", configPath));
+            loadedConfig = new EmulatorManagerConfig();
+            LoadConfig(configPath);
+            onLoadedConfigChanged();
+        }
+
         public void AddEmulator(string Name, string Path, string Args)
         {
             Emulator newEmu = new Emulator();
