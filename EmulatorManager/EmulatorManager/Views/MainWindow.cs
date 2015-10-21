@@ -59,12 +59,17 @@ namespace EmulatorManager.Views
             mConfigurationComponent.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
         }
 
-        private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
+        private void processConfig(EmulatorManagerConfig config)
         {
-            mLoadedConfig = args.NewConfig;
+            mLoadedConfig = config;
             managerConfigToolStripMenuItem.Text = mLoadedConfig.GetFileName();
 
             redrawTreeView();
+        }
+
+        private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
+        {
+            processConfig(args.NewConfig);
         }
 
         private void redrawTreeView()
