@@ -13,9 +13,11 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
         
         public string AssociatedEmulator;
 
+        public string RomExtension;
+
         public override string ToString()
         {
-            return String.Format("Path: {0}; Associated Emulator: {1}", FolderPath, AssociatedEmulator);
+            return String.Format("Path: {0}; Associated Emulator: {1}; Extension: {2}", FolderPath, AssociatedEmulator,RomExtension);
         }
     }
 }
