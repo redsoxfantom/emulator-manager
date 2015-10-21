@@ -44,6 +44,7 @@ namespace EmulatorManager.Views
             if(selectedPath != null)
             {
                 txtEmulatorPath.Text = selectedPath;
+                txtEmulatorName.Text = Path.GetFileNameWithoutExtension(selectedPath);
             }
         }
 
@@ -58,7 +59,7 @@ namespace EmulatorManager.Views
             else
             {
                 EmulatorArgs = txtEmulatorArguments.Text;
-                EmulatorName = Path.GetFileNameWithoutExtension(txtEmulatorPath.Text);
+                EmulatorName = txtEmulatorName.Text;
                 EmulatorPath = txtEmulatorPath.Text;
 
                 // Close the form while returning a successful result
