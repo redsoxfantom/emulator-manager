@@ -21,6 +21,8 @@ namespace EmulatorManager.Views
 
         public String EmulatorArgs { get; private set; }
 
+        private List<String> mEmulatorNames;
+
         private ILog mLogger;
 
         public AddNewEmulator()
@@ -28,6 +30,12 @@ namespace EmulatorManager.Views
             InitializeComponent();
 
             mLogger = LogManager.GetLogger(GetType().Name);
+            mEmulatorNames = new List<string>();
+        }
+
+        public void Initialize(List<String> EmulatorNames)
+        {
+            mEmulatorNames = EmulatorNames;
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -53,6 +61,12 @@ namespace EmulatorManager.Views
             if (String.IsNullOrEmpty(txtEmulatorPath.Text) || String.IsNullOrEmpty(txtEmulatorName.Text))
             {
                 String err = "Emulator Path / Name cannot be empty, please reenter.";
+                mLogger.Warn(err);
+                MessageBox.Show(this, err, "Error");
+            }
+            else if(mEmulatorNames.Contains(txtEmulatorName.Text))
+            {
+                String err = "Emulator Name has already been defined, pick a different one";
                 mLogger.Warn(err);
                 MessageBox.Show(this, err, "Error");
             }
