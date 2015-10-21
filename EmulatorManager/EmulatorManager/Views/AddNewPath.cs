@@ -73,7 +73,8 @@ namespace EmulatorManager.Views
             String help = "Filter Roms found in the Path folder based on this extension.\n"+
                           "Ex: If the Extension = \".iso\" and the folder contains the following files:\n"+
                           "     file1.iso\n     file2.bin\n     file3.iso\n"+
-                          "than only \"file1\" and \"file3\" will be available to the emulator manager";
+                          "than only \"file1\" and \"file3\" will be available to the emulator manager.\n"+
+                          "Note: This field is optional. If you leave it unset, all files in this path will be available to the emulator manager.";
             MessageBox.Show(this, help, "Info");
         }
     }
