@@ -137,7 +137,8 @@ namespace EmulatorManager.Views
                     {
                         String path = mModifyPathsForm.RomPath;
                         String associatedEmulator = mModifyPathsForm.EmulatorToUse;
-                        mConfigurationComponent.AddRomPath(path, associatedEmulator);
+                        String extension = mModifyPathsForm.EmulatorExtension;
+                        mConfigurationComponent.AddRomPath(path, associatedEmulator,extension);
                     }
                 }
             }

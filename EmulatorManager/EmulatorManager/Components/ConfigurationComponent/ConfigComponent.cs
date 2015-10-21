@@ -68,11 +68,12 @@ namespace EmulatorManager.Components.ConfigurationManager
             onLoadedConfigChanged();
         }
 
-        public void AddRomPath(string Path, string AssociatedEmulator)
+        public void AddRomPath(string Path, string AssociatedEmulator, string Extension)
         {
             RomPath newPath = new RomPath();
             newPath.FolderPath = Path;
             newPath.AssociatedEmulator = AssociatedEmulator;
+            newPath.RomExtension = Extension;
             mLogger.Info(String.Format("Adding new rom path {0}", newPath.ToString()));
 
             LoadedConfig.Paths.Add(newPath);
