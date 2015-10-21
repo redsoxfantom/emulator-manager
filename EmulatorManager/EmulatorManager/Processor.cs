@@ -18,9 +18,9 @@ namespace EmulatorManager
 
         public void Init(string[] args)
         {
+            ParseArgs(args);
             mLogger = LogManager.GetLogger(GetType().Name);
             mLogger.Info(string.Format("Initializing Emulator Manager processor with args: [{0}]",string.Join(",",args)));
-            ParseArgs(args);
 
             if (configPath == null)
             {
