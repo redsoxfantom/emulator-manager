@@ -90,7 +90,7 @@ namespace EmulatorManager.Views
                 var associatedPaths = mLoadedConfig.Paths.Where(f => f.AssociatedEmulator == emu.Name);
                 foreach(RomPath path in associatedPaths)
                 {
-                    List<String> resolvedFiles = mPathResolver.ResolvePaths(path.FolderPath);
+                    List<String> resolvedFiles = mPathResolver.ResolvePaths(path.FolderPath,path.RomExtension);
                     foreach(String file in resolvedFiles)
                     {
                         emulatorNode.Nodes.Add(file);
