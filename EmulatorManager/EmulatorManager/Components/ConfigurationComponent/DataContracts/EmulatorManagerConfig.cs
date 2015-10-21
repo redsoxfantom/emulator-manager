@@ -61,5 +61,15 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             }
             return null;
         }
+
+        public RomPath GetPathById(int id)
+        {
+            int indexOfId = Paths.FindIndex(f => f.Id == id);
+            if(indexOfId != -1)
+            {
+                return Paths[indexOfId];
+            }
+            return null;
+        }
     }
 }
