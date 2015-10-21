@@ -49,9 +49,9 @@ namespace EmulatorManager.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtEmulatorPath.Text))
+            if (String.IsNullOrEmpty(txtEmulatorPath.Text) || String.IsNullOrEmpty(txtEmulatorName.Text))
             {
-                String err = "Emulator Path cannot be empty, please reenter.";
+                String err = "Emulator Path / Name cannot be empty, please reenter.";
                 mLogger.Warn(err);
                 MessageBox.Show(this, err, "Error");
             }
