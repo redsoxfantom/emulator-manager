@@ -34,6 +34,8 @@
             this.lblSelectEmulator = new System.Windows.Forms.Label();
             this.cbxSelectedEmulator = new System.Windows.Forms.ComboBox();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.txtRomExtension = new System.Windows.Forms.TextBox();
+            this.lblRomExtension = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblPathToRomDirectory
@@ -87,7 +89,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(203, 93);
+            this.btnSubmit.Location = new System.Drawing.Point(204, 132);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 27);
             this.btnSubmit.TabIndex = 5;
@@ -95,18 +97,38 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // ModifyPaths
+            // txtRomExtension
+            // 
+            this.txtRomExtension.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRomExtension.Location = new System.Drawing.Point(151, 93);
+            this.txtRomExtension.Name = "txtRomExtension";
+            this.txtRomExtension.Size = new System.Drawing.Size(229, 23);
+            this.txtRomExtension.TabIndex = 6;
+            // 
+            // lblRomExtension
+            // 
+            this.lblRomExtension.AutoSize = true;
+            this.lblRomExtension.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRomExtension.Location = new System.Drawing.Point(13, 96);
+            this.lblRomExtension.Name = "lblRomExtension";
+            this.lblRomExtension.Size = new System.Drawing.Size(132, 17);
+            this.lblRomExtension.TabIndex = 7;
+            this.lblRomExtension.Text = "Rom File Extension:";
+            // 
+            // AddNewPath
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 132);
+            this.ClientSize = new System.Drawing.Size(480, 171);
+            this.Controls.Add(this.lblRomExtension);
+            this.Controls.Add(this.txtRomExtension);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.cbxSelectedEmulator);
             this.Controls.Add(this.lblSelectEmulator);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPathToRomDirectory);
             this.Controls.Add(this.lblPathToRomDirectory);
-            this.Name = "ModifyPaths";
+            this.Name = "AddNewPath";
             this.Text = "Add New Rom Path";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,5 +143,7 @@
         private System.Windows.Forms.Label lblSelectEmulator;
         private System.Windows.Forms.ComboBox cbxSelectedEmulator;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.TextBox txtRomExtension;
+        private System.Windows.Forms.Label lblRomExtension;
     }
 }
