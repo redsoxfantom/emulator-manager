@@ -1,6 +1,7 @@
 ﻿using EmulatorManager.Components.ConfigurationManager;
 using EmulatorManager.Views;
 using log4net;
+using log4net.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,12 @@ namespace EmulatorManager
                 {
                     i++;
                     configPath = args[i];
+                }
+                if(args[i] == "-logLevel")
+                {
+                    i++;
+                    ILoggerRepository logRepo = LogManager.GetRepository();
+                    logRepo.Threshold = logRepo.LevelMap[args[i]];
                 }
             }
         }
