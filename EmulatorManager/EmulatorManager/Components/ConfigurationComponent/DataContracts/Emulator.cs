@@ -9,6 +9,8 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 {
     public class Emulator
     {
+        public int Id;
+
         public string Path;
         
         public string Name;
@@ -17,7 +19,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
         public override string ToString()
         {
-            return String.Format("Name: {0}; Executable: {1}; Arguments: {2}",Name,Path,Arguments);
+            return String.Format("Id: {0}; Name: {1}; Executable: {2}; Arguments: {3}",Id,Name,Path,Arguments);
         }
     }
 }

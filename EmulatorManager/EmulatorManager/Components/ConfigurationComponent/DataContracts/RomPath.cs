@@ -9,6 +9,8 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 {
     public class RomPath
     {
+        public int Id;
+
         public string FolderPath;
         
         public string AssociatedEmulator;
@@ -17,7 +19,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
         public override string ToString()
         {
-            return String.Format("Path: {0}; Associated Emulator: {1}; Extension: {2}", FolderPath, AssociatedEmulator,RomExtension);
+            return String.Format("Id: {0}; Path: {1}; Associated Emulator: {2}; Extension: {3}", Id, FolderPath, AssociatedEmulator,RomExtension);
         }
     }
 }
