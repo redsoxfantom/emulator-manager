@@ -105,6 +105,7 @@ namespace EmulatorManager.Views
         {
             using (AddNewEmulator mModifyEmulatorsForm = new AddNewEmulator())
             {
+                mModifyEmulatorsForm.Initialize(mLoadedConfig.Emulators.Select(f => f.Name).ToList());
                 mLogger.Info("ModifyEmulators clicked, displaying form");
                 if (mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)
                 {
