@@ -35,7 +35,7 @@ namespace EmulatorManager.Views
             MessageBox.Show("Enter the command arguments to the emulator in the same format you would enter them in the command line.\n"+
                             "Where you would put a rom, instead put a {0}.\n"+
                             "For example:\n"+
-                            "If the old arguments to an emulator were\n"+"-exec \"path/to/rom.bin\"\n"+"You would instead put\n"+"-exec \"{0}\"");
+                            "If the old arguments to an emulator were\n"+"-exec \"path/to/rom.bin\"\n"+"You would instead put\n"+"-exec \"{0}\"","Info");
         }
 
         private void btnEmulatorBrowse_Click(object sender, EventArgs e)
@@ -65,6 +65,11 @@ namespace EmulatorManager.Views
                 DialogResult = DialogResult.OK;
                 Close();
             }
+        }
+
+        private void btnEmulatorNameHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Enter a name for this emulator.\nNote: This name must be unique", "Info");
         }
     }
 }

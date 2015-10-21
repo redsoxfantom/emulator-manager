@@ -34,7 +34,7 @@
             this.lblEmulatorOptions = new System.Windows.Forms.Label();
             this.txtEmulatorArguments = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
+            this.btnEmulatorArgumentHelp = new System.Windows.Forms.Button();
             this.btnEmulatorNameHelp = new System.Windows.Forms.Button();
             this.txtEmulatorName = new System.Windows.Forms.TextBox();
             this.lblEmulatorName = new System.Windows.Forms.Label();
@@ -98,16 +98,16 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // btnHelp
+            // btnEmulatorArgumentHelp
             // 
-            this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelp.Location = new System.Drawing.Point(333, 75);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(21, 23);
-            this.btnHelp.TabIndex = 6;
-            this.btnHelp.Text = "?";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            this.btnEmulatorArgumentHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmulatorArgumentHelp.Location = new System.Drawing.Point(333, 75);
+            this.btnEmulatorArgumentHelp.Name = "btnEmulatorArgumentHelp";
+            this.btnEmulatorArgumentHelp.Size = new System.Drawing.Size(21, 23);
+            this.btnEmulatorArgumentHelp.TabIndex = 6;
+            this.btnEmulatorArgumentHelp.Text = "?";
+            this.btnEmulatorArgumentHelp.UseVisualStyleBackColor = true;
+            this.btnEmulatorArgumentHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnEmulatorNameHelp
             // 
@@ -118,6 +118,7 @@
             this.btnEmulatorNameHelp.TabIndex = 9;
             this.btnEmulatorNameHelp.Text = "?";
             this.btnEmulatorNameHelp.UseVisualStyleBackColor = true;
+            this.btnEmulatorNameHelp.Click += new System.EventHandler(this.btnEmulatorNameHelp_Click);
             // 
             // txtEmulatorName
             // 
@@ -145,7 +146,7 @@
             this.Controls.Add(this.btnEmulatorNameHelp);
             this.Controls.Add(this.txtEmulatorName);
             this.Controls.Add(this.lblEmulatorName);
-            this.Controls.Add(this.btnHelp);
+            this.Controls.Add(this.btnEmulatorArgumentHelp);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtEmulatorArguments);
             this.Controls.Add(this.lblEmulatorOptions);
@@ -167,7 +168,7 @@
         private System.Windows.Forms.Label lblEmulatorOptions;
         private System.Windows.Forms.TextBox txtEmulatorArguments;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button btnEmulatorArgumentHelp;
         private System.Windows.Forms.Button btnEmulatorNameHelp;
         private System.Windows.Forms.TextBox txtEmulatorName;
         private System.Windows.Forms.Label lblEmulatorName;
