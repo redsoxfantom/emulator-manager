@@ -51,17 +51,17 @@ namespace EmulatorManager.Views
             InitializeComponent();
 
             mConfigurationComponent = ConfigComponent.Instance;
-            mLoadedConfig = new EmulatorManagerConfig();
+            mLoadedConfig = mConfigurationComponent.LoadedConfig;
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
             CurrentCommand = new Command();
 
             mConfigurationComponent.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
+            processConfig();
         }
 
-        private void processConfig(EmulatorManagerConfig config)
+        private void processConfig()
         {
-            mLoadedConfig = config;
             managerConfigToolStripMenuItem.Text = mLoadedConfig.GetFileName();
 
             redrawTreeView();
@@ -69,7 +69,8 @@ namespace EmulatorManager.Views
 
         private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
         {
-            processConfig(args.NewConfig);
+            mLoadedConfig = args.NewConfig;
+            processConfig();
         }
 
         private void redrawTreeView()
