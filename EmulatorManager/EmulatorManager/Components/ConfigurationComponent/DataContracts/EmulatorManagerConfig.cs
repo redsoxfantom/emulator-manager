@@ -51,5 +51,15 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
             return bldr.ToString();
         }
+
+        public Emulator GetEmulatorById(int id)
+        {
+            int indexOfId = Emulators.FindIndex(f => f.Id == id);
+            if(indexOfId != -1)
+            {
+                return Emulators[indexOfId];
+            }
+            return null;
+        }
     }
 }
