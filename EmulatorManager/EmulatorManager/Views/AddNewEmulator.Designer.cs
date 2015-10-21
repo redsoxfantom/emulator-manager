@@ -35,6 +35,9 @@
             this.txtEmulatorArguments = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.btnEmulatorNameHelp = new System.Windows.Forms.Button();
+            this.txtEmulatorName = new System.Windows.Forms.TextBox();
+            this.lblEmulatorName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtEmulatorPath
@@ -87,7 +90,7 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(174, 105);
+            this.btnSubmit.Location = new System.Drawing.Point(172, 156);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 27);
             this.btnSubmit.TabIndex = 5;
@@ -106,11 +109,42 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
-            // ModifyEmulators
+            // btnEmulatorNameHelp
+            // 
+            this.btnEmulatorNameHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmulatorNameHelp.Location = new System.Drawing.Point(333, 126);
+            this.btnEmulatorNameHelp.Name = "btnEmulatorNameHelp";
+            this.btnEmulatorNameHelp.Size = new System.Drawing.Size(21, 23);
+            this.btnEmulatorNameHelp.TabIndex = 9;
+            this.btnEmulatorNameHelp.Text = "?";
+            this.btnEmulatorNameHelp.UseVisualStyleBackColor = true;
+            // 
+            // txtEmulatorName
+            // 
+            this.txtEmulatorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmulatorName.Location = new System.Drawing.Point(12, 127);
+            this.txtEmulatorName.Name = "txtEmulatorName";
+            this.txtEmulatorName.Size = new System.Drawing.Size(315, 23);
+            this.txtEmulatorName.TabIndex = 8;
+            // 
+            // lblEmulatorName
+            // 
+            this.lblEmulatorName.AutoSize = true;
+            this.lblEmulatorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmulatorName.Location = new System.Drawing.Point(9, 107);
+            this.lblEmulatorName.Name = "lblEmulatorName";
+            this.lblEmulatorName.Size = new System.Drawing.Size(109, 17);
+            this.lblEmulatorName.TabIndex = 7;
+            this.lblEmulatorName.Text = "Emulator Name:";
+            // 
+            // AddNewEmulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(423, 154);
+            this.ClientSize = new System.Drawing.Size(423, 195);
+            this.Controls.Add(this.btnEmulatorNameHelp);
+            this.Controls.Add(this.txtEmulatorName);
+            this.Controls.Add(this.lblEmulatorName);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtEmulatorArguments);
@@ -118,7 +152,7 @@
             this.Controls.Add(this.btnEmulatorBrowse);
             this.Controls.Add(this.lblSelectEmulator);
             this.Controls.Add(this.txtEmulatorPath);
-            this.Name = "ModifyEmulators";
+            this.Name = "AddNewEmulator";
             this.Text = "Add New Emulator";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,5 +168,8 @@
         private System.Windows.Forms.TextBox txtEmulatorArguments;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button btnEmulatorNameHelp;
+        private System.Windows.Forms.TextBox txtEmulatorName;
+        private System.Windows.Forms.Label lblEmulatorName;
     }
 }
