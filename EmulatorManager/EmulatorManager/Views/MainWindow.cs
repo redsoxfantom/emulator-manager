@@ -56,6 +56,10 @@ namespace EmulatorManager.Views
             mPathResolver = new PathResolverComponent();
             CurrentCommand = new Command();
 
+        }
+
+        public void Initialize()
+        {
             mConfigurationComponent.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
             processConfig();
         }

@@ -38,6 +38,7 @@ namespace EmulatorManager
             using(MainWindow mMainForm = new MainWindow())
             {
                 mLogger.Info("Showing main display");
+                mMainForm.Initialize();
                 mMainForm.ShowDialog();
                 mLogger.Info("Bye");
             }
