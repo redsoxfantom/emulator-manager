@@ -18,6 +18,8 @@ namespace EmulatorManager.Views
 
         public String EmulatorToUse { get; private set; }
 
+        public String EmulatorExtension { get; private set; }
+
         private ILog mLogger;
 
         public AddNewPath()
@@ -59,6 +61,7 @@ namespace EmulatorManager.Views
             {
                 RomPath = txtPathToRomDirectory.Text;
                 EmulatorToUse = (string)cbxSelectedEmulator.SelectedItem;
+                EmulatorExtension = txtRomExtension.Text;
 
                 DialogResult = DialogResult.OK;
                 Close();
