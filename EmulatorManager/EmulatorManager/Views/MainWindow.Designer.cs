@@ -39,6 +39,7 @@
             this.lblCommandToExecute = new System.Windows.Forms.Label();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnExecuteEmulator = new System.Windows.Forms.Button();
+            this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.refreshViewToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -140,6 +142,13 @@
             this.btnExecuteEmulator.UseVisualStyleBackColor = true;
             this.btnExecuteEmulator.Click += new System.EventHandler(this.btnExecuteEmulator_Click);
             // 
+            // refreshViewToolStripMenuItem
+            // 
+            this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
+            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.refreshViewToolStripMenuItem.Text = "Refresh View";
+            this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.refreshViewToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,5 +182,6 @@
         private System.Windows.Forms.Label lblCommandToExecute;
         private System.Windows.Forms.TextBox txtCommandLine;
         private System.Windows.Forms.Button btnExecuteEmulator;
+        private System.Windows.Forms.ToolStripMenuItem refreshViewToolStripMenuItem;
     }
 }

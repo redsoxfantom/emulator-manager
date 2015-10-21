@@ -198,6 +198,10 @@ namespace EmulatorManager.Views
                 CurrentCommand = new Command();
             }
         }
-        
+
+        private void refreshViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            redrawTreeView();
+        }
     }
 }
