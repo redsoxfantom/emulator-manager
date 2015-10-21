@@ -57,7 +57,6 @@ namespace EmulatorManager.Views
             CurrentCommand = new Command();
 
             mConfigurationComponent.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
-            mConfigurationComponent.Initialize();
         }
 
         private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)

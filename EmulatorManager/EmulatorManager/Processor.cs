@@ -1,4 +1,5 @@
-﻿using EmulatorManager.Views;
+﻿using EmulatorManager.Components.ConfigurationManager;
+using EmulatorManager.Views;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace EmulatorManager
         {
             mLogger = LogManager.GetLogger(GetType().Name);
             mLogger.Info(string.Format("Initializing Emulator Manager processor with args: [{0}]",string.Join(",",args)));
-            
+            ConfigComponent.Instance.Initialize();
             mLogger.Info("Done Initializing Emulator Manager processor");
         }
 
