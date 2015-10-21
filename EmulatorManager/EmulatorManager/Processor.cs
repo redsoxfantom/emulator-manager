@@ -13,11 +13,23 @@ namespace EmulatorManager
     {
         private ILog mLogger;
 
+        private String configPath;
+
         public void Init(string[] args)
         {
             mLogger = LogManager.GetLogger(GetType().Name);
             mLogger.Info(string.Format("Initializing Emulator Manager processor with args: [{0}]",string.Join(",",args)));
-            ConfigComponent.Instance.Initialize();
+            ParseArgs(args);
+
+            if (configPath == null)
+            {
+                ConfigComponent.Instance.Initialize();
+            }
+            else
+            {
+                ConfigComponent.Instance.Initialize(configPath);
+            }
+
             mLogger.Info("Done Initializing Emulator Manager processor");
         }
 
@@ -30,6 +42,20 @@ namespace EmulatorManager
                 mLogger.Info("Bye");
             }
             return true;
+        }
+
+        private void ParseArgs(string[] args)
+        {
+            configPath = null;
+
+            for(int i = 0; i < args.Length; i++)
+            {
+                if(args[i] == "-config")
+                {
+                    i++;
+                    configPath = args[i];
+                }
+            }
         }
     }
 }
