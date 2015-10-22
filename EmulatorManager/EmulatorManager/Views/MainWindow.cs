@@ -93,7 +93,7 @@ namespace EmulatorManager.Views
             
             foreach(Emulator emu in mLoadedEmulators)
             {
-                TreeNode emulatorNode = new EmulatorTreeNode();
+                TreeNode emulatorNode = new EmulatorTreeNode(emu);
 
                 var associatedPaths = mLoadedPaths.Where(f => f.AssociatedEmulator == emu.Name);
                 foreach(RomPath path in associatedPaths)
