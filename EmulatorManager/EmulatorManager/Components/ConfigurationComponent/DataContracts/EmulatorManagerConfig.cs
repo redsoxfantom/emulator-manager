@@ -105,7 +105,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             return null;
         }
 
-        public void AddEmulator(Emulator emu)
+        public void AddOrUpdateEmulator(Emulator emu, int idx = -1)
         {
             emu.Id = currEmuId;
             currEmuId++;

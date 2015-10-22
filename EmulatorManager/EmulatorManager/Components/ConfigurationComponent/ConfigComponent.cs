@@ -63,7 +63,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             newEmu.Arguments = Args;
             mLogger.Info(String.Format("Adding new emulator {0}", newEmu.ToString()));
 
-            mLoadedConfig.AddEmulator(newEmu);
+            mLoadedConfig.AddOrUpdateEmulator(newEmu);
 
             onLoadedConfigChanged();
         }
