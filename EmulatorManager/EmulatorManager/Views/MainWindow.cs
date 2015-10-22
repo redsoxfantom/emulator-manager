@@ -216,15 +216,15 @@ namespace EmulatorManager.Views
             // Right click handler for tree emulator
             if(e.Button == MouseButtons.Right)
             {
-                TreeNode selectedNode = treeEmulatorView.GetNodeAt(e.Location);
-                mLogger.Debug(String.Format("RightClicked node {0}", selectedNode.FullPath));
+                mLogger.Debug(String.Format("RightClicked node {0}", e.Node.FullPath));
 
-                switch(selectedNode.Level)
+                switch(e.Node.Level)
                 {
                     case 0: // root
                         HandleRootRightClick();
                         break;
                     case 1: // emulator
+                        HandleEmulatorRightClick();
                         break;
                     case 2: // path
                         break;
@@ -235,6 +235,11 @@ namespace EmulatorManager.Views
         {
             mLogger.Info("TreeListView click - clearing menu");
             treeEmulatorView.ContextMenuStrip = new ContextMenuStrip();
+        }
+
+        private void HandleEmulatorRightClick()
+        {
+            
         }
 
         private void HandleRootRightClick()
