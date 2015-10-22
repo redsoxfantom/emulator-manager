@@ -81,6 +81,11 @@ namespace EmulatorManager.Components.ConfigurationManager
             onLoadedConfigChanged();
         }
 
+        public void ModifyEmulator(int id, Emulator emu)
+        {
+
+        }
+
         public void SaveConfig(String path)
         {
             mLogger.Info(String.Format("Saving loaded config to {0}", path));
