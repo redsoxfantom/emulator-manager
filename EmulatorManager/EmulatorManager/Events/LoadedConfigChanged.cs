@@ -12,11 +12,17 @@ namespace EmulatorManager.Events
 
     public class LoadedConfigChangedArgs : EventArgs
     {
-        public EmulatorManagerConfig NewConfig { get; private set; }
+        public String FileName { get; private set; }
+
+        public IReadOnlyList<Emulator> LoadedEmulators { get; private set; }
+
+        public IReadOnlyList<RomPath> LoadedPaths { get; private set; }
 
         public LoadedConfigChangedArgs(EmulatorManagerConfig newConfig)
         {
-            NewConfig = newConfig;
+            FileName = newConfig.GetFileName();
+            LoadedEmulators = newConfig.GetLoadedEmulators();
+            LoadedPaths = newConfig.GetLoadedRomPaths();
         }
     }
 }

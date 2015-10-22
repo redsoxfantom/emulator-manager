@@ -18,9 +18,9 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
         private int currPathId;
         
-        public List<Emulator> Emulators { get; set; }
+        private List<Emulator> Emulators { get; set; }
         
-        public List<RomPath> Paths { get; set; }
+        private List<RomPath> Paths { get; set; }
 
         public string GetFileName()
         {
@@ -114,6 +114,16 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             path.Id = currPathId;
             currPathId++;
             Paths.Add(path);
+        }
+
+        public IReadOnlyList<Emulator> GetLoadedEmulators()
+        {
+            return Emulators.ToList().AsReadOnly();
+        }
+
+        public IReadOnlyList<RomPath> GetLoadedRomPaths()
+        {
+            return Paths.ToList().AsReadOnly();
         }
     }
 }

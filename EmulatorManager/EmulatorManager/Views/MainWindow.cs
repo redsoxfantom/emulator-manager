@@ -29,7 +29,11 @@ namespace EmulatorManager.Views
 
         private PathResolverComponent mPathResolver;
 
-        private EmulatorManagerConfig mLoadedConfig;
+        private String mConfigFileName;
+
+        private IReadOnlyList<Emulator> mLoadedEmulators;
+
+        private IReadOnlyList<RomPath> mLoadedPaths;
 
         private Command CurrentCommand
         {
@@ -51,7 +55,7 @@ namespace EmulatorManager.Views
             InitializeComponent();
 
             mConfigurationComponent = ConfigComponent.Instance;
-            mLoadedConfig = mConfigurationComponent.LoadedConfig;
+            mConfigurationComponent.GetCurrentConfig(out mConfigFileName, out mLoadedEmulators, out mLoadedPaths);
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
             CurrentCommand = new Command();
@@ -66,28 +70,31 @@ namespace EmulatorManager.Views
 
         private void processConfig()
         {
-            managerConfigToolStripMenuItem.Text = mLoadedConfig.GetFileName();
+            managerConfigToolStripMenuItem.Text = mConfigFileName;
 
             redrawTreeView();
         }
 
         private void MEmulatorManager_ConfigutationChanged(LoadedConfigChangedArgs args)
         {
-            mLoadedConfig = args.NewConfig;
+            mConfigFileName = args.FileName;
+            mLoadedEmulators = args.LoadedEmulators;
+            mLoadedPaths = args.LoadedPaths;
+
             processConfig();
         }
 
         private void redrawTreeView()
         {
             treeEmulatorView.Nodes.Clear();
-            treeEmulatorView.Nodes.Add(mLoadedConfig.GetFileName());
+            treeEmulatorView.Nodes.Add(mConfigFileName);
             TreeNode rootNode = treeEmulatorView.Nodes[0];
             
-            foreach(Emulator emu in mLoadedConfig.Emulators)
+            foreach(Emulator emu in mLoadedEmulators)
             {
                 TreeNode emulatorNode = new TreeNode(emu.Name);
 
-                var associatedPaths = mLoadedConfig.Paths.Where(f => f.AssociatedEmulator == emu.Name);
+                var associatedPaths = mLoadedPaths.Where(f => f.AssociatedEmulator == emu.Name);
                 foreach(RomPath path in associatedPaths)
                 {
                     List<String> resolvedFiles = mPathResolver.ResolvePaths(path.FolderPath,path.RomExtension);
@@ -105,7 +112,7 @@ namespace EmulatorManager.Views
         {
             using (AddNewEmulator mModifyEmulatorsForm = new AddNewEmulator())
             {
-                mModifyEmulatorsForm.Initialize(mLoadedConfig.Emulators.Select(f => f.Name).ToList());
+                mModifyEmulatorsForm.Initialize(mLoadedEmulators.Select(f => f.Name).ToList());
                 mLogger.Info("ModifyEmulators clicked, displaying form");
                 if (mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)
                 {
@@ -119,7 +126,7 @@ namespace EmulatorManager.Views
 
         private void modifyPaths_Click(object sender, EventArgs e)
         {
-            if(mLoadedConfig.Emulators.Count == 0)
+            if(mLoadedEmulators.Count == 0)
             {
                 String err = "Cannot add a new path as no emulators have been defined in the current configuration! Add a new emulator first.";
                 mLogger.Warn(err);
@@ -131,7 +138,7 @@ namespace EmulatorManager.Views
                 {
                     mLogger.Info("ModifyPaths clicked, displaying form");
 
-                    var loadedEmulators = mLoadedConfig.Emulators.Select(f => f.Name).ToArray();
+                    var loadedEmulators = mLoadedEmulators.Select(f => f.Name).ToArray();
                     mModifyPathsForm.Initialize(loadedEmulators);
                     if (mModifyPathsForm.ShowDialog(this) == DialogResult.OK)
                     {
@@ -185,7 +192,7 @@ namespace EmulatorManager.Views
             {
                 // User selected a node corresponding to a path
                 String emulatorName = selectedNode.Parent.Text;
-                Emulator emu = mLoadedConfig.Emulators.First(f => f.Name == emulatorName);
+                Emulator emu = mLoadedEmulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
 
