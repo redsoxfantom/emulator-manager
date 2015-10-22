@@ -81,7 +81,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             onLoadedConfigChanged();
         }
 
-        public void ModifyEmulator(int id, Emulator emu)
+        public void ModifyEmulator(int id, string Name, string Path, string Args)
         {
 
         }
