@@ -231,6 +231,11 @@ namespace EmulatorManager.Views
                 }
             }
         }
+        private void treeEmulatorView_ClearMenu(object sender, MouseEventArgs e)
+        {
+            mLogger.Info("TreeListView click - clearing menu");
+            treeEmulatorView.ContextMenuStrip = new ContextMenuStrip();
+        }
 
         private void HandleRootRightClick()
         {
@@ -242,5 +247,6 @@ namespace EmulatorManager.Views
             ctxMenu.Items.Add(newEmulator);
             treeEmulatorView.ContextMenuStrip = ctxMenu;
         }
+
     }
 }

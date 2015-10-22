@@ -118,6 +118,7 @@
             this.treeEmulatorView.TabIndex = 1;
             this.treeEmulatorView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeEmulatorView_AfterSelect);
             this.treeEmulatorView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeEmulatorView_Click);
+            this.treeEmulatorView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeEmulatorView_ClearMenu);
             // 
             // lblCommandToExecute
             // 
