@@ -213,7 +213,11 @@ namespace EmulatorManager.Views
 
         private void treeEmulatorView_Click(object sender, TreeNodeMouseClickEventArgs e)
         {
-
+            // Right click handler for tree emulator
+            if(e.Button == MouseButtons.Right)
+            {
+                TreeNode selectedNode = treeEmulatorView.GetNodeAt(e.Location);
+            }
         }
     }
 }
