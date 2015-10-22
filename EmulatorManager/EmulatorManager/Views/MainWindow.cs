@@ -120,7 +120,7 @@ namespace EmulatorManager.Views
                     String name = mNewEmulatorForm.EmulatorName;
                     String path = mNewEmulatorForm.EmulatorPath;
                     String args = mNewEmulatorForm.EmulatorArgs;
-                    mConfigurationComponent.AddEmulator(name, path, args);
+                    mConfigurationComponent.AddOrUpdateEmulator(name, path, args);
                 }
             }
         }
