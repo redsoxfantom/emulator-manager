@@ -106,6 +106,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             try
             {
                 LoadedConfig = FileManager.LoadObject<EmulatorManagerConfig>(path);
+                LoadedConfig.Initialize();
                 string fileName = Path.GetFileName(path);
                 LoadedConfig.SetFileName(fileName);
 
