@@ -15,11 +15,11 @@ namespace EmulatorManager.Views
 {
     public partial class EmulatorManagementWindow : Form
     {
-        public String EmulatorName { get; set; }
+        public String EmulatorName { get; private set; }
 
-        public String EmulatorPath { get; set; }
+        public String EmulatorPath { get; private set; }
 
-        public String EmulatorArgs { get; set; }
+        public String EmulatorArgs { get; private set; }
 
         private List<String> mEmulatorNames;
 
@@ -36,6 +36,14 @@ namespace EmulatorManager.Views
         public void Initialize(List<String> EmulatorNames)
         {
             mEmulatorNames = EmulatorNames;
+        }
+
+        public void Initialize(List<String> EmulatorNames, String EmuName, String EmuPath, String EmuArgs)
+        {
+            mEmulatorNames = EmulatorNames;
+            txtEmulatorPath.Text = EmuPath;
+            txtEmulatorName.Text = EmuName;
+            txtEmulatorArguments.Text = EmuArgs;
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
