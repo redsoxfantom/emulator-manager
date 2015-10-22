@@ -111,8 +111,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             {
                 Emulator emuToReplace = GetEmulatorById(idx);
                 int deadEmulatorIndex = Emulators.IndexOf(emuToReplace);
-                Emulators.Remove(emuToReplace);
-                Emulators.Insert(deadEmulatorIndex, emu);
+                Emulators[deadEmulatorIndex] = emu;
             }
             else
             {
