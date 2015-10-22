@@ -111,15 +111,15 @@ namespace EmulatorManager.Views
 
         private void addNewEmulators_Click(object sender, EventArgs e)
         {
-            using (AddNewEmulator mModifyEmulatorsForm = new AddNewEmulator())
+            using (AddNewEmulator mNewEmulatorForm = new AddNewEmulator())
             {
-                mModifyEmulatorsForm.Initialize(mLoadedEmulators.Select(f => f.Name).ToList());
+                mNewEmulatorForm.Initialize(mLoadedEmulators.Select(f => f.Name).ToList());
                 mLogger.Info("ModifyEmulators clicked, displaying form");
-                if (mModifyEmulatorsForm.ShowDialog(this) == DialogResult.OK)
+                if (mNewEmulatorForm.ShowDialog(this) == DialogResult.OK)
                 {
-                    String name = mModifyEmulatorsForm.EmulatorName;
-                    String path = mModifyEmulatorsForm.EmulatorPath;
-                    String args = mModifyEmulatorsForm.EmulatorArgs;
+                    String name = mNewEmulatorForm.EmulatorName;
+                    String path = mNewEmulatorForm.EmulatorPath;
+                    String args = mNewEmulatorForm.EmulatorArgs;
                     mConfigurationComponent.AddEmulator(name, path, args);
                 }
             }
