@@ -32,6 +32,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managerConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modfyEmulatorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyPathsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +40,6 @@
             this.lblCommandToExecute = new System.Windows.Forms.Label();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnExecuteEmulator = new System.Windows.Forms.Button();
-            this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,16 +67,23 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.loadToolStripMenuItem.Text = "Load Manager Config";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.saveToolStripMenuItem.Text = "Save Manager Config";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // refreshViewToolStripMenuItem
+            // 
+            this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
+            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.refreshViewToolStripMenuItem.Text = "Refresh";
+            this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.refreshViewToolStripMenuItem_Click);
             // 
             // managerConfigToolStripMenuItem
             // 
@@ -141,13 +148,6 @@
             this.btnExecuteEmulator.Text = "Begin Emulator";
             this.btnExecuteEmulator.UseVisualStyleBackColor = true;
             this.btnExecuteEmulator.Click += new System.EventHandler(this.btnExecuteEmulator_Click);
-            // 
-            // refreshViewToolStripMenuItem
-            // 
-            this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
-            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.refreshViewToolStripMenuItem.Text = "Refresh View";
-            this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.refreshViewToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
