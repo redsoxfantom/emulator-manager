@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,12 +10,16 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 {
     public class Emulator
     {
+        [JsonProperty]
         public int Id;
 
+        [JsonProperty]
         public string Path;
-        
+
+        [JsonProperty]
         public string Name;
-        
+
+        [JsonProperty]
         public string Arguments;
 
         public override string ToString()
