@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EmulatorManager.Components.PathComponent;
 using System.Collections.Concurrent;
+using EmulatorManager.Views.TreeNodes;
 
 namespace EmulatorManager.Views
 {
@@ -92,7 +93,7 @@ namespace EmulatorManager.Views
             
             foreach(Emulator emu in mLoadedEmulators)
             {
-                TreeNode emulatorNode = new TreeNode(emu.Name);
+                TreeNode emulatorNode = new EmulatorTreeNode();
 
                 var associatedPaths = mLoadedPaths.Where(f => f.AssociatedEmulator == emu.Name);
                 foreach(RomPath path in associatedPaths)
