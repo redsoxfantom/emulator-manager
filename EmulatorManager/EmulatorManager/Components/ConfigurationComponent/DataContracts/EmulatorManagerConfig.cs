@@ -109,7 +109,10 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
         {
             if (idx != -1)
             {
-
+                Emulator emuToReplace = GetEmulatorById(idx);
+                int deadEmulatorIndex = Emulators.IndexOf(emuToReplace);
+                Emulators.Remove(emuToReplace);
+                Emulators.Insert(deadEmulatorIndex, emu);
             }
             else
             {
