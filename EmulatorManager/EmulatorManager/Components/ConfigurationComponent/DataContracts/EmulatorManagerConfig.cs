@@ -13,6 +13,10 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
         /// The filename this config was loaded from. Marked "private" to keep it from being serialized / deserialized
         /// </summary>
         private string mFileName;
+
+        private int currEmuId;
+
+        private int currPathId;
         
         public List<Emulator> Emulators { get; set; }
         
@@ -33,6 +37,17 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             mFileName = "<No Manager Config Loaded>";
             Emulators = new List<Emulator>();
             Paths = new List<RomPath>();
+
+            currEmuId = 0;
+            currPathId = 0;
+        }
+
+        public void Initialize()
+        {
+            // determine the current (highest + 1) emulator and path id
+            // This is the next available id
+            currEmuId = Emulators.Max(f => f.Id) + 1;
+            currPathId = Paths.Max(f => f.Id) + 1;
         }
 
         public override string ToString()
