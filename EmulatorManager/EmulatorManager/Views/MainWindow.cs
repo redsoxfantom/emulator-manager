@@ -210,5 +210,10 @@ namespace EmulatorManager.Views
         {
             redrawTreeView();
         }
+
+        private void treeEmulatorView_Click(object sender, TreeNodeMouseClickEventArgs e)
+        {
+
+        }
     }
 }
