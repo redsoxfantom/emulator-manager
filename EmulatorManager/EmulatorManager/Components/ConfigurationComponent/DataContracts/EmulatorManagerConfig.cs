@@ -101,5 +101,12 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             }
             return null;
         }
+
+        public void AddEmulator(Emulator emu)
+        {
+            emu.Id = currEmuId;
+            currEmuId++;
+            Emulators.Add(emu);
+        }
     }
 }
