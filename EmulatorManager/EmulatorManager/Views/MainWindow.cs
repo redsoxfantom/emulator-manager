@@ -250,6 +250,10 @@ namespace EmulatorManager.Views
         {
             Emulator emu = selectedNode.Emulator;
             mLogger.Info(String.Format("Handling emulator right click on emulator {0}", emu.ToString()));
+            ContextMenuStrip ctxMenu = new ContextMenuStrip();
+
+
+            treeEmulatorView.ContextMenuStrip = ctxMenu;
         }
 
         private void HandleRootRightClick()
