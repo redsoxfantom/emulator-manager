@@ -15,11 +15,11 @@ namespace EmulatorManager.Views
 {
     public partial class EmulatorManagementWindow : Form
     {
-        public String EmulatorName { get; private set; }
+        public String EmulatorName { get; set; }
 
-        public String EmulatorPath { get; private set; }
+        public String EmulatorPath { get; set; }
 
-        public String EmulatorArgs { get; private set; }
+        public String EmulatorArgs { get; set; }
 
         private List<String> mEmulatorNames;
 
