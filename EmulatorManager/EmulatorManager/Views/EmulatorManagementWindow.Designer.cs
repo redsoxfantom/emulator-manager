@@ -138,7 +138,7 @@
             this.lblEmulatorName.TabIndex = 7;
             this.lblEmulatorName.Text = "Emulator Name:";
             // 
-            // AddNewEmulator
+            // EmulatorManagementWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,8 +153,8 @@
             this.Controls.Add(this.btnEmulatorBrowse);
             this.Controls.Add(this.lblSelectEmulator);
             this.Controls.Add(this.txtEmulatorPath);
-            this.Name = "AddNewEmulator";
-            this.Text = "Add New Emulator";
+            this.Name = "EmulatorManagementWindow";
+            this.Text = "Emulator Management";
             this.ResumeLayout(false);
             this.PerformLayout();
 

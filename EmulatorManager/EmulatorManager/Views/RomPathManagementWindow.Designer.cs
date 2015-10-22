@@ -127,7 +127,7 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
-            // AddNewPath
+            // RomPathManagementWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,8 +141,8 @@
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPathToRomDirectory);
             this.Controls.Add(this.lblPathToRomDirectory);
-            this.Name = "AddNewPath";
-            this.Text = "Add New Rom Path";
+            this.Name = "RomPathManagementWindow";
+            this.Text = "Rom Path Management";
             this.ResumeLayout(false);
             this.PerformLayout();
 
