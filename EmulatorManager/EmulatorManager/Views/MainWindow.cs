@@ -217,6 +217,17 @@ namespace EmulatorManager.Views
             if(e.Button == MouseButtons.Right)
             {
                 TreeNode selectedNode = treeEmulatorView.GetNodeAt(e.Location);
+                mLogger.Debug(String.Format("RightClicked node {0}", selectedNode.FullPath));
+
+                switch(selectedNode.Level)
+                {
+                    case 0: // root
+                        break;
+                    case 1: // emulator
+                        break;
+                    case 2: // path
+                        break;
+                }
             }
         }
     }
