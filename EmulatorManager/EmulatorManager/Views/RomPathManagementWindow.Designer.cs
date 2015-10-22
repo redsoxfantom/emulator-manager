@@ -1,6 +1,6 @@
 ﻿namespace EmulatorManager.Views
 {
-    partial class AddNewPath
+    partial class RomPathManagementWindow
     {
         /// <summary>
         /// Required designer variable.

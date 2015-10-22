@@ -111,7 +111,7 @@ namespace EmulatorManager.Views
 
         private void addNewEmulators_Click(object sender, EventArgs e)
         {
-            using (AddNewEmulator mNewEmulatorForm = new AddNewEmulator())
+            using (EmulatorManagementWindow mNewEmulatorForm = new EmulatorManagementWindow())
             {
                 mNewEmulatorForm.Initialize(mLoadedEmulators.Select(f => f.Name).ToList());
                 mLogger.Info("ModifyEmulators clicked, displaying form");
@@ -135,7 +135,7 @@ namespace EmulatorManager.Views
             }
             else
             {
-                using (AddNewPath mModifyPathsForm = new AddNewPath())
+                using (RomPathManagementWindow mModifyPathsForm = new RomPathManagementWindow())
                 {
                     mLogger.Info("ModifyPaths clicked, displaying form");
 

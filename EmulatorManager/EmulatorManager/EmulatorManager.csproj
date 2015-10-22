@@ -75,17 +75,17 @@
     <Compile Include="Views\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddNewEmulator.cs">
+    <Compile Include="Views\EmulatorManagementWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AddNewEmulator.Designer.cs">
-      <DependentUpon>AddNewEmulator.cs</DependentUpon>
+    <Compile Include="Views\EmulatorManagementWindow.Designer.cs">
+      <DependentUpon>EmulatorManagementWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AddNewPath.cs">
+    <Compile Include="Views\RomPathManagementWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AddNewPath.Designer.cs">
-      <DependentUpon>AddNewPath.cs</DependentUpon>
+    <Compile Include="Views\RomPathManagementWindow.Designer.cs">
+      <DependentUpon>RomPathManagementWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\TreeNodes\EmulatorTreeNode.cs" />
     <Compile Include="Views\TreeNodes\PathTreeNode.cs" />
@@ -99,11 +99,11 @@
     <EmbeddedResource Include="Views\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AddNewEmulator.resx">
-      <DependentUpon>AddNewEmulator.cs</DependentUpon>
+    <EmbeddedResource Include="Views\EmulatorManagementWindow.resx">
+      <DependentUpon>EmulatorManagementWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AddNewPath.resx">
-      <DependentUpon>AddNewPath.cs</DependentUpon>
+    <EmbeddedResource Include="Views\RomPathManagementWindow.resx">
+      <DependentUpon>RomPathManagementWindow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

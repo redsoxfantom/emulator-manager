@@ -1,6 +1,6 @@
 ﻿namespace EmulatorManager.Views
 {
-    partial class AddNewEmulator
+    partial class EmulatorManagementWindow
     {
         /// <summary>
         /// Required designer variable.
