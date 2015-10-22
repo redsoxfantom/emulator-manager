@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -18,8 +19,10 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
         private int currPathId;
         
+        [JsonProperty]
         private List<Emulator> Emulators { get; set; }
         
+        [JsonProperty]
         private List<RomPath> Paths { get; set; }
 
         public string GetFileName()
