@@ -261,6 +261,20 @@ namespace EmulatorManager.Views
         private void ModifyEmulator_Click(object sender, EventArgs e)
         {
             Emulator selectedEmulator = ((EmulatorTreeNode)sender).Emulator;
+
+            using (EmulatorManagementWindow mNewEmulatorForm = new EmulatorManagementWindow())
+            {
+                var loadedEmulators = mLoadedEmulators.Select(f => f.Name).ToList();
+                mNewEmulatorForm.Initialize(loadedEmulators,selectedEmulator.Name,selectedEmulator.Path, selectedEmulator.Arguments);
+                mLogger.Info("ModifyEmulators clicked, displaying form");
+                if (mNewEmulatorForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    String name = mNewEmulatorForm.EmulatorName;
+                    String path = mNewEmulatorForm.EmulatorPath;
+                    String args = mNewEmulatorForm.EmulatorArgs;
+                    mConfigurationComponent.AddOrUpdateEmulator(name, path, args,selectedEmulator.Id);
+                }
+            }
         }
 
         private void HandleRootRightClick()
