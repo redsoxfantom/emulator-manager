@@ -260,7 +260,7 @@ namespace EmulatorManager.Views
 
         private void ModifyEmulator_Click(object sender, EventArgs e)
         {
-
+            Emulator selectedEmulator = ((EmulatorTreeNode)sender).Emulator;
         }
 
         private void HandleRootRightClick()
