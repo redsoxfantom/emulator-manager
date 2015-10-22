@@ -109,7 +109,7 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void modifyEmulators_Click(object sender, EventArgs e)
+        private void addNewEmulators_Click(object sender, EventArgs e)
         {
             using (AddNewEmulator mModifyEmulatorsForm = new AddNewEmulator())
             {
@@ -125,7 +125,7 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void modifyPaths_Click(object sender, EventArgs e)
+        private void addNewPaths_Click(object sender, EventArgs e)
         {
             if(mLoadedEmulators.Count == 0)
             {
@@ -248,7 +248,8 @@ namespace EmulatorManager.Views
 
         private void HandleEmulatorRightClick(EmulatorTreeNode selectedNode)
         {
-            
+            Emulator emu = selectedNode.Emulator;
+            mLogger.Info(String.Format("Handling emulator right click on emulator {0}", emu.ToString()));
         }
 
         private void HandleRootRightClick()
@@ -256,7 +257,7 @@ namespace EmulatorManager.Views
             mLogger.Debug("Handling root node right click");
             ContextMenuStrip ctxMenu = new ContextMenuStrip();
             ToolStripMenuItem newEmulator = new ToolStripMenuItem("Add New Emulator");
-            newEmulator.Click += modifyEmulators_Click;
+            newEmulator.Click += addNewEmulators_Click;
 
             ctxMenu.Items.Add(newEmulator);
             treeEmulatorView.ContextMenuStrip = ctxMenu;

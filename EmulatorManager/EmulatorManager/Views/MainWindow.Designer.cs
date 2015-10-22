@@ -99,14 +99,14 @@
             this.modfyEmulatorsToolStripMenuItem.Name = "modfyEmulatorsToolStripMenuItem";
             this.modfyEmulatorsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.modfyEmulatorsToolStripMenuItem.Text = "Modify Emulators";
-            this.modfyEmulatorsToolStripMenuItem.Click += new System.EventHandler(this.modifyEmulators_Click);
+            this.modfyEmulatorsToolStripMenuItem.Click += new System.EventHandler(this.addNewEmulators_Click);
             // 
             // modifyPathsToolStripMenuItem
             // 
             this.modifyPathsToolStripMenuItem.Name = "modifyPathsToolStripMenuItem";
             this.modifyPathsToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.modifyPathsToolStripMenuItem.Text = "Modify Paths";
-            this.modifyPathsToolStripMenuItem.Click += new System.EventHandler(this.modifyPaths_Click);
+            this.modifyPathsToolStripMenuItem.Click += new System.EventHandler(this.addNewPaths_Click);
             // 
             // treeEmulatorView
             // 
