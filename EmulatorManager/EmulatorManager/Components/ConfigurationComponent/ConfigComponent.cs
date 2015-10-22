@@ -63,7 +63,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             newEmu.Arguments = Args;
             mLogger.Info(String.Format("Adding new emulator {0}", newEmu.ToString()));
 
-            LoadedConfig.Emulators.Add(newEmu);
+            LoadedConfig.AddEmulator(newEmu);
 
             onLoadedConfigChanged();
         }
@@ -76,7 +76,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             newPath.RomExtension = Extension;
             mLogger.Info(String.Format("Adding new rom path {0}", newPath.ToString()));
 
-            LoadedConfig.Paths.Add(newPath);
+            LoadedConfig.AddPath(newPath);
 
             onLoadedConfigChanged();
         }
