@@ -227,6 +227,7 @@ namespace EmulatorManager.Views
                         HandleEmulatorRightClick();
                         break;
                     case 2: // path
+                        HandlePathRightClick();
                         break;
                 }
             }
@@ -235,6 +236,11 @@ namespace EmulatorManager.Views
         {
             mLogger.Info("TreeListView click - clearing menu");
             treeEmulatorView.ContextMenuStrip = new ContextMenuStrip();
+        }
+
+        private void HandlePathRightClick()
+        {
+
         }
 
         private void HandleEmulatorRightClick()
