@@ -231,6 +231,8 @@ namespace EmulatorManager.Views
                         HandlePathRightClick();
                         break;
                 }
+
+                treeEmulatorView.SelectedNode = e.Node;
             }
         }
         private void treeEmulatorView_ClearMenu(object sender, MouseEventArgs e)
