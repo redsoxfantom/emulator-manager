@@ -225,7 +225,7 @@ namespace EmulatorManager.Views
                         HandleRootRightClick();
                         break;
                     case 1: // emulator
-                        HandleEmulatorRightClick();
+                        HandleEmulatorRightClick((EmulatorTreeNode)e.Node);
                         break;
                     case 2: // path
                         HandlePathRightClick();
@@ -246,7 +246,7 @@ namespace EmulatorManager.Views
 
         }
 
-        private void HandleEmulatorRightClick()
+        private void HandleEmulatorRightClick(EmulatorTreeNode selectedNode)
         {
             
         }
