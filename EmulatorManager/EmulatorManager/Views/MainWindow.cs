@@ -252,9 +252,15 @@ namespace EmulatorManager.Views
             mLogger.Info(String.Format("Handling emulator right click on emulator {0}", emu.ToString()));
             ContextMenuStrip ctxMenu = new ContextMenuStrip();
             ToolStripMenuItem modifyEmulator = new ToolStripMenuItem(String.Format("Modify Emulator {0}",emu.Name));
+            modifyEmulator.Click += ModifyEmulator_Click;
 
             ctxMenu.Items.Add(modifyEmulator);
             treeEmulatorView.ContextMenuStrip = ctxMenu;
+        }
+
+        private void ModifyEmulator_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void HandleRootRightClick()
