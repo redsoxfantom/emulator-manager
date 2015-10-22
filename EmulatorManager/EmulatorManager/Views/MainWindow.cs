@@ -222,6 +222,7 @@ namespace EmulatorManager.Views
                 switch(selectedNode.Level)
                 {
                     case 0: // root
+                        HandleRootRightClick();
                         break;
                     case 1: // emulator
                         break;
@@ -229,6 +230,17 @@ namespace EmulatorManager.Views
                         break;
                 }
             }
+        }
+
+        private void HandleRootRightClick()
+        {
+            mLogger.Debug("Handling root node right click");
+            ContextMenuStrip ctxMenu = new ContextMenuStrip();
+            ToolStripMenuItem newEmulator = new ToolStripMenuItem("Add New Emulator");
+            newEmulator.Click += modifyEmulators_Click;
+
+            ctxMenu.Items.Add(newEmulator);
+            treeEmulatorView.ContextMenuStrip = ctxMenu;
         }
     }
 }
