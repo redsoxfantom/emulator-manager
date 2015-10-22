@@ -107,9 +107,16 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
         public void AddOrUpdateEmulator(Emulator emu, int idx = -1)
         {
-            emu.Id = currEmuId;
-            currEmuId++;
-            Emulators.Add(emu);
+            if (idx != -1)
+            {
+
+            }
+            else
+            {
+                emu.Id = currEmuId;
+                currEmuId++;
+                Emulators.Add(emu);
+            }
         }
 
         public void AddPath(RomPath path)
