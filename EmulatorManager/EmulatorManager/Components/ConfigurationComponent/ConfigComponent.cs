@@ -55,7 +55,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             onLoadedConfigChanged();
         }
 
-        public void AddOrUpdateEmulator(string Name, string Path, string Args)
+        public void AddOrUpdateEmulator(string Name, string Path, string Args, int idx = -1)
         {
             Emulator newEmu = new Emulator();
             newEmu.Name = Name;
