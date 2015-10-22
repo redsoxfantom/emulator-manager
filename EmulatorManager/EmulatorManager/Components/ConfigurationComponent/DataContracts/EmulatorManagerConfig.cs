@@ -108,5 +108,12 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             currEmuId++;
             Emulators.Add(emu);
         }
+
+        public void AddPath(RomPath path)
+        {
+            path.Id = currPathId;
+            currPathId++;
+            Paths.Add(path);
+        }
     }
 }
