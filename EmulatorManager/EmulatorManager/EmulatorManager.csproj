@@ -87,6 +87,8 @@
     <Compile Include="Views\AddNewPath.Designer.cs">
       <DependentUpon>AddNewPath.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TreeNodes\EmulatorTreeNode.cs" />
+    <Compile Include="Views\TreeNodes\PathTreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
