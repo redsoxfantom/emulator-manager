@@ -28,31 +28,32 @@ namespace EmulatorManager.Components.ExecutionComponent
             }
 
             mLogger.Info(String.Format("Executing emulator {0} with arguments {1}",cmd.ExecutionPath,cmd.ExecutionArguments));
-            using (Process emulator = new Process())
+            try
             {
-                try
-                {
-                    emulator.StartInfo.FileName = cmd.ExecutionPath;
-                    emulator.StartInfo.Arguments = cmd.ExecutionArguments;
-                    emulator.StartInfo.UseShellExecute = false;
-                    emulator.StartInfo.RedirectStandardOutput = true;
-                    emulator.StartInfo.RedirectStandardError = true;
-                    emulator.Start();
+                mProc.StartInfo.FileName = cmd.ExecutionPath;
+                mProc.StartInfo.Arguments = cmd.ExecutionArguments;
+                mProc.StartInfo.UseShellExecute = false;
+                mProc.StartInfo.RedirectStandardOutput = true;
+                mProc.StartInfo.RedirectStandardError = true;
+                mProc.Start();
 
-                    emulator.WaitForExit();
+                mProc.WaitForExit();
 
-                    String stdOut = emulator.StandardOutput.ReadToEnd();
-                    String stdErr = emulator.StandardError.ReadToEnd();
-                    mLogger.Info(String.Format("Emulator exited. StdOut:\n{0}", stdOut));
-                    if(!String.IsNullOrEmpty(stdErr))
-                    {
-                        mLogger.Error(String.Format("Emulator exited with errors. StdErr:\n{0}",stdErr));
-                    }
-                }
-                catch(Exception ex)
+                String stdOut = mProc.StandardOutput.ReadToEnd();
+                String stdErr = mProc.StandardError.ReadToEnd();
+                mLogger.Info(String.Format("mProc exited. StdOut:\n{0}", stdOut));
+                if(!String.IsNullOrEmpty(stdErr))
                 {
-                    mLogger.Error("Failed to execute emulator process", ex);
+                    mLogger.Error(String.Format("mProc exited with errors. StdErr:\n{0}",stdErr));
                 }
+            }
+            catch(Exception ex)
+            {
+                mLogger.Error("Failed to execute mProc process", ex);
+            }
+            finally
+            {
+                mProc.Dispose();
             }
         }
 
