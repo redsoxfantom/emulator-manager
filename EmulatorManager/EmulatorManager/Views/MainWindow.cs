@@ -20,6 +20,8 @@ using EmulatorManager.Views.TreeNodes;
 
 namespace EmulatorManager.Views
 {
+    //https://www.launchbox-app.com/forum/emulation/command-line-parameters-arguments
+
     public partial class MainWindow : Form
     {
         private ILog mLogger;
