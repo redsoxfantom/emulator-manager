@@ -68,6 +68,13 @@ namespace EmulatorManager.Components.ConfigurationManager
             onLoadedConfigChanged();
         }
 
+        public void RemoveRomPath(int idx)
+        {
+            mLoadedConfig.RemovePath(idx);
+
+            onLoadedConfigChanged();
+        }
+
         public void AddRomPath(string Path, string AssociatedEmulator, string Extension)
         {
             RomPath newPath = new RomPath();

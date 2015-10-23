@@ -128,6 +128,12 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             Paths.Add(path);
         }
 
+        public void RemovePath(int id)
+        {
+            RomPath pathToRemove = GetPathById(id);
+            Paths.Remove(pathToRemove);
+        }
+
         public IReadOnlyList<Emulator> GetLoadedEmulators()
         {
             return Emulators.ToList().AsReadOnly();
