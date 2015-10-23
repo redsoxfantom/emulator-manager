@@ -73,7 +73,13 @@ namespace EmulatorManager.Views
 
         private void processConfig()
         {
-            managerConfigToolStripMenuItem.Text = mConfigFileName;
+            string managerMenuItemText = mConfigFileName;
+            if(mConfigIsDirty)
+            {
+                managerMenuItemText += " *";
+            }
+
+            managerConfigToolStripMenuItem.Text = managerMenuItemText;
 
             redrawTreeView();
         }
