@@ -101,7 +101,7 @@ namespace EmulatorManager.Views
                     List<String> resolvedFiles = mPathResolver.ResolvePaths(path.FolderPath,path.RomExtension);
                     foreach(String file in resolvedFiles)
                     {
-                        emulatorNode.Nodes.Add(file);
+                        emulatorNode.Nodes.Add(new PathTreeNode(file,path));
                     }
                 }
 
