@@ -361,5 +361,9 @@ namespace EmulatorManager.Views
             treeEmulatorView.ContextMenuStrip = ctxMenu;
         }
 
+        private void MainWindow_OnClose(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }
