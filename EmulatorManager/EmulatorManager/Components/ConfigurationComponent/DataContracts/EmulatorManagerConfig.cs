@@ -15,6 +15,8 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
         /// </summary>
         private string mFileName;
 
+        private bool isDirty;
+
         private int currEmuId;
 
         private int currPathId;
@@ -66,6 +68,8 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             {
                 currPathId = 0;
             }
+
+            isDirty = false;
         }
 
         public override string ToString()
@@ -145,6 +149,11 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
                 RemovePath(path.Id);
             }
 
+        }
+
+        public bool GetIsDirty()
+        {
+            return isDirty;
         }
 
         public IReadOnlyList<Emulator> GetLoadedEmulators()
