@@ -253,7 +253,9 @@ namespace EmulatorManager.Views
 
         private void deletePath_Click(RomPath romPath, object p)
         {
-
+            List<String> PathsThatWillBeDeleted = mPathResolver.ResolvePaths(romPath.FolderPath, romPath.RomExtension);
+            String joinedPaths = String.Join("\n", PathsThatWillBeDeleted.ToArray());
+            MessageBox.Show(this, String.Format("WARNING: The following Roms will no longer be available to the emulator manager:\n{0}", joinedPaths), "Info");
         }
 
         private void HandleEmulatorRightClick(EmulatorTreeNode selectedNode)
