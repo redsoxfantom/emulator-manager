@@ -134,6 +134,19 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             Paths.Remove(pathToRemove);
         }
 
+        public void RemoveEmulator(int id)
+        {
+            Emulator emuToRemove = GetEmulatorById(id);
+            Emulators.Remove(emuToRemove);
+
+            var PathsToRemove = Paths.Where(f => f.AssociatedEmulator == emuToRemove.Name).ToList();
+            foreach(RomPath path in PathsToRemove)
+            {
+                RemovePath(path.Id);
+            }
+
+        }
+
         public IReadOnlyList<Emulator> GetLoadedEmulators()
         {
             return Emulators.ToList().AsReadOnly();
