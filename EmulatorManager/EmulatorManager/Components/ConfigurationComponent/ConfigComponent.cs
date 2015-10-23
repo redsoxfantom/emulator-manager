@@ -44,6 +44,8 @@ namespace EmulatorManager.Components.ConfigurationManager
         {
             mLogger.Info("Initializing Manager with no parameters");
             mLoadedConfig = new EmulatorManagerConfig();
+            mLoadedConfig.Initialize();
+
             onLoadedConfigChanged();
         }
 
