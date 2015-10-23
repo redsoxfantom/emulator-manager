@@ -243,6 +243,16 @@ namespace EmulatorManager.Views
 
         private void HandlePathRightClick(PathTreeNode node)
         {
+            ContextMenuStrip ctxMenu = new ContextMenuStrip();
+            ToolStripMenuItem deletePath = new ToolStripMenuItem("Delete Path");
+            deletePath.Click += (sender, args) => deletePath_Click(node.RomPath, null);
+
+            ctxMenu.Items.Add(deletePath);
+            treeEmulatorView.ContextMenuStrip = ctxMenu;
+        }
+
+        private void deletePath_Click(RomPath romPath, object p)
+        {
 
         }
 
