@@ -340,8 +340,11 @@ namespace EmulatorManager.Views
             ContextMenuStrip ctxMenu = new ContextMenuStrip();
             ToolStripMenuItem newEmulator = new ToolStripMenuItem("Add New Emulator");
             newEmulator.Click += addNewEmulators_Click;
+            ToolStripMenuItem newPath = new ToolStripMenuItem("Add New Path");
+            newPath.Click += addNewPaths_Click;
 
             ctxMenu.Items.Add(newEmulator);
+            ctxMenu.Items.Add(newPath);
             treeEmulatorView.ContextMenuStrip = ctxMenu;
         }
 
