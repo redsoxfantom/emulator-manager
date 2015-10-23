@@ -251,9 +251,9 @@ namespace EmulatorManager.Views
             Emulator emu = selectedNode.Emulator;
             mLogger.Info(String.Format("Handling emulator right click on emulator {0}", emu.ToString()));
             ContextMenuStrip ctxMenu = new ContextMenuStrip();
-            ToolStripMenuItem modifyEmulator = new ToolStripMenuItem(String.Format("Modify Emulator {0}",emu.Name));
+            ToolStripMenuItem modifyEmulator = new ToolStripMenuItem(String.Format("Modify {0}",emu.Name));
             modifyEmulator.Click += (sender, args) => ModifyEmulator_Click(selectedNode, null);
-            ToolStripMenuItem addNewPath = new ToolStripMenuItem(String.Format("Add New Rom Path To Emulator {0}", emu.Name));
+            ToolStripMenuItem addNewPath = new ToolStripMenuItem(String.Format("Add New Rom Path To {0}", emu.Name));
             addNewPath.Click += (sender, args) => AddNewPathToEmulator_Click(selectedNode, null);
 
             ctxMenu.Items.Add(modifyEmulator);
