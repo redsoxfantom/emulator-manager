@@ -57,7 +57,7 @@ namespace EmulatorManager.Components.ExecutionComponent
                 }
                 finally
                 {
-                    mProc.Dispose();
+                    mProc.Close();
                 }
             });
             
@@ -65,7 +65,14 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public bool EmulatorIsRunning()
         {
-            return !mProc.HasExited;
+            try
+            {
+                return !mProc.HasExited;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
 
         public void TerminateCurrentProcess()
@@ -73,7 +80,7 @@ namespace EmulatorManager.Components.ExecutionComponent
             try
             {
                 mProc.Kill();
-                mProc.Dispose();
+                mProc.Close();
             }
             catch(Exception ex)
             {

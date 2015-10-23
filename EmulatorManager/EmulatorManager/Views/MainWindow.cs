@@ -207,7 +207,7 @@ namespace EmulatorManager.Views
             else
             {
                 string err = "You must select a Path to run before starting an emulator";
-                mLogger.Info(err);
+                mLogger.Error(err);
                 MessageBox.Show(this, err, "ERROR");
             }
         }
