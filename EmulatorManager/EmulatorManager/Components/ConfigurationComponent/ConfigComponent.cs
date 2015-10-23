@@ -70,9 +70,15 @@ namespace EmulatorManager.Components.ConfigurationManager
 
         public void RemoveRomPath(int idx)
         {
+            mLogger.Info(String.Format("Deleting rompath {0}", idx));
             mLoadedConfig.RemovePath(idx);
 
             onLoadedConfigChanged();
+        }
+
+        public void RemoveEmulator(int idx)
+        {
+
         }
 
         public void AddRomPath(string Path, string AssociatedEmulator, string Extension)
