@@ -276,10 +276,18 @@ namespace EmulatorManager.Views
             modifyEmulator.Click += (sender, args) => ModifyEmulator_Click(selectedNode, null);
             ToolStripMenuItem addNewPath = new ToolStripMenuItem(String.Format("Add New Rom Path To {0}", emu.Name));
             addNewPath.Click += (sender, args) => AddNewPathToEmulator_Click(selectedNode, null);
+            ToolStripMenuItem deleteEmulator = new ToolStripMenuItem(String.Format("Delete {0}", emu.Name));
+            deleteEmulator.Click += (sender, args) => DeleteEmulator_Click(selectedNode.Emulator, null);
 
             ctxMenu.Items.Add(modifyEmulator);
             ctxMenu.Items.Add(addNewPath);
+            ctxMenu.Items.Add(deleteEmulator);
             treeEmulatorView.ContextMenuStrip = ctxMenu;
+        }
+
+        private void DeleteEmulator_Click(Emulator emulator, object p)
+        {
+            throw new NotImplementedException();
         }
 
         private void AddNewPathToEmulator_Click(EmulatorTreeNode selectedNode, object p)
