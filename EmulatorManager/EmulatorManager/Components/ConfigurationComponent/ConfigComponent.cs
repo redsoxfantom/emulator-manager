@@ -108,6 +108,7 @@ namespace EmulatorManager.Components.ConfigurationManager
                 FileManager.SaveObject(mLoadedConfig, path);
                 String fileName = Path.GetFileName(path);
                 mLoadedConfig.SetFileName(fileName);
+                mLoadedConfig.ResetDirtyFlag();
 
                 onLoadedConfigChanged();
                 mLogger.Info("Successfully saved configuration");

@@ -163,6 +163,11 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             return isDirty;
         }
 
+        public bool ResetDirtyFlag()
+        {
+            isDirty = false;
+        }
+
         public IReadOnlyList<Emulator> GetLoadedEmulators()
         {
             return Emulators.ToList().AsReadOnly();
