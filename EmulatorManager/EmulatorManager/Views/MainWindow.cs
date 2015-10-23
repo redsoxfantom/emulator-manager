@@ -263,7 +263,20 @@ namespace EmulatorManager.Views
 
         private void AddNewPathToEmulator_Click(EmulatorTreeNode selectedNode, object p)
         {
-            throw new NotImplementedException();
+            Emulator selectedEmulator = selectedNode.Emulator;
+            
+            using (RomPathManagementWindow mModifyPathsForm = new RomPathManagementWindow())
+            {
+                var loadedEmulators = mLoadedEmulators.Select(f => f.Name).ToArray();
+                mModifyPathsForm.Initialize(loadedEmulators);
+                if (mModifyPathsForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    String path = mModifyPathsForm.RomPath;
+                    String associatedEmulator = mModifyPathsForm.EmulatorToUse;
+                    String extension = mModifyPathsForm.EmulatorExtension;
+                    mConfigurationComponent.AddRomPath(path, associatedEmulator, extension);
+                }
+            }
         }
 
         private void ModifyEmulator_Click(object sender, EventArgs e)
