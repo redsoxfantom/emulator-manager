@@ -73,13 +73,7 @@ namespace EmulatorManager.Views
 
         private void processConfig()
         {
-            string managerMenuItemText = mConfigFileName;
-            if(mConfigIsDirty)
-            {
-                managerMenuItemText += " *";
-            }
-
-            managerConfigToolStripMenuItem.Text = managerMenuItemText;
+            managerConfigToolStripMenuItem.Text = getConfigFilename();
 
             redrawTreeView();
         }
@@ -94,10 +88,22 @@ namespace EmulatorManager.Views
             processConfig();
         }
 
+        private string getConfigFilename()
+        {
+            // return the filename of the loaded config, adding a * if it is dirty
+            string configFileName = mConfigFileName;
+            if (mConfigIsDirty)
+            {
+                configFileName += " *";
+            }
+
+            return configFileName;
+        }
+
         private void redrawTreeView()
         {
             treeEmulatorView.Nodes.Clear();
-            treeEmulatorView.Nodes.Add(mConfigFileName);
+            treeEmulatorView.Nodes.Add(getConfigFilename());
             TreeNode rootNode = treeEmulatorView.Nodes[0];
             
             foreach(Emulator emu in mLoadedEmulators)
