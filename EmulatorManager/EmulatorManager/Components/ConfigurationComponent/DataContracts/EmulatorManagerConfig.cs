@@ -123,6 +123,8 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
                 currEmuId++;
                 Emulators.Add(emu);
             }
+
+            isDirty = true;
         }
 
         public void AddPath(RomPath path)
@@ -130,12 +132,16 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             path.Id = currPathId;
             currPathId++;
             Paths.Add(path);
+
+            isDirty = true;
         }
 
         public void RemovePath(int id)
         {
             RomPath pathToRemove = GetPathById(id);
             Paths.Remove(pathToRemove);
+
+            isDirty = true;
         }
 
         public void RemoveEmulator(int id)
@@ -149,6 +155,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
                 RemovePath(path.Id);
             }
 
+            isDirty = true;
         }
 
         public bool GetIsDirty()
