@@ -69,7 +69,7 @@ namespace EmulatorManager.Components.ExecutionComponent
             {
                 return !mProc.HasExited;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return false;
             }
