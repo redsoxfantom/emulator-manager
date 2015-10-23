@@ -191,13 +191,24 @@ namespace EmulatorManager.Views
         {
             if(CurrentCommand.IsValidCommand)
             {
-                String command = CurrentCommand.ToString();
-                mLogger.Info(String.Format("Attempting to execute command {0}", command));
-                mExecutionComponent.ExecuteCommand(CurrentCommand);
+                if (!mExecutionComponent.EmulatorIsRunning())
+                {
+                    String command = CurrentCommand.ToString();
+                    mLogger.Info(String.Format("Attempting to execute command {0}", command));
+                    mExecutionComponent.ExecuteCommand(CurrentCommand);
+                }
+                else
+                {
+                    string err = "Can't start another emulation when one is already running!";
+                    mLogger.Error(err);
+                    MessageBox.Show(this, err, "ERROR");
+                }
             }
             else
             {
-                mLogger.Info("No Path selected");
+                string err = "You must select a Path to run before starting an emulator";
+                mLogger.Info(err);
+                MessageBox.Show(this, err, "ERROR");
             }
         }
 
