@@ -56,15 +56,17 @@ namespace EmulatorManager.Components.ExecutionComponent
             }
         }
 
-        public bool TerminateCurrentProcess()
+        public void TerminateCurrentProcess()
         {
-            if(mProc.HasExited)
+            try
             {
-                mLogger.Error("Cannot exit a process that has already ended");
-                return false;
+                mProc.Kill();
+                mProc.Dispose();
             }
-
-            return true;
+            catch(Exception ex)
+            {
+                mLogger.Error("Cannot kill the emulator process: it's either already dead or never been started");
+            }
         }
     }
 }
