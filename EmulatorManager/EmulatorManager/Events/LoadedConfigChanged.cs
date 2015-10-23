@@ -18,11 +18,14 @@ namespace EmulatorManager.Events
 
         public IReadOnlyList<RomPath> LoadedPaths { get; private set; }
 
+        public bool ConfigIsDirty { get; private set; }
+
         public LoadedConfigChangedArgs(EmulatorManagerConfig newConfig)
         {
             FileName = newConfig.GetFileName();
             LoadedEmulators = newConfig.GetLoadedEmulators();
             LoadedPaths = newConfig.GetLoadedRomPaths();
+            ConfigIsDirty = newConfig.GetIsDirty();
         }
     }
 }
