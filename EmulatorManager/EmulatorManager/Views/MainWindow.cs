@@ -259,6 +259,11 @@ namespace EmulatorManager.Views
                                 String.Format("WARNING: The following Roms will no longer be available to the emulator manager:\n{0}", joinedPaths), 
                                 "Info",
                                 MessageBoxButtons.OKCancel);
+
+            if(res == DialogResult.OK)
+            {
+
+            }
         }
 
         private void HandleEmulatorRightClick(EmulatorTreeNode selectedNode)
