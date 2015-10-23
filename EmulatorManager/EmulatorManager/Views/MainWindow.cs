@@ -243,6 +243,7 @@ namespace EmulatorManager.Views
 
         private void HandlePathRightClick(PathTreeNode node)
         {
+            mLogger.Info("Handling path right click");
             ContextMenuStrip ctxMenu = new ContextMenuStrip();
             ToolStripMenuItem deletePath = new ToolStripMenuItem("Delete Path");
             deletePath.Click += (sender, args) => deletePath_Click(node.RomPath, null);
@@ -316,7 +317,6 @@ namespace EmulatorManager.Views
                 var loadedEmulators = mLoadedEmulators.Select(f => f.Name).ToList();
                 loadedEmulators.Remove(selectedEmulator.Name); // Allow the user to use this emulator's name again
                 mNewEmulatorForm.Initialize(loadedEmulators,selectedEmulator.Name,selectedEmulator.Path, selectedEmulator.Arguments);
-                mLogger.Info("ModifyEmulators clicked, displaying form");
                 if (mNewEmulatorForm.ShowDialog(this) == DialogResult.OK)
                 {
                     String name = mNewEmulatorForm.EmulatorName;
