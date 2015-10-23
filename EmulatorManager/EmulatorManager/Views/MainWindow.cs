@@ -288,7 +288,14 @@ namespace EmulatorManager.Views
 
         private void DeleteEmulator_Click(Emulator emulator, object p)
         {
-            throw new NotImplementedException();
+            String warning = String.Format("Are you sure you want to remove {0} from the emulator manager?", emulator.Name);
+            DialogResult res = MessageBox.Show(this, warning, "CAUTION",MessageBoxButtons.OKCancel);
+
+            if(res == DialogResult.OK)
+            {
+                mLogger.Info(String.Format("Removing emulator {0}", emulator.Name));
+                mConfigurationComponent.RemoveEmulator(emulator.Id);
+            }
         }
 
         private void AddNewPathToEmulator_Click(EmulatorTreeNode selectedNode, object p)
