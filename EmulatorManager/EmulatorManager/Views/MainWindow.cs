@@ -73,8 +73,6 @@ namespace EmulatorManager.Views
 
         private void processConfig()
         {
-            managerConfigToolStripMenuItem.Text = getConfigFilename();
-
             redrawTreeView();
         }
 
