@@ -28,33 +28,39 @@ namespace EmulatorManager.Components.ExecutionComponent
             }
 
             mLogger.Info(String.Format("Executing emulator {0} with arguments {1}",cmd.ExecutionPath,cmd.ExecutionArguments));
-            try
-            {
-                mProc.StartInfo.FileName = cmd.ExecutionPath;
-                mProc.StartInfo.Arguments = cmd.ExecutionArguments;
-                mProc.StartInfo.UseShellExecute = false;
-                mProc.StartInfo.RedirectStandardOutput = true;
-                mProc.StartInfo.RedirectStandardError = true;
-                mProc.Start();
+            
+            mProc.StartInfo.FileName = cmd.ExecutionPath;
+            mProc.StartInfo.Arguments = cmd.ExecutionArguments;
+            mProc.StartInfo.UseShellExecute = false;
+            mProc.StartInfo.RedirectStandardOutput = true;
+            mProc.StartInfo.RedirectStandardError = true;
 
-                mProc.WaitForExit();
+            Task.Factory.StartNew(()=> {
 
-                String stdOut = mProc.StandardOutput.ReadToEnd();
-                String stdErr = mProc.StandardError.ReadToEnd();
-                mLogger.Info(String.Format("mProc exited. StdOut:\n{0}", stdOut));
-                if(!String.IsNullOrEmpty(stdErr))
+                try
                 {
-                    mLogger.Error(String.Format("mProc exited with errors. StdErr:\n{0}",stdErr));
+                    mProc.Start();
+
+                    mProc.WaitForExit();
+
+                    String stdOut = mProc.StandardOutput.ReadToEnd();
+                    String stdErr = mProc.StandardError.ReadToEnd();
+                    mLogger.Info(String.Format("mProc exited. StdOut:\n{0}", stdOut));
+                    if (!String.IsNullOrEmpty(stdErr))
+                    {
+                        mLogger.Error(String.Format("mProc exited with errors. StdErr:\n{0}", stdErr));
+                    }
                 }
-            }
-            catch(Exception ex)
-            {
-                mLogger.Error("Failed to execute mProc process", ex);
-            }
-            finally
-            {
-                mProc.Dispose();
-            }
+                catch(Exception ex)
+                {
+                    mLogger.Error("Failed to start emulator", ex);
+                }
+                finally
+                {
+                    mProc.Dispose();
+                }
+            });
+            
         }
 
         public void TerminateCurrentProcess()
