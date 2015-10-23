@@ -265,6 +265,7 @@ namespace EmulatorManager.Views
             using (EmulatorManagementWindow mNewEmulatorForm = new EmulatorManagementWindow())
             {
                 var loadedEmulators = mLoadedEmulators.Select(f => f.Name).ToList();
+                loadedEmulators.Remove(selectedEmulator.Name); // Allow the user to use this emulator's name again
                 mNewEmulatorForm.Initialize(loadedEmulators,selectedEmulator.Name,selectedEmulator.Path, selectedEmulator.Arguments);
                 mLogger.Info("ModifyEmulators clicked, displaying form");
                 if (mNewEmulatorForm.ShowDialog(this) == DialogResult.OK)
