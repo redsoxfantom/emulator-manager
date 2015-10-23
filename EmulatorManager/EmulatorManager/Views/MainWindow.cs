@@ -34,6 +34,8 @@ namespace EmulatorManager.Views
 
         private bool mConfigIsDirty;
 
+        private bool shouldKillEmulator;
+
         private IReadOnlyList<Emulator> mLoadedEmulators;
 
         private IReadOnlyList<RomPath> mLoadedPaths;
@@ -62,7 +64,7 @@ namespace EmulatorManager.Views
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
             CurrentCommand = new Command();
-
+            shouldKillEmulator = false;
         }
 
         public void Initialize()
@@ -195,6 +197,7 @@ namespace EmulatorManager.Views
                 String command = CurrentCommand.ToString();
                 mLogger.Info(String.Format("Attempting to execute command {0}", command));
                 mExecutionComponent.ExecuteCommand(CurrentCommand);
+                btnExecuteEmulator.Text = "Kill Current Emulator";
             }
             else
             {
