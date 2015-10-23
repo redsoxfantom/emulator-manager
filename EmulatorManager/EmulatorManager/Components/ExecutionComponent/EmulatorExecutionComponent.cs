@@ -12,10 +12,12 @@ namespace EmulatorManager.Components.ExecutionComponent
     {
         private ILog mLogger;
 
+        private Process mProc;
+
         public EmulatorExecutionComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
-
+            mProc = new Process();
         }
 
         public void ExecuteCommand(Command cmd)
@@ -52,6 +54,17 @@ namespace EmulatorManager.Components.ExecutionComponent
                     mLogger.Error("Failed to execute emulator process", ex);
                 }
             }
+        }
+
+        public bool TerminateCurrentProcess()
+        {
+            if(mProc.HasExited)
+            {
+                mLogger.Error("Cannot exit a process that has already ended");
+                return false;
+            }
+
+            return true;
         }
     }
 }
