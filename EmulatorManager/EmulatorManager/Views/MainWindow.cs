@@ -228,7 +228,7 @@ namespace EmulatorManager.Views
                         HandleEmulatorRightClick((EmulatorTreeNode)e.Node);
                         break;
                     case 2: // path
-                        HandlePathRightClick();
+                        HandlePathRightClick((PathTreeNode)e.Node);
                         break;
                 }
 
@@ -241,7 +241,7 @@ namespace EmulatorManager.Views
             treeEmulatorView.ContextMenuStrip = new ContextMenuStrip();
         }
 
-        private void HandlePathRightClick()
+        private void HandlePathRightClick(PathTreeNode node)
         {
 
         }
