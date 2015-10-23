@@ -167,6 +167,11 @@ namespace EmulatorManager.Views
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveCurrentConfig();
+        }
+
+        private void saveCurrentConfig()
+        {
             String SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
             if(SavePath != null)
             {
@@ -363,7 +368,14 @@ namespace EmulatorManager.Views
 
         private void MainWindow_OnClose(object sender, FormClosingEventArgs e)
         {
-
+            if(mConfigIsDirty)
+            {
+                DialogResult res = MessageBox.Show(this, "Would you like to save the currently loaded manager config?", "Info", MessageBoxButtons.YesNo);
+                if(res == DialogResult.Yes)
+                {
+                    saveCurrentConfig();
+                }
+            }
         }
     }
 }
