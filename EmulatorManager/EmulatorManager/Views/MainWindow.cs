@@ -262,7 +262,7 @@ namespace EmulatorManager.Views
 
             if(res == DialogResult.OK)
             {
-
+                mLogger.Info(String.Format("Deleting path {0}", romPath.FolderPath));
             }
         }
 
