@@ -32,6 +32,8 @@ namespace EmulatorManager.Views
 
         private String mConfigFileName;
 
+        private bool mConfigIsDirty;
+
         private IReadOnlyList<Emulator> mLoadedEmulators;
 
         private IReadOnlyList<RomPath> mLoadedPaths;
@@ -81,6 +83,7 @@ namespace EmulatorManager.Views
             mConfigFileName = args.FileName;
             mLoadedEmulators = args.LoadedEmulators;
             mLoadedPaths = args.LoadedPaths;
+            mConfigIsDirty = args.ConfigIsDirty;
 
             processConfig();
         }
