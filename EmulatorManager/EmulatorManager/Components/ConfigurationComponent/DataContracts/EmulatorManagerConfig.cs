@@ -163,7 +163,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
             return isDirty;
         }
 
-        public bool ResetDirtyFlag()
+        public void ResetDirtyFlag()
         {
             isDirty = false;
         }
