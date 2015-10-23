@@ -258,7 +258,7 @@ namespace EmulatorManager.Views
             String joinedPaths = String.Join("\n", PathsThatWillBeDeleted.ToArray());
             DialogResult res = MessageBox.Show(this, 
                                 String.Format("WARNING: The following Roms will no longer be available to the emulator manager:\n{0}", joinedPaths), 
-                                "Info",
+                                "CAUTION",
                                 MessageBoxButtons.OKCancel);
 
             if(res == DialogResult.OK)
