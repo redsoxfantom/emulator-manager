@@ -34,6 +34,13 @@ namespace EmulatorManager.Views
             cbxSelectedEmulator.Items.AddRange(LoadedEmulators);
         }
 
+        public void Initialize(String selectedEmulator)
+        {
+            cbxSelectedEmulator.Items.Add(selectedEmulator);
+            cbxSelectedEmulator.SelectedItem = selectedEmulator;
+            cbxSelectedEmulator.Enabled = false;
+        }
+
         private void btnBrowse_Click(object sender, EventArgs e)
         {
             string Path = FileManager.PickFolderToLoad();

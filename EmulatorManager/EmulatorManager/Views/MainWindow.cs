@@ -267,8 +267,7 @@ namespace EmulatorManager.Views
             
             using (RomPathManagementWindow mModifyPathsForm = new RomPathManagementWindow())
             {
-                var loadedEmulators = mLoadedEmulators.Select(f => f.Name).ToArray();
-                mModifyPathsForm.Initialize(loadedEmulators);
+                mModifyPathsForm.Initialize(selectedEmulator.Name);
                 if (mModifyPathsForm.ShowDialog(this) == DialogResult.OK)
                 {
                     String path = mModifyPathsForm.RomPath;
