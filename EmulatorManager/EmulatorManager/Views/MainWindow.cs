@@ -34,8 +34,6 @@ namespace EmulatorManager.Views
 
         private bool mConfigIsDirty;
 
-        private bool shouldKillEmulator;
-
         private IReadOnlyList<Emulator> mLoadedEmulators;
 
         private IReadOnlyList<RomPath> mLoadedPaths;
@@ -64,7 +62,6 @@ namespace EmulatorManager.Views
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
             CurrentCommand = new Command();
-            shouldKillEmulator = false;
         }
 
         public void Initialize()
