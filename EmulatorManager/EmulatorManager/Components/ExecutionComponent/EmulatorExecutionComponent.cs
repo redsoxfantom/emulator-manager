@@ -63,6 +63,11 @@ namespace EmulatorManager.Components.ExecutionComponent
             
         }
 
+        public bool EmulatorIsRunning()
+        {
+            return !mProc.HasExited;
+        }
+
         public void TerminateCurrentProcess()
         {
             try
