@@ -43,6 +43,7 @@ namespace EmulatorManager.Components.ExecutionComponent
                 try
                 {
                     mProc.Start();
+                    onExecutionStateChanged(ExecutionState.RUNNING);
 
                     mProc.WaitForExit();
 
@@ -53,6 +54,7 @@ namespace EmulatorManager.Components.ExecutionComponent
                     {
                         mLogger.Error(String.Format("mProc exited with errors. StdErr:\n{0}", stdErr));
                     }
+                    onExecutionStateChanged(ExecutionState.TERMINATED);
                 }
                 catch(Exception ex)
                 {
@@ -84,6 +86,7 @@ namespace EmulatorManager.Components.ExecutionComponent
             {
                 mProc.Kill();
                 mProc.Close();
+                onExecutionStateChanged(ExecutionState.TERMINATED);
             }
             catch(Exception ex)
             {
