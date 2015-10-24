@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using EmulatorManager.Events;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,6 +14,8 @@ namespace EmulatorManager.Components.ExecutionComponent
         private ILog mLogger;
 
         private Process mProc;
+
+        public event ExecutionStateChanged ExecutionStateChangeHandler;
 
         public EmulatorExecutionComponent()
         {
@@ -85,6 +88,15 @@ namespace EmulatorManager.Components.ExecutionComponent
             catch(Exception ex)
             {
                 mLogger.Error("Cannot kill the emulator process: it's either already dead or never been started");
+            }
+        }
+
+        private void onExecutionStateChanged(ExecutionState newState)
+        {
+            if(ExecutionStateChangeHandler != null)
+            {
+                ExecutionStateChangedEventArgs args = new ExecutionStateChangedEventArgs(newState);
+                ExecutionStateChangeHandler(args);
             }
         }
     }
