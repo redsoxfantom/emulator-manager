@@ -210,7 +210,7 @@ namespace EmulatorManager.Views
                 {
                     String command = CurrentCommand.ToString();
                     mLogger.Info(String.Format("Attempting to execute command {0}", command));
-                    mExecutionComponent.ExecuteCommand(CurrentCommand);
+                    mExecutionComponent.BeginEmulator(CurrentCommand);
                 }
                 else
                 {
@@ -222,7 +222,7 @@ namespace EmulatorManager.Views
             else
             {
                 mLogger.Info("Emulator is running, attempting to terminate");
-                mExecutionComponent.TerminateCurrentProcess();
+                mExecutionComponent.TerminateEmulator();
             }
         }
 

@@ -23,7 +23,7 @@ namespace EmulatorManager.Components.ExecutionComponent
             mProc = new Process();
         }
 
-        public void ExecuteCommand(Command cmd)
+        public void BeginEmulator(Command cmd)
         {
             if (!cmd.IsValidCommand)
             {
@@ -81,7 +81,7 @@ namespace EmulatorManager.Components.ExecutionComponent
             }
         }
 
-        public void TerminateCurrentProcess()
+        public void TerminateEmulator()
         {
             try
             {
