@@ -75,14 +75,15 @@ namespace RomFileReader
         private string printCommandsAndWaitForInput()
         {
             Console.WriteLine("Enter Command:");
-            Console.WriteLine(" (e)xit: Terminate the program");
-            Console.WriteLine(" (c)ontinue: Read in the next chunk");
+            Console.WriteLine("(e)xit: Terminate the program");
+            Console.WriteLine("(c)ontinue: Read in the next chunk");
 
             string input = "";
             while(String.IsNullOrEmpty(input))
             {
                 input = Console.ReadLine();
             }
+            Console.WriteLine();
             return input;
         }
 
