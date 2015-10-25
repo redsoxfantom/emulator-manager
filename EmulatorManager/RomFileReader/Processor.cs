@@ -100,10 +100,14 @@ namespace RomFileReader
         private void SaveToFile()
         {
             String saveFileName = mRomFileName + ".txt";
+            List<string> fileContents = new List<string>();
 
             for(int i = 0; i < fileBuffer.Count; i+=mChunkSize)
             {
+                StringBuilder bldr = new StringBuilder();
                 byte[] tmyArray = fileBuffer.GetRange(i, mChunkSize).ToArray();
+
+                string hexString = BitConverter.ToString(tmyArray);
             }
         }
 
