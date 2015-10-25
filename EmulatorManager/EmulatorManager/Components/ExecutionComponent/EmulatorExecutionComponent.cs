@@ -39,15 +39,14 @@ namespace EmulatorManager.Components.ExecutionComponent
             mProc.StartInfo.RedirectStandardError = true;
 
             Task.Factory.StartNew(()=> {
-
                 try
                 {
                     mProc.StartInfo.UseShellExecute = false;
                     mProc.StartInfo.RedirectStandardOutput = true;
                     mProc.StartInfo.RedirectStandardError = true;
 
-                    mProc.Start();
                     onExecutionStateChanged(ExecutionState.RUNNING);
+                    mProc.Start();
 
                     mProc.WaitForExit();
                     onExecutionStateChanged(ExecutionState.TERMINATED);
