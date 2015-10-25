@@ -50,16 +50,16 @@ namespace EmulatorManager.Components.ExecutionComponent
                     onExecutionStateChanged(ExecutionState.RUNNING);
 
                     mProc.WaitForExit();
+                    onExecutionStateChanged(ExecutionState.TERMINATED);
 
-                    mProc.Close();
                     String stdOut = mProc.StandardOutput.ReadToEnd();
                     String stdErr = mProc.StandardError.ReadToEnd();
+                    mProc.Close();
                     mLogger.Info(String.Format("mProc exited. StdOut:\n{0}", stdOut));
                     if (!String.IsNullOrEmpty(stdErr))
                     {
                         mLogger.Error(String.Format("mProc exited with errors. StdErr:\n{0}", stdErr));
                     }
-                    onExecutionStateChanged(ExecutionState.TERMINATED);
                 }
                 catch(Exception ex)
                 {
