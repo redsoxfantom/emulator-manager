@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\ExecutionComponent\Command.cs" />
+    <Compile Include="Components\GameDataComponent\RomDataComponent.cs" />
     <Compile Include="Components\PathComponent\PathResolverComponent.cs" />
     <Compile Include="Events\ExecutionStateChanged.cs" />
     <Compile Include="Events\LoadedConfigChanged.cs" />
