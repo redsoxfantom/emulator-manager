@@ -221,9 +221,8 @@ namespace EmulatorManager.Views
             }
             else
             {
-                string err = "Can't start another emulation when one is already running!";
-                mLogger.Error(err);
-                MessageBox.Show(this, err, "ERROR");
+                mLogger.Info("Emulator is running, attempting to terminate");
+                mExecutionComponent.TerminateCurrentProcess();
             }
         }
 
