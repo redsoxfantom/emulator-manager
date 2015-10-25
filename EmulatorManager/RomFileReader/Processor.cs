@@ -69,7 +69,13 @@ namespace RomFileReader
                 Console.WriteLine(String.Format("[{0}]", bldr.ToString()));
 
                 input = printCommandsAndWaitForInput();
+                processCommand(input);
             }
+        }
+
+        private void processCommand(string input)
+        {
+
         }
 
         private string printCommandsAndWaitForInput()
