@@ -23,6 +23,13 @@ namespace RomFileReader
 
         public bool Initialize(string[] args)
         {
+            parseArguments(args);
+
+            if(mChunkSize == -1 || mRomFileName == null)
+            {
+                Console.WriteLine("USAGE: RomFileReader.exe -File <path/to/file> -ChunkSize <Size to read in in bytes>");
+                return false;
+            }
 
             return true;
         }
