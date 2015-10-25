@@ -92,7 +92,7 @@ namespace EmulatorManager.Components.ExecutionComponent
             }
             catch(Exception ex)
             {
-                mLogger.Error("Cannot kill the emulator process: it's either already dead or never been started");
+                mLogger.Error("Cannot kill the emulator process",ex);
             }
         }
 
