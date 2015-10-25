@@ -159,31 +159,28 @@
             // 
             // mblGameName
             // 
-            this.mblGameName.AutoSize = true;
             this.mblGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mblGameName.Location = new System.Drawing.Point(569, 244);
             this.mblGameName.Name = "mblGameName";
-            this.mblGameName.Size = new System.Drawing.Size(136, 20);
+            this.mblGameName.Size = new System.Drawing.Size(183, 71);
             this.mblGameName.TabIndex = 7;
             this.mblGameName.Text = "<GAME NAME>";
             // 
             // lblGamePublisher
             // 
-            this.lblGamePublisher.AutoSize = true;
             this.lblGamePublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGamePublisher.Location = new System.Drawing.Point(570, 283);
+            this.lblGamePublisher.Location = new System.Drawing.Point(570, 315);
             this.lblGamePublisher.Name = "lblGamePublisher";
-            this.lblGamePublisher.Size = new System.Drawing.Size(145, 17);
+            this.lblGamePublisher.Size = new System.Drawing.Size(182, 74);
             this.lblGamePublisher.TabIndex = 8;
             this.lblGamePublisher.Text = "<GAME PUBLISHER>";
             // 
             // lblGameSystem
             // 
-            this.lblGameSystem.AutoSize = true;
             this.lblGameSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameSystem.Location = new System.Drawing.Point(570, 319);
+            this.lblGameSystem.Location = new System.Drawing.Point(570, 389);
             this.lblGameSystem.Name = "lblGameSystem";
-            this.lblGameSystem.Size = new System.Drawing.Size(124, 17);
+            this.lblGameSystem.Size = new System.Drawing.Size(182, 96);
             this.lblGameSystem.TabIndex = 9;
             this.lblGameSystem.Text = "<GAME SYSTEM>";
             // 
