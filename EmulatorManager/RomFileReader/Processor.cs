@@ -88,9 +88,11 @@ namespace RomFileReader
             }
         }
 
+
+
         private void SaveToFile()
         {
-
+            String saveFileName = mRomFileName + ".txt";
         }
 
         private string printCommandsAndWaitForInput()
