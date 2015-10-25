@@ -31,7 +31,17 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public void Initialize()
         {
+            // Get list of all types in assembly that implement IRomReader
+            Type romReaderType = typeof(IRomReader);
+            var implementingTypes = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(a => a.GetTypes())
+                .Where(t => romReaderType.IsAssignableFrom(t));
 
+            foreach(Type t in implementingTypes)
+            {
+                IRomReader reader = (IRomReader)Activator.CreateInstance(t);
+                mReaders.Add(reader);
+            }
         }
     }
 }
