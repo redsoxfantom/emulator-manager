@@ -112,6 +112,8 @@ namespace RomFileReader
                 bldr.Append(String.Format("[{0}]\n",hexString));
                 string charString = ConvertByteArrayToString(tmpArray, "  ");
                 bldr.Append(String.Format("[{0}]\n",charString));
+
+                fileContents.Add(bldr.ToString());
             }
         }
 
