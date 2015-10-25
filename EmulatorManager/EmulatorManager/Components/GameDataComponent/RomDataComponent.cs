@@ -35,7 +35,7 @@ namespace EmulatorManager.Components.GameDataComponent
             Type romReaderType = typeof(IRomReader);
             var implementingTypes = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(a => a.GetTypes())
-                .Where(t => romReaderType.IsAssignableFrom(t));
+                .Where(t => romReaderType.IsAssignableFrom(t) && !t.IsInterface);
 
             foreach(Type t in implementingTypes)
             {
