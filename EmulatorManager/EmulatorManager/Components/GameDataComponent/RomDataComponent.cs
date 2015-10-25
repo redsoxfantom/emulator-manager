@@ -2,6 +2,7 @@
 using log4net;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,6 +52,24 @@ namespace EmulatorManager.Components.GameDataComponent
             }
 
             mLogger.Info("Done Initializing RomDataComponent");
+        }
+
+        public void GetRomData(string romPath)
+        {
+            FileStream romFile = File.OpenRead(romPath);
+            string romId = null;
+            string romSystem = null;
+
+            foreach(var reader in mReaders)
+            {
+                romId = reader.GetRomId(romFile);
+                if(romId != null)
+                {
+                    romSystem = reader.RomType;
+                    break;
+                }
+                romFile.Position = 0;
+            }
         }
     }
 }
