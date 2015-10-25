@@ -244,6 +244,7 @@ namespace EmulatorManager.Views
                 Emulator emu = mLoadedEmulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
+                mRomDataComponent.GetRomData(path);
 
                 CurrentCommand = new Command(emu.Path, emu.Arguments, path);
                 mLogger.Info(String.Format("Completed command line: {0}", CurrentCommand.ToString()));
