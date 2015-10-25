@@ -54,7 +54,9 @@ namespace RomFileReader
             while(input != "exit" || input != "e")
             {
                 byte[] tmpArray = new byte[mChunkSize];
+                long startingPosition = mRomFile.Position;
                 int numBytesRead = mRomFile.Read(tmpArray, 0, mChunkSize);
+                long endingPosition = mRomFile.Position;
                 totalBytesRead.AddRange(tmpArray);
                 StringBuilder bldr = new StringBuilder(numBytesRead);
 
@@ -63,6 +65,7 @@ namespace RomFileReader
                     char readChar = (char)readByte;
                     bldr.Append(readChar);
                 }
+                Console.WriteLine(String.Format("Read %s bytes from rom file from %s to %s",numBytesRead,startingPosition,endingPosition));
                 Console.WriteLine(bldr.ToString());
 
                 input = printCommandsAndWaitForInput();
