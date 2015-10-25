@@ -110,7 +110,7 @@ namespace RomFileReader
                 bldr.Append(String.Format("[{0} to {1}]\n",i,i+mChunkSize));
 
                 string hexString = BitConverter.ToString(tmyArray).Replace('-',',');
-
+                bldr.Append(String.Format("[{0}]\n",hexString));
             }
         }
 
