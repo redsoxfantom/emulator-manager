@@ -105,12 +105,13 @@ namespace RomFileReader
             for(int i = 0; i < fileBuffer.Count; i+=mChunkSize)
             {
                 StringBuilder bldr = new StringBuilder();
-                byte[] tmyArray = fileBuffer.GetRange(i, mChunkSize).ToArray();
+                byte[] tmpArray = fileBuffer.GetRange(i, mChunkSize).ToArray();
 
                 bldr.Append(String.Format("[{0} to {1}]\n",i,i+mChunkSize));
-
-                string hexString = BitConverter.ToString(tmyArray).Replace('-',',');
+                string hexString = BitConverter.ToString(tmpArray).Replace('-',' ');
                 bldr.Append(String.Format("[{0}]\n",hexString));
+                string charString = ConvertByteArrayToString(tmpArray, "  ");
+                bldr.Append(String.Format("[{0}]\n",charString));
             }
         }
 
