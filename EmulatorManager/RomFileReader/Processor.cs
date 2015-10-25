@@ -15,10 +15,13 @@ namespace RomFileReader
 
         private String mRomFileName;
 
+        List<byte> fileBuffer;
+
         public Processor()
         {
             mChunkSize = -1;
             mRomFileName = null;
+            fileBuffer = new List<byte>();
         }
 
         public bool Initialize(string[] args)
@@ -49,7 +52,6 @@ namespace RomFileReader
         public void Run()
         {
             string input = "";
-            List<byte> totalBytesRead = new List<byte>();
 
             while(input != "exit" || input != "e")
             {
@@ -57,7 +59,7 @@ namespace RomFileReader
                 long startingPosition = mRomFile.Position;
                 int numBytesRead = mRomFile.Read(tmpArray, 0, mChunkSize);
                 long endingPosition = mRomFile.Position;
-                totalBytesRead.AddRange(tmpArray);
+                fileBuffer.AddRange(tmpArray);
 
                 String byteArrayInChars = ConvertByteArrayToString(tmpArray);
                 Console.WriteLine(String.Format("Read {0} bytes from rom file from {1} to {2}",numBytesRead,startingPosition,endingPosition));
@@ -98,6 +100,8 @@ namespace RomFileReader
         private void SaveToFile()
         {
             String saveFileName = mRomFileName + ".txt";
+
+
         }
 
         private string printCommandsAndWaitForInput()
