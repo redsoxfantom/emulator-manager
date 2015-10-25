@@ -58,8 +58,8 @@ namespace RomFileReader
                 int numBytesRead = mRomFile.Read(tmpArray, 0, mChunkSize);
                 long endingPosition = mRomFile.Position;
                 totalBytesRead.AddRange(tmpArray);
-                StringBuilder bldr = new StringBuilder(numBytesRead);
 
+                StringBuilder bldr = new StringBuilder(numBytesRead);
                 foreach(byte readByte in tmpArray)
                 {
                     char readChar = (char)readByte;

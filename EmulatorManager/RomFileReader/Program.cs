@@ -14,7 +14,7 @@ namespace RomFileReader
 
             if (proc.Initialize(args))
             {
-
+                proc.Run();
             }
             else
             {
