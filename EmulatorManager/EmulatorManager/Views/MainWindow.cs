@@ -179,9 +179,13 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void saveCurrentConfig()
+        private void saveCurrentConfig(String SavePath = null)
         {
-            String SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
+            if (SavePath == null)
+            {
+                SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
+            }
+
             if(SavePath != null)
             {
                 mConfigurationComponent.SaveConfig(SavePath);
