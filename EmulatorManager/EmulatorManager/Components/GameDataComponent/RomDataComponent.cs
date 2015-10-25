@@ -1,4 +1,5 @@
 ﻿using EmulatorManager.Components.GameDataComponent.RomReaders;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,12 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private List<IRomReader> mReaders;
 
+        private ILog mLogger;
+
         private RomDataComponent()
         {
             mReaders = new List<IRomReader>();
+            mLogger = LogManager.GetLogger(GetType().Name);
         }
 
         public void Initialize()
