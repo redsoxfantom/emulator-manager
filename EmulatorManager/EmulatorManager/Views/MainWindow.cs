@@ -68,6 +68,21 @@ namespace EmulatorManager.Views
         {
             mConfigurationComponent.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
             processConfig();
+
+            mExecutionComponent.ExecutionStateChangeHandler += MExecutionComponent_ExecutionStateChangeHandler;
+        }
+
+        private void MExecutionComponent_ExecutionStateChangeHandler(ExecutionStateChangedEventArgs args)
+        {
+            switch(args.State)
+            {
+                case ExecutionState.RUNNING:
+                    btnExecuteEmulator.Text = "Execute Emulator";
+                    break;
+                case ExecutionState.TERMINATED:
+                    btnExecuteEmulator.Text = "Terminate Emulator";
+                    break;
+            }
         }
 
         private void processConfig()
