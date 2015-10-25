@@ -53,7 +53,7 @@ namespace RomFileReader
         {
             string input = "";
 
-            while(!input.Equals("exit") || !input.Equals("e"))
+            while(!input.Equals("exit") && !input.Equals("e"))
             {
                 byte[] tmpArray = new byte[mChunkSize];
                 long startingPosition = mRomFile.Position;
