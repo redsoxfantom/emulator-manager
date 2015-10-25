@@ -20,6 +20,9 @@ namespace RomFileReader
             {
                 Console.WriteLine("Failed to initialize processor");
             }
+
+            Console.WriteLine("Press any key to continue...");
+            Console.Read();
         }
     }
 }
