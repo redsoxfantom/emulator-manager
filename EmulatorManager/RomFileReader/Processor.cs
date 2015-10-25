@@ -31,6 +31,18 @@ namespace RomFileReader
                 return false;
             }
 
+            try
+            {
+                mRomFile = File.OpenRead(mRomFileName);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Failed to open provided Rom File path");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
+
             return true;
         }
 
