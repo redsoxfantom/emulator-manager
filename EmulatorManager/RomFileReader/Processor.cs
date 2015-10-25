@@ -101,7 +101,10 @@ namespace RomFileReader
         {
             String saveFileName = mRomFileName + ".txt";
 
-
+            for(int i = 0; i < fileBuffer.Count; i+=mChunkSize)
+            {
+                byte[] tmyArray = fileBuffer.GetRange(i, mChunkSize).ToArray();
+            }
         }
 
         private string printCommandsAndWaitForInput()
