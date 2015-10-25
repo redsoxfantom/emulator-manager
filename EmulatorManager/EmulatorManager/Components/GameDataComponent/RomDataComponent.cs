@@ -28,5 +28,10 @@ namespace EmulatorManager.Components.GameDataComponent
         {
             mReaders = new List<IRomReader>();
         }
+
+        public void Initialize()
+        {
+
+        }
     }
 }
