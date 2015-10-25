@@ -77,9 +77,20 @@ namespace RomFileReader
         {
             switch(input)
             {
+                case "f":
+                    SaveToFile();
+                    break;
+                case "file":
+                    SaveToFile();
+                    break;
                 default:
                     break;
             }
+        }
+
+        private void SaveToFile()
+        {
+
         }
 
         private string printCommandsAndWaitForInput()
@@ -87,6 +98,7 @@ namespace RomFileReader
             Console.WriteLine("Enter Command:");
             Console.WriteLine("(e)xit: Terminate the program");
             Console.WriteLine("(c)ontinue: Read in the next chunk");
+            Console.WriteLine("(f)ile: Save the read-in Rom contents to file");
 
             string input = "";
             while(String.IsNullOrEmpty(input))
