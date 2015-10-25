@@ -59,14 +59,9 @@ namespace RomFileReader
                 long endingPosition = mRomFile.Position;
                 totalBytesRead.AddRange(tmpArray);
 
-                StringBuilder bldr = new StringBuilder(numBytesRead);
-                foreach(byte readByte in tmpArray)
-                {
-                    char readChar = (char)readByte;
-                    bldr.Append(readChar);
-                }
+                String byteArrayInChars = ConvertByteArrayToString(tmpArray);
                 Console.WriteLine(String.Format("Read {0} bytes from rom file from {1} to {2}",numBytesRead,startingPosition,endingPosition));
-                Console.WriteLine(String.Format("[{0}]", bldr.ToString()));
+                Console.WriteLine(String.Format("[{0}]", byteArrayInChars));
 
                 input = printCommandsAndWaitForInput();
                 processCommand(input);
@@ -88,7 +83,17 @@ namespace RomFileReader
             }
         }
 
-
+        private string ConvertByteArrayToString(byte[] array, string delimiter = "")
+        {
+            StringBuilder bldr = new StringBuilder();
+            foreach(byte readByte in array)
+            {
+                char readChar = (char)readByte;
+                bldr.Append(readChar);
+                bldr.Append(delimiter);
+            }
+            return bldr.ToString();
+        }
 
         private void SaveToFile()
         {
