@@ -8,6 +8,14 @@ namespace RomFileReader
 {
     public class Processor
     {
+        public bool Initialize(string[] args)
+        {
+            return true;
+        }
 
+        public void Run()
+        {
+
+        }
     }
 }

@@ -11,6 +11,15 @@ namespace RomFileReader
         static void Main(string[] args)
         {
             Processor proc = new Processor();
+
+            if (proc.Initialize(args))
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Failed to initialize processor");
+            }
         }
     }
 }
