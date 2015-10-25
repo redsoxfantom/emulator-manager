@@ -48,7 +48,14 @@ namespace RomFileReader
 
         public void Run()
         {
+            string input = "";
+            List<byte> totalBytesRead = new List<byte>();
 
+            while(input != "exit" || input != "e")
+            {
+                byte[] tmpArray = new byte[mChunkSize];
+                int numBytesRead = mRomFile.Read(tmpArray, 0, mChunkSize);
+            }
         }
 
         private void parseArguments(string[] args)
