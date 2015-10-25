@@ -22,6 +22,10 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
             byte[] magicNumberArry = new byte[4];
             rom.Position = 28;
             rom.Read(magicNumberArry, 0, 4);
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(magicNumberArry);
+            }
             uint magicNumber = BitConverter.ToUInt32(magicNumberArry, 0);
 
             if(magicNumber != 0xC2339F3D)
