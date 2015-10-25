@@ -56,6 +56,14 @@ namespace RomFileReader
                 byte[] tmpArray = new byte[mChunkSize];
                 int numBytesRead = mRomFile.Read(tmpArray, 0, mChunkSize);
                 totalBytesRead.AddRange(tmpArray);
+                StringBuilder bldr = new StringBuilder(numBytesRead);
+
+                foreach(byte readByte in tmpArray)
+                {
+                    char readChar = (char)readByte;
+                    bldr.Append(readChar);
+                }
+                Console.WriteLine(bldr.ToString());
 
                 input = printCommandsAndWaitForInput();
             }
