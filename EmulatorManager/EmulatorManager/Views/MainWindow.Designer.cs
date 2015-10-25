@@ -140,6 +140,8 @@
             // 
             // pnlGameImage
             // 
+            this.pnlGameImage.BackgroundImage = global::EmulatorManager.Properties.Resources.No_Image_Found;
+            this.pnlGameImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlGameImage.Location = new System.Drawing.Point(17, 463);
             this.pnlGameImage.Name = "pnlGameImage";
             this.pnlGameImage.Size = new System.Drawing.Size(183, 193);
