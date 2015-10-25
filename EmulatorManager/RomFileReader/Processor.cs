@@ -27,7 +27,7 @@ namespace RomFileReader
 
             if(mChunkSize == -1 || mRomFileName == null)
             {
-                Console.WriteLine("USAGE: RomFileReader.exe -File <path/to/file> -ChunkSize <Size to read in in bytes>");
+                Console.WriteLine("USAGE: RomFileReader.exe -File <path/to/file> -ChunkSize <Size to read in bytes>");
                 return false;
             }
 
