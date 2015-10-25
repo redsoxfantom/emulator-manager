@@ -77,7 +77,7 @@ namespace EmulatorManager.Views
             switch(args.State)
             {
                 case ExecutionState.RUNNING:
-                    btnExecuteEmulator.Text = "Execute Emulator";
+                    btnExecuteEmulator.Text = "Begin Emulator";
                     break;
                 case ExecutionState.TERMINATED:
                     btnExecuteEmulator.Text = "Terminate Emulator";
