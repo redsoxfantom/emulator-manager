@@ -98,6 +98,7 @@ namespace EmulatorManager.Views
             mLoadedEmulators = args.LoadedEmulators;
             mLoadedPaths = args.LoadedPaths;
             mConfigIsDirty = args.ConfigIsDirty;
+            mConfigFilePath = args.FilePath;
 
             processConfig();
         }
