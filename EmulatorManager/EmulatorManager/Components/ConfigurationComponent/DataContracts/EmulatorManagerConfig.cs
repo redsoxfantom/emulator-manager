@@ -30,7 +30,26 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
         public string GetFileName()
         {
-            return Path.GetFileName(mFilePath);
+            if (mFilePath != null)
+            {
+                return Path.GetFileName(mFilePath);
+            }
+            else
+            {
+                return "<No Config Loaded>";
+            }
+        }
+
+        public string GetFilePath()
+        {
+            if (mFilePath != null)
+            {
+                return mFilePath;
+            }
+            else
+            {
+                return "<No Config Loaded>";
+            }
         }
 
         public void SetFilePath(string value)
