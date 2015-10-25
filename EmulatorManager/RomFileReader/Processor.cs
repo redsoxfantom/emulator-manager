@@ -75,7 +75,11 @@ namespace RomFileReader
 
         private void processCommand(string input)
         {
-
+            switch(input)
+            {
+                default:
+                    break;
+            }
         }
 
         private string printCommandsAndWaitForInput()
