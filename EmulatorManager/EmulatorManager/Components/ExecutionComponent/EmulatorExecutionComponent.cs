@@ -63,7 +63,7 @@ namespace EmulatorManager.Components.ExecutionComponent
                 }
                 catch(Exception ex)
                 {
-                    mLogger.Error("Failed to start emulator", ex);
+                    mLogger.Error("Emulator error", ex);
                 }
                 finally
                 {
