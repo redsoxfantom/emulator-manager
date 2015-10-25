@@ -107,7 +107,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             {
                 FileManager.SaveObject(mLoadedConfig, path);
                 String fileName = Path.GetFileName(path);
-                mLoadedConfig.SetFileName(fileName);
+                mLoadedConfig.SetFilePath(fileName);
                 mLoadedConfig.ResetDirtyFlag();
 
                 onLoadedConfigChanged();
@@ -127,7 +127,7 @@ namespace EmulatorManager.Components.ConfigurationManager
                 mLoadedConfig = FileManager.LoadObject<EmulatorManagerConfig>(path);
                 mLoadedConfig.Initialize();
                 string fileName = Path.GetFileName(path);
-                mLoadedConfig.SetFileName(fileName);
+                mLoadedConfig.SetFilePath(fileName);
 
                 onLoadedConfigChanged();
                 mLogger.Info("Successfully loaded configuration");
