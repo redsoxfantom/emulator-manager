@@ -19,7 +19,16 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
 
         public string GetRomId(FileStream rom)
         {
-            throw new NotImplementedException();
+            byte[] magicNumberArry = new byte[4];
+            rom.Read(magicNumberArry, 28, 4);
+            uint magicNumber = BitConverter.ToUInt32(magicNumberArry, 0);
+
+            if(magicNumber != 0xC2339F3D)
+            {
+                return null;
+            }
+
+            return null;
         }
     }
 }
