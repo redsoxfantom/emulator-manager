@@ -32,6 +32,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeEmulatorView = new System.Windows.Forms.TreeView();
             this.lblCommandToExecute = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadToolStripMenuItem,
             this.saveToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
             this.refreshViewToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -63,21 +65,28 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.saveToolStripMenuItem.Text = "Save As";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // refreshViewToolStripMenuItem
             // 
             this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
-            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.refreshViewToolStripMenuItem.Text = "Refresh";
             this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.refreshViewToolStripMenuItem_Click);
             // 
@@ -150,11 +159,12 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.TreeView treeEmulatorView;
         private System.Windows.Forms.Label lblCommandToExecute;
         private System.Windows.Forms.TextBox txtCommandLine;
         private System.Windows.Forms.Button btnExecuteEmulator;
         private System.Windows.Forms.ToolStripMenuItem refreshViewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }

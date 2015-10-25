@@ -179,11 +179,6 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            saveCurrentConfig();
-        }
-
         private void saveCurrentConfig()
         {
             String SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
@@ -400,6 +395,16 @@ namespace EmulatorManager.Views
                     saveCurrentConfig();
                 }
             }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveCurrentConfig();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
