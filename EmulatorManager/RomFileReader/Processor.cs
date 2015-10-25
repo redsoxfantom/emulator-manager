@@ -55,7 +55,18 @@ namespace RomFileReader
             {
                 byte[] tmpArray = new byte[mChunkSize];
                 int numBytesRead = mRomFile.Read(tmpArray, 0, mChunkSize);
+                totalBytesRead.AddRange(tmpArray);
+
+                input = printCommandsAndWaitForInput();
             }
+        }
+
+        private string printCommandsAndWaitForInput()
+        {
+            Console.WriteLine("Possible Commands:");
+            Console.WriteLine(" (e)xit: Terminate the program");
+
+            return Console.ReadLine();
         }
 
         private void parseArguments(string[] args)
