@@ -36,7 +36,7 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
             byte[] romIdArry = new byte[991];
             rom.Position = 32;
             rom.Read(romIdArry, 0, romIdArry.Length);
-            String romId = Encoding.ASCII.GetString(romIdArry);
+            String romId = Encoding.ASCII.GetString(romIdArry).TrimEnd('\0');
 
             return romId;
         }
