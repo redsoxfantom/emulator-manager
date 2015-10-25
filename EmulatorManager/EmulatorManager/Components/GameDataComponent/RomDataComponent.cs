@@ -35,6 +35,8 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public void Initialize()
         {
+            mLogger.Info("Initializing RomDataComponent");
+
             // Get list of all types in assembly that implement IRomReader
             Type romReaderType = typeof(IRomReader);
             var implementingTypes = AppDomain.CurrentDomain.GetAssemblies()
@@ -43,9 +45,12 @@ namespace EmulatorManager.Components.GameDataComponent
 
             foreach(Type t in implementingTypes)
             {
+                mLogger.Debug(String.Format("Initializing Rom Reader {0}",t.Name));
                 IRomReader reader = (IRomReader)Activator.CreateInstance(t);
                 mReaders.Add(reader);
             }
+
+            mLogger.Info("Done Initializing RomDataComponent");
         }
     }
 }
