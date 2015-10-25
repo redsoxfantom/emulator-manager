@@ -42,6 +42,10 @@ namespace EmulatorManager.Components.ExecutionComponent
 
                 try
                 {
+                    mProc.StartInfo.UseShellExecute = false;
+                    mProc.StartInfo.RedirectStandardOutput = true;
+                    mProc.StartInfo.RedirectStandardError = true;
+
                     mProc.Start();
                     onExecutionStateChanged(ExecutionState.RUNNING);
 
@@ -86,7 +90,6 @@ namespace EmulatorManager.Components.ExecutionComponent
             try
             {
                 mProc.Kill();
-                onExecutionStateChanged(ExecutionState.TERMINATED);
             }
             catch(Exception ex)
             {
