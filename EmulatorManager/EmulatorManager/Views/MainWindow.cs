@@ -32,6 +32,8 @@ namespace EmulatorManager.Views
 
         private String mConfigFileName;
 
+        private String mConfigFilePath;
+
         private bool mConfigIsDirty;
 
         private IReadOnlyList<Emulator> mLoadedEmulators;
@@ -58,7 +60,7 @@ namespace EmulatorManager.Views
             InitializeComponent();
 
             mConfigurationComponent = ConfigComponent.Instance;
-            mConfigurationComponent.GetCurrentConfig(out mConfigFileName, out mLoadedEmulators, out mLoadedPaths);
+            mConfigurationComponent.GetCurrentConfig(out mConfigFileName, out mConfigFilePath, out mLoadedEmulators, out mLoadedPaths);
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
             CurrentCommand = new Command();
@@ -408,7 +410,7 @@ namespace EmulatorManager.Views
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            saveCurrentConfig(mConfigFilePath);
         }
     }
 }
