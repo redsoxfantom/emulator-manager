@@ -6,7 +6,24 @@ using System.Threading.Tasks;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
-    class RomDataComponent
+    public class RomDataComponent
     {
+        private RomDataComponent()
+        {
+
+        }
+
+        public static RomDataComponent Instance
+        {
+            get
+            {
+                if(mInstance == null)
+                {
+                    mInstance = new RomDataComponent();
+                }
+                return mInstance;
+            }
+        }
+        private static RomDataComponent mInstance = null;
     }
 }
