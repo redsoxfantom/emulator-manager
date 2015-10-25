@@ -115,6 +115,9 @@ namespace RomFileReader
 
                 fileContents.Add(bldr.ToString());
             }
+
+            File.WriteAllLines(saveFileName, fileContents.ToArray());
+            Console.WriteLine(String.Format("Saved file to {0}",saveFileName));
         }
 
         private string printCommandsAndWaitForInput()
