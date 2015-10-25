@@ -20,12 +20,15 @@ namespace EmulatorManager.Events
 
         public bool ConfigIsDirty { get; private set; }
 
+        public String FilePath { get; private set; }
+
         public LoadedConfigChangedArgs(EmulatorManagerConfig newConfig)
         {
             FileName = newConfig.GetFileName();
             LoadedEmulators = newConfig.GetLoadedEmulators();
             LoadedPaths = newConfig.GetLoadedRomPaths();
             ConfigIsDirty = newConfig.GetIsDirty();
+            FilePath = newConfig.GetFilePath();
         }
     }
 }
