@@ -28,6 +28,9 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
                 return null;
             }
 
+            byte[] romIdArry = new byte[991];
+            rom.Read(romIdArry, 32, romIdArry.Length);
+
             return null;
         }
     }
