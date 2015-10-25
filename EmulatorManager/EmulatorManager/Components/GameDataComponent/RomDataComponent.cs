@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmulatorManager.Components.GameDataComponent.RomReaders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,6 @@ namespace EmulatorManager.Components.GameDataComponent
 {
     public class RomDataComponent
     {
-        private RomDataComponent()
-        {
-
-        }
-
         public static RomDataComponent Instance
         {
             get
@@ -25,5 +21,12 @@ namespace EmulatorManager.Components.GameDataComponent
             }
         }
         private static RomDataComponent mInstance = null;
+
+        private List<IRomReader> mReaders;
+
+        private RomDataComponent()
+        {
+            mReaders = new List<IRomReader>();
+        }
     }
 }
