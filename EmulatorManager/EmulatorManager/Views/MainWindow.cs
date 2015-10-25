@@ -77,10 +77,10 @@ namespace EmulatorManager.Views
             switch(args.State)
             {
                 case ExecutionState.RUNNING:
-                    btnExecuteEmulator.Text = "Begin Emulator";
+                    btnExecuteEmulator.Invoke(new Action(()=> { btnExecuteEmulator.Text = "Begin Emulator"; }));
                     break;
                 case ExecutionState.TERMINATED:
-                    btnExecuteEmulator.Text = "Terminate Emulator";
+                    btnExecuteEmulator.Invoke(new Action(() => { btnExecuteEmulator.Text = "Terminate Emulator"; }));
                     break;
             }
         }
