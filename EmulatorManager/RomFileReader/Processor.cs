@@ -66,7 +66,7 @@ namespace RomFileReader
                     bldr.Append(readChar);
                 }
                 Console.WriteLine(String.Format("Read %s bytes from rom file from %s to %s",numBytesRead,startingPosition,endingPosition));
-                Console.WriteLine(bldr.ToString());
+                Console.WriteLine(String.Format("[%s]", bldr.ToString()));
 
                 input = printCommandsAndWaitForInput();
             }
