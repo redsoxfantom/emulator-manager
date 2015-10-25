@@ -65,28 +65,28 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // refreshViewToolStripMenuItem
             // 
             this.refreshViewToolStripMenuItem.Name = "refreshViewToolStripMenuItem";
-            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.refreshViewToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.refreshViewToolStripMenuItem.Text = "Refresh";
             this.refreshViewToolStripMenuItem.Click += new System.EventHandler(this.refreshViewToolStripMenuItem_Click);
             // 
@@ -96,7 +96,7 @@
             this.treeEmulatorView.Location = new System.Drawing.Point(13, 28);
             this.treeEmulatorView.Name = "treeEmulatorView";
             this.treeEmulatorView.PathSeparator = ">";
-            this.treeEmulatorView.Size = new System.Drawing.Size(825, 600);
+            this.treeEmulatorView.Size = new System.Drawing.Size(825, 428);
             this.treeEmulatorView.TabIndex = 1;
             this.treeEmulatorView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeEmulatorView_AfterSelect);
             this.treeEmulatorView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeEmulatorView_Click);
@@ -106,7 +106,7 @@
             // 
             this.lblCommandToExecute.AutoSize = true;
             this.lblCommandToExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommandToExecute.Location = new System.Drawing.Point(14, 657);
+            this.lblCommandToExecute.Location = new System.Drawing.Point(14, 684);
             this.lblCommandToExecute.Name = "lblCommandToExecute";
             this.lblCommandToExecute.Size = new System.Drawing.Size(75, 17);
             this.lblCommandToExecute.TabIndex = 2;
@@ -116,7 +116,7 @@
             // 
             this.txtCommandLine.Enabled = false;
             this.txtCommandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandLine.Location = new System.Drawing.Point(95, 635);
+            this.txtCommandLine.Location = new System.Drawing.Point(95, 662);
             this.txtCommandLine.Multiline = true;
             this.txtCommandLine.Name = "txtCommandLine";
             this.txtCommandLine.Size = new System.Drawing.Size(743, 63);
@@ -125,7 +125,7 @@
             // btnExecuteEmulator
             // 
             this.btnExecuteEmulator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecuteEmulator.Location = new System.Drawing.Point(350, 704);
+            this.btnExecuteEmulator.Location = new System.Drawing.Point(350, 731);
             this.btnExecuteEmulator.Name = "btnExecuteEmulator";
             this.btnExecuteEmulator.Size = new System.Drawing.Size(150, 26);
             this.btnExecuteEmulator.TabIndex = 4;
@@ -137,7 +137,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 742);
+            this.ClientSize = new System.Drawing.Size(850, 762);
             this.Controls.Add(this.btnExecuteEmulator);
             this.Controls.Add(this.txtCommandLine);
             this.Controls.Add(this.lblCommandToExecute);
