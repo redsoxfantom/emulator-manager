@@ -8,9 +8,11 @@ namespace EmulatorManager.Components.GameDataComponent
 {
     public class RomDataAccessor
     {
-        public RomDataAccessor()
-        {
+        string mUrl;
 
+        public RomDataAccessor(string dataUrl)
+        {
+            mUrl = dataUrl;
         }
     }
 }
