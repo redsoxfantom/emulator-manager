@@ -29,6 +29,7 @@ namespace EmulatorManager.Components.GameDataComponent
         public async Task<GameData> LoadGameData(string romType, string romId)
         {
             string finalUrl = String.Format("{0}/api/{1}/{2}",mUrl,romType,romId);
+            mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = null;
 
             using (HttpResponseMessage resp = await mClient.GetAsync(finalUrl))
