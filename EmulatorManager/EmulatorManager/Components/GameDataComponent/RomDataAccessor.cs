@@ -49,10 +49,10 @@ namespace EmulatorManager.Components.GameDataComponent
                     {
                         dynamic responseDataObject = JsonConvert.DeserializeObject(responseDataString);
 
-                        string gameName = responseDataObject.Name;
-                        string gamePublisher = responseDataObject.Publisher;
-                        string gameSystem = responseDataObject.System;
-                        byte[] gameImageArry = Convert.FromBase64String(responseDataObject.Image);
+                        string gameName = responseDataObject.userData.Name;
+                        string gamePublisher = responseDataObject.userData.Publisher;
+                        string gameSystem = responseDataObject.userData.System;
+                        byte[] gameImageArry = Convert.FromBase64String(responseDataObject.userData.Image);
                         Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
 
                         data = new GameData(gameName, gamePublisher, gameSystem, gameImage);
