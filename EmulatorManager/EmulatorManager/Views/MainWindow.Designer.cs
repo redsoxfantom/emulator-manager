@@ -38,9 +38,9 @@
             this.lblCommandToExecute = new System.Windows.Forms.Label();
             this.txtCommandLine = new System.Windows.Forms.TextBox();
             this.btnExecuteEmulator = new System.Windows.Forms.Button();
-            this.pnlGameImage = new System.Windows.Forms.Panel();
+            this.imgGameImage = new System.Windows.Forms.Panel();
             this.lblGameInfo = new System.Windows.Forms.Label();
-            this.mblGameName = new System.Windows.Forms.Label();
+            this.lblGameName = new System.Windows.Forms.Label();
             this.lblGamePublisher = new System.Windows.Forms.Label();
             this.lblGameSystem = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -48,8 +48,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(767, 24);
@@ -138,14 +136,14 @@
             this.btnExecuteEmulator.UseVisualStyleBackColor = true;
             this.btnExecuteEmulator.Click += new System.EventHandler(this.btnExecuteEmulator_Click);
             // 
-            // pnlGameImage
+            // imgGameImage
             // 
-            this.pnlGameImage.BackgroundImage = global::EmulatorManager.Properties.Resources.No_Image_Found;
-            this.pnlGameImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlGameImage.Location = new System.Drawing.Point(569, 48);
-            this.pnlGameImage.Name = "pnlGameImage";
-            this.pnlGameImage.Size = new System.Drawing.Size(183, 193);
-            this.pnlGameImage.TabIndex = 5;
+            this.imgGameImage.BackgroundImage = global::EmulatorManager.Properties.Resources.No_Image_Found;
+            this.imgGameImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgGameImage.Location = new System.Drawing.Point(569, 48);
+            this.imgGameImage.Name = "imgGameImage";
+            this.imgGameImage.Size = new System.Drawing.Size(183, 193);
+            this.imgGameImage.TabIndex = 5;
             // 
             // lblGameInfo
             // 
@@ -157,14 +155,14 @@
             this.lblGameInfo.TabIndex = 6;
             this.lblGameInfo.Text = "Game Data";
             // 
-            // mblGameName
+            // lblGameName
             // 
-            this.mblGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mblGameName.Location = new System.Drawing.Point(569, 244);
-            this.mblGameName.Name = "mblGameName";
-            this.mblGameName.Size = new System.Drawing.Size(183, 71);
-            this.mblGameName.TabIndex = 7;
-            this.mblGameName.Text = "<GAME NAME>";
+            this.lblGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameName.Location = new System.Drawing.Point(569, 244);
+            this.lblGameName.Name = "lblGameName";
+            this.lblGameName.Size = new System.Drawing.Size(183, 71);
+            this.lblGameName.TabIndex = 7;
+            this.lblGameName.Text = "<GAME NAME>";
             // 
             // lblGamePublisher
             // 
@@ -191,9 +189,9 @@
             this.ClientSize = new System.Drawing.Size(767, 762);
             this.Controls.Add(this.lblGameSystem);
             this.Controls.Add(this.lblGamePublisher);
-            this.Controls.Add(this.mblGameName);
+            this.Controls.Add(this.lblGameName);
             this.Controls.Add(this.lblGameInfo);
-            this.Controls.Add(this.pnlGameImage);
+            this.Controls.Add(this.imgGameImage);
             this.Controls.Add(this.btnExecuteEmulator);
             this.Controls.Add(this.txtCommandLine);
             this.Controls.Add(this.lblCommandToExecute);
@@ -222,9 +220,9 @@
         private System.Windows.Forms.Button btnExecuteEmulator;
         private System.Windows.Forms.ToolStripMenuItem refreshViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.Panel pnlGameImage;
+        private System.Windows.Forms.Panel imgGameImage;
         private System.Windows.Forms.Label lblGameInfo;
-        private System.Windows.Forms.Label mblGameName;
+        private System.Windows.Forms.Label lblGameName;
         private System.Windows.Forms.Label lblGamePublisher;
         private System.Windows.Forms.Label lblGameSystem;
     }
