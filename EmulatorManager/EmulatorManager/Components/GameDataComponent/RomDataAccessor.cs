@@ -41,6 +41,7 @@ namespace EmulatorManager.Components.GameDataComponent
                 if (resp.IsSuccessStatusCode)
                 {
                     string responseDataString = await resp.Content.ReadAsStringAsync();
+                    mLogger.Debug(String.Format("Successfully got data from server: {0}", responseDataString));
                     try
                     {
                         dynamic responseDataObject = JsonConvert.DeserializeObject(responseDataString);
