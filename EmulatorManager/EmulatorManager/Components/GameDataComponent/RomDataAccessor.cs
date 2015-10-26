@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -13,10 +14,13 @@ namespace EmulatorManager.Components.GameDataComponent
 
         HttpClient mCLient;
 
+        private ILog mLogger;
+
         public RomDataAccessor(string dataUrl)
         {
             mUrl = dataUrl;
             mCLient = new HttpClient();
+            mLogger = LogManager.GetLogger(GetType().Name);
         }
 
         public async Task<GameData> LoadGameData(string romType, string romId)
@@ -28,6 +32,10 @@ namespace EmulatorManager.Components.GameDataComponent
                 if (resp.IsSuccessStatusCode)
                 {
                     string responseDataString = await resp.Content.ReadAsStringAsync();
+                }
+                else
+                {
+                    mLogger.Error(String.Format("Request for game data (url: {0}) returned ({1})",mUrl,resp.StatusCode));
                 }
             }
 
