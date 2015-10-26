@@ -196,3 +196,7 @@ FakesAssemblies/
 *.opt
 
 !RomDataServer/bin/
+
+# Ignore installed node modules
+node_modules/
+
