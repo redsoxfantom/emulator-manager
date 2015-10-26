@@ -28,7 +28,7 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger.Debug(String.Format("Data Accessor created with url {0}", mUrl));
         }
 
-        public async Task<GameData> LoadGameData(string romType, string romId)
+        public async Task<GameData> RetrieveGameData(string romType, string romId)
         {
             string finalUrl = String.Format("{0}/api/{1}/{2}",mUrl,romType,romId);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));

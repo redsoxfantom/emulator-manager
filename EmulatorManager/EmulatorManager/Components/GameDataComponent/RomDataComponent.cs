@@ -82,7 +82,7 @@ namespace EmulatorManager.Components.GameDataComponent
                 // only query the accessor if we got a successful read on the file
                 if(romId != null && romSystem != null)
                 {
-                    data = await mAccessor.LoadGameData(romSystem, romId);
+                    data = await mAccessor.RetrieveGameData(romSystem, romId);
                 }
             }
 
