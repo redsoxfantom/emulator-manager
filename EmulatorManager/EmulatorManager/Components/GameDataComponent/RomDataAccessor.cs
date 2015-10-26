@@ -1,4 +1,5 @@
 ﻿using log4net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace EmulatorManager.Components.GameDataComponent
                 if (resp.IsSuccessStatusCode)
                 {
                     string responseDataString = await resp.Content.ReadAsStringAsync();
+                    dynamic responseDataObject = JsonConvert.DeserializeObject(responseDataString);
                 }
                 else
                 {
