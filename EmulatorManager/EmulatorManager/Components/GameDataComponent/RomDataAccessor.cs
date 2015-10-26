@@ -33,7 +33,7 @@ namespace EmulatorManager.Components.GameDataComponent
         {
             romType = HttpUtility.UrlEncode(romType);
             romId = HttpUtility.UrlEncode(romId);
-            string finalUrl = String.Format("{0}/api/{1}/{2}",mUrl,romType,romId);
+            string finalUrl = String.Format("{0}/gamedata/GetGameDataByNameSystem/{2}",mUrl,romId+romType);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = null;
             HttpResponseMessage resp = null;
