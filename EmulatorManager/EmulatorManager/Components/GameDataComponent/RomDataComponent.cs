@@ -54,7 +54,7 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger.Info("Done Initializing RomDataComponent");
         }
 
-        public void GetRomData(string romPath)
+        public async Task<GameData> GetRomData(string romPath)
         {
             FileStream romFile = File.OpenRead(romPath);
             string romId = null;
@@ -70,6 +70,8 @@ namespace EmulatorManager.Components.GameDataComponent
                 }
                 romFile.Position = 0;
             }
+
+            return null;
         }
     }
 }

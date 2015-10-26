@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="Components\ExecutionComponent\Command.cs" />
     <Compile Include="Components\GameDataComponent\GameData.cs" />
+    <Compile Include="Components\GameDataComponent\RomDataAccessor.cs" />
     <Compile Include="Components\GameDataComponent\RomDataComponent.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\GamecubeRomReader.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\IRomReader.cs" />
