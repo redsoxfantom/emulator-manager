@@ -61,23 +61,26 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public async Task<GameData> GetRomData(string romPath)
         {
-            FileStream romFile = File.OpenRead(romPath);
             string romId = null;
             string romSystem = null;
+            GameData data = new GameData();
 
-            foreach(var reader in mReaders)
+            using (FileStream romFile = File.OpenRead(romPath))
             {
-                romId = reader.GetRomId(romFile);
-                if(romId != null)
+                foreach (var reader in mReaders)
                 {
-                    romId = romId.Replace(' ', '_');
-                    romSystem = reader.RomType;
-                    break;
+                    romId = reader.GetRomId(romFile);
+                    if (romId != null)
+                    {
+                        romId = romId.Replace(' ', '_');
+                        romSystem = reader.RomType;
+                        break;
+                    }
+                    romFile.Position = 0;
                 }
-                romFile.Position = 0;
             }
 
-            return null;
+            return data;
         }
 
         private string GetServerUrl()
