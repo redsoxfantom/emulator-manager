@@ -34,6 +34,7 @@ namespace EmulatorManager.Components.GameDataComponent
         public async Task<GameData> RetrieveGameData(string romType, string romId)
         {
             string dataId = romId + romType;
+            dataId = Cleanup(dataId);
             string finalUrl = String.Format("{0}/gamedata/GetGameDataByNameSystem/{1}",mUrl,dataId);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = null;
