@@ -52,7 +52,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(767, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(875, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,7 +101,7 @@
             this.treeEmulatorView.Location = new System.Drawing.Point(13, 28);
             this.treeEmulatorView.Name = "treeEmulatorView";
             this.treeEmulatorView.PathSeparator = ">";
-            this.treeEmulatorView.Size = new System.Drawing.Size(550, 628);
+            this.treeEmulatorView.Size = new System.Drawing.Size(661, 628);
             this.treeEmulatorView.TabIndex = 1;
             this.treeEmulatorView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeEmulatorView_AfterSelect);
             this.treeEmulatorView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeEmulatorView_Click);
@@ -124,13 +124,13 @@
             this.txtCommandLine.Location = new System.Drawing.Point(95, 662);
             this.txtCommandLine.Multiline = true;
             this.txtCommandLine.Name = "txtCommandLine";
-            this.txtCommandLine.Size = new System.Drawing.Size(657, 63);
+            this.txtCommandLine.Size = new System.Drawing.Size(768, 63);
             this.txtCommandLine.TabIndex = 3;
             // 
             // btnExecuteEmulator
             // 
             this.btnExecuteEmulator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecuteEmulator.Location = new System.Drawing.Point(350, 731);
+            this.btnExecuteEmulator.Location = new System.Drawing.Point(406, 731);
             this.btnExecuteEmulator.Name = "btnExecuteEmulator";
             this.btnExecuteEmulator.Size = new System.Drawing.Size(150, 26);
             this.btnExecuteEmulator.TabIndex = 4;
@@ -141,7 +141,7 @@
             // imgGameImage
             // 
             this.imgGameImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgGameImage.Location = new System.Drawing.Point(569, 48);
+            this.imgGameImage.Location = new System.Drawing.Point(680, 48);
             this.imgGameImage.Name = "imgGameImage";
             this.imgGameImage.Size = new System.Drawing.Size(183, 193);
             this.imgGameImage.TabIndex = 5;
@@ -150,7 +150,7 @@
             // 
             this.lblGameInfo.AutoSize = true;
             this.lblGameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameInfo.Location = new System.Drawing.Point(620, 28);
+            this.lblGameInfo.Location = new System.Drawing.Point(731, 28);
             this.lblGameInfo.Name = "lblGameInfo";
             this.lblGameInfo.Size = new System.Drawing.Size(80, 17);
             this.lblGameInfo.TabIndex = 6;
@@ -159,7 +159,7 @@
             // lblGameName
             // 
             this.lblGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameName.Location = new System.Drawing.Point(569, 244);
+            this.lblGameName.Location = new System.Drawing.Point(680, 244);
             this.lblGameName.Name = "lblGameName";
             this.lblGameName.Size = new System.Drawing.Size(183, 71);
             this.lblGameName.TabIndex = 7;
@@ -167,7 +167,7 @@
             // lblGamePublisher
             // 
             this.lblGamePublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGamePublisher.Location = new System.Drawing.Point(570, 315);
+            this.lblGamePublisher.Location = new System.Drawing.Point(681, 315);
             this.lblGamePublisher.Name = "lblGamePublisher";
             this.lblGamePublisher.Size = new System.Drawing.Size(182, 74);
             this.lblGamePublisher.TabIndex = 8;
@@ -175,7 +175,7 @@
             // lblGameSystem
             // 
             this.lblGameSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameSystem.Location = new System.Drawing.Point(570, 389);
+            this.lblGameSystem.Location = new System.Drawing.Point(681, 389);
             this.lblGameSystem.Name = "lblGameSystem";
             this.lblGameSystem.Size = new System.Drawing.Size(182, 96);
             this.lblGameSystem.TabIndex = 9;
@@ -184,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 762);
+            this.ClientSize = new System.Drawing.Size(875, 762);
             this.Controls.Add(this.lblGameSystem);
             this.Controls.Add(this.lblGamePublisher);
             this.Controls.Add(this.lblGameName);
