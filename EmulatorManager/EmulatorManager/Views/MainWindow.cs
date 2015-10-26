@@ -244,21 +244,28 @@ namespace EmulatorManager.Views
                 Emulator emu = mLoadedEmulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
-
-                GameData data = await mRomDataComponent.GetRomData(path);
-                imgGameImage.BackgroundImage = data.GameImage;
-                lblGameName.Text = data.GameName;
-                lblGamePublisher.Text = data.GamePublisher;
-                lblGameSystem.Text = data.GameSystem;
-
+                
+                Task<GameData> dataTask = mRomDataComponent.GetRomData(path);
+                SetGameInfoLabels("Fetching Game Info");
                 CurrentCommand = new Command(emu.Path, emu.Arguments, path);
                 mLogger.Info(String.Format("Completed command line: {0}", CurrentCommand.ToString()));
+
+                GameData data = await dataTask;
+                SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage);
             }
             else
             {
                 mLogger.Debug("Selected node is not a Path node, clearing command line");
                 CurrentCommand = new Command();
             }
+        }
+
+        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null)
+        {
+            lblGameName.Text = gameName;
+            lblGamePublisher.Text = gamePub;
+            lblGameSystem.Text = gameSys;
+            imgGameImage.BackgroundImage = gameImg;
         }
 
         private void refreshViewToolStripMenuItem_Click(object sender, EventArgs e)
