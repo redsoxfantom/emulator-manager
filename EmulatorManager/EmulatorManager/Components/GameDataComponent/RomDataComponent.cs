@@ -1,5 +1,7 @@
 ﻿using EmulatorManager.Components.GameDataComponent.RomReaders;
+using EmulatorManager.Properties;
 using log4net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,10 +30,13 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private ILog mLogger;
 
+        private RomDataAccessor mAccessor;
+
         private RomDataComponent()
         {
             mReaders = new List<IRomReader>();
             mLogger = LogManager.GetLogger(GetType().Name);
+            mAccessor = new RomDataAccessor(GetServerUrl());
         }
 
         public void Initialize()
@@ -73,6 +78,17 @@ namespace EmulatorManager.Components.GameDataComponent
             }
 
             return null;
+        }
+
+        private string GetServerUrl()
+        {
+            String strAppPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+            String strFilePath = Path.Combine(strAppPath, "Resources");
+            String strFullFilename = Path.Combine(strFilePath, "RomDataServerInfo.json");
+            String fileData = File.ReadAllText(strFullFilename);
+
+            dynamic serverInfo = JsonConvert.DeserializeObject(fileData);
+            return serverInfo.Url;
         }
     }
 }

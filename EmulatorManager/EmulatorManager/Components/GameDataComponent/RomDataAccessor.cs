@@ -24,6 +24,8 @@ namespace EmulatorManager.Components.GameDataComponent
             mUrl = dataUrl;
             mClient = new HttpClient();
             mLogger = LogManager.GetLogger(GetType().Name);
+
+            mLogger.Debug(String.Format("Data Accessor created with url {0}", mUrl));
         }
 
         public async Task<GameData> LoadGameData(string romType, string romId)
