@@ -232,7 +232,7 @@ namespace EmulatorManager.Views
             }
         }
 
-        private async void treeEmulatorView_AfterSelect(object sender, TreeViewEventArgs e)
+        private void treeEmulatorView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode selectedNode = e.Node;
             mLogger.Info(String.Format("Selected Node: {0} at level {1}",selectedNode.FullPath, selectedNode.Level));
@@ -244,12 +244,7 @@ namespace EmulatorManager.Views
                 Emulator emu = mLoadedEmulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
-
-                GameData data = await mRomDataComponent.GetRomData(path);
-                imgGameImage.BackgroundImage = data.GameImage;
-                lblGameName.Text = data.GameName;
-                lblGamePublisher.Text = data.GamePublisher;
-                lblGameSystem.Text = data.GameSystem;
+                mRomDataComponent.GetRomData(path);
 
                 CurrentCommand = new Command(emu.Path, emu.Arguments, path);
                 mLogger.Info(String.Format("Completed command line: {0}", CurrentCommand.ToString()));
