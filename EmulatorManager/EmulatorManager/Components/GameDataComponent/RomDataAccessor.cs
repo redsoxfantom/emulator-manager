@@ -33,9 +33,11 @@ namespace EmulatorManager.Components.GameDataComponent
             string finalUrl = String.Format("{0}/api/{1}/{2}",mUrl,romType,romId);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = null;
+            HttpResponseMessage resp = null;
 
-            using (HttpResponseMessage resp = await mClient.GetAsync(finalUrl))
+            try
             {
+                resp = await mClient.GetAsync(finalUrl);
                 if (resp.IsSuccessStatusCode)
                 {
                     string responseDataString = await resp.Content.ReadAsStringAsync();
@@ -61,6 +63,17 @@ namespace EmulatorManager.Components.GameDataComponent
                 {
                     mLogger.Error(String.Format("Request for game data (url: {0}) returned ({1})",mUrl,resp.StatusCode));
                     data = new GameData();
+                }
+            }
+            catch(Exception ex)
+            {
+                mLogger.Error("Failed to request game data from server", ex);
+            }
+            finally
+            {
+                if(resp != null)
+                {
+                    resp.Dispose();
                 }
             }
 
