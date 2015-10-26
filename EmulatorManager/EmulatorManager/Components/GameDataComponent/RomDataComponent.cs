@@ -65,6 +65,7 @@ namespace EmulatorManager.Components.GameDataComponent
                 romId = reader.GetRomId(romFile);
                 if(romId != null)
                 {
+                    romId = romId.Replace(' ', '_');
                     romSystem = reader.RomType;
                     break;
                 }
