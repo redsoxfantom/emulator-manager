@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
@@ -31,6 +32,7 @@ namespace EmulatorManager.Components.GameDataComponent
         public async Task<GameData> RetrieveGameData(string romType, string romId)
         {
             string finalUrl = String.Format("{0}/api/{1}/{2}",mUrl,romType,romId);
+            finalUrl = HttpUtility.UrlEncode(finalUrl);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = null;
             HttpResponseMessage resp = null;
