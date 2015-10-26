@@ -78,6 +78,12 @@ namespace EmulatorManager.Components.GameDataComponent
                     }
                     romFile.Position = 0;
                 }
+
+                // only query the accessor if we got a successful read on the file
+                if(romId != null && romSystem != null)
+                {
+                    data = await mAccessor.LoadGameData(romSystem, romId);
+                }
             }
 
             return data;
