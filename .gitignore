@@ -195,8 +195,3 @@ FakesAssemblies/
 # Visual Studio 6 workspace options file
 *.opt
 
-!RomDataServer/bin/
-
-# Ignore installed node modules
-node_modules/
-
