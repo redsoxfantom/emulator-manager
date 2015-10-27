@@ -97,7 +97,7 @@ namespace EmulatorManager.Components.GameDataComponent
             str = mapping.GetAscii(str);
 
             //  Remove all invalid characters.  
-            str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
+            str = Regex.Replace(str, @"[^A-Za-z0-9\s-]", "");
 
             //  Convert multiple spaces into one space
             str = Regex.Replace(str, @"\s+", " ").Trim();
