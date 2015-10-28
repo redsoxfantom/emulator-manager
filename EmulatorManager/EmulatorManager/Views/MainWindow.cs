@@ -17,6 +17,7 @@ using System.Windows.Forms;
 using EmulatorManager.Components.PathComponent;
 using System.Collections.Concurrent;
 using EmulatorManager.Views.TreeNodes;
+using EmulatorManager.Components.GameDataComponent;
 
 namespace EmulatorManager.Views
 {
@@ -32,7 +33,11 @@ namespace EmulatorManager.Views
 
         private PathResolverComponent mPathResolver;
 
+        private RomDataComponent mRomDataComponent;
+
         private String mConfigFileName;
+
+        private String mConfigFilePath;
 
         private bool mConfigIsDirty;
 
@@ -60,7 +65,8 @@ namespace EmulatorManager.Views
             InitializeComponent();
 
             mConfigurationComponent = ConfigComponent.Instance;
-            mConfigurationComponent.GetCurrentConfig(out mConfigFileName, out mLoadedEmulators, out mLoadedPaths);
+            mRomDataComponent = RomDataComponent.Instance;
+            mConfigurationComponent.GetCurrentConfig(out mConfigFileName, out mConfigFilePath, out mLoadedEmulators, out mLoadedPaths);
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
             CurrentCommand = new Command();
@@ -70,6 +76,21 @@ namespace EmulatorManager.Views
         {
             mConfigurationComponent.ConfigutationChanged += MEmulatorManager_ConfigutationChanged;
             processConfig();
+
+            mExecutionComponent.ExecutionStateChangeHandler += MExecutionComponent_ExecutionStateChangeHandler;
+        }
+
+        private void MExecutionComponent_ExecutionStateChangeHandler(ExecutionStateChangedEventArgs args)
+        {
+            switch(args.State)
+            {
+                case ExecutionState.RUNNING:
+                    btnExecuteEmulator.Invoke(new Action(()=> { btnExecuteEmulator.Text = "Terminate Emulator"; }));
+                    break;
+                case ExecutionState.TERMINATED:
+                    btnExecuteEmulator.Invoke(new Action(() => { btnExecuteEmulator.Text = "Begin Emulator"; }));
+                    break;
+            }
         }
 
         private void processConfig()
@@ -83,6 +104,7 @@ namespace EmulatorManager.Views
             mLoadedEmulators = args.LoadedEmulators;
             mLoadedPaths = args.LoadedPaths;
             mConfigIsDirty = args.ConfigIsDirty;
+            mConfigFilePath = args.FilePath;
 
             processConfig();
         }
@@ -166,14 +188,13 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveCurrentConfig(String SavePath = null)
         {
-            saveCurrentConfig();
-        }
+            if (SavePath == null)
+            {
+                SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
+            }
 
-        private void saveCurrentConfig()
-        {
-            String SavePath = FileManager.UseFilePicker(FileManager.FilePickerType.SAVE, extensionFilter: "Emulator Manager Files (*.mgr)|*.mgr");
             if(SavePath != null)
             {
                 mConfigurationComponent.SaveConfig(SavePath);
@@ -191,30 +212,29 @@ namespace EmulatorManager.Views
 
         private void btnExecuteEmulator_Click(object sender, EventArgs e)
         {
-            if(CurrentCommand.IsValidCommand)
+            if (!mExecutionComponent.EmulatorIsRunning())
             {
-                if (!mExecutionComponent.EmulatorIsRunning())
+                if(CurrentCommand.IsValidCommand)
                 {
                     String command = CurrentCommand.ToString();
                     mLogger.Info(String.Format("Attempting to execute command {0}", command));
-                    mExecutionComponent.ExecuteCommand(CurrentCommand);
+                    mExecutionComponent.BeginEmulator(CurrentCommand);
                 }
                 else
                 {
-                    string err = "Can't start another emulation when one is already running!";
+                    string err = "You must select a Path to run before starting an emulator";
                     mLogger.Error(err);
                     MessageBox.Show(this, err, "ERROR");
                 }
             }
             else
             {
-                string err = "You must select a Path to run before starting an emulator";
-                mLogger.Error(err);
-                MessageBox.Show(this, err, "ERROR");
+                mLogger.Info("Emulator is running, attempting to terminate");
+                mExecutionComponent.TerminateEmulator();
             }
         }
 
-        private void treeEmulatorView_AfterSelect(object sender, TreeViewEventArgs e)
+        private async void treeEmulatorView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             TreeNode selectedNode = e.Node;
             mLogger.Info(String.Format("Selected Node: {0} at level {1}",selectedNode.FullPath, selectedNode.Level));
@@ -226,15 +246,28 @@ namespace EmulatorManager.Views
                 Emulator emu = mLoadedEmulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
-
+                
+                Task<GameData> dataTask = mRomDataComponent.GetRomData(path);
+                SetGameInfoLabels("Fetching Game Info");
                 CurrentCommand = new Command(emu.Path, emu.Arguments, path);
                 mLogger.Info(String.Format("Completed command line: {0}", CurrentCommand.ToString()));
+
+                GameData data = await dataTask;
+                SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage);
             }
             else
             {
                 mLogger.Debug("Selected node is not a Path node, clearing command line");
                 CurrentCommand = new Command();
             }
+        }
+
+        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null)
+        {
+            lblGameName.Text = gameName;
+            lblGamePublisher.Text = gamePub;
+            lblGameSystem.Text = gameSys;
+            imgGameImage.BackgroundImage = gameImg;
         }
 
         private void refreshViewToolStripMenuItem_Click(object sender, EventArgs e)
@@ -388,6 +421,16 @@ namespace EmulatorManager.Views
                     saveCurrentConfig();
                 }
             }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveCurrentConfig();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveCurrentConfig(mConfigFilePath);
         }
     }
 }

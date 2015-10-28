@@ -106,8 +106,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             try
             {
                 FileManager.SaveObject(mLoadedConfig, path);
-                String fileName = Path.GetFileName(path);
-                mLoadedConfig.SetFileName(fileName);
+                mLoadedConfig.SetFilePath(path);
                 mLoadedConfig.ResetDirtyFlag();
 
                 onLoadedConfigChanged();
@@ -126,8 +125,7 @@ namespace EmulatorManager.Components.ConfigurationManager
             {
                 mLoadedConfig = FileManager.LoadObject<EmulatorManagerConfig>(path);
                 mLoadedConfig.Initialize();
-                string fileName = Path.GetFileName(path);
-                mLoadedConfig.SetFileName(fileName);
+                mLoadedConfig.SetFilePath(path);
 
                 onLoadedConfigChanged();
                 mLogger.Info("Successfully loaded configuration");
@@ -138,8 +136,9 @@ namespace EmulatorManager.Components.ConfigurationManager
             }
         }
 
-        public void GetCurrentConfig(out String FileName, out IReadOnlyList<Emulator> LoadedEmulators, out IReadOnlyList<RomPath> LoadedPaths)
+        public void GetCurrentConfig(out String FileName, out String FilePath, out IReadOnlyList<Emulator> LoadedEmulators, out IReadOnlyList<RomPath> LoadedPaths)
         {
+            FilePath = mLoadedConfig.GetFilePath();
             FileName = mLoadedConfig.GetFileName();
             LoadedEmulators = mLoadedConfig.GetLoadedEmulators();
             LoadedPaths = mLoadedConfig.GetLoadedRomPaths();

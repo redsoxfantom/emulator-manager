@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using EmulatorManager.Events;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,13 +15,15 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         private Process mProc;
 
+        public event ExecutionStateChanged ExecutionStateChangeHandler;
+
         public EmulatorExecutionComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
             mProc = new Process();
         }
 
-        public void ExecuteCommand(Command cmd)
+        public void BeginEmulator(Command cmd)
         {
             if (!cmd.IsValidCommand)
             {
@@ -36,15 +39,21 @@ namespace EmulatorManager.Components.ExecutionComponent
             mProc.StartInfo.RedirectStandardError = true;
 
             Task.Factory.StartNew(()=> {
-
                 try
                 {
+                    mProc.StartInfo.UseShellExecute = false;
+                    mProc.StartInfo.RedirectStandardOutput = true;
+                    mProc.StartInfo.RedirectStandardError = true;
+
+                    onExecutionStateChanged(ExecutionState.RUNNING);
                     mProc.Start();
 
                     mProc.WaitForExit();
+                    onExecutionStateChanged(ExecutionState.TERMINATED);
 
                     String stdOut = mProc.StandardOutput.ReadToEnd();
                     String stdErr = mProc.StandardError.ReadToEnd();
+                    mProc.Close();
                     mLogger.Info(String.Format("mProc exited. StdOut:\n{0}", stdOut));
                     if (!String.IsNullOrEmpty(stdErr))
                     {
@@ -53,7 +62,7 @@ namespace EmulatorManager.Components.ExecutionComponent
                 }
                 catch(Exception ex)
                 {
-                    mLogger.Error("Failed to start emulator", ex);
+                    mLogger.Error("Emulator error", ex);
                 }
                 finally
                 {
@@ -75,16 +84,24 @@ namespace EmulatorManager.Components.ExecutionComponent
             }
         }
 
-        public void TerminateCurrentProcess()
+        public void TerminateEmulator()
         {
             try
             {
                 mProc.Kill();
-                mProc.Close();
             }
             catch(Exception ex)
             {
-                mLogger.Error("Cannot kill the emulator process: it's either already dead or never been started");
+                mLogger.Error("Cannot kill the emulator process",ex);
+            }
+        }
+
+        private void onExecutionStateChanged(ExecutionState newState)
+        {
+            if(ExecutionStateChangeHandler != null)
+            {
+                ExecutionStateChangedEventArgs args = new ExecutionStateChangedEventArgs(newState);
+                ExecutionStateChangeHandler(args);
             }
         }
     }

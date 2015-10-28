@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -13,7 +14,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
         /// <summary>
         /// The filename this config was loaded from. Marked "private" to keep it from being serialized / deserialized
         /// </summary>
-        private string mFileName;
+        private string mFilePath;
 
         private bool isDirty;
 
@@ -29,17 +30,36 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
 
         public string GetFileName()
         {
-            return mFileName;
+            if (mFilePath != null)
+            {
+                return Path.GetFileName(mFilePath);
+            }
+            else
+            {
+                return "<No Config Loaded>";
+            }
         }
 
-        public void SetFileName(string value)
+        public string GetFilePath()
         {
-            mFileName = value;
+            if (mFilePath != null)
+            {
+                return mFilePath;
+            }
+            else
+            {
+                return "<No Config Loaded>";
+            }
+        }
+
+        public void SetFilePath(string value)
+        {
+            mFilePath = value;
         }
 
         public EmulatorManagerConfig()
         {
-            mFileName = "<No Manager Config Loaded>";
+            mFilePath = null;
             Emulators = new List<Emulator>();
             Paths = new List<RomPath>();
 

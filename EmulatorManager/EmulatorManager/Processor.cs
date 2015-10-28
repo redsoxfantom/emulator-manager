@@ -1,4 +1,5 @@
 ﻿using EmulatorManager.Components.ConfigurationManager;
+using EmulatorManager.Components.GameDataComponent;
 using EmulatorManager.Views;
 using log4net;
 using log4net.Repository;
@@ -30,6 +31,8 @@ namespace EmulatorManager
             {
                 ConfigComponent.Instance.Initialize(configPath);
             }
+
+            RomDataComponent.Instance.Initialize();
 
             mLogger.Info("Done Initializing Emulator Manager processor");
         }
