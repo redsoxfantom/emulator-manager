@@ -13,7 +13,17 @@ namespace EmulatorManager.Utilities
         {
             using (var client = new HttpClient())
             {
+                using (var resp = await client.GetAsync(url))
+                {
+                    if(resp.IsSuccessStatusCode)
+                    {
 
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
         } 
     }
