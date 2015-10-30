@@ -254,13 +254,20 @@ namespace EmulatorManager.Views
                 Emulator emu = mLoadedEmulators.First(f => f.Name == emulatorName);
                 String path = selectedNode.Text;
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
-                
-                Task<GameData> dataTask = mRomDataComponent.GetRomData(path);
-                SetGameInfoLabels("Fetching Game Info");
+
+                // Create the command line for this rom
                 CurrentCommand = new Command(emu.Path, emu.Arguments, path);
                 mLogger.Info(String.Format("Completed command line: {0}", CurrentCommand.ToString()));
 
-                GameData data = await dataTask;
+                // Query the server (if rom could be read) for the rom details
+                string romId = null;
+                string romSystem = null;
+                GameData data = new GameData();
+                SetGameInfoLabels("Fetching Game Info");
+                if(mRomDataComponent.TryLoadRomData(path,out romId, out romSystem))
+                {
+                    data = await mRomDataComponent.RetrieveGameData(romId, romSystem);
+                }
                 SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage);
             }
             else

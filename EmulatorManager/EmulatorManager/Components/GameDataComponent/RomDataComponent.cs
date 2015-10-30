@@ -96,40 +96,6 @@ namespace EmulatorManager.Components.GameDataComponent
             return data;
         }
 
-        public async Task<GameData> GetRomData(string romPath)
-        {
-            string romId = null;
-            string romSystem = null;
-            GameData data = new GameData();
-
-            using (FileStream romFile = File.OpenRead(romPath))
-            {
-                mLogger.Info(String.Format("Attempting to read rom {0}",romFile.Name));
-
-                foreach (var reader in mReaders)
-                {
-                    if (reader.TryReadRom(romFile,out romId,out romSystem))
-                    {
-                        mLogger.Info(String.Format("Successfully read data from rom file using {0} reader: romId={1}, romSystem={2}",reader.GetType().Name,romId,romSystem));
-                        break;
-                    }
-                    romFile.Position = 0;
-                }
-
-                // only query the accessor if we got a successful read on the file
-                if(romId != null && romSystem != null)
-                {
-                    data = await mAccessor.RetrieveGameData(romSystem, romId);
-                }
-                else
-                {
-                    mLogger.Warn("Could not read rom data using any known reader");
-                }
-            }
-
-            return data;
-        }
-
         private string GetServerUrl()
         {
             String strAppPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
