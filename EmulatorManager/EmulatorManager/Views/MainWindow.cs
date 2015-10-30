@@ -242,6 +242,10 @@ namespace EmulatorManager.Views
             if(selectedNode.Level == 1)
             {
                 // user selected a node corresponding to an emulator
+                String emulatorName = selectedNode.Text;
+                Emulator emu = mLoadedEmulators.First(f => f.Name == emulatorName);
+                mLogger.Debug(String.Format("Selected node is an Emulator node for emulator <{0}>",emu.ToString()));
+                CurrentCommand = new Command(emu.Path);
             }
 
             if(selectedNode.Level == 2)
