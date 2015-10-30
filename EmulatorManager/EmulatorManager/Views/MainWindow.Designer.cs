@@ -202,6 +202,7 @@
             this.lblClickHere.TabStop = true;
             this.lblClickHere.Text = "Click Here";
             this.lblClickHere.Visible = false;
+            this.lblClickHere.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClickHere_LinkClicked);
             // 
             // MainWindow
             // 

@@ -454,5 +454,10 @@ namespace EmulatorManager.Views
         {
             saveCurrentConfig(mConfigFilePath);
         }
+
+        private void lblClickHere_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }
