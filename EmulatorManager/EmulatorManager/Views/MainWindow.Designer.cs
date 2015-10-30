@@ -43,6 +43,8 @@
             this.lblGameName = new System.Windows.Forms.Label();
             this.lblGamePublisher = new System.Windows.Forms.Label();
             this.lblGameSystem = new System.Windows.Forms.Label();
+            this.lblDataMissing = new System.Windows.Forms.Label();
+            this.lblClickHere = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(875, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(883, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,7 +143,7 @@
             // imgGameImage
             // 
             this.imgGameImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgGameImage.Location = new System.Drawing.Point(680, 48);
+            this.imgGameImage.Location = new System.Drawing.Point(688, 48);
             this.imgGameImage.Name = "imgGameImage";
             this.imgGameImage.Size = new System.Drawing.Size(183, 193);
             this.imgGameImage.TabIndex = 5;
@@ -150,7 +152,7 @@
             // 
             this.lblGameInfo.AutoSize = true;
             this.lblGameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameInfo.Location = new System.Drawing.Point(731, 28);
+            this.lblGameInfo.Location = new System.Drawing.Point(744, 28);
             this.lblGameInfo.Name = "lblGameInfo";
             this.lblGameInfo.Size = new System.Drawing.Size(80, 17);
             this.lblGameInfo.TabIndex = 6;
@@ -180,11 +182,32 @@
             this.lblGameSystem.Size = new System.Drawing.Size(182, 96);
             this.lblGameSystem.TabIndex = 9;
             // 
+            // lblDataMissing
+            // 
+            this.lblDataMissing.AutoSize = true;
+            this.lblDataMissing.Location = new System.Drawing.Point(680, 642);
+            this.lblDataMissing.Name = "lblDataMissing";
+            this.lblDataMissing.Size = new System.Drawing.Size(134, 13);
+            this.lblDataMissing.TabIndex = 10;
+            this.lblDataMissing.Text = "Data incomplete or wrong?";
+            // 
+            // lblClickHere
+            // 
+            this.lblClickHere.AutoSize = true;
+            this.lblClickHere.Location = new System.Drawing.Point(819, 642);
+            this.lblClickHere.Name = "lblClickHere";
+            this.lblClickHere.Size = new System.Drawing.Size(56, 13);
+            this.lblClickHere.TabIndex = 11;
+            this.lblClickHere.TabStop = true;
+            this.lblClickHere.Text = "Click Here";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 762);
+            this.ClientSize = new System.Drawing.Size(883, 762);
+            this.Controls.Add(this.lblClickHere);
+            this.Controls.Add(this.lblDataMissing);
             this.Controls.Add(this.lblGameSystem);
             this.Controls.Add(this.lblGamePublisher);
             this.Controls.Add(this.lblGameName);
@@ -223,5 +246,7 @@
         private System.Windows.Forms.Label lblGameName;
         private System.Windows.Forms.Label lblGamePublisher;
         private System.Windows.Forms.Label lblGameSystem;
+        private System.Windows.Forms.Label lblDataMissing;
+        private System.Windows.Forms.LinkLabel lblClickHere;
     }
 }
