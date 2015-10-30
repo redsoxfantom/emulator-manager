@@ -33,6 +33,6 @@ namespace EmulatorManager.Utilities.RestUtilities
                     }
                 }
             }
-        } 
+        }
     }
 }
