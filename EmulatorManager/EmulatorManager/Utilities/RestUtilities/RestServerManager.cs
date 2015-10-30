@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using log4net;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace EmulatorManager.Utilities.RestUtilities
 {
     public class RestServerManager
     {
+        private static ILog mLogger = LogManager.GetLogger("RestServerManager");
+
         public async static Task<dynamic> Get(string url)
         {
             using (var client = new HttpClient())
@@ -19,6 +22,7 @@ namespace EmulatorManager.Utilities.RestUtilities
                     if(resp.IsSuccessStatusCode)
                     {
                         string responseData = await resp.Content.ReadAsStringAsync();
+                        mLogger.Debug(String.Format("Server returned the following string:\n{0}", responseData));
                         dynamic responseDataObject = JsonConvert.DeserializeObject(responseData);
 
                         return responseDataObject;
