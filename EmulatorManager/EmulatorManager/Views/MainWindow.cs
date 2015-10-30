@@ -262,13 +262,16 @@ namespace EmulatorManager.Views
                 // Query the server (if rom could be read) for the rom details
                 string romId = null;
                 string romSystem = null;
-                GameData data = new GameData();
                 SetGameInfoLabels("Fetching Game Info");
                 if(mRomDataComponent.TryLoadRomData(path,out romId, out romSystem))
                 {
-                    data = await mRomDataComponent.RetrieveGameData(romId, romSystem);
+                    GameData data = await mRomDataComponent.RetrieveGameData(romId, romSystem);
+                    SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage);
                 }
-                SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage);
+                else
+                {
+                    SetGameInfoLabels("Rom Could Not Be Parsed");
+                }
             }
             else
             {
