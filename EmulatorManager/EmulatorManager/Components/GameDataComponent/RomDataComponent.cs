@@ -59,6 +59,33 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger.Info("Done Initializing RomDataComponent");
         }
 
+        public bool TryLoadRomData(string romPath, out string romId, out string romSystem)
+        {
+            romId = null;
+            romSystem = null;
+
+            using (FileStream romFile = File.OpenRead(romPath))
+            {
+                mLogger.Info(String.Format("Attempting to read rom {0}", romFile.Name));
+
+                foreach (var reader in mReaders)
+                {
+                    if (reader.TryReadRom(romFile, out romId, out romSystem))
+                    {
+                        mLogger.Info(String.Format("Successfully read data from rom file using {0} reader: romId={1}, romSystem={2}", reader.GetType().Name, romId, romSystem));
+                        break;
+                    }
+                    romFile.Position = 0;
+                }
+            }
+
+            if(romId != null && romSystem != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public async Task<GameData> GetRomData(string romPath)
         {
             string romId = null;
