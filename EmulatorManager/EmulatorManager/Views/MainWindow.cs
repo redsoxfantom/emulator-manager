@@ -266,7 +266,7 @@ namespace EmulatorManager.Views
                 if(mRomDataComponent.TryLoadRomData(path,out romId, out romSystem))
                 {
                     GameData data = await mRomDataComponent.RetrieveGameData(romId, romSystem);
-                    SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage);
+                    SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage,true);
                 }
                 else
                 {
@@ -280,12 +280,15 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null)
+        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null, bool activateUpdateLink = false)
         {
             lblGameName.Text = gameName;
             lblGamePublisher.Text = gamePub;
             lblGameSystem.Text = gameSys;
             imgGameImage.BackgroundImage = gameImg;
+
+            lblClickHere.Visible = activateUpdateLink;
+            lblDataMissing.Visible = activateUpdateLink;
         }
 
         private void refreshViewToolStripMenuItem_Click(object sender, EventArgs e)
