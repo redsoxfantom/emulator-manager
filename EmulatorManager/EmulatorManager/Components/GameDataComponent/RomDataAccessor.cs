@@ -1,4 +1,5 @@
-﻿using log4net;
+﻿using EmulatorManager.Utilities.RestUtilities;
+using log4net;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,14 +19,11 @@ namespace EmulatorManager.Components.GameDataComponent
     {
         string mUrl;
 
-        HttpClient mClient;
-
         private ILog mLogger;
 
         public RomDataAccessor(string dataUrl)
         {
             mUrl = dataUrl;
-            mClient = new HttpClient();
             mLogger = LogManager.GetLogger(GetType().Name);
 
             mLogger.Debug(String.Format("Data Accessor created with url {0}", mUrl));
@@ -37,55 +35,26 @@ namespace EmulatorManager.Components.GameDataComponent
             dataId = Cleanup(dataId);
             string finalUrl = String.Format("{0}/gamedata/GetGameDataByNameSystem/{1}",mUrl,dataId);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
-            GameData data = null;
-            HttpResponseMessage resp = null;
+            GameData data = new GameData();
 
             try
             {
-                resp = await mClient.GetAsync(finalUrl);
-                if (resp.IsSuccessStatusCode)
-                {
-                    string responseDataString = await resp.Content.ReadAsStringAsync();
-                    mLogger.Debug(String.Format("Successfully got data from server: {0}", responseDataString));
-                    try
-                    {
-                        dynamic responseDataObject = JsonConvert.DeserializeObject(responseDataString);
+                dynamic serverGameData = await RestServerManager.Get(finalUrl);
 
-                        string gameName = responseDataObject.userData.Name;
-                        string gamePublisher = responseDataObject.userData.Publisher;
-                        string gameSystem = responseDataObject.userData.System;
-                        //byte[] gameImageArry = Convert.FromBase64String(responseDataObject.userData.Image);
-                        //Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
-
-                        data = new GameData(gameName, gamePublisher, gameSystem, null);
-                    }
-                    catch(Exception ex)
-                    {
-                        mLogger.Error("Failed to handle response from server", ex);
-                        data = new GameData();
-                    }
-                }
-                else
-                {
-                    mLogger.Error(String.Format("Request for game data (url: {0}) returned ({1})",mUrl,resp.StatusCode));
-                    data = new GameData();
-                }
+                string gameName = serverGameData.userData.Name;
+                string gamePublisher = serverGameData.userData.Publisher;
+                string gameSystem = serverGameData.userData.System;
+                //byte[] gameImageArry = Convert.FromBase64String(serverGameData.userData.Image);
+                //Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
+                data = new GameData(gameName, gamePublisher, gameSystem, null);
+            }
+            catch(ResponseStatusCodeException ex)
+            {
+                mLogger.Error("Server returned failing status code", ex);
             }
             catch(Exception ex)
             {
-                mLogger.Error("Failed to request game data from server", ex);
-            }
-            finally
-            {
-                if(resp != null)
-                {
-                    resp.Dispose();
-                }
-            }
-
-            if(data == null)
-            {
-                data = new GameData();
+                mLogger.Error("Game Data request failed", ex);
             }
 
             return data;
