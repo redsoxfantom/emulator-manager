@@ -116,7 +116,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\FileManager.cs" />
-    <Compile Include="Utilities\RestServerManager.cs" />
+    <Compile Include="Utilities\RestUtilities\ResponseStatusCodeException.cs" />
+    <Compile Include="Utilities\RestUtilities\RestServerManager.cs" />
     <Compile Include="Views\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

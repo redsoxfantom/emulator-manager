@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmulatorManager.Utilities
+namespace EmulatorManager.Utilities.RestUtilities
 {
     public class RestServerManager
     {
@@ -21,7 +21,7 @@ namespace EmulatorManager.Utilities
                     }
                     else
                     {
-
+                        throw new ResponseStatusCodeException(String.Format("Status Code: {0}",resp.StatusCode));
                     }
                 }
             }
