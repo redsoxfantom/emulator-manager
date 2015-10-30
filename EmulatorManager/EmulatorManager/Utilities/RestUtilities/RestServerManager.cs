@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -17,7 +18,10 @@ namespace EmulatorManager.Utilities.RestUtilities
                 {
                     if(resp.IsSuccessStatusCode)
                     {
+                        string responseData = await resp.Content.ReadAsStringAsync();
+                        dynamic responseDataObject = JsonConvert.DeserializeObject(responseData);
 
+                        return responseDataObject;
                     }
                     else
                     {
