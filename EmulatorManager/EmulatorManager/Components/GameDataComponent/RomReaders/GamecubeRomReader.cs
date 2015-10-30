@@ -9,16 +9,11 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
 {
     public class GamecubeRomReader : IRomReader
     {
-        public string RomType
+        public bool AttemptToReadRom(FileStream rom, out string RomId, out string RomType)
         {
-            get
-            {
-                return "GameCube";
-            }
-        }
+            RomId = null;
+            RomType = null;
 
-        public string GetRomId(FileStream rom)
-        {
             byte[] magicNumberArry = new byte[4];
             rom.Position = 28;
             rom.Read(magicNumberArry, 0, 4);
@@ -30,15 +25,16 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
 
             if(magicNumber != 0xC2339F3D)
             {
-                return null;
+                return false;
             }
 
             byte[] romIdArry = new byte[991];
             rom.Position = 32;
             rom.Read(romIdArry, 0, romIdArry.Length);
-            String romId = Encoding.ASCII.GetString(romIdArry).TrimEnd('\0');
+            RomId = Encoding.ASCII.GetString(romIdArry).TrimEnd('\0');
+            RomType = "GameCube";
 
-            return romId;
+            return true;
         }
     }
 }

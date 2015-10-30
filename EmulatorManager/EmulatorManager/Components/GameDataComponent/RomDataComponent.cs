@@ -71,10 +71,8 @@ namespace EmulatorManager.Components.GameDataComponent
 
                 foreach (var reader in mReaders)
                 {
-                    romId = reader.GetRomId(romFile);
-                    if (romId != null)
+                    if (reader.AttemptToReadRom(romFile,out romId,out romSystem))
                     {
-                        romSystem = reader.RomType;
                         mLogger.Info(String.Format("Successfully read data from rom file using {0} reader: romId={1}, romSystem={2}",reader.GetType().Name,romId,romSystem));
                         break;
                     }

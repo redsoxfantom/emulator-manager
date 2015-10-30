@@ -9,8 +9,6 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
 {
     public interface IRomReader
     {
-        string GetRomId(FileStream rom);
-
-        string RomType { get; }
+        bool AttemptToReadRom(FileStream rom, out string RomId, out string RomType);
     }
 }
