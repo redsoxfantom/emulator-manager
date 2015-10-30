@@ -247,8 +247,7 @@ namespace EmulatorManager.Views
                 mLogger.Debug(String.Format("Selected node is an Emulator node for emulator <{0}>",emu.ToString()));
                 CurrentCommand = new Command(emu.Path);
             }
-
-            if(selectedNode.Level == 2)
+            else if(selectedNode.Level == 2)
             {
                 // User selected a node corresponding to a path
                 String emulatorName = selectedNode.Parent.Text;
@@ -266,7 +265,7 @@ namespace EmulatorManager.Views
             }
             else
             {
-                mLogger.Debug("Selected node is not a Path node, clearing command line");
+                mLogger.Debug("Selected node is not a Path or Emulator node, clearing command line");
                 CurrentCommand = new Command();
             }
         }
