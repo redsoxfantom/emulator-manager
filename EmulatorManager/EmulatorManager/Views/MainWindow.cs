@@ -239,6 +239,11 @@ namespace EmulatorManager.Views
             TreeNode selectedNode = e.Node;
             mLogger.Info(String.Format("Selected Node: {0} at level {1}",selectedNode.FullPath, selectedNode.Level));
 
+            if(selectedNode.Level == 1)
+            {
+                // user selected a node corresponding to an emulator
+            }
+
             if(selectedNode.Level == 2)
             {
                 // User selected a node corresponding to a path
