@@ -190,6 +190,7 @@
             this.lblDataMissing.Size = new System.Drawing.Size(134, 13);
             this.lblDataMissing.TabIndex = 10;
             this.lblDataMissing.Text = "Data incomplete or wrong?";
+            this.lblDataMissing.Visible = false;
             // 
             // lblClickHere
             // 
@@ -200,6 +201,7 @@
             this.lblClickHere.TabIndex = 11;
             this.lblClickHere.TabStop = true;
             this.lblClickHere.Text = "Click Here";
+            this.lblClickHere.Visible = false;
             // 
             // MainWindow
             // 
