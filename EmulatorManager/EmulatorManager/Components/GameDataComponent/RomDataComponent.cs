@@ -79,11 +79,21 @@ namespace EmulatorManager.Components.GameDataComponent
                 }
             }
 
-            if(romId != null && romSystem != null)
+            if (romId != null && romSystem != null)
             {
                 return true;
             }
-            return false;
+            else
+            {
+                mLogger.Warn("Could not read rom data using any known reader");
+                return false;
+            }
+        }
+
+        public async Task<GameData> RetrieveGameData(string romId, string romSystem)
+        {
+            GameData data = await mAccessor.RetrieveGameData(romSystem, romId);
+            return data;
         }
 
         public async Task<GameData> GetRomData(string romPath)
