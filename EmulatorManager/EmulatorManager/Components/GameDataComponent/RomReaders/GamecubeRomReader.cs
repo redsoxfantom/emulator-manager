@@ -9,7 +9,7 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
 {
     public class GamecubeRomReader : IRomReader
     {
-        public bool AttemptToReadRom(FileStream rom, out string RomId, out string RomType)
+        public bool TryReadRom(FileStream rom, out string RomId, out string RomType)
         {
             RomId = null;
             RomType = null;
