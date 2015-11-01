@@ -16,5 +16,10 @@ namespace EmulatorManager.Views
         {
             InitializeComponent();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
