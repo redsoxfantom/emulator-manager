@@ -10,13 +10,13 @@ namespace EmulatorManager.Components.GameDataComponent
 {
     public class GameData
     {
-        public string GameName { get; private set; }
+        public string GameName { get; set; }
 
-        public string GamePublisher { get; private set; }
+        public string GamePublisher { get; set; }
 
-        public string GameSystem { get; private set; }
+        public string GameSystem { get; set; }
 
-        public Image GameImage { get; private set; }
+        public Image GameImage { get; set; }
 
         public int Id { get; private set; }
 

@@ -1,5 +1,7 @@
 ﻿using EmulatorManager.Components.GameDataComponent;
+using EmulatorManager.Properties;
 using EmulatorManager.Utilities;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +18,14 @@ namespace EmulatorManager.Views
     {
         private GameData mData;
 
+        private static ILog mLogger;
+
         public UpdateRomDataServerWindow()
         {
             InitializeComponent();
 
             mData = new GameData();
+             mLogger = LogManager.GetLogger(this.GetType().Name);
         }
 
         public void Initialize(GameData data)
@@ -42,6 +47,20 @@ namespace EmulatorManager.Views
         private void gameImage_click(object sender, EventArgs e)
         {
             string imageFile = FileManager.UseFilePicker(FileManager.FilePickerType.LOAD, "Select Game Image", "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG");
+            if(!String.IsNullOrEmpty(imageFile))
+            {
+                try
+                {
+                    mData.GameImage = Image.FromFile(imageFile);
+                }
+                catch(Exception ex)
+                {
+                    mLogger.Warn("Could not load image", ex);
+                    MessageBox.Show(this, String.Format("Could not load image: {0}", ex.Message), "ERROR");
+                    mData.GameImage = Resources.No_Image_Found;
+                    pnlImage.BackgroundImage = Resources.No_Image_Found;
+                }
+            }
         }
     }
 }
