@@ -36,5 +36,10 @@ namespace EmulatorManager.Views
         {
 
         }
+
+        private void gameImage_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -46,6 +46,7 @@
             this.pnlImage.Name = "pnlImage";
             this.pnlImage.Size = new System.Drawing.Size(191, 183);
             this.pnlImage.TabIndex = 0;
+            this.pnlImage.Click += new System.EventHandler(this.gameImage_click);
             // 
             // lblImage
             // 
