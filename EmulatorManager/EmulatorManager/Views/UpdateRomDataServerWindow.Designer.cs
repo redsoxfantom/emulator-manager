@@ -34,8 +34,8 @@
             this.lblGamePublisher = new System.Windows.Forms.Label();
             this.lblGameSystem = new System.Windows.Forms.Label();
             this.txtGameName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtGamePublisher = new System.Windows.Forms.TextBox();
+            this.txtGameSystem = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -94,21 +94,21 @@
             this.txtGameName.Size = new System.Drawing.Size(252, 23);
             this.txtGameName.TabIndex = 5;
             // 
-            // textBox1
+            // txtGamePublisher
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(328, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(252, 23);
-            this.textBox1.TabIndex = 6;
+            this.txtGamePublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGamePublisher.Location = new System.Drawing.Point(328, 66);
+            this.txtGamePublisher.Name = "txtGamePublisher";
+            this.txtGamePublisher.Size = new System.Drawing.Size(252, 23);
+            this.txtGamePublisher.TabIndex = 6;
             // 
-            // textBox2
+            // txtGameSystem
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(328, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(252, 23);
-            this.textBox2.TabIndex = 7;
+            this.txtGameSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGameSystem.Location = new System.Drawing.Point(328, 95);
+            this.txtGameSystem.Name = "txtGameSystem";
+            this.txtGameSystem.Size = new System.Drawing.Size(252, 23);
+            this.txtGameSystem.TabIndex = 7;
             // 
             // btnSubmit
             // 
@@ -127,8 +127,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 262);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtGameSystem);
+            this.Controls.Add(this.txtGamePublisher);
             this.Controls.Add(this.txtGameName);
             this.Controls.Add(this.lblGameSystem);
             this.Controls.Add(this.lblGamePublisher);
@@ -150,8 +150,8 @@
         private System.Windows.Forms.Label lblGamePublisher;
         private System.Windows.Forms.Label lblGameSystem;
         private System.Windows.Forms.TextBox txtGameName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtGamePublisher;
+        private System.Windows.Forms.TextBox txtGameSystem;
         private System.Windows.Forms.Button btnSubmit;
     }
 }
