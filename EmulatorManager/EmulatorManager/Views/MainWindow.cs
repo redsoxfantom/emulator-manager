@@ -45,6 +45,8 @@ namespace EmulatorManager.Views
 
         private IReadOnlyList<RomPath> mLoadedPaths;
 
+        private GameData mSelectedRomData;
+
         private Command CurrentCommand
         {
             get
@@ -266,8 +268,8 @@ namespace EmulatorManager.Views
                 SetGameInfoLabels("Fetching Game Info");
                 if(mRomDataComponent.TryLoadRomData(path,out romId, out romSystem))
                 {
-                    GameData data = await mRomDataComponent.RetrieveGameData(romId, romSystem);
-                    SetGameInfoLabels(data.GameName, data.GamePublisher, data.GameSystem, data.GameImage,true);
+                    mSelectedRomData = await mRomDataComponent.RetrieveGameData(romId, romSystem);
+                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage,true);
                 }
                 else
                 {
@@ -457,7 +459,10 @@ namespace EmulatorManager.Views
 
         private void lblClickHere_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            using (UpdateRomDataServerWindow form = new UpdateRomDataServerWindow())
+            {
+                form.Initialize(mSelectedRomData);
+            }
         }
     }
 }
