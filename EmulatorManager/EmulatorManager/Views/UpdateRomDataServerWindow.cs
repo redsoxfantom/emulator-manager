@@ -1,4 +1,5 @@
 ﻿using EmulatorManager.Components.GameDataComponent;
+using EmulatorManager.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,7 +35,7 @@ namespace EmulatorManager.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            string imageFile = FileManager.UseFilePicker(FileManager.FilePickerType.LOAD, "Select Game Image", "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG");
         }
 
         private void gameImage_click(object sender, EventArgs e)
