@@ -41,6 +41,7 @@
             // 
             // pnlImage
             // 
+            this.pnlImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlImage.Location = new System.Drawing.Point(12, 42);
             this.pnlImage.Name = "pnlImage";
             this.pnlImage.Size = new System.Drawing.Size(191, 183);
