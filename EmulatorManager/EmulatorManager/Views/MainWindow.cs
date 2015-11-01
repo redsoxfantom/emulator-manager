@@ -462,6 +462,8 @@ namespace EmulatorManager.Views
             using (UpdateRomDataServerWindow form = new UpdateRomDataServerWindow())
             {
                 form.Initialize(mSelectedRomData);
+                DialogResult res = form.ShowDialog(this);
+                
             }
         }
     }
