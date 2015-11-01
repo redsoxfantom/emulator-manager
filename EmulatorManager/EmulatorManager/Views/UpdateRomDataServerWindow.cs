@@ -35,13 +35,13 @@ namespace EmulatorManager.Views
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string imageFile = FileManager.UseFilePicker(FileManager.FilePickerType.LOAD, "Select Game Image", "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG");
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         private void gameImage_click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            this.Close();
+            string imageFile = FileManager.UseFilePicker(FileManager.FilePickerType.LOAD, "Select Game Image", "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG");
         }
     }
 }
