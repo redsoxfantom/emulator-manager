@@ -52,6 +52,7 @@ namespace EmulatorManager.Views
                 try
                 {
                     mData.GameImage = Image.FromFile(imageFile);
+                    pnlImage.BackgroundImage = mData.GameImage;
                 }
                 catch(Exception ex)
                 {
