@@ -96,6 +96,12 @@ namespace EmulatorManager.Components.GameDataComponent
             return data;
         }
 
+        public void UpdateOrAddGameData(string romId, GameData data)
+        {
+            mLogger.Debug(String.Format("UpdateOrAddGameData called with rom id {0} and data {1}", romId, data));
+            mAccessor.UpdateOrAddGameData(romId, data);
+        }
+
         private string GetServerUrl()
         {
             String strAppPath = Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
