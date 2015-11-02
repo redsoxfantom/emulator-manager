@@ -42,5 +42,10 @@ namespace EmulatorManager.Components.GameDataComponent
             }
             GameImage = gameImage;
         }
+
+        public override String ToString()
+        {
+            return String.Format("{0}: Name: {1}, Publisher: {2}, System: {3}",Id,GameName,GamePublisher,GameSystem);
+        }
     }
 }
