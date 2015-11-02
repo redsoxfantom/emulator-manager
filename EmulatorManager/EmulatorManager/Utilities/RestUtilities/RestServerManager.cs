@@ -34,5 +34,20 @@ namespace EmulatorManager.Utilities.RestUtilities
                 }
             }
         }
+
+        public async static void Put(string url, Dictionary<string,string> data)
+        {
+            using (var client = new HttpClient())
+            {
+                using (var content = new MultipartContent())
+                {
+                    foreach(var headerName in data.Keys)
+                    {
+                        var headerValue = data[headerName];
+                        content.Headers.Add(headerName, headerValue);
+                    }
+                }
+            }
+        }
     }
 }
