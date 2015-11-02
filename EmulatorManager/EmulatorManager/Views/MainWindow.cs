@@ -466,7 +466,8 @@ namespace EmulatorManager.Views
                 
                 if(res == DialogResult.OK)
                 {
-
+                    mSelectedRomData = form.Data;
+                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true);
                 }
             }
         }
