@@ -46,9 +46,9 @@ namespace EmulatorManager.Components.GameDataComponent
                 string gamePublisher = serverGameData.userData.Publisher;
                 string gameSystem = serverGameData.userData.System;
                 int id = serverGameData.userData.id;
-                //byte[] gameImageArry = Convert.FromBase64String(serverGameData.userData.Image);
-                //Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
-                data = new GameData(gameName, gamePublisher, gameSystem, null,id,true);
+                byte[] gameImageArry = Convert.FromBase64String(serverGameData.userData.Image);
+                Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
+                data = new GameData(gameName, gamePublisher, gameSystem, gameImage,id,true);
             }
             catch(ResponseStatusCodeException ex)
             {
