@@ -41,10 +41,10 @@ namespace EmulatorManager.Views
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            Data.GameName = lblGameName.Text;
+            Data.GameName = txtGameName.Text;
             Data.GameImage = pnlImage.BackgroundImage;
-            Data.GamePublisher = lblGamePublisher.Text;
-            Data.GameSystem = lblGameSystem.Text;
+            Data.GamePublisher = txtGamePublisher.Text;
+            Data.GameSystem = txtGameSystem.Text;
             mLogger.Info(String.Format("Input GameData: {0}", Data.ToString()));
 
             this.Close();
