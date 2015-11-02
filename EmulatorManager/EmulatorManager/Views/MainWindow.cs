@@ -471,6 +471,7 @@ namespace EmulatorManager.Views
                 {
                     mSelectedRomData = form.Data;
                     SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true);
+                    mRomDataComponent.UpdateOrAddGameData(mSelectedRomId, mSelectedRomData);
                 }
             }
         }
