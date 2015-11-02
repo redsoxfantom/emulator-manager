@@ -46,6 +46,8 @@ namespace EmulatorManager.Utilities.RestUtilities
                         var headerValue = data[headerName];
                         content.Headers.Add(headerName, headerValue);
                     }
+
+                    await client.PutAsync(url, content);
                 }
             }
         }
