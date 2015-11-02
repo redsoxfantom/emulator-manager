@@ -460,7 +460,7 @@ namespace EmulatorManager.Views
             saveCurrentConfig(mConfigFilePath);
         }
 
-        private void lblClickHere_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private async void lblClickHere_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             using (UpdateRomDataServerWindow form = new UpdateRomDataServerWindow())
             {
@@ -471,7 +471,7 @@ namespace EmulatorManager.Views
                 {
                     mSelectedRomData = form.Data;
                     SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true);
-                    mRomDataComponent.UpdateOrAddGameData(mSelectedRomId, mSelectedRomData);
+                    await mRomDataComponent.UpdateOrAddGameData(mSelectedRomId, mSelectedRomData);
                 }
             }
         }

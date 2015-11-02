@@ -62,7 +62,7 @@ namespace EmulatorManager.Components.GameDataComponent
             return data;
         }
 
-        public async void UpdateOrAddGameData(string romId, GameData data)
+        public async Task UpdateOrAddGameData(string romId, GameData data)
         {
             String base64Image = null;
             using (MemoryStream mem = new MemoryStream())
