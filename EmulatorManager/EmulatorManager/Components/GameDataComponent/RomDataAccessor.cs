@@ -45,8 +45,9 @@ namespace EmulatorManager.Components.GameDataComponent
                 string gameName = serverGameData.userData.Name;
                 string gamePublisher = serverGameData.userData.Publisher;
                 string gameSystem = serverGameData.userData.System;
+                string gameImageBase64String = serverGameData.userData.Image;
                 int id = serverGameData.userData.id;
-                byte[] gameImageArry = Convert.FromBase64String(serverGameData.userData.Image);
+                byte[] gameImageArry = Convert.FromBase64String(gameImageBase64String);
                 Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
                 data = new GameData(gameName, gamePublisher, gameSystem, gameImage,id,true);
             }
