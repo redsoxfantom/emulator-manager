@@ -16,7 +16,7 @@ namespace EmulatorManager.Views
 {
     public partial class UpdateRomDataServerWindow : Form
     {
-        private GameData mData;
+        public GameData Data { get; private set; }
 
         private static ILog mLogger;
 
@@ -24,13 +24,13 @@ namespace EmulatorManager.Views
         {
             InitializeComponent();
 
-            mData = new GameData();
+            Data = new GameData();
              mLogger = LogManager.GetLogger(this.GetType().Name);
         }
 
         public void Initialize(GameData data)
         {
-            mData = data;
+            Data = data;
 
             txtGameName.Text = data.GameName;
             txtGamePublisher.Text = data.GamePublisher;
@@ -51,14 +51,14 @@ namespace EmulatorManager.Views
             {
                 try
                 {
-                    mData.GameImage = Image.FromFile(imageFile);
-                    pnlImage.BackgroundImage = mData.GameImage;
+                    Data.GameImage = Image.FromFile(imageFile);
+                    pnlImage.BackgroundImage = Data.GameImage;
                 }
                 catch(Exception ex)
                 {
                     mLogger.Warn("Could not load image", ex);
                     MessageBox.Show(this, String.Format("Could not load image: {0}", ex.Message), "ERROR");
-                    mData.GameImage = Resources.No_Image_Found;
+                    Data.GameImage = Resources.No_Image_Found;
                     pnlImage.BackgroundImage = Resources.No_Image_Found;
                 }
             }
