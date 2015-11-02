@@ -47,6 +47,8 @@ namespace EmulatorManager.Views
 
         private GameData mSelectedRomData;
 
+        private string mSelectedRomId;
+
         private Command CurrentCommand
         {
             get
@@ -268,6 +270,7 @@ namespace EmulatorManager.Views
                 SetGameInfoLabels("Fetching Game Info");
                 if(mRomDataComponent.TryLoadRomData(path,out romId, out romSystem))
                 {
+                    mSelectedRomId = romId;
                     mSelectedRomData = await mRomDataComponent.RetrieveGameData(romId, romSystem);
                     SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage,true);
                 }
