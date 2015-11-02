@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -59,6 +60,17 @@ namespace EmulatorManager.Components.GameDataComponent
             }
 
             return data;
+        }
+
+        public async void UpdateOrAddGameData(GameData data)
+        {
+            String base64Image = null;
+            using (MemoryStream mem = new MemoryStream())
+            {
+                data.GameImage.Save(mem, data.GameImage.RawFormat);
+                byte[] imgBytes = mem.ToArray();
+                base64Image = Convert.ToBase64String(imgBytes);
+            }
         }
 
         private string Cleanup(String str)
