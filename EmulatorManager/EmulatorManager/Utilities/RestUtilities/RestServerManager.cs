@@ -39,7 +39,7 @@ namespace EmulatorManager.Utilities.RestUtilities
         {
             using (var client = new HttpClient())
             {
-                HttpContent content = createHeader(data);
+                HttpContent content = createBody(data);
                 try
                 {
                     await client.PutAsync(url, content);
@@ -59,7 +59,7 @@ namespace EmulatorManager.Utilities.RestUtilities
         {
             using (var client = new HttpClient())
             {
-                HttpContent content = createHeader(data);
+                HttpContent content = createBody(data);
                 try
                 {
                     await client.PostAsync(url, content);
@@ -75,14 +75,11 @@ namespace EmulatorManager.Utilities.RestUtilities
             }
         }
 
-        private static HttpContent createHeader(Dictionary<string,string> headerData)
+        private static HttpContent createBody(Dictionary<string,string> headerData)
         {
-            var content = new MultipartContent();
-            foreach(var headerName in headerData.Keys)
-            {
-                var headerValue = headerData[headerName];
-                content.Headers.Add(headerName, headerValue);
-            }
+            string jsonBody = JsonConvert.SerializeObject(headerData);
+            var content = new StringContent(jsonBody);
+            mLogger.Debug(String.Format("Message Body: {0}", jsonBody));
             return content;
         }
     }
