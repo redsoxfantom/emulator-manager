@@ -35,7 +35,7 @@ namespace EmulatorManager.Utilities.RestUtilities
             }
         }
 
-        public async static void Put(string url, Dictionary<string,string> data)
+        public async static Task Put(string url, Dictionary<string,string> data)
         {
             using (var client = new HttpClient())
             {
@@ -55,7 +55,7 @@ namespace EmulatorManager.Utilities.RestUtilities
             }
         }
 
-        public async static void Post(string url, Dictionary<string,string> data)
+        public async static Task Post(string url, Dictionary<string,string> data)
         {
             using (var client = new HttpClient())
             {

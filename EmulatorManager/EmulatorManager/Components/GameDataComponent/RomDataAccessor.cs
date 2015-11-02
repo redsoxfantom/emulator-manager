@@ -89,7 +89,7 @@ namespace EmulatorManager.Components.GameDataComponent
                 try
                 {
                     mLogger.Info(String.Format("Attempting to update game data object at {0}", finalUrl));
-                    RestServerManager.Put(finalUrl, header);
+                    await RestServerManager.Put(finalUrl, header);
                 }
                 catch (Exception ex)
                 {
@@ -101,7 +101,7 @@ namespace EmulatorManager.Components.GameDataComponent
                 try
                 {
                     mLogger.Info(String.Format("Attempting to create new game data object at {0}", url));
-                    RestServerManager.Post(url, header);
+                    await RestServerManager.Post(url, header);
                 }
                 catch (Exception ex)
                 {
