@@ -76,9 +76,8 @@ namespace EmulatorManager.Components.GameDataComponent
             string dataId = romId + data.GameSystem;
             dataId = Cleanup(dataId);
 
-            string url = String.Format("{0}/gamedata", mUrl);
+            string baseUrl = String.Format("{0}/gamedata", mUrl);
             Dictionary<string, string> header = new Dictionary<string, string>();
-            header.Add("NameSystem",dataId);
             header.Add("Name", data.GameName);
             header.Add("Publisher", data.GamePublisher);
             header.Add("System", data.GameSystem);
@@ -86,7 +85,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
             if (data.ExistsOnServer)
             {
-                string finalUrl = String.Format("{0}/{1}", url, data.Id);
+                string finalUrl = String.Format("{0}/{1}", baseUrl, data.Id);
                 try
                 {
                     mLogger.Info(String.Format("Attempting to update game data object at {0}", finalUrl));
@@ -99,10 +98,11 @@ namespace EmulatorManager.Components.GameDataComponent
             }
             else
             {
+                string finalUrl = String.Format("{0}/create?NameSystem={1}",baseUrl,dataId);
                 try
                 {
-                    mLogger.Info(String.Format("Attempting to create new game data object at {0}", url));
-                    await RestServerManager.Post(url, header);
+                    mLogger.Info(String.Format("Attempting to create new game data object at {0}", finalUrl));
+                    await RestServerManager.Post(finalUrl, header);
                 }
                 catch (Exception ex)
                 {
