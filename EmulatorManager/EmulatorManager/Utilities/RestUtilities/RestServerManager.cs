@@ -46,7 +46,7 @@ namespace EmulatorManager.Utilities.RestUtilities
                 }
                 catch(Exception ex)
                 {
-
+                    throw new RestServerManagerException("Error occurred in PUT", ex);
                 }
                 finally
                 {
