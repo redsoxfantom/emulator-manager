@@ -96,6 +96,18 @@ namespace EmulatorManager.Components.GameDataComponent
                     mLogger.Error("Error updating game data", ex);
                 }
             }
+            else
+            {
+                try
+                {
+                    mLogger.Info(String.Format("Attempting to create new game data object at {0}", url));
+                    RestServerManager.Post(url, header);
+                }
+                catch (Exception ex)
+                {
+                    mLogger.Error("Error creating game data", ex);
+                }
+            }
         }
 
         private string Cleanup(String str)
