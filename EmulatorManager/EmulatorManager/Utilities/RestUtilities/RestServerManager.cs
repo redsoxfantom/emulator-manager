@@ -55,6 +55,26 @@ namespace EmulatorManager.Utilities.RestUtilities
             }
         }
 
+        public async static void Post(string url, Dictionary<string,string> data)
+        {
+            using (var client = new HttpClient())
+            {
+                HttpContent content = createHeader(data);
+                try
+                {
+                    await client.PostAsync(url, content);
+                }
+                catch(Exception ex)
+                {
+                    throw new RestServerManagerException("Error occurred in POST", ex);
+                }
+                finally
+                {
+                    content.Dispose();
+                }
+            }
+        }
+
         private static HttpContent createHeader(Dictionary<string,string> headerData)
         {
             var content = new MultipartContent();
