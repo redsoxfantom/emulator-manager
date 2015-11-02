@@ -45,6 +45,7 @@ namespace EmulatorManager.Views
             Data.GameImage = pnlImage.BackgroundImage;
             Data.GamePublisher = lblGamePublisher.Text;
             Data.GameSystem = lblGameSystem.Text;
+            mLogger.Info(String.Format("Input GameData: {0}", Data.ToString()));
 
             this.Close();
         }
@@ -56,6 +57,7 @@ namespace EmulatorManager.Views
             {
                 try
                 {
+                    mLogger.Debug(string.Format("Loading image from {0}", imageFile));
                     Data.GameImage = Image.FromFile(imageFile);
                     pnlImage.BackgroundImage = Data.GameImage;
                 }
