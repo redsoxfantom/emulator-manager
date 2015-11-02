@@ -25,7 +25,7 @@ namespace EmulatorManager.Views
             InitializeComponent();
 
             Data = new GameData();
-             mLogger = LogManager.GetLogger(this.GetType().Name);
+            mLogger = LogManager.GetLogger(this.GetType().Name);
         }
 
         public void Initialize(GameData data)
@@ -41,6 +41,11 @@ namespace EmulatorManager.Views
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+            Data.GameName = lblGameName.Text;
+            Data.GameImage = pnlImage.BackgroundImage;
+            Data.GamePublisher = lblGamePublisher.Text;
+            Data.GameSystem = lblGameSystem.Text;
+
             this.Close();
         }
 
