@@ -74,6 +74,19 @@ namespace EmulatorManager.Components.GameDataComponent
 
             string dataId = romId + data.GameSystem;
             dataId = Cleanup(dataId);
+
+            string finalUrl = String.Format("{0}/gamedata", mUrl);
+            Dictionary<string, string> header = new Dictionary<string, string>();
+            header.Add("NameSystem",dataId);
+            header.Add("Name", data.GameName);
+            header.Add("Publisher", data.GamePublisher);
+            header.Add("System", data.GameSystem);
+            header.Add("Image", base64Image);
+
+            if (data.ExistsOnServer)
+            {
+                RestServerManager.Put(finalUrl,header);
+            }
         }
 
         private string Cleanup(String str)
