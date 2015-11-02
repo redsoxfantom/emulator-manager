@@ -464,6 +464,10 @@ namespace EmulatorManager.Views
                 form.Initialize(mSelectedRomData);
                 DialogResult res = form.ShowDialog(this);
                 
+                if(res == DialogResult.OK)
+                {
+
+                }
             }
         }
     }
