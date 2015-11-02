@@ -62,7 +62,7 @@ namespace EmulatorManager.Components.GameDataComponent
             return data;
         }
 
-        public async void UpdateOrAddGameData(GameData data)
+        public async void UpdateOrAddGameData(string romId, GameData data)
         {
             String base64Image = null;
             using (MemoryStream mem = new MemoryStream())
@@ -71,6 +71,9 @@ namespace EmulatorManager.Components.GameDataComponent
                 byte[] imgBytes = mem.ToArray();
                 base64Image = Convert.ToBase64String(imgBytes);
             }
+
+            string dataId = romId + data.GameSystem;
+            dataId = Cleanup(dataId);
         }
 
         private string Cleanup(String str)
