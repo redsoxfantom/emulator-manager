@@ -39,17 +39,31 @@ namespace EmulatorManager.Utilities.RestUtilities
         {
             using (var client = new HttpClient())
             {
-                using (var content = new MultipartContent())
+                HttpContent content = createHeader(data);
+                try
                 {
-                    foreach(var headerName in data.Keys)
-                    {
-                        var headerValue = data[headerName];
-                        content.Headers.Add(headerName, headerValue);
-                    }
-
                     await client.PutAsync(url, content);
                 }
+                catch(Exception ex)
+                {
+
+                }
+                finally
+                {
+                    content.Dispose();
+                }
             }
+        }
+
+        private static HttpContent createHeader(Dictionary<string,string> headerData)
+        {
+            var content = new MultipartContent();
+            foreach(var headerName in headerData.Keys)
+            {
+                var headerValue = headerData[headerName];
+                content.Headers.Add(headerName, headerValue);
+            }
+            return content;
         }
     }
 }
