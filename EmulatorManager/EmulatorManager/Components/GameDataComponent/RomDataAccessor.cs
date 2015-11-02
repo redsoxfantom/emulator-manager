@@ -75,7 +75,7 @@ namespace EmulatorManager.Components.GameDataComponent
             string dataId = romId + data.GameSystem;
             dataId = Cleanup(dataId);
 
-            string finalUrl = String.Format("{0}/gamedata", mUrl);
+            string url = String.Format("{0}/gamedata", mUrl);
             Dictionary<string, string> header = new Dictionary<string, string>();
             header.Add("NameSystem",dataId);
             header.Add("Name", data.GameName);
@@ -85,7 +85,16 @@ namespace EmulatorManager.Components.GameDataComponent
 
             if (data.ExistsOnServer)
             {
-                RestServerManager.Put(finalUrl,header);
+                string finalUrl = String.Format("{0}/{1}", url, data.Id);
+                try
+                {
+                    mLogger.Info(String.Format("Attempting to update game data object at {0}", finalUrl));
+                    RestServerManager.Put(finalUrl, header);
+                }
+                catch (Exception ex)
+                {
+                    mLogger.Error("Error updating game data", ex);
+                }
             }
         }
 
