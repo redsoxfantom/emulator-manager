@@ -22,10 +22,13 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private ILog mLogger;
 
+        private Dictionary<string, GameData> dataCache;
+
         public RomDataAccessor(string dataUrl)
         {
             mUrl = dataUrl;
             mLogger = LogManager.GetLogger(GetType().Name);
+            dataCache = new Dictionary<string, GameData>();
 
             mLogger.Debug(String.Format("Data Accessor created with url {0}", mUrl));
         }
@@ -34,6 +37,11 @@ namespace EmulatorManager.Components.GameDataComponent
         {
             string dataId = romId + romType;
             dataId = Cleanup(dataId);
+            if(dataCache.ContainsKey(dataId))
+            {
+                return dataCache[dataId];
+            }
+
             string finalUrl = String.Format("{0}/gamedata/GetGameDataByNameSystem/{1}",mUrl,dataId);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = new GameData();
@@ -49,7 +57,9 @@ namespace EmulatorManager.Components.GameDataComponent
                 int id = serverGameData.userData.id;
                 byte[] gameImageArry = Convert.FromBase64String(gameImageBase64String);
                 Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
+
                 data = new GameData(gameName, gamePublisher, gameSystem, gameImage,id,true);
+                dataCache.Add(dataId, data);
             }
             catch(ResponseStatusCodeException ex)
             {
