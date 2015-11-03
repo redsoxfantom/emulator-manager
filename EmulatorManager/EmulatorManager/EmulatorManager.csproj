@@ -99,6 +99,7 @@
     <Compile Include="Components\GameDataComponent\RomDataComponent.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\GamecubeRomReader.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\IRomReader.cs" />
+    <Compile Include="Components\GameDataComponent\RomReaders\N64RomReader.cs" />
     <Compile Include="Components\PathComponent\PathResolverComponent.cs" />
     <Compile Include="Events\ExecutionStateChanged.cs" />
     <Compile Include="Events\LoadedConfigChanged.cs" />
