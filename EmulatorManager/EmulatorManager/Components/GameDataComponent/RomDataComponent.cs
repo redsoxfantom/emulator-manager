@@ -36,12 +36,20 @@ namespace EmulatorManager.Components.GameDataComponent
         {
             mReaders = new List<IRomReader>();
             mLogger = LogManager.GetLogger(GetType().Name);
-            mAccessor = new RomDataAccessor(GetServerUrl());
         }
 
-        public void Initialize()
+        public void Initialize(String serverUrl = null)
         {
             mLogger.Info("Initializing RomDataComponent");
+
+            if(serverUrl != null)
+            {
+                mAccessor = new RomDataAccessor(serverUrl);
+            }
+            else
+            {
+                mAccessor = new RomDataAccessor(GetServerUrl());
+            }
 
             // Get list of all types in assembly that implement IRomReader
             Type romReaderType = typeof(IRomReader);
