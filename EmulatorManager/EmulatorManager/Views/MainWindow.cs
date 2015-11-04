@@ -299,6 +299,7 @@ namespace EmulatorManager.Views
 
         private void refreshViewToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            mRomDataComponent.ClearDataCache();
             redrawTreeView();
         }
 
