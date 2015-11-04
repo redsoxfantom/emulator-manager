@@ -59,6 +59,11 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger.Info("Done Initializing RomDataComponent");
         }
 
+        public void ClearDataCache()
+        {
+            mAccessor.ClearCache();
+        }
+
         public bool TryLoadRomData(string romPath, out string romId, out string romSystem)
         {
             romId = null;
