@@ -39,6 +39,7 @@ namespace EmulatorManager.Components.GameDataComponent
             dataId = Cleanup(dataId);
             if(dataCache.ContainsKey(dataId))
             {
+                mLogger.Info("Returning data from cache");
                 return dataCache[dataId];
             }
 
