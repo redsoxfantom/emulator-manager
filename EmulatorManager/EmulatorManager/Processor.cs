@@ -17,6 +17,8 @@ namespace EmulatorManager
 
         private String configPath;
 
+        private String serverUrl;
+
         public void Init(string[] args)
         {
             ParseArgs(args);
@@ -32,7 +34,14 @@ namespace EmulatorManager
                 ConfigComponent.Instance.Initialize(configPath);
             }
 
-            RomDataComponent.Instance.Initialize();
+            if (serverUrl == null)
+            {
+                RomDataComponent.Instance.Initialize();
+            }
+            else
+            {
+                RomDataComponent.Instance.Initialize(serverUrl);
+            }
 
             mLogger.Info("Done Initializing Emulator Manager processor");
         }
@@ -65,6 +74,11 @@ namespace EmulatorManager
                     i++;
                     ILoggerRepository logRepo = LogManager.GetRepository();
                     logRepo.Threshold = logRepo.LevelMap[args[i]];
+                }
+                if(args[i] == "-dataUrl")
+                {
+                    i++;
+                    serverUrl = args[i];
                 }
             }
         }
