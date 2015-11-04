@@ -33,6 +33,11 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger.Debug(String.Format("Data Accessor created with url {0}", mUrl));
         }
 
+        public void ClearCache()
+        {
+            dataCache.Clear();
+        }
+
         public async Task<GameData> RetrieveGameData(string romType, string romId)
         {
             string dataId = romId + romType;
