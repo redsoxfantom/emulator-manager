@@ -35,6 +35,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public void ClearCache()
         {
+            mLogger.Info("Clearing data cache");
             dataCache.Clear();
         }
 
