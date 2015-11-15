@@ -1,5 +1,4 @@
-﻿using EmulatorManager.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -38,7 +37,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
             if(gameImage == null)
             {
-                gameImage = Resources.No_Image_Found;
+                gameImage = Resource.No_Image_Found;
             }
             GameImage = gameImage;
         }

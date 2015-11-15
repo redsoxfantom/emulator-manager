@@ -1,16 +1,10 @@
 ﻿using EmulatorManager.Components.GameDataComponent;
-using EmulatorManager.Properties;
 using EmulatorManager.Utilities;
 using log4net;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using EmulatorManager.Components;
 
 namespace EmulatorManager.Views
 {
@@ -65,8 +59,8 @@ namespace EmulatorManager.Views
                 {
                     mLogger.Warn("Could not load image", ex);
                     MessageBox.Show(this, String.Format("Could not load image: {0}", ex.Message), "ERROR");
-                    Data.GameImage = Resources.No_Image_Found;
-                    pnlImage.BackgroundImage = Resources.No_Image_Found;
+                    Data.GameImage = Resource.No_Image_Found;
+                    pnlImage.BackgroundImage = Resource.No_Image_Found;
                 }
             }
         }
