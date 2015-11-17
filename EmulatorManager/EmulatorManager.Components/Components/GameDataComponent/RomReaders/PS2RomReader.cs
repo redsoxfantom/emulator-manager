@@ -11,7 +11,10 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
     {
         public bool TryReadRom(FileStream rom, out string RomId, out string RomType)
         {
-            throw new NotImplementedException();
+            RomId = null;
+            RomType = null;
+
+            return false;
         }
     }
 }
