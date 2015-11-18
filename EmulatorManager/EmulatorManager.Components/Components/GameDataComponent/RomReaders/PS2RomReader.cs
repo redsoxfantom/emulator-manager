@@ -26,7 +26,10 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
                 // PS2 games use a standard .iso image. One of the filenames is the id (also known as the SLUS file if you're running a US game)
                 // Use DiskUtils to find it
                 CDReader reader = new CDReader(rom, true);
-                var filenames = reader.Root.GetFiles().Select(file=>file.FullName).ToArray();
+                var id = reader.Root.GetFiles()
+                    .Select(file=>file.FullName) // first, get the full name of all files in the root directory
+                    .Where(name => { return (name.Split('_', '.').Length == 3); }); // next, get the one filename which is made up of an underscore and a period
+                                                                                    // this is because all S-id files take the form <4characters>_<number>.<number>
 
                 RomType = "Playstation 2";
                 return true;
