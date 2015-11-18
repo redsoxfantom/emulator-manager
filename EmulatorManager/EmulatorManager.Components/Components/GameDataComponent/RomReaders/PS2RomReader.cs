@@ -18,10 +18,11 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
             rom.Position = 65881;
             rom.Read(magicNumberArray, 0, 11);
             String magicNumberString = Encoding.ASCII.GetString(magicNumberArray);
+            rom.Position = 0;
 
             if(magicNumberString == "PLAYSTATION")
             {
-                RomId = "";
+
                 RomType = "Playstation 2";
                 return true;
             }
