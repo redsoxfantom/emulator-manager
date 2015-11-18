@@ -17,7 +17,7 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
             byte[] magicNumberArray = new byte[11];
             rom.Position = 65881;
             rom.Read(magicNumberArray, 0, 11);
-            String magicNumberString = BitConverter.ToString(magicNumberArray);
+            String magicNumberString = Encoding.ASCII.GetString(magicNumberArray);
 
             if(magicNumberString == "PLAYSTATION")
             {
