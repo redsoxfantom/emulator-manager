@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiscUtils.Iso9660;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,10 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
 
             if(magicNumberString == "PLAYSTATION")
             {
+                // PS2 games use a standard .iso image. One of the filenames is the id (also known as the SLUS file if you're running a US game)
+                // Use DiskUtils to find it
+                CDReader reader = new CDReader(rom, true);
+                var filenames = reader.Root.GetFiles().Select(file=>file.FullName).ToArray();
 
                 RomType = "Playstation 2";
                 return true;
