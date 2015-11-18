@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EmulatorManager.Components.GameDataComponent.RomReaders
@@ -25,13 +26,14 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
             {
                 // PS2 games use a standard .iso image. One of the filenames is the id (also known as the SLUS file if you're running a US game)
                 // Use DiskUtils to find it
+                var regex = new Regex(@"[A-Z]{4}_[0-9]+.[0-9]+"); // the regex matches a string of the form "<4 characters>_<some number>.<some number>"
                 CDReader reader = new CDReader(rom, true);
                 var id = reader.Root.GetFiles()
-                    .Select(file=>file.FullName) // first, get the full name of all files in the root directory
-                    .Where(name => { return (name.Split('_', '.').Length == 3); }); // next, get the one filename which is made up of an underscore and a period
-                                                                                    // this is because all S-id files take the form <4characters>_<number>.<number>
+                    .Select(file => file.FullName) // Get the full name of all files in the root directory
+                    .Where(file => regex.IsMatch(file)) // Check the filename against the regex
+                    .First();
 
-                RomId = id.First();
+                RomId = id;
                 RomType = "Playstation 2";
                 return true;
             }
