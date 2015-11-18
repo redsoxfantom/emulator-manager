@@ -31,6 +31,7 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
                     .Where(name => { return (name.Split('_', '.').Length == 3); }); // next, get the one filename which is made up of an underscore and a period
                                                                                     // this is because all S-id files take the form <4characters>_<number>.<number>
 
+                RomId = id.First();
                 RomType = "Playstation 2";
                 return true;
             }
