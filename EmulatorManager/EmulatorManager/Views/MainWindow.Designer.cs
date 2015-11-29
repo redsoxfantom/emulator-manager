@@ -46,12 +46,12 @@
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GameDataTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.lblGameTimePlayed = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lblClickHere = new System.Windows.Forms.LinkLabel();
             this.lblDataMissing = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblGameTimePlayed = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.MainTableLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -262,6 +262,17 @@
             this.GameDataTableLayout.Size = new System.Drawing.Size(318, 586);
             this.GameDataTableLayout.TabIndex = 12;
             // 
+            // lblGameTimePlayed
+            // 
+            this.lblGameTimePlayed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGameTimePlayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameTimePlayed.Location = new System.Drawing.Point(3, 526);
+            this.lblGameTimePlayed.Name = "lblGameTimePlayed";
+            this.lblGameTimePlayed.Size = new System.Drawing.Size(312, 40);
+            this.lblGameTimePlayed.TabIndex = 11;
+            this.lblGameTimePlayed.Text = "Time Played";
+            this.lblGameTimePlayed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
@@ -289,6 +300,7 @@
             this.lblClickHere.Text = "Click Here";
             this.lblClickHere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblClickHere.Visible = false;
+            this.lblClickHere.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClickHere_LinkClicked);
             // 
             // lblDataMissing
             // 
@@ -327,17 +339,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(748, 119);
             this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // lblGameTimePlayed
-            // 
-            this.lblGameTimePlayed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblGameTimePlayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameTimePlayed.Location = new System.Drawing.Point(3, 526);
-            this.lblGameTimePlayed.Name = "lblGameTimePlayed";
-            this.lblGameTimePlayed.Size = new System.Drawing.Size(312, 40);
-            this.lblGameTimePlayed.TabIndex = 11;
-            this.lblGameTimePlayed.Text = "Time Played";
-            this.lblGameTimePlayed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 
