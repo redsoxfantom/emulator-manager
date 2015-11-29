@@ -43,14 +43,14 @@
             this.lblGameName = new System.Windows.Forms.Label();
             this.lblGamePublisher = new System.Windows.Forms.Label();
             this.lblGameSystem = new System.Windows.Forms.Label();
-            this.lblDataMissing = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblClickHere = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblDataMissing = new System.Windows.Forms.Label();
+            this.lblClickHere = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -210,18 +210,6 @@
             this.lblGameSystem.Text = "Game System";
             this.lblGameSystem.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblDataMissing
-            // 
-            this.lblDataMissing.AutoSize = true;
-            this.lblDataMissing.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblDataMissing.Location = new System.Drawing.Point(58, 0);
-            this.lblDataMissing.Name = "lblDataMissing";
-            this.lblDataMissing.Size = new System.Drawing.Size(134, 34);
-            this.lblDataMissing.TabIndex = 10;
-            this.lblDataMissing.Text = "Data incomplete or wrong?";
-            this.lblDataMissing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDataMissing.Visible = false;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -276,29 +264,16 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
-            this.tableLayoutPanel4.Controls.Add(this.lblClickHere, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.lblDataMissing, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.lblClickHere, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.lblDataMissing, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 549);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(312, 34);
             this.tableLayoutPanel4.TabIndex = 10;
-            // 
-            // lblClickHere
-            // 
-            this.lblClickHere.AutoSize = true;
-            this.lblClickHere.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblClickHere.Location = new System.Drawing.Point(198, 0);
-            this.lblClickHere.Name = "lblClickHere";
-            this.lblClickHere.Size = new System.Drawing.Size(56, 34);
-            this.lblClickHere.TabIndex = 11;
-            this.lblClickHere.TabStop = true;
-            this.lblClickHere.Text = "Click Here";
-            this.lblClickHere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblClickHere.Visible = false;
-            this.lblClickHere.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClickHere_LinkClicked);
             // 
             // panel2
             // 
@@ -325,6 +300,31 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(748, 119);
             this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // lblDataMissing
+            // 
+            this.lblDataMissing.AutoSize = true;
+            this.lblDataMissing.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblDataMissing.Location = new System.Drawing.Point(58, 17);
+            this.lblDataMissing.Name = "lblDataMissing";
+            this.lblDataMissing.Size = new System.Drawing.Size(134, 17);
+            this.lblDataMissing.TabIndex = 12;
+            this.lblDataMissing.Text = "Data incomplete or wrong?";
+            this.lblDataMissing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDataMissing.Visible = false;
+            // 
+            // lblClickHere
+            // 
+            this.lblClickHere.AutoSize = true;
+            this.lblClickHere.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblClickHere.Location = new System.Drawing.Point(198, 17);
+            this.lblClickHere.Name = "lblClickHere";
+            this.lblClickHere.Size = new System.Drawing.Size(56, 17);
+            this.lblClickHere.TabIndex = 13;
+            this.lblClickHere.TabStop = true;
+            this.lblClickHere.Text = "Click Here";
+            this.lblClickHere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClickHere.Visible = false;
             // 
             // MainWindow
             // 
@@ -370,7 +370,6 @@
         private System.Windows.Forms.Label lblGameName;
         private System.Windows.Forms.Label lblGamePublisher;
         private System.Windows.Forms.Label lblGameSystem;
-        private System.Windows.Forms.Label lblDataMissing;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -378,5 +377,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.LinkLabel lblClickHere;
+        private System.Windows.Forms.Label lblDataMissing;
     }
 }
