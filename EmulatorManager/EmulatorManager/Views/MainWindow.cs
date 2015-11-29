@@ -492,7 +492,7 @@ namespace EmulatorManager.Views
                 if(res == DialogResult.OK)
                 {
                     mSelectedRomData = form.Data;
-                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true);
+                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true,mSelectedRomData.TimePlayed);
                     await mRomDataComponent.UpdateOrAddGameData(mSelectedRomId, mSelectedRomData);
                 }
             }
