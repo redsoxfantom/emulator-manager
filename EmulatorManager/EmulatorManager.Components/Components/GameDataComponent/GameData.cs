@@ -19,7 +19,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public string Id { get; private set; }
 
-        public TimeSpan TimePlayed { get; private set; }
+        public TimeSpan TimePlayed { get; set; }
 
         public Boolean ExistsOnServer { get; private set; }
 
