@@ -17,7 +17,9 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public Image GameImage { get; set; }
 
-        public int Id { get; private set; }
+        public string Id { get; private set; }
+
+        public TimeSpan TimePlayed { get; private set; }
 
         public Boolean ExistsOnServer { get; private set; }
 
@@ -26,7 +28,8 @@ namespace EmulatorManager.Components.GameDataComponent
             string gamePublisher = "<No Game Publisher>", 
             string gameSystem = "<No Game System>", 
             Image gameImage = null,
-            int id = -1,
+            string id = null,
+            TimeSpan timePlayed = new TimeSpan(),
             Boolean existsOnServer = false)
         {
             GameName = gameName;
@@ -34,6 +37,7 @@ namespace EmulatorManager.Components.GameDataComponent
             GameSystem = gameSystem;
             Id = id;
             ExistsOnServer = existsOnServer;
+            TimePlayed = timePlayed;
 
             if(gameImage == null)
             {
