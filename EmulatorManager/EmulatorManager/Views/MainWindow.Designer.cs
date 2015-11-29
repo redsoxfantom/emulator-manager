@@ -47,10 +47,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.GameDataTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblClickHere = new System.Windows.Forms.LinkLabel();
+            this.lblDataMissing = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblDataMissing = new System.Windows.Forms.Label();
-            this.lblClickHere = new System.Windows.Forms.LinkLabel();
+            this.lblGameTimePlayed = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.MainTableLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -162,7 +163,7 @@
             this.imgGameImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imgGameImage.Location = new System.Drawing.Point(3, 23);
             this.imgGameImage.Name = "imgGameImage";
-            this.imgGameImage.Size = new System.Drawing.Size(312, 400);
+            this.imgGameImage.Size = new System.Drawing.Size(312, 380);
             this.imgGameImage.TabIndex = 5;
             // 
             // lblGameInfo
@@ -181,7 +182,7 @@
             // 
             this.lblGameName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameName.Location = new System.Drawing.Point(3, 426);
+            this.lblGameName.Location = new System.Drawing.Point(3, 406);
             this.lblGameName.Name = "lblGameName";
             this.lblGameName.Size = new System.Drawing.Size(312, 40);
             this.lblGameName.TabIndex = 7;
@@ -192,7 +193,7 @@
             // 
             this.lblGamePublisher.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGamePublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGamePublisher.Location = new System.Drawing.Point(3, 466);
+            this.lblGamePublisher.Location = new System.Drawing.Point(3, 446);
             this.lblGamePublisher.Name = "lblGamePublisher";
             this.lblGamePublisher.Size = new System.Drawing.Size(312, 40);
             this.lblGamePublisher.TabIndex = 8;
@@ -203,7 +204,7 @@
             // 
             this.lblGameSystem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblGameSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameSystem.Location = new System.Drawing.Point(3, 506);
+            this.lblGameSystem.Location = new System.Drawing.Point(3, 486);
             this.lblGameSystem.Name = "lblGameSystem";
             this.lblGameSystem.Size = new System.Drawing.Size(312, 40);
             this.lblGameSystem.TabIndex = 9;
@@ -240,22 +241,24 @@
             // 
             this.GameDataTableLayout.ColumnCount = 1;
             this.GameDataTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.GameDataTableLayout.Controls.Add(this.lblGameTimePlayed, 0, 5);
             this.GameDataTableLayout.Controls.Add(this.imgGameImage, 0, 1);
             this.GameDataTableLayout.Controls.Add(this.lblGameInfo, 0, 0);
             this.GameDataTableLayout.Controls.Add(this.lblGameSystem, 0, 4);
             this.GameDataTableLayout.Controls.Add(this.lblGameName, 0, 2);
             this.GameDataTableLayout.Controls.Add(this.lblGamePublisher, 0, 3);
-            this.GameDataTableLayout.Controls.Add(this.tableLayoutPanel4, 0, 5);
+            this.GameDataTableLayout.Controls.Add(this.tableLayoutPanel4, 0, 6);
             this.GameDataTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GameDataTableLayout.Location = new System.Drawing.Point(0, 0);
             this.GameDataTableLayout.Name = "GameDataTableLayout";
-            this.GameDataTableLayout.RowCount = 6;
+            this.GameDataTableLayout.RowCount = 7;
             this.GameDataTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.GameDataTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.GameDataTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.GameDataTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.GameDataTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.GameDataTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.GameDataTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.GameDataTableLayout.Size = new System.Drawing.Size(318, 586);
             this.GameDataTableLayout.TabIndex = 12;
             // 
@@ -267,12 +270,37 @@
             this.tableLayoutPanel4.Controls.Add(this.lblClickHere, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblDataMissing, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 549);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 569);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(312, 34);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(312, 14);
             this.tableLayoutPanel4.TabIndex = 10;
+            // 
+            // lblClickHere
+            // 
+            this.lblClickHere.AutoSize = true;
+            this.lblClickHere.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblClickHere.Location = new System.Drawing.Point(198, 0);
+            this.lblClickHere.Name = "lblClickHere";
+            this.lblClickHere.Size = new System.Drawing.Size(56, 14);
+            this.lblClickHere.TabIndex = 15;
+            this.lblClickHere.TabStop = true;
+            this.lblClickHere.Text = "Click Here";
+            this.lblClickHere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClickHere.Visible = false;
+            // 
+            // lblDataMissing
+            // 
+            this.lblDataMissing.AutoSize = true;
+            this.lblDataMissing.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblDataMissing.Location = new System.Drawing.Point(58, 0);
+            this.lblDataMissing.Name = "lblDataMissing";
+            this.lblDataMissing.Size = new System.Drawing.Size(134, 14);
+            this.lblDataMissing.TabIndex = 14;
+            this.lblDataMissing.Text = "Data incomplete or wrong?";
+            this.lblDataMissing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDataMissing.Visible = false;
             // 
             // panel2
             // 
@@ -300,30 +328,16 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(748, 119);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // lblDataMissing
+            // lblGameTimePlayed
             // 
-            this.lblDataMissing.AutoSize = true;
-            this.lblDataMissing.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblDataMissing.Location = new System.Drawing.Point(58, 0);
-            this.lblDataMissing.Name = "lblDataMissing";
-            this.lblDataMissing.Size = new System.Drawing.Size(134, 34);
-            this.lblDataMissing.TabIndex = 14;
-            this.lblDataMissing.Text = "Data incomplete or wrong?";
-            this.lblDataMissing.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblDataMissing.Visible = false;
-            // 
-            // lblClickHere
-            // 
-            this.lblClickHere.AutoSize = true;
-            this.lblClickHere.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblClickHere.Location = new System.Drawing.Point(198, 0);
-            this.lblClickHere.Name = "lblClickHere";
-            this.lblClickHere.Size = new System.Drawing.Size(56, 34);
-            this.lblClickHere.TabIndex = 15;
-            this.lblClickHere.TabStop = true;
-            this.lblClickHere.Text = "Click Here";
-            this.lblClickHere.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblClickHere.Visible = false;
+            this.lblGameTimePlayed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblGameTimePlayed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameTimePlayed.Location = new System.Drawing.Point(3, 526);
+            this.lblGameTimePlayed.Name = "lblGameTimePlayed";
+            this.lblGameTimePlayed.Size = new System.Drawing.Size(312, 40);
+            this.lblGameTimePlayed.TabIndex = 11;
+            this.lblGameTimePlayed.Text = "Time Played";
+            this.lblGameTimePlayed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 
@@ -377,5 +391,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.LinkLabel lblClickHere;
         private System.Windows.Forms.Label lblDataMissing;
+        private System.Windows.Forms.Label lblGameTimePlayed;
     }
 }
