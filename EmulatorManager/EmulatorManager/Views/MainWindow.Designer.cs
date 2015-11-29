@@ -45,7 +45,15 @@
             this.lblGameSystem = new System.Windows.Forms.Label();
             this.lblDataMissing = new System.Windows.Forms.Label();
             this.lblClickHere = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -54,7 +62,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(883, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1078, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,11 +107,13 @@
             // 
             // treeEmulatorView
             // 
+            this.treeEmulatorView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeEmulatorView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeEmulatorView.Location = new System.Drawing.Point(13, 28);
+            this.treeEmulatorView.HideSelection = false;
+            this.treeEmulatorView.Location = new System.Drawing.Point(3, 3);
             this.treeEmulatorView.Name = "treeEmulatorView";
             this.treeEmulatorView.PathSeparator = ">";
-            this.treeEmulatorView.Size = new System.Drawing.Size(661, 628);
+            this.treeEmulatorView.Size = new System.Drawing.Size(802, 586);
             this.treeEmulatorView.TabIndex = 1;
             this.treeEmulatorView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeEmulatorView_AfterSelect);
             this.treeEmulatorView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeEmulatorView_Click);
@@ -113,7 +123,7 @@
             // 
             this.lblCommandToExecute.AutoSize = true;
             this.lblCommandToExecute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCommandToExecute.Location = new System.Drawing.Point(14, 684);
+            this.lblCommandToExecute.Location = new System.Drawing.Point(3, 0);
             this.lblCommandToExecute.Name = "lblCommandToExecute";
             this.lblCommandToExecute.Size = new System.Drawing.Size(75, 17);
             this.lblCommandToExecute.TabIndex = 2;
@@ -121,18 +131,19 @@
             // 
             // txtCommandLine
             // 
+            this.txtCommandLine.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCommandLine.Enabled = false;
             this.txtCommandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCommandLine.Location = new System.Drawing.Point(95, 662);
+            this.txtCommandLine.Location = new System.Drawing.Point(88, 3);
             this.txtCommandLine.Multiline = true;
             this.txtCommandLine.Name = "txtCommandLine";
-            this.txtCommandLine.Size = new System.Drawing.Size(768, 63);
+            this.txtCommandLine.Size = new System.Drawing.Size(711, 69);
             this.txtCommandLine.TabIndex = 3;
             // 
             // btnExecuteEmulator
             // 
             this.btnExecuteEmulator.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecuteEmulator.Location = new System.Drawing.Point(406, 731);
+            this.btnExecuteEmulator.Location = new System.Drawing.Point(88, 78);
             this.btnExecuteEmulator.Name = "btnExecuteEmulator";
             this.btnExecuteEmulator.Size = new System.Drawing.Size(150, 26);
             this.btnExecuteEmulator.TabIndex = 4;
@@ -143,16 +154,16 @@
             // imgGameImage
             // 
             this.imgGameImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgGameImage.Location = new System.Drawing.Point(688, 48);
+            this.imgGameImage.Location = new System.Drawing.Point(8, 21);
             this.imgGameImage.Name = "imgGameImage";
-            this.imgGameImage.Size = new System.Drawing.Size(183, 193);
+            this.imgGameImage.Size = new System.Drawing.Size(207, 193);
             this.imgGameImage.TabIndex = 5;
             // 
             // lblGameInfo
             // 
             this.lblGameInfo.AutoSize = true;
             this.lblGameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameInfo.Location = new System.Drawing.Point(744, 28);
+            this.lblGameInfo.Location = new System.Drawing.Point(59, 1);
             this.lblGameInfo.Name = "lblGameInfo";
             this.lblGameInfo.Size = new System.Drawing.Size(80, 17);
             this.lblGameInfo.TabIndex = 6;
@@ -161,31 +172,34 @@
             // lblGameName
             // 
             this.lblGameName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameName.Location = new System.Drawing.Point(680, 244);
+            this.lblGameName.Location = new System.Drawing.Point(4, 217);
             this.lblGameName.Name = "lblGameName";
-            this.lblGameName.Size = new System.Drawing.Size(183, 71);
+            this.lblGameName.Size = new System.Drawing.Size(207, 71);
             this.lblGameName.TabIndex = 7;
+            this.lblGameName.Text = "Game Name";
             // 
             // lblGamePublisher
             // 
             this.lblGamePublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGamePublisher.Location = new System.Drawing.Point(681, 315);
+            this.lblGamePublisher.Location = new System.Drawing.Point(5, 288);
             this.lblGamePublisher.Name = "lblGamePublisher";
-            this.lblGamePublisher.Size = new System.Drawing.Size(182, 74);
+            this.lblGamePublisher.Size = new System.Drawing.Size(206, 74);
             this.lblGamePublisher.TabIndex = 8;
+            this.lblGamePublisher.Text = "Game Publisher";
             // 
             // lblGameSystem
             // 
             this.lblGameSystem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameSystem.Location = new System.Drawing.Point(681, 389);
+            this.lblGameSystem.Location = new System.Drawing.Point(5, 362);
             this.lblGameSystem.Name = "lblGameSystem";
-            this.lblGameSystem.Size = new System.Drawing.Size(182, 96);
+            this.lblGameSystem.Size = new System.Drawing.Size(203, 79);
             this.lblGameSystem.TabIndex = 9;
+            this.lblGameSystem.Text = "Game System";
             // 
             // lblDataMissing
             // 
             this.lblDataMissing.AutoSize = true;
-            this.lblDataMissing.Location = new System.Drawing.Point(680, 642);
+            this.lblDataMissing.Location = new System.Drawing.Point(12, 513);
             this.lblDataMissing.Name = "lblDataMissing";
             this.lblDataMissing.Size = new System.Drawing.Size(134, 13);
             this.lblDataMissing.TabIndex = 10;
@@ -195,7 +209,7 @@
             // lblClickHere
             // 
             this.lblClickHere.AutoSize = true;
-            this.lblClickHere.Location = new System.Drawing.Point(819, 642);
+            this.lblClickHere.Location = new System.Drawing.Point(151, 513);
             this.lblClickHere.Name = "lblClickHere";
             this.lblClickHere.Size = new System.Drawing.Size(56, 13);
             this.lblClickHere.TabIndex = 11;
@@ -204,22 +218,70 @@
             this.lblClickHere.Visible = false;
             this.lblClickHere.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblClickHere_LinkClicked);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.treeEmulatorView, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1078, 717);
+            this.tableLayoutPanel1.TabIndex = 12;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.imgGameImage);
+            this.panel1.Controls.Add(this.lblClickHere);
+            this.panel1.Controls.Add(this.lblGameInfo);
+            this.panel1.Controls.Add(this.lblDataMissing);
+            this.panel1.Controls.Add(this.lblGameName);
+            this.panel1.Controls.Add(this.lblGameSystem);
+            this.panel1.Controls.Add(this.lblGamePublisher);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(811, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(264, 586);
+            this.panel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.tableLayoutPanel2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 595);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(802, 119);
+            this.panel2.TabIndex = 3;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.btnExecuteEmulator, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtCommandLine, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.lblCommandToExecute, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(802, 119);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 762);
-            this.Controls.Add(this.lblClickHere);
-            this.Controls.Add(this.lblDataMissing);
-            this.Controls.Add(this.lblGameSystem);
-            this.Controls.Add(this.lblGamePublisher);
-            this.Controls.Add(this.lblGameName);
-            this.Controls.Add(this.lblGameInfo);
-            this.Controls.Add(this.imgGameImage);
-            this.Controls.Add(this.btnExecuteEmulator);
-            this.Controls.Add(this.txtCommandLine);
-            this.Controls.Add(this.lblCommandToExecute);
-            this.Controls.Add(this.treeEmulatorView);
+            this.ClientSize = new System.Drawing.Size(1078, 741);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainWindow";
@@ -227,6 +289,12 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_OnClose);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +319,9 @@
         private System.Windows.Forms.Label lblGameSystem;
         private System.Windows.Forms.Label lblDataMissing;
         private System.Windows.Forms.LinkLabel lblClickHere;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
