@@ -62,7 +62,8 @@ namespace EmulatorManager.Components.GameDataComponent
                 string gameSystem = serverGameData.userData.System;
                 string gameImageBase64String = serverGameData.userData.Image;
                 string id = serverGameData.userData.id;
-                TimeSpan timePlayed = TimeSpan.FromSeconds(serverGameData.userData.TimePlayedInSecs);
+                double timePlayedInSecs = (double)serverGameData.userData.TimePlayedInSecs;
+                TimeSpan timePlayed = TimeSpan.FromSeconds(timePlayedInSecs);
                 byte[] gameImageArry = Convert.FromBase64String(gameImageBase64String);
                 Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
 
