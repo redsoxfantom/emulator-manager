@@ -272,7 +272,7 @@ namespace EmulatorManager.Views
                 {
                     mSelectedRomId = romId;
                     mSelectedRomData = await mRomDataComponent.RetrieveGameData(romId, romSystem);
-                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage,true);
+                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage,true,mSelectedRomData.TimePlayed);
                 }
                 else
                 {
@@ -286,12 +286,21 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null, bool activateUpdateLink = false)
+        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null, bool activateUpdateLink = false, TimeSpan? timePlayed = null)
         {
             lblGameName.Text = gameName;
             lblGamePublisher.Text = gamePub;
             lblGameSystem.Text = gameSys;
             imgGameImage.BackgroundImage = gameImg;
+
+            if (timePlayed != null)
+            {
+                lblGameTimePlayed.Text = String.Format("Time Played : {0}",timePlayed);
+            }
+            else
+            {
+                lblGameTimePlayed.Text = "";
+            }
 
             lblClickHere.Visible = activateUpdateLink;
             lblDataMissing.Visible = activateUpdateLink;
