@@ -82,6 +82,16 @@ namespace EmulatorManager.Components.GameDataComponent
             return data;
         }
 
+        public async void UpdateGamePlayedTime(string romId, GameData data)
+        {
+            string dataId = romId + data.GameSystem;
+            dataId = Cleanup(dataId);
+            string baseUrl = String.Format("{0}/gamedata", mUrl);
+            Dictionary<string, string> header = new Dictionary<string, string>();
+            string finalUrl = String.Format("{0}/{1}?TimePlayedInSecs={2}", baseUrl, data.Id, data.TimePlayed.TotalSeconds.ToString());
+            await RestServerManager.Put(finalUrl, header);
+        }
+
         public async Task UpdateOrAddGameData(string romId, GameData data)
         {
             String base64Image = null;

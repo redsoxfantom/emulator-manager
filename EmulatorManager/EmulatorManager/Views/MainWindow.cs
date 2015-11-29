@@ -103,6 +103,7 @@ namespace EmulatorManager.Views
                                                 mSelectedRomData.GameImage, 
                                                 true, 
                                                 mSelectedRomData.TimePlayed); }));
+                        
                     }
                     break;
             }
