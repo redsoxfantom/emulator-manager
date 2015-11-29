@@ -48,7 +48,10 @@ namespace EmulatorManager.Components.ExecutionComponent
                     onExecutionStateChanged(ExecutionState.RUNNING);
                     mProc.Start();
 
+                    DateTime startTime = DateTime.Now;
                     mProc.WaitForExit();
+                    DateTime endTime = DateTime.Now;
+                    TimeSpan gameTime = endTime - startTime;
                     onExecutionStateChanged(ExecutionState.TERMINATED);
 
                     String stdOut = mProc.StandardOutput.ReadToEnd();
