@@ -43,7 +43,7 @@ namespace EmulatorManager.Components.GameDataComponent
             }
             else
             {
-                TimePlayed = TimeSpan.MinValue;
+                TimePlayed = TimeSpan.FromSeconds(0);
             }
 
             if(gameImage == null)
