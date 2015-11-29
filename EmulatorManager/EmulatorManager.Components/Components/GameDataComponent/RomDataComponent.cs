@@ -108,6 +108,12 @@ namespace EmulatorManager.Components.GameDataComponent
             return data;
         }
 
+        public void UpdateGamePlayTime(string romId, GameData data)
+        {
+            mLogger.DebugFormat("Attempting to update rom {0} game play time to {1}",romId,data.TimePlayed.TotalSeconds);
+            mAccessor.UpdateGamePlayedTime(romId, data);
+        }
+
         public async Task UpdateOrAddGameData(string romId, GameData data)
         {
             mLogger.Debug(String.Format("UpdateOrAddGameData called with rom id {0} and data {1}", romId, data));

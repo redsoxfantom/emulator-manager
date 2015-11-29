@@ -89,7 +89,16 @@ namespace EmulatorManager.Components.GameDataComponent
             string baseUrl = String.Format("{0}/gamedata", mUrl);
             Dictionary<string, string> header = new Dictionary<string, string>();
             string finalUrl = String.Format("{0}/{1}?TimePlayedInSecs={2}", baseUrl, data.Id, data.TimePlayed.TotalSeconds.ToString());
-            await RestServerManager.Put(finalUrl, header);
+
+            mLogger.DebugFormat("Updating game play time for rom {0} using URL {1}",dataId,finalUrl);
+            try
+            {
+                await RestServerManager.Put(finalUrl, header);
+            }
+            catch(Exception ex)
+            {
+                mLogger.Error("Failed to update game play time!", ex);
+            }
         }
 
         public async Task UpdateOrAddGameData(string romId, GameData data)
