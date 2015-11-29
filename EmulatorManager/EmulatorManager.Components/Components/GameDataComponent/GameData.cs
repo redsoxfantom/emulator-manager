@@ -29,7 +29,7 @@ namespace EmulatorManager.Components.GameDataComponent
             string gameSystem = "<No Game System>", 
             Image gameImage = null,
             string id = null,
-            TimeSpan timePlayed = new TimeSpan(),
+            TimeSpan? timePlayed = null,
             Boolean existsOnServer = false)
         {
             GameName = gameName;
@@ -37,7 +37,14 @@ namespace EmulatorManager.Components.GameDataComponent
             GameSystem = gameSystem;
             Id = id;
             ExistsOnServer = existsOnServer;
-            TimePlayed = timePlayed;
+            if (timePlayed != null)
+            {
+                TimePlayed = (TimeSpan)timePlayed;
+            }
+            else
+            {
+                TimePlayed = TimeSpan.MinValue;
+            }
 
             if(gameImage == null)
             {

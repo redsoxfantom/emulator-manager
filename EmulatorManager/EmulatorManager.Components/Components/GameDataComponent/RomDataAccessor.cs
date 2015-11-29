@@ -101,6 +101,7 @@ namespace EmulatorManager.Components.GameDataComponent
             header.Add("Publisher", data.GamePublisher);
             header.Add("System", data.GameSystem);
             header.Add("Image", base64Image);
+            header.Add("TimePlayedInSecs", data.TimePlayed.TotalSeconds.ToString());
 
             if (data.ExistsOnServer)
             {
