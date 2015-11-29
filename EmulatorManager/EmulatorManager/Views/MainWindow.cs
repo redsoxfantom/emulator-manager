@@ -96,7 +96,13 @@ namespace EmulatorManager.Views
                     if(mSelectedRomData != null)
                     {
                         mSelectedRomData.TimePlayed += args.PlayTime;
-                        this.Invoke(new Action(() => { SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true, mSelectedRomData.TimePlayed); }));
+                        this.Invoke(new Action(() => 
+                            { SetGameInfoLabels(mSelectedRomData.GameName, 
+                                                mSelectedRomData.GamePublisher, 
+                                                mSelectedRomData.GameSystem, 
+                                                mSelectedRomData.GameImage, 
+                                                true, 
+                                                mSelectedRomData.TimePlayed); }));
                     }
                     break;
             }
