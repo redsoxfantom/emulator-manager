@@ -12,9 +12,12 @@ namespace EmulatorManager.Events
     {
         public ExecutionState State { get; private set; }
 
-        public ExecutionStateChangedEventArgs(ExecutionState newState)
+        public TimeSpan PlayTime { get; private set; }
+
+        public ExecutionStateChangedEventArgs(ExecutionState newState, TimeSpan playTime)
         {
             State = newState;
+            PlayTime = playTime;
         }
     }
 
