@@ -74,6 +74,7 @@
     <Compile Include="Components\ExecutionComponent\EmulatorExecutionComponent.cs" />
     <Compile Include="Components\GameDataComponent\GameData.cs" />
     <Compile Include="Components\GameDataComponent\IRomDataAccessor.cs" />
+    <Compile Include="Components\GameDataComponent\LocalRomDataAccessor.cs" />
     <Compile Include="Components\GameDataComponent\ServerRomDataAccessor.cs" />
     <Compile Include="Components\GameDataComponent\RomDataComponent.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\GamecubeRomReader.cs" />

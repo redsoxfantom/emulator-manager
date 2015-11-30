@@ -16,6 +16,9 @@ using System.Web;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
+    /// <summary>
+    /// Reads Rom data from a Rest server
+    /// </summary>
     public class ServerRomDataAccessor : IRomDataAccessor
     {
         string mUrl;
