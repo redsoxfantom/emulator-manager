@@ -9,24 +9,24 @@ namespace EmulatorManager.Components.GameDataComponent
     /// <summary>
     /// Reads ROM data from a local file
     /// </summary>
-    class LocalRomDataAccessor : IRomDataAccessor
+    public class LocalRomDataAccessor : BaseDataAccessor
     {
-        public void ClearCache()
+        public LocalRomDataAccessor(string dataLocation) : base(dataLocation)
+        {
+
+        }
+
+        public override Task<GameData> RetrieveGameData(string romType, string romId)
         {
             throw new NotImplementedException();
         }
 
-        public Task<GameData> RetrieveGameData(string romType, string romId)
+        public override void UpdateGamePlayedTime(string romId, GameData data)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateGamePlayedTime(string romId, GameData data)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateOrAddGameData(string romId, GameData data)
+        public override Task UpdateOrAddGameData(string romId, GameData data)
         {
             throw new NotImplementedException();
         }
