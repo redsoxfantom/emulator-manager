@@ -25,7 +25,14 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public override async Task<GameData> RetrieveGameData(string romType, string romId)
         {
-            throw new NotImplementedException();
+            GameData result = new GameData();
+
+            if(dataCache.ContainsKey(romType+romId))
+            {
+                result = dataCache[romType + romId];
+            }
+
+            return result;
         }
 
         public override async void UpdateGamePlayedTime(string romId, GameData data)
