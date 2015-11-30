@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
@@ -16,20 +17,23 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public LocalRomDataAccessor(string dataLocation) : base(dataLocation)
         {
-            dataFile = File.Open(dataLocation, FileMode.OpenOrCreate);
+            if (File.Exists(dataLocation))
+            {
+                dataCache = JsonConvert.DeserializeObject<Dictionary<string, GameData>>(File.ReadAllText(dataLocation));
+            }
         }
 
-        public override Task<GameData> RetrieveGameData(string romType, string romId)
+        public override async Task<GameData> RetrieveGameData(string romType, string romId)
         {
             throw new NotImplementedException();
         }
 
-        public override void UpdateGamePlayedTime(string romId, GameData data)
+        public override async void UpdateGamePlayedTime(string romId, GameData data)
         {
             throw new NotImplementedException();
         }
 
-        public override Task UpdateOrAddGameData(string romId, GameData data)
+        public override async Task UpdateOrAddGameData(string romId, GameData data)
         {
             throw new NotImplementedException();
         }
