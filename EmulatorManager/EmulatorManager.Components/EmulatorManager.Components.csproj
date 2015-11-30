@@ -72,6 +72,7 @@
     <Compile Include="Components\ConfigurationComponent\DataContracts\RomPath.cs" />
     <Compile Include="Components\ExecutionComponent\Command.cs" />
     <Compile Include="Components\ExecutionComponent\EmulatorExecutionComponent.cs" />
+    <Compile Include="Components\GameDataComponent\BaseDataAccessor.cs" />
     <Compile Include="Components\GameDataComponent\GameData.cs" />
     <Compile Include="Components\GameDataComponent\IRomDataAccessor.cs" />
     <Compile Include="Components\GameDataComponent\LocalRomDataAccessor.cs" />
