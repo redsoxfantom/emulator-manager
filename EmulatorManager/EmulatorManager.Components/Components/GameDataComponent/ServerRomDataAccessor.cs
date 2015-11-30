@@ -16,7 +16,7 @@ using System.Web;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
-    public class RomDataAccessor : IRomDataAccessor
+    public class ServerRomDataAccessor : IRomDataAccessor
     {
         string mUrl;
 
@@ -24,7 +24,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private Dictionary<string, GameData> dataCache;
 
-        public RomDataAccessor(string dataUrl)
+        public ServerRomDataAccessor(string dataUrl)
         {
             mUrl = dataUrl;
             mLogger = LogManager.GetLogger(GetType().Name);

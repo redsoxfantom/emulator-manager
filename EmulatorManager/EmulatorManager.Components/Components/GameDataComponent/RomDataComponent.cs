@@ -29,7 +29,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private ILog mLogger;
 
-        private RomDataAccessor mAccessor;
+        private IRomDataAccessor mAccessor;
 
         private RomDataComponent()
         {
@@ -43,11 +43,11 @@ namespace EmulatorManager.Components.GameDataComponent
 
             if(serverUrl != null)
             {
-                mAccessor = new RomDataAccessor(serverUrl);
+                mAccessor = new ServerRomDataAccessor(serverUrl);
             }
             else
             {
-                mAccessor = new RomDataAccessor(GetServerUrl());
+                mAccessor = new ServerRomDataAccessor(GetServerUrl());
             }
 
             // Get list of all types in assembly that implement IRomReader
