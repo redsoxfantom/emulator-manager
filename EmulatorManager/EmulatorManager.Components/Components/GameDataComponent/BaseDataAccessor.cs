@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,31 +7,33 @@ using System.Threading.Tasks;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
-    class BaseDataAccessor : IRomDataAccessor
+    public abstract class BaseDataAccessor : IRomDataAccessor
     {
+        protected string mDataLocation;
+
+        protected ILog mLogger;
+
+        protected Dictionary<string, GameData> dataCache;
+
         public BaseDataAccessor(string dataLocation)
         {
+            mDataLocation = dataLocation;
+            mLogger = LogManager.GetLogger(GetType().Name);
+            dataCache = new Dictionary<string, GameData>();
 
+            mLogger.Debug(String.Format("Data Accessor created with data location {0}", dataLocation));
         }
 
         public void ClearCache()
         {
-            throw new NotImplementedException();
+            mLogger.Info("Clearing data cache");
+            dataCache.Clear();
         }
 
-        public Task<GameData> RetrieveGameData(string romType, string romId)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task<GameData> RetrieveGameData(string romType, string romId);
 
-        public void UpdateGamePlayedTime(string romId, GameData data)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract void UpdateGamePlayedTime(string romId, GameData data);
 
-        public Task UpdateOrAddGameData(string romId, GameData data)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract Task UpdateOrAddGameData(string romId, GameData data);
     }
 }
