@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
@@ -11,9 +12,11 @@ namespace EmulatorManager.Components.GameDataComponent
     /// </summary>
     public class LocalRomDataAccessor : BaseDataAccessor
     {
+        private FileStream dataFile;
+
         public LocalRomDataAccessor(string dataLocation) : base(dataLocation)
         {
-
+            dataFile = File.Open(dataLocation, FileMode.OpenOrCreate);
         }
 
         public override Task<GameData> RetrieveGameData(string romType, string romId)
