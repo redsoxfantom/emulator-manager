@@ -37,17 +37,17 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger = LogManager.GetLogger(GetType().Name);
         }
 
-        public void Initialize(String serverUrl = null)
+        public void Initialize(String dataLocation = null)
         {
             mLogger.Info("Initializing RomDataComponent");
 
-            if(serverUrl != null)
+            if(dataLocation != null)
             {
-                mAccessor = new ServerRomDataAccessor(serverUrl);
+                createRomDataAccessor(dataLocation);
             }
             else
             {
-                mAccessor = new ServerRomDataAccessor(GetServerUrl());
+                createRomDataAccessor(GetServerUrl());
             }
 
             // Get list of all types in assembly that implement IRomReader
@@ -64,6 +64,22 @@ namespace EmulatorManager.Components.GameDataComponent
             }
 
             mLogger.Info("Done Initializing RomDataComponent");
+        }
+
+        private void createRomDataAccessor(string dataLocation)
+        {
+            Uri result;
+            bool isValidHttpUrl = Uri.TryCreate(dataLocation, UriKind.Absolute, out result) &&
+                                    result.Scheme == Uri.UriSchemeHttp;
+
+            if (isValidHttpUrl)
+            {
+                mAccessor = new ServerRomDataAccessor(dataLocation);
+            }
+            else
+            {
+                mAccessor = new LocalRomDataAccessor(dataLocation);
+            }
         }
 
         public void ClearDataCache()
