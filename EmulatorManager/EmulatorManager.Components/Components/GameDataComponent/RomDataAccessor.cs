@@ -16,7 +16,7 @@ using System.Web;
 
 namespace EmulatorManager.Components.GameDataComponent
 {
-    public class RomDataAccessor
+    public class RomDataAccessor : IRomDataAccessor
     {
         string mUrl;
 
