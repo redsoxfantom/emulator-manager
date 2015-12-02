@@ -35,7 +35,7 @@ namespace EmulatorManager.Components.InputComponent
             }
         }
 
-        public JoystickComponent Instance
+        public static JoystickComponent Instance
         {
             get
             {

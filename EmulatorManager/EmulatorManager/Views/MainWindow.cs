@@ -18,6 +18,7 @@ using EmulatorManager.Components.PathComponent;
 using System.Collections.Concurrent;
 using EmulatorManager.Views.TreeNodes;
 using EmulatorManager.Components.GameDataComponent;
+using EmulatorManager.Components.InputComponent;
 
 namespace EmulatorManager.Views
 {
@@ -34,6 +35,8 @@ namespace EmulatorManager.Views
         private PathResolverComponent mPathResolver;
 
         private RomDataComponent mRomDataComponent;
+
+        private JoystickComponent mJoystickComponent;
 
         private String mConfigFileName;
 
@@ -70,6 +73,7 @@ namespace EmulatorManager.Views
 
             mConfigurationComponent = ConfigComponent.Instance;
             mRomDataComponent = RomDataComponent.Instance;
+            mJoystickComponent = JoystickComponent.Instance;
             mConfigurationComponent.GetCurrentConfig(out mConfigFileName, out mConfigFilePath, out mLoadedEmulators, out mLoadedPaths);
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
