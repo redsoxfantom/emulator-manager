@@ -13,8 +13,6 @@ namespace EmulatorManager.Components.GameDataComponent
     /// </summary>
     public class LocalRomDataAccessor : BaseDataAccessor
     {
-        private FileStream dataFile;
-
         public LocalRomDataAccessor(string dataLocation) : base(dataLocation)
         {
             readFileIntoCache();
@@ -56,6 +54,8 @@ namespace EmulatorManager.Components.GameDataComponent
             {
                 dataCache.Add(uniqueId, data);
             }
+
+            writeCacheToFile();
         }
 
         private void readFileIntoCache()
@@ -69,6 +69,12 @@ namespace EmulatorManager.Components.GameDataComponent
             {
                 dataCache = new Dictionary<string, GameData>();
             }
+        }
+
+        private void writeCacheToFile()
+        {
+            string output = JsonConvert.SerializeObject(dataCache, Formatting.Indented);
+            File.WriteAllText(mDataLocation, output);
         }
     }
 }
