@@ -1,4 +1,5 @@
-﻿using EmulatorManager.Components.GameDataComponent.RomReaders;
+﻿using EmulatorManager.Components.GameDataComponent.DataAccessors;
+using EmulatorManager.Components.GameDataComponent.RomReaders;
 using log4net;
 using Newtonsoft.Json;
 using System;

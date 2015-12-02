@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace EmulatorManager.Components.GameDataComponent
+namespace EmulatorManager.Components.GameDataComponent.DataAccessors
 {
     /// <summary>
     /// Reads ROM data from a local file

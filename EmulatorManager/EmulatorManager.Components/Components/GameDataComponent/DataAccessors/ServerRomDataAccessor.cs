@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace EmulatorManager.Components.GameDataComponent
+namespace EmulatorManager.Components.GameDataComponent.DataAccessors
 {
     /// <summary>
     /// Reads Rom data from a Rest server

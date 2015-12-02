@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmulatorManager.Components.GameDataComponent
+namespace EmulatorManager.Components.GameDataComponent.DataAccessors
 {
     public class ImageConverter : JsonConverter
     {

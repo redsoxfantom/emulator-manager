@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace EmulatorManager.Components.GameDataComponent
+namespace EmulatorManager.Components.GameDataComponent.DataAccessors
 {
     public interface IRomDataAccessor
     {
