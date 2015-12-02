@@ -30,13 +30,14 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public override async Task<GameData> RetrieveGameData(string romType, string romId)
         {
-            mLogger.InfoFormat("Attempting to retrieve game data for {0}", romType + romId);
+            string uniqueId = generateUniqueId(romId, romType);
+            mLogger.InfoFormat("Attempting to retrieve game data for {0}", uniqueId);
             GameData result = new GameData();
 
-            if(dataCache.ContainsKey(romType+romId))
+            if(dataCache.ContainsKey(uniqueId))
             {
                 mLogger.Info("Data Found");
-                result = dataCache[romType + romId];
+                result = dataCache[uniqueId];
             }
             else
             {
@@ -54,8 +55,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public override async Task UpdateOrAddGameData(string romId, GameData data)
         {
-            mLogger.InfoFormat("Updating game data for {0}", romId);
-            string uniqueId = romId + data.GameSystem;
+            string uniqueId = generateUniqueId(romId,data.GameSystem);
             mLogger.InfoFormat("Updating game data for {0}", uniqueId);
 
             if(dataCache.ContainsKey(uniqueId))
@@ -89,6 +89,11 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger.DebugFormat("Writing cache to {0}", mDataLocation);
             string output = JsonConvert.SerializeObject(dataCache, Formatting.Indented,gameDataImageConverter);
             File.WriteAllText(mDataLocation, output);
+        }
+
+        private string generateUniqueId(string romId, string romType)
+        {
+            return romId + romType;
         }
     }
 }
