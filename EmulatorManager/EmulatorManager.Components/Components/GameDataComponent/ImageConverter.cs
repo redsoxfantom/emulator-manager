@@ -13,7 +13,7 @@ namespace EmulatorManager.Components.GameDataComponent
     {
         public override bool CanConvert(Type objectType)
         {
-            return objectType.IsAssignableFrom(typeof(Image));
+            return objectType.IsAssignableFrom(typeof(Bitmap));
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -27,7 +27,14 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            Image gameImage = (Image)value;
+            String base64Image = null;
+            using (MemoryStream mem = new MemoryStream())
+            {
+                gameImage.Save(mem, gameImage.RawFormat);
+                byte[] imgBytes = mem.ToArray();
+                base64Image = Convert.ToBase64String(imgBytes);
+            }
         }
     }
 }
