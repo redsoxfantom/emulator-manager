@@ -30,11 +30,17 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public override async Task<GameData> RetrieveGameData(string romType, string romId)
         {
+            mLogger.InfoFormat("Attempting to retrieve game data for {0}", romType + romId);
             GameData result = new GameData();
 
             if(dataCache.ContainsKey(romType+romId))
             {
+                mLogger.Info("Data Found");
                 result = dataCache[romType + romId];
+            }
+            else
+            {
+                mLogger.Warn("No Data Found");
             }
 
             return result;
@@ -42,12 +48,15 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public override async void UpdateGamePlayedTime(string romId, GameData data)
         {
+            mLogger.InfoFormat("Updating game time for {0}", romId);
             await UpdateOrAddGameData(romId, data);
         }
 
         public override async Task UpdateOrAddGameData(string romId, GameData data)
         {
+            mLogger.InfoFormat("Updating game data for {0}", romId);
             string uniqueId = romId + data.GameSystem;
+            mLogger.InfoFormat("Updating game data for {0}", uniqueId);
 
             if(dataCache.ContainsKey(uniqueId))
             {
@@ -63,6 +72,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private void readFileIntoCache()
         {
+            mLogger.DebugFormat("Writing {0} to cache", mDataLocation);
             // Read the data location into the cache, if it exists
             if (File.Exists(mDataLocation))
             {
@@ -76,6 +86,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private void writeCacheToFile()
         {
+            mLogger.DebugFormat("Writing cache to {0}", mDataLocation);
             string output = JsonConvert.SerializeObject(dataCache, Formatting.Indented,gameDataImageConverter);
             File.WriteAllText(mDataLocation, output);
         }
