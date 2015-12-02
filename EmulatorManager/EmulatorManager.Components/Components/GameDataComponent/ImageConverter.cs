@@ -12,7 +12,7 @@ namespace EmulatorManager.Components.GameDataComponent
     {
         public override bool CanConvert(Type objectType)
         {
-            return objectType.IsAssignableFrom(Image);
+            return objectType.IsAssignableFrom(typeof(Image));
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
