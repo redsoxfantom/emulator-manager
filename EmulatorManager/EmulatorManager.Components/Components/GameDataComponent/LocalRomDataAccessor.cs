@@ -17,20 +17,14 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public LocalRomDataAccessor(string dataLocation) : base(dataLocation)
         {
-            if (File.Exists(dataLocation))
-            {
-                dataCache = JsonConvert.DeserializeObject<Dictionary<string, GameData>>(File.ReadAllText(dataLocation));
-            }
+            readFileIntoCache();
         }
 
         public override void ClearCache()
         {
             base.ClearCache();
 
-            if (File.Exists(mDataLocation))
-            {
-                dataCache = JsonConvert.DeserializeObject<Dictionary<string, GameData>>(File.ReadAllText(mDataLocation));
-            }
+            readFileIntoCache();
         }
 
         public override async Task<GameData> RetrieveGameData(string romType, string romId)
@@ -61,6 +55,19 @@ namespace EmulatorManager.Components.GameDataComponent
             else
             {
                 dataCache.Add(uniqueId, data);
+            }
+        }
+
+        private void readFileIntoCache()
+        {
+            // Read the data location into the cache, if it exists
+            if (File.Exists(mDataLocation))
+            {
+                dataCache = JsonConvert.DeserializeObject<Dictionary<string, GameData>>(File.ReadAllText(mDataLocation));
+            }
+            else
+            {
+                dataCache = new Dictionary<string, GameData>();
             }
         }
     }
