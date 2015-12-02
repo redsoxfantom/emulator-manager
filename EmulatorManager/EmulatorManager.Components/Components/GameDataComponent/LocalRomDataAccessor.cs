@@ -47,12 +47,21 @@ namespace EmulatorManager.Components.GameDataComponent
 
         public override async void UpdateGamePlayedTime(string romId, GameData data)
         {
-            throw new NotImplementedException();
+            await UpdateOrAddGameData(romId, data);
         }
 
         public override async Task UpdateOrAddGameData(string romId, GameData data)
         {
-            throw new NotImplementedException();
+            string uniqueId = romId + data.GameSystem;
+
+            if(dataCache.ContainsKey(uniqueId))
+            {
+                dataCache[uniqueId] = data;
+            }
+            else
+            {
+                dataCache.Add(uniqueId, data);
+            }
         }
     }
 }
