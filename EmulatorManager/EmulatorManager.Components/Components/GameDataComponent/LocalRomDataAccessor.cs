@@ -23,6 +23,16 @@ namespace EmulatorManager.Components.GameDataComponent
             }
         }
 
+        public override void ClearCache()
+        {
+            base.ClearCache();
+
+            if (File.Exists(mDataLocation))
+            {
+                dataCache = JsonConvert.DeserializeObject<Dictionary<string, GameData>>(File.ReadAllText(mDataLocation));
+            }
+        }
+
         public override async Task<GameData> RetrieveGameData(string romType, string romId)
         {
             GameData result = new GameData();

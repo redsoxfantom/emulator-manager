@@ -24,7 +24,7 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger.Debug(String.Format("Data Accessor created with data location {0}", dataLocation));
         }
 
-        public void ClearCache()
+        public virtual void ClearCache()
         {
             mLogger.Info("Clearing data cache");
             dataCache.Clear();
