@@ -12,7 +12,7 @@ namespace EmulatorManager.Components.InputComponent
     {
         private ILog mLogger;
 
-        private JoystickComponent mInstance;
+        private static JoystickComponent mInstance;
 
         private Joystick joystickInstance;
 
