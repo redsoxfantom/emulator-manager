@@ -35,6 +35,8 @@ namespace EmulatorManager.Components.GameDataComponent
                 byte[] imgBytes = mem.ToArray();
                 base64Image = Convert.ToBase64String(imgBytes);
             }
+
+            writer.WriteValue(base64Image);
         }
     }
 }
