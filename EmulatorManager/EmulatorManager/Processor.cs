@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EmulatorManager
 {
@@ -48,11 +49,13 @@ namespace EmulatorManager
 
         public bool Execute()
         {
-            using(MainWindow mMainForm = new MainWindow())
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            using (MainWindow mMainForm = new MainWindow())
             {
                 mLogger.Info("Showing main display");
                 mMainForm.Initialize();
-                mMainForm.ShowDialog();
+                Application.Run(mMainForm);
                 mLogger.Info("Bye");
             }
             return true;
