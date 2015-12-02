@@ -13,8 +13,11 @@ namespace EmulatorManager.Components.GameDataComponent
     /// </summary>
     public class LocalRomDataAccessor : BaseDataAccessor
     {
+        private ImageConverter gameDataImageConverter;
+
         public LocalRomDataAccessor(string dataLocation) : base(dataLocation)
         {
+            gameDataImageConverter = new ImageConverter();
             readFileIntoCache();
         }
 
@@ -63,7 +66,7 @@ namespace EmulatorManager.Components.GameDataComponent
             // Read the data location into the cache, if it exists
             if (File.Exists(mDataLocation))
             {
-                dataCache = JsonConvert.DeserializeObject<Dictionary<string, GameData>>(File.ReadAllText(mDataLocation));
+                dataCache = JsonConvert.DeserializeObject<Dictionary<string, GameData>>(File.ReadAllText(mDataLocation),gameDataImageConverter);
             }
             else
             {
@@ -73,7 +76,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private void writeCacheToFile()
         {
-            string output = JsonConvert.SerializeObject(dataCache, Formatting.Indented);
+            string output = JsonConvert.SerializeObject(dataCache, Formatting.Indented,gameDataImageConverter);
             File.WriteAllText(mDataLocation, output);
         }
     }
