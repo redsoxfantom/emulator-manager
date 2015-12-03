@@ -14,9 +14,9 @@ namespace EmulatorManager.Components.InputComponent
 
         private static JoystickComponent mInstance;
 
-        private Joystick joystickInstance;
-
         private DirectInput directInput;
+
+        private Joystick joystick;
 
         private JoystickComponent()
         {
@@ -32,6 +32,24 @@ namespace EmulatorManager.Components.InputComponent
             else
             {
                 mLogger.InfoFormat("Gamepad detected. Name: {0}",joystickInstance.ProductName);
+                joystick = new Joystick(directInput, joystickInstance.InstanceGuid);
+                Task.Factory.StartNew(() => { pollJoystickLoop(); });
+            }
+        }
+
+        private void pollJoystickLoop()
+        {
+            joystick.Acquire();
+            joystick.Properties.BufferSize = 128;
+
+            while (true)
+            {
+                joystick.Poll();
+                var data = joystick.GetBufferedData();
+                foreach(var state in data)
+                {
+                    mLogger.DebugFormat("{0} state change detected");
+                }
             }
         }
 
