@@ -39,8 +39,8 @@ namespace EmulatorManager.Components.InputComponent
 
         private void pollJoystickLoop()
         {
-            joystick.Acquire();
             joystick.Properties.BufferSize = 128;
+            joystick.Acquire();
 
             while (true)
             {
@@ -48,7 +48,7 @@ namespace EmulatorManager.Components.InputComponent
                 var data = joystick.GetBufferedData();
                 foreach(var state in data)
                 {
-                    mLogger.DebugFormat("{0} state change detected");
+                    mLogger.DebugFormat("{0} state change detected",state);
                 }
             }
         }
