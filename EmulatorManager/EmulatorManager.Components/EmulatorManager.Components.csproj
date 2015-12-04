@@ -84,7 +84,7 @@
     <Compile Include="Components\GameDataComponent\RomReaders\N64RomReader.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\PS2RomReader.cs" />
     <Compile Include="Components\InputComponent\JoystickComponent.cs" />
-    <Compile Include="Components\InputComponent\JoystickEvents.cs" />
+    <Compile Include="Components\InputComponent\JoystickDelegates.cs" />
     <Compile Include="Components\PathComponent\PathResolverComponent.cs" />
     <Compile Include="Events\ExecutionStateChanged.cs" />
     <Compile Include="Events\LoadedConfigChanged.cs" />

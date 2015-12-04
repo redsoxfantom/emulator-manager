@@ -12,7 +12,5 @@ namespace EmulatorManager.Components.InputComponent
         DISCONNECTED
     }
 
-    public class JoystickEvents
-    {
-    }
+    public delegate void JoystickStatusChanged(JoystickStatus oldStatus, JoystickStatus newStatus);
 }
