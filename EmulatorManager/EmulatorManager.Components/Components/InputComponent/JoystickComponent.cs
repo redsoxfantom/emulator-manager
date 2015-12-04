@@ -42,10 +42,10 @@ namespace EmulatorManager.Components.InputComponent
                 while (true)
                 {
                     var joystick = connectToJoystick(directInput);
-                    FireJoystickStatusEvent(JoystickStatus.DISCONNECTED, JoystickStatus.CONNECTED);
+                    FireJoystickStatusEvent(JoystickStatus.CONNECTED);
 
                     pollJoystickLoop(joystick);
-                    FireJoystickStatusEvent(JoystickStatus.CONNECTED, JoystickStatus.DISCONNECTED);
+                    FireJoystickStatusEvent(JoystickStatus.DISCONNECTED);
                 }
             }
         }
@@ -78,22 +78,22 @@ namespace EmulatorManager.Components.InputComponent
                     var data = joystick.GetBufferedData();
                     foreach (var state in data)
                     {
-
+                        
                         mLogger.DebugFormat("{0} state change detected", state);
                     }
                 }
             }
-            catch(SharpDX.SharpDXException ex)
+            catch(SharpDX.SharpDXException)
             {
                 mLogger.Info("Gamepad disconnected");
             }
         }
         
-        private void FireJoystickStatusEvent(JoystickStatus previousStatus, JoystickStatus currentStatus)
+        private void FireJoystickStatusEvent(JoystickStatus currentStatus)
         {
             if(OnJoystickStatusChanged != null)
             {
-                OnJoystickStatusChanged(previousStatus, currentStatus);
+                OnJoystickStatusChanged(currentStatus);
             }
         }
 
