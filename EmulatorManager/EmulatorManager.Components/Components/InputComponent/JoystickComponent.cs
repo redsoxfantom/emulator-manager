@@ -18,9 +18,12 @@ namespace EmulatorManager.Components.InputComponent
 
         private Joystick joystick;
 
+        private bool joystickConnected;
+
         private JoystickComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
+            joystick = false;
 
             directInput = new DirectInput();
 
@@ -48,7 +51,27 @@ namespace EmulatorManager.Components.InputComponent
                 var data = joystick.GetBufferedData();
                 foreach(var state in data)
                 {
+                    
                     mLogger.DebugFormat("{0} state change detected",state);
+                }
+            }
+        }
+
+        private void joystickConnectionLoop()
+        {
+            while(true)
+            {
+                var primaryJoystick = GetJoystickInstance();
+
+                if (primaryJoystick != null)
+                {
+                    mLogger.InfoFormat("Gamepad Connected. Name: {0}", primaryJoystick.ProductName);
+                    joystickConnected = true;
+                }
+                else
+                {
+                    mLogger.Info("Gamepad disconnected");
+                    joystickConnected = false;
                 }
             }
         }
