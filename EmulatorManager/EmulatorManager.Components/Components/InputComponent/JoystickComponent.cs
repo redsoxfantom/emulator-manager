@@ -85,7 +85,7 @@ namespace EmulatorManager.Components.InputComponent
             }
             catch(SharpDX.SharpDXException ex)
             {
-                mLogger.Info("Caught SharpDX exception", ex);
+                mLogger.Info("Gamepad disconnected");
             }
         }
         
