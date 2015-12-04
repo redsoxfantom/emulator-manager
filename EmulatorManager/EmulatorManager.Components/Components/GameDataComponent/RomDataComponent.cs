@@ -1,4 +1,5 @@
-﻿using EmulatorManager.Components.GameDataComponent.RomReaders;
+﻿using EmulatorManager.Components.GameDataComponent.DataAccessors;
+using EmulatorManager.Components.GameDataComponent.RomReaders;
 using log4net;
 using Newtonsoft.Json;
 using System;
@@ -29,7 +30,7 @@ namespace EmulatorManager.Components.GameDataComponent
 
         private ILog mLogger;
 
-        private RomDataAccessor mAccessor;
+        private IRomDataAccessor mAccessor;
 
         private RomDataComponent()
         {
@@ -37,17 +38,17 @@ namespace EmulatorManager.Components.GameDataComponent
             mLogger = LogManager.GetLogger(GetType().Name);
         }
 
-        public void Initialize(String serverUrl = null)
+        public void Initialize(String dataLocation = null)
         {
             mLogger.Info("Initializing RomDataComponent");
 
-            if(serverUrl != null)
+            if(dataLocation != null)
             {
-                mAccessor = new RomDataAccessor(serverUrl);
+                createRomDataAccessor(dataLocation);
             }
             else
             {
-                mAccessor = new RomDataAccessor(GetServerUrl());
+                createRomDataAccessor(GetServerUrl());
             }
 
             // Get list of all types in assembly that implement IRomReader
@@ -64,6 +65,22 @@ namespace EmulatorManager.Components.GameDataComponent
             }
 
             mLogger.Info("Done Initializing RomDataComponent");
+        }
+
+        private void createRomDataAccessor(string dataLocation)
+        {
+            Uri result;
+            bool isValidHttpUrl = Uri.TryCreate(dataLocation, UriKind.Absolute, out result) &&
+                                    result.Scheme == Uri.UriSchemeHttp;
+
+            if (isValidHttpUrl)
+            {
+                mAccessor = new ServerRomDataAccessor(dataLocation);
+            }
+            else
+            {
+                mAccessor = new LocalRomDataAccessor(dataLocation);
+            }
         }
 
         public void ClearDataCache()
@@ -113,6 +130,12 @@ namespace EmulatorManager.Components.GameDataComponent
         {
             GameData data = await mAccessor.RetrieveGameData(romSystem, romId);
             return data;
+        }
+
+        public void UpdateGamePlayTime(string romId, GameData data)
+        {
+            mLogger.DebugFormat("Attempting to update rom {0} game play time to {1}",romId,data.TimePlayed.TotalSeconds);
+            mAccessor.UpdateGamePlayedTime(romId, data);
         }
 
         public async Task UpdateOrAddGameData(string romId, GameData data)

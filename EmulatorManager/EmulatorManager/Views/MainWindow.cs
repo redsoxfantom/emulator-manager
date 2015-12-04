@@ -18,6 +18,8 @@ using EmulatorManager.Components.PathComponent;
 using System.Collections.Concurrent;
 using EmulatorManager.Views.TreeNodes;
 using EmulatorManager.Components.GameDataComponent;
+using EmulatorManager.Components.InputComponent;
+using SharpDX.DirectInput;
 
 namespace EmulatorManager.Views
 {
@@ -34,6 +36,8 @@ namespace EmulatorManager.Views
         private PathResolverComponent mPathResolver;
 
         private RomDataComponent mRomDataComponent;
+
+        private JoystickComponent mJoystickComponent;
 
         private String mConfigFileName;
 
@@ -70,6 +74,7 @@ namespace EmulatorManager.Views
 
             mConfigurationComponent = ConfigComponent.Instance;
             mRomDataComponent = RomDataComponent.Instance;
+            mJoystickComponent = JoystickComponent.Instance;
             mConfigurationComponent.GetCurrentConfig(out mConfigFileName, out mConfigFilePath, out mLoadedEmulators, out mLoadedPaths);
             mExecutionComponent = new EmulatorExecutionComponent();
             mPathResolver = new PathResolverComponent();
@@ -82,6 +87,13 @@ namespace EmulatorManager.Views
             processConfig();
 
             mExecutionComponent.ExecutionStateChangeHandler += MExecutionComponent_ExecutionStateChangeHandler;
+
+            mJoystickComponent.OnJoystickInput += MJoystickComponent_OnJoystickInput;
+        }
+
+        private void MJoystickComponent_OnJoystickInput(JoystickUpdate updateEvent)
+        {
+
         }
 
         private void MExecutionComponent_ExecutionStateChangeHandler(ExecutionStateChangedEventArgs args)
@@ -93,6 +105,18 @@ namespace EmulatorManager.Views
                     break;
                 case ExecutionState.TERMINATED:
                     btnExecuteEmulator.Invoke(new Action(() => { btnExecuteEmulator.Text = "Begin Emulator"; }));
+                    if(mSelectedRomData != null)
+                    {
+                        mSelectedRomData.TimePlayed += args.PlayTime;
+                        this.Invoke(new Action(() => 
+                            { SetGameInfoLabels(mSelectedRomData.GameName, 
+                                                mSelectedRomData.GamePublisher, 
+                                                mSelectedRomData.GameSystem, 
+                                                mSelectedRomData.GameImage, 
+                                                true, 
+                                                mSelectedRomData.TimePlayed); }));
+                        mRomDataComponent.UpdateGamePlayTime(mSelectedRomId, mSelectedRomData);
+                    }
                     break;
             }
         }
@@ -272,7 +296,7 @@ namespace EmulatorManager.Views
                 {
                     mSelectedRomId = romId;
                     mSelectedRomData = await mRomDataComponent.RetrieveGameData(romId, romSystem);
-                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage,true);
+                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage,true,mSelectedRomData.TimePlayed);
                 }
                 else
                 {
@@ -286,12 +310,21 @@ namespace EmulatorManager.Views
             }
         }
 
-        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null, bool activateUpdateLink = false)
+        private void SetGameInfoLabels(string gameName = "", string gamePub = "", string gameSys = "", Image gameImg = null, bool activateUpdateLink = false, TimeSpan? timePlayed = null)
         {
             lblGameName.Text = gameName;
             lblGamePublisher.Text = gamePub;
             lblGameSystem.Text = gameSys;
             imgGameImage.BackgroundImage = gameImg;
+
+            if (timePlayed != null)
+            {
+                lblGameTimePlayed.Text = String.Format("Time Played : {0}",timePlayed);
+            }
+            else
+            {
+                lblGameTimePlayed.Text = "";
+            }
 
             lblClickHere.Visible = activateUpdateLink;
             lblDataMissing.Visible = activateUpdateLink;
@@ -471,7 +504,7 @@ namespace EmulatorManager.Views
                 if(res == DialogResult.OK)
                 {
                     mSelectedRomData = form.Data;
-                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true);
+                    SetGameInfoLabels(mSelectedRomData.GameName, mSelectedRomData.GamePublisher, mSelectedRomData.GameSystem, mSelectedRomData.GameImage, true,mSelectedRomData.TimePlayed);
                     await mRomDataComponent.UpdateOrAddGameData(mSelectedRomId, mSelectedRomData);
                 }
             }

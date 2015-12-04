@@ -17,9 +17,12 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public event ExecutionStateChanged ExecutionStateChangeHandler;
 
+        private TimeSpan playTime;
+
         public EmulatorExecutionComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
+            playTime = new TimeSpan();
             mProc = new Process();
         }
 
@@ -48,13 +51,16 @@ namespace EmulatorManager.Components.ExecutionComponent
                     onExecutionStateChanged(ExecutionState.RUNNING);
                     mProc.Start();
 
+                    DateTime startTime = DateTime.Now;
                     mProc.WaitForExit();
+                    DateTime endTime = DateTime.Now;
+                    playTime = endTime - startTime;
                     onExecutionStateChanged(ExecutionState.TERMINATED);
 
                     String stdOut = mProc.StandardOutput.ReadToEnd();
                     String stdErr = mProc.StandardError.ReadToEnd();
                     mProc.Close();
-                    mLogger.Info(String.Format("mProc exited. StdOut:\n{0}", stdOut));
+                    mLogger.Info(String.Format("mProc exited. StdOut:\n{0}\nFinal Play Time: {1}", stdOut,playTime));
                     if (!String.IsNullOrEmpty(stdErr))
                     {
                         mLogger.Error(String.Format("mProc exited with errors. StdErr:\n{0}", stdErr));
@@ -100,7 +106,7 @@ namespace EmulatorManager.Components.ExecutionComponent
         {
             if(ExecutionStateChangeHandler != null)
             {
-                ExecutionStateChangedEventArgs args = new ExecutionStateChangedEventArgs(newState);
+                ExecutionStateChangedEventArgs args = new ExecutionStateChangedEventArgs(newState,playTime);
                 ExecutionStateChangeHandler(args);
             }
         }

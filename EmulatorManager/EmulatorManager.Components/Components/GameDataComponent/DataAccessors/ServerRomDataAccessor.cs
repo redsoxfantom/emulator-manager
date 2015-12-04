@@ -14,32 +14,19 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace EmulatorManager.Components.GameDataComponent
+namespace EmulatorManager.Components.GameDataComponent.DataAccessors
 {
-    public class RomDataAccessor
+    /// <summary>
+    /// Reads Rom data from a Rest server
+    /// </summary>
+    public class ServerRomDataAccessor : BaseDataAccessor
     {
-        string mUrl;
-
-        private ILog mLogger;
-
-        private Dictionary<string, GameData> dataCache;
-
-        public RomDataAccessor(string dataUrl)
+        public ServerRomDataAccessor(string dataUrl) : base(dataUrl)
         {
-            mUrl = dataUrl;
-            mLogger = LogManager.GetLogger(GetType().Name);
-            dataCache = new Dictionary<string, GameData>();
 
-            mLogger.Debug(String.Format("Data Accessor created with url {0}", mUrl));
         }
 
-        public void ClearCache()
-        {
-            mLogger.Info("Clearing data cache");
-            dataCache.Clear();
-        }
-
-        public async Task<GameData> RetrieveGameData(string romType, string romId)
+        public override async Task<GameData> RetrieveGameData(string romType, string romId)
         {
             string dataId = romId + romType;
             dataId = Cleanup(dataId);
@@ -49,7 +36,7 @@ namespace EmulatorManager.Components.GameDataComponent
                 return dataCache[dataId];
             }
 
-            string finalUrl = String.Format("{0}/gamedata/GetGameDataByNameSystem/{1}",mUrl,dataId);
+            string finalUrl = String.Format("{0}/gamedata/GetGameDataByNameSystem/{1}",mDataLocation,dataId);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = new GameData();
 
@@ -61,11 +48,13 @@ namespace EmulatorManager.Components.GameDataComponent
                 string gamePublisher = serverGameData.userData.Publisher;
                 string gameSystem = serverGameData.userData.System;
                 string gameImageBase64String = serverGameData.userData.Image;
-                int id = serverGameData.userData.id;
+                string id = serverGameData.userData.id;
+                double timePlayedInSecs = (double)serverGameData.userData.TimePlayedInSecs;
+                TimeSpan timePlayed = TimeSpan.FromSeconds(timePlayedInSecs);
                 byte[] gameImageArry = Convert.FromBase64String(gameImageBase64String);
                 Image gameImage = Bitmap.FromStream(new MemoryStream(gameImageArry));
 
-                data = new GameData(gameName, gamePublisher, gameSystem, gameImage,id,true);
+                data = new GameData(gameName, gamePublisher, gameSystem, gameImage,id,timePlayed,true);
                 dataCache.Add(dataId, data);
             }
             catch(ResponseStatusCodeException ex)
@@ -80,7 +69,26 @@ namespace EmulatorManager.Components.GameDataComponent
             return data;
         }
 
-        public async Task UpdateOrAddGameData(string romId, GameData data)
+        public override async void UpdateGamePlayedTime(string romId, GameData data)
+        {
+            string dataId = romId + data.GameSystem;
+            dataId = Cleanup(dataId);
+            string baseUrl = String.Format("{0}/gamedata", mDataLocation);
+            Dictionary<string, string> header = new Dictionary<string, string>();
+            string finalUrl = String.Format("{0}/{1}?TimePlayedInSecs={2}", baseUrl, data.Id, data.TimePlayed.TotalSeconds.ToString());
+
+            mLogger.DebugFormat("Updating game play time for rom {0} using URL {1}",dataId,finalUrl);
+            try
+            {
+                await RestServerManager.Put(finalUrl, header);
+            }
+            catch(Exception ex)
+            {
+                mLogger.Error("Failed to update game play time!", ex);
+            }
+        }
+
+        public override async Task UpdateOrAddGameData(string romId, GameData data)
         {
             String base64Image = null;
             using (MemoryStream mem = new MemoryStream())
@@ -93,12 +101,13 @@ namespace EmulatorManager.Components.GameDataComponent
             string dataId = romId + data.GameSystem;
             dataId = Cleanup(dataId);
 
-            string baseUrl = String.Format("{0}/gamedata", mUrl);
+            string baseUrl = String.Format("{0}/gamedata", mDataLocation);
             Dictionary<string, string> header = new Dictionary<string, string>();
             header.Add("Name", data.GameName);
             header.Add("Publisher", data.GamePublisher);
             header.Add("System", data.GameSystem);
             header.Add("Image", base64Image);
+            header.Add("TimePlayedInSecs", data.TimePlayed.TotalSeconds.ToString());
 
             if (data.ExistsOnServer)
             {
