@@ -83,6 +83,7 @@ namespace EmulatorManager.Components.InputComponent
                     {
                         // Only report the gamepad as connected if it was disconnected last time we checked
                         mLogger.InfoFormat("Gamepad Connected. Name: {0}", currentInstance.ProductName);
+                        joystick = new Joystick(directInput, currentInstance.InstanceGuid);
                         joystickConnected = true;
                         previousState = JoystickStatus.CONNECTED;
                         FireJoystickStatusEvent(JoystickStatus.DISCONNECTED, JoystickStatus.CONNECTED);
@@ -94,6 +95,7 @@ namespace EmulatorManager.Components.InputComponent
                     {
                         // Only report the gamepad as disconnected if it was connected last time we checked
                         mLogger.Info("Gamepad disconnected");
+                        joystick = null;
                         joystickConnected = false;
                         previousState = JoystickStatus.DISCONNECTED;
                         FireJoystickStatusEvent(JoystickStatus.CONNECTED, JoystickStatus.DISCONNECTED);
