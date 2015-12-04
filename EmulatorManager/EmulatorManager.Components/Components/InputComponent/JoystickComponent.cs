@@ -14,10 +14,6 @@ namespace EmulatorManager.Components.InputComponent
 
         private static JoystickComponent mInstance;
 
-        private DirectInput directInput;
-
-        private Joystick joystick;
-
         public event JoystickStatusChanged OnJoystickStatusChanged;
 
         public static JoystickComponent Instance
@@ -36,19 +32,39 @@ namespace EmulatorManager.Components.InputComponent
         {
             mLogger = LogManager.GetLogger(GetType().Name);
 
-            directInput = new DirectInput();
             Task.Factory.StartNew(() => { joystickLoop(); });
         }
 
         private void joystickLoop()
         {
-            while(true)
+            using (var directInput = new DirectInput())
             {
+                while (true)
+                {
+                    var joystick = connectToJoystick(directInput);
+                    FireJoystickStatusEvent(JoystickStatus.DISCONNECTED, JoystickStatus.CONNECTED);
 
+                    pollJoystickLoop(joystick);
+                    FireJoystickStatusEvent(JoystickStatus.CONNECTED, JoystickStatus.DISCONNECTED);
+                }
             }
         }
 
-        private void pollJoystickLoop()
+        private Joystick connectToJoystick(DirectInput directInput)
+        {
+            Joystick retVal = null;
+            DeviceInstance currentInstance = GetJoystickInstance(directInput);
+            while(currentInstance == null)
+            {
+                currentInstance = GetJoystickInstance(directInput);
+            }
+
+            retVal = new Joystick(directInput, currentInstance.InstanceGuid);
+
+            return retVal;
+        }
+
+        private void pollJoystickLoop(Joystick joystick)
         {
             joystick.Properties.BufferSize = 128;
             joystick.Acquire();
@@ -71,38 +87,7 @@ namespace EmulatorManager.Components.InputComponent
                 mLogger.Info("Caught SharpDX exception", ex);
             }
         }
-
-        private void joystickConnectionLoop()
-        {
-            JoystickStatus previousState = JoystickStatus.DISCONNECTED;
-            DeviceInstance currentInstance = null;
-            
-            currentInstance = GetJoystickInstance();
-
-            if (currentInstance != null)
-            {
-                if (previousState == JoystickStatus.DISCONNECTED)
-                {
-                    // Only report the gamepad as connected if it was disconnected last time we checked
-                    mLogger.InfoFormat("Gamepad Connected. Name: {0}", currentInstance.ProductName);
-                    joystick = new Joystick(directInput, currentInstance.InstanceGuid);
-                    previousState = JoystickStatus.CONNECTED;
-                    FireJoystickStatusEvent(JoystickStatus.DISCONNECTED, JoystickStatus.CONNECTED);
-                }
-            }
-            else
-            {
-                if (previousState == JoystickStatus.CONNECTED)
-                {
-                    // Only report the gamepad as disconnected if it was connected last time we checked
-                    mLogger.Info("Gamepad disconnected");
-                    joystick = null;
-                    previousState = JoystickStatus.DISCONNECTED;
-                    FireJoystickStatusEvent(JoystickStatus.CONNECTED, JoystickStatus.DISCONNECTED);
-                }
-            }
-        }
-
+        
         private void FireJoystickStatusEvent(JoystickStatus previousStatus, JoystickStatus currentStatus)
         {
             if(OnJoystickStatusChanged != null)
@@ -111,7 +96,7 @@ namespace EmulatorManager.Components.InputComponent
             }
         }
 
-        private DeviceInstance GetJoystickInstance()
+        private DeviceInstance GetJoystickInstance(DirectInput directInput)
         {
             var devices = directInput.GetDevices(DeviceClass.GameControl, DeviceEnumerationFlags.AttachedOnly);
             if(devices.Count > 0)
