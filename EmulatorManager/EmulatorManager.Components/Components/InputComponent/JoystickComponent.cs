@@ -42,7 +42,7 @@ namespace EmulatorManager.Components.InputComponent
             directInput = new DirectInput();
 
             Task.Factory.StartNew(() => { joystickConnectionLoop(); });
-            
+            Task.Factory.StartNew(() => { pollJoystickLoop(); });
         }
 
         private void pollJoystickLoop()
