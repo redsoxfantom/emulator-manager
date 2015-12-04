@@ -59,6 +59,7 @@ namespace EmulatorManager.Components.InputComponent
                 currentInstance = GetJoystickInstance(directInput);
             }
 
+            mLogger.InfoFormat("Gamepad Connected. Name: {0}",currentInstance.ProductName);
             retVal = new Joystick(directInput, currentInstance.InstanceGuid);
 
             return retVal;
