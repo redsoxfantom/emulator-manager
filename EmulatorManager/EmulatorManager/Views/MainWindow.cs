@@ -19,6 +19,7 @@ using System.Collections.Concurrent;
 using EmulatorManager.Views.TreeNodes;
 using EmulatorManager.Components.GameDataComponent;
 using EmulatorManager.Components.InputComponent;
+using SharpDX.DirectInput;
 
 namespace EmulatorManager.Views
 {
@@ -86,6 +87,13 @@ namespace EmulatorManager.Views
             processConfig();
 
             mExecutionComponent.ExecutionStateChangeHandler += MExecutionComponent_ExecutionStateChangeHandler;
+
+            mJoystickComponent.OnJoystickInput += MJoystickComponent_OnJoystickInput;
+        }
+
+        private void MJoystickComponent_OnJoystickInput(JoystickUpdate updateEvent)
+        {
+
         }
 
         private void MExecutionComponent_ExecutionStateChangeHandler(ExecutionStateChangedEventArgs args)
