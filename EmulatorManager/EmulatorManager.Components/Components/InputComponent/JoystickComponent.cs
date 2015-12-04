@@ -47,17 +47,23 @@ namespace EmulatorManager.Components.InputComponent
 
         private void pollJoystickLoop()
         {
-            joystick.Properties.BufferSize = 128;
-            joystick.Acquire();
-
             while (true)
             {
-                joystick.Poll();
-                var data = joystick.GetBufferedData();
-                foreach(var state in data)
+                if (joystickConnected)
                 {
-                    
-                    mLogger.DebugFormat("{0} state change detected",state);
+                    joystick.Properties.BufferSize = 128;
+                    joystick.Acquire();
+
+                    while (joystickConnected)
+                    {
+                        joystick.Poll();
+                        var data = joystick.GetBufferedData();
+                        foreach (var state in data)
+                        {
+
+                            mLogger.DebugFormat("{0} state change detected", state);
+                        }
+                    }
                 }
             }
         }
