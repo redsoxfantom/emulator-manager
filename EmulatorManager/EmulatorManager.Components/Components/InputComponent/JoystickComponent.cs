@@ -20,6 +20,7 @@ namespace EmulatorManager.Components.InputComponent
 
         private bool joystickConnected;
 
+        public event JoystickStatusChanged OnJoystickStatusChanged;
 
         private JoystickComponent()
         {
@@ -77,6 +78,7 @@ namespace EmulatorManager.Components.InputComponent
                         mLogger.InfoFormat("Gamepad Connected. Name: {0}", currentInstance.ProductName);
                         joystickConnected = true;
                         previousState = JoystickStatus.CONNECTED;
+                        FireJoystickStatusEvent(JoystickStatus.DISCONNECTED, JoystickStatus.CONNECTED);
                     }
                 }
                 else
@@ -87,8 +89,17 @@ namespace EmulatorManager.Components.InputComponent
                         mLogger.Info("Gamepad disconnected");
                         joystickConnected = false;
                         previousState = JoystickStatus.DISCONNECTED;
+                        FireJoystickStatusEvent(JoystickStatus.CONNECTED, JoystickStatus.DISCONNECTED);
                     }
                 }
+            }
+        }
+
+        private void FireJoystickStatusEvent(JoystickStatus previousStatus, JoystickStatus currentStatus)
+        {
+            if(OnJoystickStatusChanged != null)
+            {
+                OnJoystickStatusChanged(previousStatus, currentStatus);
             }
         }
 
