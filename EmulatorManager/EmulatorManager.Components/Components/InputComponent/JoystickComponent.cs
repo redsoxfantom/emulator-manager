@@ -16,6 +16,8 @@ namespace EmulatorManager.Components.InputComponent
 
         public event JoystickStatusChanged OnJoystickStatusChanged;
 
+        public event JoystickInput OnJoystickInput;
+
         public static JoystickComponent Instance
         {
             get
@@ -78,8 +80,7 @@ namespace EmulatorManager.Components.InputComponent
                     var data = joystick.GetBufferedData();
                     foreach (var state in data)
                     {
-                        
-                        mLogger.DebugFormat("{0} state change detected", state);
+                        FireJoystickInputEvent(state);
                     }
                 }
             }
@@ -94,6 +95,14 @@ namespace EmulatorManager.Components.InputComponent
             if(OnJoystickStatusChanged != null)
             {
                 OnJoystickStatusChanged(currentStatus);
+            }
+        }
+
+        private void FireJoystickInputEvent(JoystickUpdate updateData)
+        {
+            if(OnJoystickInput != null)
+            {
+                OnJoystickInput(updateData);
             }
         }
 
