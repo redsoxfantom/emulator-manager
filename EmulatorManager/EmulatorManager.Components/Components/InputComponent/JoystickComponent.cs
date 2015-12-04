@@ -22,6 +22,18 @@ namespace EmulatorManager.Components.InputComponent
 
         public event JoystickStatusChanged OnJoystickStatusChanged;
 
+        public static JoystickComponent Instance
+        {
+            get
+            {
+                if (mInstance == null)
+                {
+                    mInstance = new JoystickComponent();
+                }
+                return mInstance;
+            }
+        }
+
         private JoystickComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
@@ -30,18 +42,7 @@ namespace EmulatorManager.Components.InputComponent
             directInput = new DirectInput();
 
             Task.Factory.StartNew(() => { joystickConnectionLoop(); });
-
-            var joystickInstance = GetJoystickInstance();
-            if(joystickInstance == null)
-            {
-                mLogger.WarnFormat("No gamepad connected");
-            }
-            else
-            {
-                mLogger.InfoFormat("Gamepad detected. Name: {0}",joystickInstance.ProductName);
-                joystick = new Joystick(directInput, joystickInstance.InstanceGuid);
-                Task.Factory.StartNew(() => { pollJoystickLoop(); });
-            }
+            
         }
 
         private void pollJoystickLoop()
@@ -100,18 +101,6 @@ namespace EmulatorManager.Components.InputComponent
             if(OnJoystickStatusChanged != null)
             {
                 OnJoystickStatusChanged(previousStatus, currentStatus);
-            }
-        }
-
-        public static JoystickComponent Instance
-        {
-            get
-            {
-                if(mInstance == null)
-                {
-                    mInstance = new JoystickComponent();
-                }
-                return mInstance;
             }
         }
 
