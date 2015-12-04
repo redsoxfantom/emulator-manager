@@ -20,6 +20,12 @@ namespace EmulatorManager.Components.InputComponent
 
         private bool joystickConnected;
 
+        public enum JoystickState
+        {
+            CONNECTED,
+            DISCONNECTED
+        }
+
         private JoystickComponent()
         {
             mLogger = LogManager.GetLogger(GetType().Name);
@@ -61,7 +67,7 @@ namespace EmulatorManager.Components.InputComponent
 
         private void joystickConnectionLoop()
         {
-            DeviceInstance previousInstance = null;
+            JoystickState previousState = JoystickState.DISCONNECTED;
             DeviceInstance currentInstance = null;
 
             while(true)
@@ -70,25 +76,22 @@ namespace EmulatorManager.Components.InputComponent
 
                 if (currentInstance != null)
                 {
-                    if (previousInstance == null)
+                    if (previousState == JoystickState.DISCONNECTED)
                     {
                         // Only report the gamepad as connected if it was disconnected last time we checked
-                        previousInstance = currentInstance;
+                        previousState = JoystickState.CONNECTED;
                         mLogger.InfoFormat("Gamepad Connected. Name: {0}", currentInstance.ProductName);
                         joystickConnected = true;
                     }
                 }
                 else
                 {
-                    if (previousInstance != null)
+                    if (previousState == JoystickState.CONNECTED)
                     {
                         // Only report the gamepad as disconnected if it was connected last time we checked
                         mLogger.Info("Gamepad disconnected");
                         joystickConnected = false;
-                    }
-                    else
-                    {
-                        previousInstance = null;
+                        previousState = JoystickState.DISCONNECTED;
                     }
                 }
             }
