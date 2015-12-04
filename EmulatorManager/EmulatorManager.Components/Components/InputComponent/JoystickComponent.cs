@@ -70,9 +70,13 @@ namespace EmulatorManager.Components.InputComponent
 
                 if (currentInstance != null)
                 {
-                    previousInstance = currentInstance;
-                    mLogger.InfoFormat("Gamepad Connected. Name: {0}", currentInstance.ProductName);
-                    joystickConnected = true;
+                    if (previousInstance == null)
+                    {
+                        // Only report the gamepad as connected if it was disconnected last time we checked
+                        previousInstance = currentInstance;
+                        mLogger.InfoFormat("Gamepad Connected. Name: {0}", currentInstance.ProductName);
+                        joystickConnected = true;
+                    }
                 }
                 else
                 {
