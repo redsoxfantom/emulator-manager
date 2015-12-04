@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpDX.DirectInput;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,4 +14,6 @@ namespace EmulatorManager.Components.InputComponent
     }
 
     public delegate void JoystickStatusChanged(JoystickStatus newStatus);
+
+    public delegate void JoystickInput(JoystickUpdate updateEvent);
 }
