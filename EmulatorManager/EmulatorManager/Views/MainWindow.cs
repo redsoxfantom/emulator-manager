@@ -333,19 +333,19 @@ namespace EmulatorManager.Views
 
         private String PrettyPrintTimeSpan(TimeSpan span)
         {
-            if(span.TotalDays > 2)
+            if(span.TotalDays >= 2)
             {
                 return String.Format("{0} Days",(int)span.TotalDays);
             }
-            else if (span.TotalHours > 2)
+            else if (span.TotalHours >= 2)
             {
                 return String.Format("{0} Hours", (int)span.TotalHours);
             }
-            else if (span.TotalMinutes > 2)
+            else if (span.TotalMinutes >= 2)
             {
                 return String.Format("{0} Minutes", (int)span.TotalMinutes);
             }
-            else if (span.TotalSeconds > 2)
+            else if (span.TotalSeconds >= 2)
             {
                 return String.Format("{0} Seconds", (int)span.TotalSeconds);
             }
