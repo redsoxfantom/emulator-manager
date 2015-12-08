@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmulatorManagementWindow));
             this.txtEmulatorPath = new System.Windows.Forms.TextBox();
             this.lblSelectEmulator = new System.Windows.Forms.Label();
             this.btnEmulatorBrowse = new System.Windows.Forms.Button();
@@ -153,6 +154,7 @@
             this.Controls.Add(this.btnEmulatorBrowse);
             this.Controls.Add(this.lblSelectEmulator);
             this.Controls.Add(this.txtEmulatorPath);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EmulatorManagementWindow";
             this.Text = "Emulator Management";
             this.ResumeLayout(false);

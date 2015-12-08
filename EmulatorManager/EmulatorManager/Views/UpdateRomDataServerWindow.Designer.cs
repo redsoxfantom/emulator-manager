@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateRomDataServerWindow));
             this.pnlImage = new System.Windows.Forms.Panel();
             this.lblImage = new System.Windows.Forms.Label();
             this.lblGameName = new System.Windows.Forms.Label();
@@ -137,6 +138,7 @@
             this.Controls.Add(this.lblGameName);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.pnlImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UpdateRomDataServerWindow";
             this.Text = "Add / Update Rom Data";
             this.ResumeLayout(false);

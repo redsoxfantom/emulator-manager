@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RomPathManagementWindow));
             this.lblPathToRomDirectory = new System.Windows.Forms.Label();
             this.txtPathToRomDirectory = new System.Windows.Forms.TextBox();
             this.btnBrowse = new System.Windows.Forms.Button();
@@ -141,6 +142,7 @@
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtPathToRomDirectory);
             this.Controls.Add(this.lblPathToRomDirectory);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RomPathManagementWindow";
             this.Text = "Rom Path Management";
             this.ResumeLayout(false);
