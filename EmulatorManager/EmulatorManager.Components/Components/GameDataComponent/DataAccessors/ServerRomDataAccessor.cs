@@ -39,6 +39,7 @@ namespace EmulatorManager.Components.GameDataComponent.DataAccessors
             string finalUrl = String.Format("{0}/gamedata/GetGameDataByNameSystem/{1}",mDataLocation,dataId);
             mLogger.Info(String.Format("Attempting to request game data from {0}", finalUrl));
             GameData data = new GameData();
+            data.GameSystem = romType;
 
             try
             {

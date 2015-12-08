@@ -30,6 +30,8 @@ namespace EmulatorManager.Views
             txtGamePublisher.Text = data.GamePublisher;
             txtGameSystem.Text = data.GameSystem;
             pnlImage.BackgroundImage = data.GameImage;
+
+            txtGameSystem.Enabled = false;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)

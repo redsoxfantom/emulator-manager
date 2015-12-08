@@ -33,6 +33,7 @@ namespace EmulatorManager.Components.GameDataComponent.DataAccessors
             string uniqueId = generateUniqueId(romId, romType);
             mLogger.InfoFormat("Attempting to retrieve game data for {0}", uniqueId);
             GameData result = new GameData();
+            result.GameSystem = romType;
 
             if(dataCache.ContainsKey(uniqueId))
             {
