@@ -319,7 +319,8 @@ namespace EmulatorManager.Views
 
             if (timePlayed != null)
             {
-                lblGameTimePlayed.Text = String.Format("Time Played : {0}",timePlayed);
+                TimeSpan nonNullTimePlayed = (TimeSpan)timePlayed;
+                lblGameTimePlayed.Text = String.Format("Time Played : {0}", PrettyPrintTimeSpan(nonNullTimePlayed));
             }
             else
             {
@@ -328,6 +329,30 @@ namespace EmulatorManager.Views
 
             lblClickHere.Visible = activateUpdateLink;
             lblDataMissing.Visible = activateUpdateLink;
+        }
+
+        private String PrettyPrintTimeSpan(TimeSpan span)
+        {
+            if(span.TotalDays > 2)
+            {
+                return String.Format("{0} Days",(int)span.TotalDays);
+            }
+            else if (span.TotalHours > 2)
+            {
+                return String.Format("{0} Hours", (int)span.TotalHours);
+            }
+            else if (span.TotalMinutes > 2)
+            {
+                return String.Format("{0} Minutes", (int)span.TotalMinutes);
+            }
+            else if (span.TotalSeconds > 2)
+            {
+                return String.Format("{0} Seconds", (int)span.TotalSeconds);
+            }
+            else
+            {
+                return "No Play Time Recorded";
+            }
         }
 
         private void refreshViewToolStripMenuItem_Click(object sender, EventArgs e)
