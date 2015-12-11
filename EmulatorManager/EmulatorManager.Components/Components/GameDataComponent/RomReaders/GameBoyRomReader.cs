@@ -28,7 +28,7 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
             byte[] magicNumberArray = new byte[64];
             rom.Position = 0;
             rom.Read(magicNumberArray, 0, 64);
-            if (BitConverter.IsLittleEndian)
+            if (!BitConverter.IsLittleEndian)
             {
                 Array.Reverse(magicNumberArray);
             }
