@@ -79,6 +79,7 @@
     <Compile Include="Components\GameDataComponent\DataAccessors\LocalRomDataAccessor.cs" />
     <Compile Include="Components\GameDataComponent\DataAccessors\ServerRomDataAccessor.cs" />
     <Compile Include="Components\GameDataComponent\RomDataComponent.cs" />
+    <Compile Include="Components\GameDataComponent\RomReaders\GameBoyRomReader.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\GamecubeRomReader.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\IRomReader.cs" />
     <Compile Include="Components\GameDataComponent\RomReaders\N64RomReader.cs" />
