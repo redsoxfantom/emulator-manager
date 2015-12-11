@@ -46,6 +46,7 @@ namespace EmulatorManager.Components.GameDataComponent.RomReaders
             rom.Read(romIdArray, 0, 16);
             RomId = Encoding.ASCII.GetString(romIdArray).TrimEnd('\0');
             RomType = "GameBoy";
+            return true;
         }
     }
 }
