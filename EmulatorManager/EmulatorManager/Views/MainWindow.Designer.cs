@@ -53,6 +53,11 @@
             this.lblDataMissing = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.controllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.MainTableLayout.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,7 +70,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.configurationToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1078, 24);
@@ -342,6 +348,42 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(748, 119);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
+            // configurationToolStripMenuItem
+            // 
+            this.configurationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.controllerToolStripMenuItem});
+            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.configurationToolStripMenuItem.Text = "Configuration";
+            // 
+            // controllerToolStripMenuItem
+            // 
+            this.controllerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newConfigToolStripMenuItem,
+            this.loadConfigToolStripMenuItem,
+            this.saveConfigToolStripMenuItem});
+            this.controllerToolStripMenuItem.Name = "controllerToolStripMenuItem";
+            this.controllerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.controllerToolStripMenuItem.Text = "Controller";
+            // 
+            // newConfigToolStripMenuItem
+            // 
+            this.newConfigToolStripMenuItem.Name = "newConfigToolStripMenuItem";
+            this.newConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newConfigToolStripMenuItem.Text = "New Config";
+            // 
+            // loadConfigToolStripMenuItem
+            // 
+            this.loadConfigToolStripMenuItem.Name = "loadConfigToolStripMenuItem";
+            this.loadConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadConfigToolStripMenuItem.Text = "Load Config";
+            // 
+            // saveConfigToolStripMenuItem
+            // 
+            this.saveConfigToolStripMenuItem.Name = "saveConfigToolStripMenuItem";
+            this.saveConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveConfigToolStripMenuItem.Text = "Save Config";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,5 +438,10 @@
         private System.Windows.Forms.LinkLabel lblClickHere;
         private System.Windows.Forms.Label lblDataMissing;
         private System.Windows.Forms.Label lblGameTimePlayed;
+        private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem controllerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newConfigToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadConfigToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveConfigToolStripMenuItem;
     }
 }
