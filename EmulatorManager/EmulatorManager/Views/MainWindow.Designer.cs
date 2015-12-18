@@ -138,11 +138,11 @@
             // txtCommandLine
             // 
             this.txtCommandLine.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCommandLine.Enabled = false;
             this.txtCommandLine.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCommandLine.Location = new System.Drawing.Point(88, 3);
             this.txtCommandLine.Multiline = true;
             this.txtCommandLine.Name = "txtCommandLine";
+            this.txtCommandLine.ReadOnly = true;
             this.txtCommandLine.Size = new System.Drawing.Size(657, 69);
             this.txtCommandLine.TabIndex = 3;
             // 
