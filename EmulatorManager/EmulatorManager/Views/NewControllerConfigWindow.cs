@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmulatorManager.Components.InputComponent;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,19 @@ namespace EmulatorManager.Views
 {
     public partial class NewControllerConfigWindow : Form
     {
+        private JoystickComponent mJoystickComponent;
+
         public NewControllerConfigWindow()
         {
             InitializeComponent();
+
+            mJoystickComponent = JoystickComponent.Instance;
+            mJoystickComponent.OnJoystickStatusChanged += OnJoystickStatusChanged;
+        }
+
+        private void OnJoystickStatusChanged(JoystickStatus newStatus)
+        {
+            throw new NotImplementedException();
         }
     }
 }
