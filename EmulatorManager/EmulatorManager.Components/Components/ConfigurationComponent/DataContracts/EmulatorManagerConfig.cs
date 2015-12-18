@@ -71,23 +71,8 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
         {
             // determine the current (highest + 1) emulator and path id
             // This is the next available id
-            if (Emulators.Count > 0)
-            {
-                currEmuId = Emulators.Max(f => f.Id) + 1;
-            }
-            else
-            {
-                currEmuId = 0;
-            }
-
-            if (Paths.Count > 0)
-            {
-                currPathId = Paths.Max(f => f.Id) + 1;
-            }
-            else
-            {
-                currPathId = 0;
-            }
+            currEmuId = Emulators.Count;
+            currPathId = Paths.Count;
 
             isDirty = false;
         }

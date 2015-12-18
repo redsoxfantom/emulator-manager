@@ -134,6 +134,7 @@
             this.lblCommandToExecute.Size = new System.Drawing.Size(75, 17);
             this.lblCommandToExecute.TabIndex = 2;
             this.lblCommandToExecute.Text = "Command:";
+            this.lblCommandToExecute.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtCommandLine
             // 
