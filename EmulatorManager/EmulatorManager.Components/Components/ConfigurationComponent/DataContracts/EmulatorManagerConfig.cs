@@ -118,6 +118,7 @@ namespace EmulatorManager.Components.ConfigurationManager.DataContracts
         {
             if (idx != -1)
             {
+                emu.Id = idx;
                 Emulator emuToReplace = GetEmulatorById(idx);
                 var associatedPaths = Paths.Where(f => f.AssociatedEmulator == emuToReplace.Name).ToList();
                 int deadEmulatorIndex = Emulators.IndexOf(emuToReplace);
