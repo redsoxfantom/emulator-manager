@@ -78,6 +78,12 @@
     <Compile Include="Views\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\NewControllerConfigWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NewControllerConfigWindow.Designer.cs">
+      <DependentUpon>NewControllerConfigWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\RomPathManagementWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NewControllerConfigWindow.resx">
+      <DependentUpon>NewControllerConfigWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RomPathManagementWindow.resx">
       <DependentUpon>RomPathManagementWindow.cs</DependentUpon>
