@@ -534,5 +534,10 @@ namespace EmulatorManager.Views
                 }
             }
         }
+
+        private void newConfigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

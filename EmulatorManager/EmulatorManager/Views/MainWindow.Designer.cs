@@ -138,6 +138,7 @@
             this.newConfigToolStripMenuItem.Name = "newConfigToolStripMenuItem";
             this.newConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newConfigToolStripMenuItem.Text = "New Config";
+            this.newConfigToolStripMenuItem.Click += new System.EventHandler(this.newConfigToolStripMenuItem_Click);
             // 
             // loadConfigToolStripMenuItem
             // 
