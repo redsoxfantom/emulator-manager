@@ -537,7 +537,10 @@ namespace EmulatorManager.Views
 
         private void newConfigToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            using (NewControllerConfigWindow form = new NewControllerConfigWindow())
+            {
+                DialogResult result = form.ShowDialog(this);
+            }
         }
     }
 }
