@@ -70,6 +70,13 @@ namespace EmulatorManager.Components.ExecutionComponent
                 String var = varName[0];
                 String name = varName[1];
 
+                Regex varRegex;
+                if(!mCachedRegexes.TryGetValue(var, out varRegex))
+                {
+                    varRegex = new Regex(var, RegexOptions.Compiled);
+                    mCachedRegexes.Add(var,varRegex);
+                }
+                retVal.Add(varRegex, name);
             }
 
             return retVal;
