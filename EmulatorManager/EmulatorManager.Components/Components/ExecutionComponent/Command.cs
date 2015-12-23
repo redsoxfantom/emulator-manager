@@ -57,9 +57,24 @@ namespace EmulatorManager.Components.ExecutionComponent
         private string HandleArgumentReplacements(string executionArgs, string argReplacements)
         {
             Dictionary<Regex, string> NameValReplacements = ProcessReplacements(argReplacements);
-            return null;
+
+            foreach(var varRegex in NameValReplacements.Keys)
+            {
+                string mappedValue = NameValReplacements[varRegex];
+                mLogger.DebugFormat("Evaluating regex {0} (mapped to {1} on string {2}", varRegex,mappedValue,executionArgs);
+
+                executionArgs = varRegex.Replace(executionArgs, mappedValue);
+                mLogger.DebugFormat("Result of replacement was {0}",executionArgs);
+            }
+
+            return executionArgs;
         }
 
+        /// <summary>
+        /// Return a dictionary mapping a regex that recognizes "VAR" to its associated value
+        /// </summary>
+        /// <param name="argReplacements"></param>
+        /// <returns></returns>
         private Dictionary<Regex, string> ProcessReplacements(string argReplacements)
         {
             Dictionary<Regex, string> retVal = new Dictionary<Regex, string>();
@@ -74,6 +89,7 @@ namespace EmulatorManager.Components.ExecutionComponent
                 if(!mCachedRegexes.TryGetValue(var, out varRegex))
                 {
                     varRegex = new Regex(var, RegexOptions.Compiled);
+                    // Cache off the compiled regex to save time if we need it later
                     mCachedRegexes.Add(var,varRegex);
                 }
                 retVal.Add(varRegex, name);
