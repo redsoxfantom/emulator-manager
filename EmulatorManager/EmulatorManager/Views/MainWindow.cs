@@ -286,6 +286,7 @@ namespace EmulatorManager.Views
 
                 // Create the command line for this rom
                 String argReplacements = ArgumentUtilities.SplitPath(path);
+                mLogger.DebugFormat("Converted path {0} to replacement string {1}",path,argReplacements);
                 CurrentCommand = new Command(emu.Path, emu.Arguments, argReplacements);
                 mLogger.Info(String.Format("Completed command line: {0}", CurrentCommand.ToString()));
 
