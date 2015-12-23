@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace EmulatorManager.Components.ExecutionComponent
@@ -24,7 +25,7 @@ namespace EmulatorManager.Components.ExecutionComponent
         {
             if (!String.IsNullOrEmpty(argReplacements))
             {
-                ExecutionArguments = String.Format(executionArgs, argReplacements);
+                ExecutionArguments = HandleArgumentReplacements(executionArgs, argReplacements);
             }
             else
             {
@@ -33,6 +34,17 @@ namespace EmulatorManager.Components.ExecutionComponent
 
             ExecutionPath = executionPath;
             IsValidCommand = true;
+        }
+
+        private string HandleArgumentReplacements(string executionArgs, string argReplacements)
+        {
+            Dictionary<Regex, string> NameValReplacements = ProcessReplacements(argReplacements);
+            return null;
+        }
+
+        private Dictionary<Regex, string> ProcessReplacements(string argReplacements)
+        {
+            return null;
         }
 
         public Command()
