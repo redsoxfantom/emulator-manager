@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,12 @@ namespace EmulatorManager.Utilities
         /// <returns></returns>
         public static string SplitPath(String path)
         {
-            return path;
+            StringBuilder retString = new StringBuilder();
+            retString.Append(String.Format("$FULL_PATH={0};",Path.GetFullPath(path))); // Add the full path replacement
+            retString.Append(String.Format("$ROM_PATH={0};",Path.GetDirectoryName(path))); // Add the path only replacement
+            retString.Append(String.Format("$ROM_FILE={0}",Path.GetFileName(path))); // Add the file only replacement
+
+            return retString.ToString();
         }
     }
 }
