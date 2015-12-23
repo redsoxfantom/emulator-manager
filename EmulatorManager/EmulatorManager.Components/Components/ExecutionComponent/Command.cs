@@ -35,13 +35,13 @@ namespace EmulatorManager.Components.ExecutionComponent
 
             if (!String.IsNullOrEmpty(argReplacements))
             {
-                if (argReplacements.Contains("=") && argReplacements.Contains(";"))
+                if (argReplacements.Contains("<") && argReplacements.Contains(";") && argReplacements.Contains(">"))
                 {
                     ExecutionArguments = HandleArgumentReplacements(executionArgs, argReplacements);
                 }
                 else
                 {
-                    mLogger.WarnFormat("Replacement argument string was not in the correct format! Required format: \"$VAR=VAL;$VAR2=VAL2;etc\". Supplied replacement string was {0}", argReplacements);
+                    mLogger.WarnFormat("Replacement argument string was not in the correct format! Required format: \"<VAR>=VAL;<VAR2>=VAL2;etc\". Supplied replacement string was {0}", argReplacements);
                     ExecutionArguments = executionArgs;
                 }
             }
