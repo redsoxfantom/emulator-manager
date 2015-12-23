@@ -15,6 +15,8 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public Boolean IsValidCommand { get; private set; }
 
+        private static HashSet<Regex> mCachedRegexes = new HashSet<Regex>();
+
         /// <summary>
         /// Constructor
         /// </summary>
