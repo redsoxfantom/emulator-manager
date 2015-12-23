@@ -49,9 +49,10 @@ namespace EmulatorManager.Views
         private void btnHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Enter the command arguments to the emulator in the same format you would enter them in the command line.\n"+
-                            "Where you would put a rom, instead put a {0}.\n"+
-                            "For example:\n"+
-                            "If the old arguments to an emulator were\n"+"-exec \"path/to/rom.bin\"\n"+"You would instead put\n"+"-exec \"{0}\"","Info");
+                            "Enter the following options to determine how the command will be constructed:\n"+
+                            "$FULL_PATH: When the manager encounters this, the full path to the selected ROM will be inserted.\n"+
+                            "$ROM_PATH: When the manager encounters this, the path to the rom only (without the rom file) will be inserted.\n"+
+                            "$ROM_FILE: When the manager encounters this, the rom file only (without the path) will be inserted.","Info");
         }
 
         private void btnEmulatorBrowse_Click(object sender, EventArgs e)
