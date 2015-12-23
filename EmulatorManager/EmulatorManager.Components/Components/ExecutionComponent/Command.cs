@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public Boolean IsValidCommand { get; private set; }
 
+        private ILog mLogger;
+
         /// <summary>
         /// Maps a replacement variable (of the form $VAR) to it's associated compiled regex
         /// </summary>
@@ -28,9 +31,19 @@ namespace EmulatorManager.Components.ExecutionComponent
         /// <param name="argReplacements">String of the form "$VAR=val;$VAR2=val", will be inserted into execution args</param>
         public Command(String executionPath, String executionArgs = "", String argReplacements = null)
         {
+            mLogger = LogManager.GetLogger(GetType().Name);
+
             if (!String.IsNullOrEmpty(argReplacements))
             {
-                ExecutionArguments = HandleArgumentReplacements(executionArgs, argReplacements);
+                if (argReplacements.Contains("=") && argReplacements.Contains(";"))
+                {
+                    ExecutionArguments = HandleArgumentReplacements(executionArgs, argReplacements);
+                }
+                else
+                {
+                    mLogger.WarnFormat("Replacement argument string was not in the correct format! Required format: \"$VAR=VAL;$VAR2=VAL2;etc\". Supplied replacement string was {0}", argReplacements);
+                    ExecutionArguments = executionArgs;
+                }
             }
             else
             {
