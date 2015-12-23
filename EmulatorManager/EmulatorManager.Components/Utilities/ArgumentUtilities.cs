@@ -18,7 +18,7 @@ namespace EmulatorManager.Utilities
         /// <returns></returns>
         public static string SplitPath(String path)
         {
-            return null;
+            return path;
         }
     }
 }

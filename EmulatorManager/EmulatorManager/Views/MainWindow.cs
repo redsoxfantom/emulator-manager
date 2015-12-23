@@ -285,7 +285,8 @@ namespace EmulatorManager.Views
                 mLogger.Debug(String.Format("Selected node is a Path node corresponding to emulator <{0}>",emu.ToString()));
 
                 // Create the command line for this rom
-                CurrentCommand = new Command(emu.Path, emu.Arguments, path);
+                String argReplacements = ArgumentUtilities.SplitPath(path);
+                CurrentCommand = new Command(emu.Path, emu.Arguments, argReplacements);
                 mLogger.Info(String.Format("Completed command line: {0}", CurrentCommand.ToString()));
 
                 // Query the server (if rom could be read) for the rom details
