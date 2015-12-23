@@ -49,7 +49,17 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         private Dictionary<Regex, string> ProcessReplacements(string argReplacements)
         {
-            return null;
+            Dictionary<Regex, string> retVal = new Dictionary<Regex, string>();
+
+            foreach(var VarToNameReplacement in argReplacements.Split(';'))
+            {
+                String[] varName = VarToNameReplacement.Split('=');
+                String var = varName[0];
+                String name = varName[1];
+
+            }
+
+            return retVal;
         }
 
         public Command()
