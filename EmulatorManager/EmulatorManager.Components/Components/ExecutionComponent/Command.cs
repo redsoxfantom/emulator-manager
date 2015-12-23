@@ -15,7 +15,10 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public Boolean IsValidCommand { get; private set; }
 
-        private static HashSet<Regex> mCachedRegexes = new HashSet<Regex>();
+        /// <summary>
+        /// Maps a replacement variable (of the form $VAR) to it's associated compiled regex
+        /// </summary>
+        private static Dictionary<string, Regex> mCachedRegexes = new Dictionary<string, Regex>();
 
         /// <summary>
         /// Constructor
