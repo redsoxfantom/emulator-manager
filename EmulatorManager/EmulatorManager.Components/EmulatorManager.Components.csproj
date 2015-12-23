@@ -95,6 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\ArgumentUtilities.cs" />
     <Compile Include="Utilities\FileManager.cs" />
     <Compile Include="Utilities\RestUtilities\ResponseStatusCodeException.cs" />
     <Compile Include="Utilities\RestUtilities\RestServerManager.cs" />

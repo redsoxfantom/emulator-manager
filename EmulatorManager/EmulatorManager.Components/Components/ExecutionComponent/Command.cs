@@ -14,6 +14,12 @@ namespace EmulatorManager.Components.ExecutionComponent
 
         public Boolean IsValidCommand { get; private set; }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="executionPath">Path to the emulator</param>
+        /// <param name="executionArgs">Arguments to the emulator with replacement variables</param>
+        /// <param name="argReplacements">String of the form "$VAR=val;$VAR2=val", will be inserted into execution args</param>
         public Command(String executionPath, String executionArgs = "", String argReplacements = null)
         {
             if (!String.IsNullOrEmpty(argReplacements))
