@@ -20,10 +20,10 @@ namespace EmulatorManager.Views
             InitializeComponent();
 
             mJoystickComponent = JoystickComponent.Instance;
-            mJoystickComponent.OnJoystickStatusChanged += OnJoystickStatusChanged;
+            mJoystickComponent.OnJoystickInput += OnJoystickInput;
         }
 
-        private void OnJoystickStatusChanged(JoystickStatus newStatus)
+        private void OnJoystickInput(SharpDX.DirectInput.JoystickUpdate updateEvent)
         {
             throw new NotImplementedException();
         }
