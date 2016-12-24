@@ -1,5 +1,7 @@
 ﻿using EmulatorManager.Components.ConfigurationManager;
+using EmulatorManager.Components.ConfigurationManager.DataContracts;
 using EmulatorManager.Components.GameDataComponent;
+using EmulatorManager.Utilities;
 using EmulatorManager.Views;
 using log4net;
 using log4net.Repository;
@@ -28,12 +30,9 @@ namespace EmulatorManager
 
             if (configPath == null)
             {
-                ConfigComponent.Instance.Initialize();
+                configPath = loadDefaultConfigPath();
             }
-            else
-            {
-                ConfigComponent.Instance.Initialize(configPath);
-            }
+            ConfigComponent.Instance.Initialize(configPath);
 
             if (serverUrl == null)
             {
@@ -45,6 +44,20 @@ namespace EmulatorManager
             }
 
             mLogger.Info("Done Initializing Emulator Manager processor");
+        }
+
+        private string loadDefaultConfigPath()
+        {
+            String configPathRoot = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            String fileName = System.IO.Path.Combine(configPathRoot, "emulators.mgr");
+            if(!System.IO.File.Exists(fileName))
+            {
+                EmulatorManagerConfig cfg = new EmulatorManagerConfig();
+                cfg.Initialize();
+                FileManager.SaveObject(cfg, fileName);
+            }
+
+            return fileName;
         }
 
         public bool Execute()
