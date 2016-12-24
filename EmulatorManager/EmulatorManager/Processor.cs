@@ -20,7 +20,7 @@ namespace EmulatorManager
 
         private String configPath;
 
-        private String serverUrl;
+        private String dataUrl;
 
         public void Init(string[] args)
         {
@@ -30,34 +30,36 @@ namespace EmulatorManager
 
             if (configPath == null)
             {
-                configPath = loadDefaultConfigPath();
+                configPath = getDefaultFileLocation<EmulatorManagerConfig>("emulators.mgr");
             }
             ConfigComponent.Instance.Initialize(configPath);
 
-            if (serverUrl == null)
+            if (dataUrl == null)
             {
-                RomDataComponent.Instance.Initialize();
+                dataUrl = getDefaultFileLocation<Dictionary<string, GameData>>("romdata.json");
             }
-            else
-            {
-                RomDataComponent.Instance.Initialize(serverUrl);
-            }
+            RomDataComponent.Instance.Initialize(dataUrl);
 
             mLogger.Info("Done Initializing Emulator Manager processor");
         }
 
-        private string loadDefaultConfigPath()
+        /// <summary>
+        /// Gets a default file location. Creates the file (of the specified type T) if it doesn't exist
+        /// </summary>
+        /// <typeparam name="T">The type of time to create if it doesn't already exist</typeparam>
+        /// <param name="fileName">The name of the file to look for</param>
+        /// <returns>The path to the file</returns>
+        private string getDefaultFileLocation<T>(String fileName) where T: new()
         {
             String configPathRoot = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            String fileName = System.IO.Path.Combine(configPathRoot, "emulators.mgr");
-            if(!System.IO.File.Exists(fileName))
+            String fileWithPath = System.IO.Path.Combine(configPathRoot, fileName);
+            if (!System.IO.File.Exists(fileWithPath))
             {
-                EmulatorManagerConfig cfg = new EmulatorManagerConfig();
-                cfg.Initialize();
-                FileManager.SaveObject(cfg, fileName);
+                T fileType = new T();
+                FileManager.SaveObject(fileType, fileWithPath);
             }
 
-            return fileName;
+            return fileWithPath;
         }
 
         public bool Execute()
@@ -94,7 +96,7 @@ namespace EmulatorManager
                 if(args[i] == "-dataUrl")
                 {
                     i++;
-                    serverUrl = args[i];
+                    dataUrl = args[i];
                 }
             }
         }
