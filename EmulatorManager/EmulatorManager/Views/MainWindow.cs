@@ -398,9 +398,18 @@ namespace EmulatorManager.Views
             ContextMenuStrip ctxMenu = new ContextMenuStrip();
             ToolStripMenuItem deletePath = new ToolStripMenuItem("Delete Path");
             deletePath.Click += (sender, args) => deletePath_Click(node.RomPath, null);
+            ToolStripMenuItem openPath = new ToolStripMenuItem("Open Path Folder");
+            openPath.Click += (sender, args) => OpenPath_Click(node.RomPath.FolderPath, null);
 
             ctxMenu.Items.Add(deletePath);
+            ctxMenu.Items.Add(openPath);
             treeEmulatorView.ContextMenuStrip = ctxMenu;
+        }
+
+        private void OpenPath_Click(object sender, EventArgs e)
+        {
+            String folderPath = (String)sender;
+            System.Diagnostics.Process.Start(folderPath);
         }
 
         private void deletePath_Click(RomPath romPath, object p)
