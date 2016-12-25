@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26014.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomFileReader", "RomFileReader\RomFileReader.csproj", "{D15C7C77-4978-4280-816E-F7D99F3D7235}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmulatorManager.Components", "EmulatorManager.Components\EmulatorManager.Components.csproj", "{1FA354E6-D00B-44D9-B262-39A3E66D228B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmulatorManager", "EmulatorManager\EmulatorManager.csproj", "{795BBF26-5472-4186-97CC-1D17CE6B9887}"
@@ -17,14 +15,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Debug|x64.Build.0 = Debug|Any CPU
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Release|x64.ActiveCfg = Release|Any CPU
-		{D15C7C77-4978-4280-816E-F7D99F3D7235}.Release|x64.Build.0 = Release|Any CPU
 		{1FA354E6-D00B-44D9-B262-39A3E66D228B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1FA354E6-D00B-44D9-B262-39A3E66D228B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FA354E6-D00B-44D9-B262-39A3E66D228B}.Debug|x64.ActiveCfg = Debug|Any CPU

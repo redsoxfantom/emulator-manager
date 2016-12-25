@@ -65,7 +65,7 @@ namespace EmulatorManager
         public bool Execute()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(true);
             using (MainWindow mMainForm = new MainWindow())
             {
                 mLogger.Info("Showing main display");
